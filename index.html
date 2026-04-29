@@ -12,7 +12,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      background: #161d30;
+      background: #0c1322;
       color: #eef0f5;
       font-family: 'Jost', sans-serif;
       font-weight: 300;
@@ -29,19 +29,21 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       padding: 18px 48px;
       display: flex; align-items: center; justify-content: space-between;
-      background: rgba(22, 29, 48, 0.85);
+      background: rgba(16, 22, 38, 0.85);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
     .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+      display: flex;
+      align-items: center;
     }
-    .nav-logo em { color: #f09a69; }
+    .nav-logo img {
+      height: 44px;
+      width: auto;
+      display: block;
+      mix-blend-mode: screen;
+    }
     .nav-links { display: flex; gap: 32px; }
     .nav-link {
       font-size: 11px;
@@ -63,7 +65,7 @@
       transition: background 0.2s, color 0.2s;
       border-radius: 2px;
     }
-    .nav-cta:hover { background: #f09a69; color: #161d30; }
+    .nav-cta:hover { background: #f09a69; color: #101626; }
 
     /* HERO */
     .hero {
@@ -142,7 +144,7 @@
     .pill.active {
       background: #f09a69;
       border-color: #f09a69;
-      color: #161d30;
+      color: #101626;
     }
 
     /* GRID */
@@ -184,7 +186,7 @@
       position: absolute;
       top: 14px; left: 14px;
       padding: 6px 12px;
-      background: rgba(22, 29, 48, 0.8);
+      background: rgba(16, 22, 38, 0.8);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       color: #f09a69;
@@ -251,7 +253,7 @@
     .card.coming .card-image::after {
       content: '';
       position: absolute; inset: 0;
-      background: rgba(22,29,48,0.35);
+      background: rgba(16, 22, 38,0.35);
     }
 
     /* Empty state */
@@ -301,7 +303,7 @@
 <body>
 
   <nav class="nav">
-    <a href="/" class="nav-logo">Mark Andrew <em>Boudoir</em></a>
+    <a href="/" class="nav-logo"><img src="/uploads/Boudoir PNG.png" alt="Mark Andrew Boudoir" /></a>
     <div class="nav-links">
       <a href="https://www.markandrewboudoir.com" class="nav-link">Home</a>
       <a href="/" class="nav-link">Blog</a>
@@ -339,7 +341,7 @@
 
   <main class="grid" id="grid"></main>
 
-  <footer class="footer">© Mark Andrew Boudoir · Charleston, SC</footer>
+  <footer class="footer">© Mark Andrew Boudoir · Beaufort, SC</footer>
 
   <script>
     const POSTS = [
