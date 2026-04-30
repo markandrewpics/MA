@@ -308,6 +308,70 @@
     }
     .cta-button:hover { background: #ffbf8f; transform: translateY(-1px); }
 
+    /* FRAMED QUOTE BOX (Get Naked) */
+    .frame-box {
+      position: relative;
+      max-width: 820px;
+      margin: 64px auto;
+      padding: 56px 40px;
+      text-align: center;
+      border: 1px solid rgba(240,154,105,0.75);
+    }
+    .frame-box::after {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border: 1px solid rgba(240,154,105,0.45);
+      pointer-events: none;
+      z-index: 3;
+    }
+    .frame-box .eyebrow {
+      display: block;
+      font-family: 'Great Vibes', cursive;
+      font-size: 30px;
+      color: #f09a69;
+      margin-bottom: 6px;
+    }
+    .frame-box h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 400;
+      margin-bottom: 14px;
+      color: #f2f4f8;
+    }
+    .frame-box p {
+      font-size: 15px;
+      opacity: 0.78;
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    @media (max-width: 720px) {
+      .frame-box { margin: 48px 24px; padding: 36px 24px; }
+    }
+
+    /* CALENDAR EMBED (its own section, button scrolls here) */
+    .booking-section {
+      max-width: 820px;
+      margin: 32px auto 80px;
+      padding: 0 40px;
+      scroll-margin-top: 80px;
+    }
+    .calendar-embed {
+      background: #ffffff;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .calendar-embed iframe {
+      width: 100%;
+      min-height: 820px;
+      border: none;
+      display: block;
+    }
+    @media (max-width: 720px) {
+      .booking-section { margin: 24px 0 60px; padding: 0 24px; }
+    }
+
     /* FAQ */
     .faq { margin-top: 32px; }
     .faq-item {
@@ -719,7 +783,7 @@
       <div class="eyebrow">need help planning?</div>
       <h3>Book a free vision planning call</h3>
       <p>Every booked client gets a 30-minute video call before their shoot. We go through wardrobe, color schemes, props, and every detail of your photoshoot — so you arrive ready and confident.</p>
-      <a href="https://www.markandrewboudoir.com/contact" class="cta-button">Schedule a Consultation</a>
+      <a href="#book" class="cta-button">Schedule a Consultation</a>
     </div>
 
     <h2>What Color Lingerie Photographs Best?</h2>
@@ -867,12 +931,43 @@
       <figcaption>Bare skin and tulle · timeless, intentional, the most personal look</figcaption>
     </figure>
 
-    <div class="cta-section">
-      <div class="eyebrow">when in doubt</div>
+    <div class="frame-box">
+      <span class="eyebrow">when in doubt</span>
       <h3>Get Naked.</h3>
-      <p>There's no rule in boudoir that says you have to wear anything at all. Bare skin is timeless and the most personal look there is. Book your session and we'll plan every detail together.</p>
-      <a href="https://www.markandrewboudoir.com/contact" class="cta-button">Book Your Session</a>
+      <p>There's no rule in boudoir that says you have to wear anything at all. Bare skin is timeless and the most personal look there is.</p>
     </div>
+
+    <section id="book" class="booking-section">
+      <div class="calendar-embed">
+        <iframe src="https://link.disruptormarketing.io/widget/booking/b7eSmyInmj2pwqIQesEp" style="width: 100%; border: none; overflow: hidden;" scrolling="no" id="fvYFvYDs5pqNKk8pagtT_1777575600517"></iframe>
+      </div>
+    </section>
+    <script src="https://link.disruptormarketing.io/js/form_embed.js" type="text/javascript"></script>
+
+    <script>
+      // Reliable scroll to #book even after iframe resizes
+      (function() {
+        function scrollToBook(retries) {
+          var target = document.getElementById('book');
+          if (!target) return;
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Re-scroll a couple times to account for iframe loading and resizing the page
+          if (retries > 0) {
+            setTimeout(function() { scrollToBook(retries - 1); }, 500);
+          }
+        }
+        document.addEventListener('click', function(e) {
+          var link = e.target.closest('a[href="#book"]');
+          if (!link) return;
+          e.preventDefault();
+          history.pushState(null, '', '#book');
+          scrollToBook(2);
+        });
+        if (window.location.hash === '#book') {
+          window.addEventListener('load', function() { scrollToBook(2); });
+        }
+      })();
+    </script>
 
   </main>
 
