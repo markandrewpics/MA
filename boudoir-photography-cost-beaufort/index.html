@@ -347,6 +347,97 @@
     }
     .cta-button:hover { background: #ffbf8f; transform: translateY(-1px); }
 
+    /* FRAMED QUOTE BOX */
+    .frame-box {
+      position: relative;
+      max-width: 820px;
+      margin: 64px auto;
+      padding: 56px 40px;
+      text-align: center;
+      border: 1px solid rgba(240,154,105,0.75);
+    }
+    .frame-box::after {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border: 1px solid rgba(240,154,105,0.45);
+      pointer-events: none;
+      z-index: 3;
+    }
+    .frame-box .eyebrow {
+      display: block;
+      font-family: 'Great Vibes', cursive;
+      font-size: 30px;
+      color: #f09a69;
+      margin-bottom: 6px;
+      line-height: 1;
+    }
+    .frame-box h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 400;
+      margin-bottom: 14px;
+      color: #f2f4f8;
+    }
+    .frame-box h3 em { color: #f09a69; }
+    .frame-box p {
+      font-size: 15px;
+      opacity: 0.78;
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    @media (max-width: 720px) {
+      .frame-box { margin: 48px 24px; padding: 36px 24px; }
+    }
+
+    /* CALENDAR EMBED (its own section, button scrolls here) */
+    .booking-section {
+      max-width: 820px;
+      margin: 32px auto 80px;
+      padding: 0 40px;
+      scroll-margin-top: 80px;
+    }
+    .booking-intro {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 32px;
+    }
+    .booking-intro .eyebrow {
+      display: block;
+      font-family: 'Great Vibes', cursive;
+      font-size: 28px;
+      color: #f09a69;
+      margin-bottom: 4px;
+      line-height: 1;
+    }
+    .booking-intro h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      font-weight: 400;
+      margin-bottom: 14px;
+      color: #f2f4f8;
+    }
+    .booking-intro p {
+      font-size: 15px;
+      opacity: 0.78;
+      line-height: 1.7;
+    }
+    .calendar-embed {
+      background: #ffffff;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .calendar-embed iframe {
+      width: 100%;
+      min-height: 820px;
+      border: none;
+      display: block;
+    }
+    @media (max-width: 720px) {
+      .booking-section { margin: 24px 0 60px; padding: 0 24px; }
+    }
+
     /* FAQ */
     .faq {
       margin-top: 32px;
@@ -371,7 +462,40 @@
     }
     .faq-a a { color: #f09a69; border-bottom: 1px solid rgba(240,154,105,0.4); }
 
-    /* INLINE IMAGE */
+    /* DOUBLE-LINE PEACH FRAME */
+    .frame {
+      position: relative;
+      border: 1px solid rgba(240,154,105,0.75);
+    }
+    .frame::after {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border: 1px solid rgba(240,154,105,0.45);
+      pointer-events: none;
+      z-index: 3;
+    }
+    .frame img { display: block; width: 100%; }
+
+    /* FRAMED IMAGE */
+    .framed-image {
+      margin: 48px 0;
+    }
+    .framed-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .framed-image figcaption {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(238,240,245,0.5);
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    /* LEGACY (kept for any unconverted figures) */
     .inline-image {
       margin: 48px 0;
       border-radius: 4px;
@@ -502,21 +626,44 @@
     <h3>What Is a Boudoir Photography Consultation?</h3>
     <p>Once you book, we get on a 30-minute video call together. We go over the entire vision of your photoshoot — wardrobe, color schemes, ideas for the shoot, props you might want to bring. Every detail of your photoshoot gets planned together. By the time you arrive at the studio, you already know exactly what we're shooting and how it's going to feel.</p>
 
+    <figure class="framed-image">
+      <div class="frame">
+        <img src="/uploads/pink-lace-bra-white-shirt-natural-light-bed-luxury-boudoir-mount-pleasant-sc.jpg" alt="Boudoir client in pink lace bra and white shirt in natural light, soft and intentional" loading="lazy" />
+      </div>
+      <figcaption>Soft, intentional · the visual mood we plan together</figcaption>
+    </figure>
+
     <h3>Is Hair and Makeup Included With a Boudoir Photoshoot in Beaufort, SC?</h3>
     <p>When you arrive at the studio, you go straight into the hair and makeup chair. You'll work with one of my incredible makeup artists in the area. They charge <strong>$200, paid directly to them</strong>, for full-face makeup, lashes, and light hairstyling — usually loose curls, waves, or something pinned back. They're experienced with every skin tone and texture, and they can deliver anything from natural to full glam.</p>
     <p>One thing that separates my studio: <strong>your makeup artist stays with you for the entire photoshoot</strong>. Every touch-up, every wardrobe adjustment, every stray hair that falls into your face mid-pose — they handle it. You don't think about anything except being photographed.</p>
+
+    <figure class="framed-image">
+      <div class="frame">
+        <img src="/uploads/silver-hair-black-mesh-rose-feathers-boudoir-photography-moncks-corner-sc.jpg" alt="Boudoir client with professionally styled silver hair, black mesh, and roses — full-glam camera-ready look" loading="lazy" />
+      </div>
+      <figcaption>Camera-ready hair &amp; makeup · the artist's craft, on you</figcaption>
+    </figure>
 
     <h3>What Happens During a Boudoir Photoshoot?</h3>
     <p>We shoot three different outfits. I always start with something tame to warm you up to the camera, then build to the big "wow" outfit at the end — whatever that means for you. More revealing, more edgy, or more glamorous. Your call.</p>
     <p>About posing: <strong>I will pose you head to toe in every single shot</strong>. No modeling experience required. No camera experience required. I'm directing your hands, your chin, your weight, every angle. Removing all the guesswork is part of how I work.</p>
 
+    <figure class="framed-image">
+      <div class="frame">
+        <img src="/uploads/red-monochromatic-light-harness-belt-flowing-hair-boudoir-photographer-bluffton-sc.jpg" alt="Boudoir client mid-pose with flowing hair under monochromatic red light, captured during a photoshoot" loading="lazy" />
+      </div>
+      <figcaption>Mid-shoot · directed motion, monochromatic light</figcaption>
+    </figure>
+
     <h3>What Happens at a Boudoir Photo Reveal?</h3>
     <p>After the photoshoot, we break for lunch. About an hour later, you come back to the studio and see your edited, retouched images for the first time. This is your time. We go through every image, you pick the ones you love, and we design albums, choose wall art, build print boxes, and load digital files for your phone.</p>
     <p><strong>What you take home is up to you.</strong> There's no minimum purchase. The average client spends $1,000 to $2,000 on their images and products. Some clients spend more. Some spend less. I just encourage you to take home what you love.</p>
 
-    <figure class="inline-image">
-      <img src="/uploads/silver-hair-velvet-bra-tulle-robe-vanity-lipstick-boudoir-photography-hilton-head-sc.jpg" alt="Boudoir client in velvet bra and tulle robe at vanity, Beaufort, SC studio session" loading="lazy" />
-      <figcaption>The Beaufort, SC studio · vanity series</figcaption>
+    <figure class="framed-image">
+      <div class="frame">
+        <img src="/uploads/champagne-tulle-robe-vanity-mirror-hollywood-lights-boudoir-photography-moncks-corner-sc.jpg" alt="Boudoir client at vanity mirror with Hollywood lights — same-day reveal session vibe" loading="lazy" />
+      </div>
+      <figcaption>The reveal · Hollywood vanity lights, your edited gallery</figcaption>
     </figure>
 
     <h2>How Do I Pay for Boudoir Photography?</h2>
@@ -556,8 +703,8 @@
     <div class="cta-section">
       <div class="eyebrow">ready when you are</div>
       <h3>Schedule a free consultation</h3>
-      <p>A 30-minute call to walk through pricing, the booking process, and what your session could look like — no pressure, no commitment.</p>
-      <a href="https://www.markandrewboudoir.com/contact" class="cta-button">Book a Consultation</a>
+      <p>A 10-minute call to walk through pricing, the booking process, and what your session could look like — no pressure, no commitment.</p>
+      <a href="#book" class="cta-button">Book a Consultation</a>
     </div>
 
     <h2>Is Boudoir Photography Worth It?</h2>
@@ -568,8 +715,22 @@
     <h3>Does Boudoir Photography Boost Confidence?</h3>
     <p>Yes. Most clients arrive nervous and leave standing differently. There's a reason boudoir is sometimes called "self-portraiture for women who never see themselves" — it's a single afternoon of being photographed the way you want to be remembered, with full creative direction and a team treating you with intention.</p>
 
+    <figure class="framed-image">
+      <div class="frame">
+        <img src="/uploads/white-corset-overhead-pose-crystal-choker-tattoos-boudoir-portraits-summerville-sc.jpg" alt="Boudoir client in white corset and crystal choker in a powerful overhead pose" loading="lazy" />
+      </div>
+      <figcaption>Confidence, captured · white corset, overhead pose</figcaption>
+    </figure>
+
     <h3>What Occasions Are Boudoir Photos For?</h3>
     <p>Common reasons clients book a session: an upcoming wedding (bridal boudoir), an anniversary, a birthday milestone (especially 30, 40, 50), a divorce or post-divorce reset, a body transformation worth celebrating, a deployment gift for a partner, or simply a self-celebration with no external occasion at all. <strong>You don't need a reason. Wanting one is the reason.</strong></p>
+
+    <figure class="framed-image">
+      <div class="frame">
+        <img src="/uploads/black-feather-coat-rhinestone-bra-boudoir-photographer-beaufort-sc.jpg" alt="Boudoir client in dramatic black feather coat and rhinestone bra — celebration session" loading="lazy" />
+      </div>
+      <figcaption>Celebration · black feathers, rhinestones, the milestone</figcaption>
+    </figure>
 
     <h3>Is Boudoir Photography Life-Changing?</h3>
     <p>Clients consistently say the same thing in feedback: they didn't realize they could look like that. The combination of professional makeup, posing direction, lighting, and retouching produces images that feel surprising the first time you see them. Many clients book again within 12 months.</p>
@@ -654,12 +815,41 @@
 
     </div>
 
-    <div class="cta-section">
-      <div class="eyebrow">begin here</div>
-      <h3>Book your <em>Beaufort, SC</em> session</h3>
-      <p>Your $499 booking retainer reserves the studio, your planning call, and the full-day shoot. No minimum image purchase. No hidden fees.</p>
-      <a href="https://www.markandrewboudoir.com/contact" class="cta-button">Schedule a Consultation</a>
-    </div>
+    <section id="book" class="booking-section">
+      <div class="booking-intro">
+        <span class="eyebrow">your next step</span>
+        <h3>Schedule Your Free Consultation</h3>
+        <p>Let's talk wardrobe, color schemes, props you might wanna bring, and every detail of what to expect during the photoshoot. Including pricing and possible dates for your session. Pick a time below.</p>
+      </div>
+      <div class="calendar-embed">
+        <iframe src="https://link.disruptormarketing.io/widget/booking/b7eSmyInmj2pwqIQesEp" style="width: 100%; border: none; overflow: hidden;" scrolling="no" id="fvYFvYDs5pqNKk8pagtT_1777575600517"></iframe>
+      </div>
+    </section>
+    <script src="https://link.disruptormarketing.io/js/form_embed.js" type="text/javascript"></script>
+
+    <script>
+      // Reliable scroll to #book even after iframe resizes
+      (function() {
+        function scrollToBook(retries) {
+          var target = document.getElementById('book');
+          if (!target) return;
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          if (retries > 0) {
+            setTimeout(function() { scrollToBook(retries - 1); }, 500);
+          }
+        }
+        document.addEventListener('click', function(e) {
+          var link = e.target.closest('a[href="#book"]');
+          if (!link) return;
+          e.preventDefault();
+          history.pushState(null, '', '#book');
+          scrollToBook(2);
+        });
+        if (window.location.hash === '#book') {
+          window.addEventListener('load', function() { scrollToBook(2); });
+        }
+      })();
+    </script>
 
   </main>
 
