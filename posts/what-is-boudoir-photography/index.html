@@ -50,8 +50,9 @@
     }/*EDITMODE-END*/;
 
     const Diamond = ({ size = 16, color = "#f09a69", style = {} }) => (
-      <svg width={size} height={size * 1.1} viewBox="0 0 20 22" fill="none" style={style}>
-        <polygon points="10,1 19,10 10,21 1,10" fill={color} opacity="0.9" />
+      <svg width={size} height={size * 1.15} viewBox="0 0 22 24" fill="none" style={style}>
+        <polygon points="11,1.5 20.5,12 11,22.5 1.5,12" fill="none" stroke={color} strokeWidth="1.2" />
+        <polygon points="11,4.5 17.5,12 11,19.5 4.5,12" fill="none" stroke={color} strokeWidth="1" opacity="0.85" />
       </svg>
     );
 
@@ -133,9 +134,11 @@
               marginBottom: 28,
             }}>What Is Boudoir Photography Like<br/>for First Timers?</h1>
             <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-              <div style={{ width: 36, height: 36, borderRadius: "50%", background: "linear-gradient(135deg, #202b45, #252e4b)", border: `1px solid ${tweaks.accentColor}44`, flexShrink: 0 }} />
+              <div style={{ width: 40, height: 40, borderRadius: "50%", overflow: "hidden", border: `1px solid ${tweaks.accentColor}88`, flexShrink: 0 }}>
+                <img src="/uploads/MarkAndrewHeadshot-b27ac26c.jpg" alt="Mark Andrew" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 18%", display: "block" }} />
+              </div>
               <div>
-                <div style={{ fontFamily: "'Cormorant Garamond'", fontSize: 15, fontStyle: "italic", color: "#eef0f5" }}>Mark & Christina</div>
+                <div style={{ fontFamily: "'Cormorant Garamond'", fontSize: 15, fontStyle: "italic", color: "#eef0f5" }}>Mark Andrew</div>
                 <div style={{ fontFamily: "'Jost'", fontSize: 11, letterSpacing: "0.15em", color: "rgba(240,230,211,0.4)", marginTop: 1 }}>12 min read</div>
               </div>
             </div>
@@ -396,12 +399,16 @@
           <p style={pStyle}>Booking might feel intimidating right now. That's normal. But from the moment you contact us to the moment you walk out with your images, Mark and the team are with you every single step — walking you through every decision, every pose, and every choice. You are never alone in this process.</p>
           <p style={pStyle}>Our clients leave feeling confident, beautiful, powerful, and ready to show themselves to the world. Not a different version of themselves. Just the truest one.</p>
 
+          {/* Inline CTA + Contact form */}
+          <InlineCTA tweaks={tweaks} />
+          <InlineContactForm tweaks={tweaks} />
+
           {/* Closing signature */}
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 16, margin: "64px 0 0", textAlign: "center" }}>
             <Diamond size={14} color={acc} />
             <p style={{ fontFamily: "'Cormorant Garamond'", fontStyle: "italic", fontSize: 18, color: "rgba(240,230,211,0.55)", letterSpacing: "0.05em" }}>
-              With love,<br />
-              <span style={{ fontFamily: "'Great Vibes'", fontSize: 34, color: acc, lineHeight: 1.6 }}>Mark & Christina</span>
+              See you in the studio,<br />
+              <span style={{ fontFamily: "'Great Vibes'", fontSize: 34, color: acc, lineHeight: 1.6 }}>Mark Andrew</span>
             </p>
           </div>
         </article>
@@ -417,17 +424,19 @@
           padding: "48px 40px",
           display: "flex", gap: 32, alignItems: "flex-start",
         }}>
-          <div style={{ flexShrink: 0, width: 90, height: 90, borderRadius: "50%", overflow: "hidden", border: `2px solid ${tweaks.accentColor}44` }}>
-            <img src={IMG.hero} alt="Mark Andrew" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 10%" }} />
+          <div style={{ flexShrink: 0, width: 200 }}>
+            <GoldFrame>
+              <img src="/uploads/MarkAndrewHeadshot-b27ac26c.jpg" alt="Mark Andrew" style={{ width: "100%", height: 280, objectFit: "cover", objectPosition: "center 18%", display: "block" }} />
+            </GoldFrame>
           </div>
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
               <Diamond size={8} color={tweaks.accentColor} />
               <span style={{ fontFamily: "'Jost'", fontSize: 10, letterSpacing: "0.3em", textTransform: "uppercase", color: tweaks.accentColor }}>Written by</span>
             </div>
-            <div style={{ fontFamily: "'Cormorant Garamond'", fontSize: 22, fontStyle: "italic", color: "#f2f4f8", marginBottom: 10 }}>Mark & Christina</div>
+            <div style={{ fontFamily: "'Cormorant Garamond'", fontSize: 22, fontStyle: "italic", color: "#f2f4f8", marginBottom: 10 }}>Mark Andrew</div>
             <p style={{ fontFamily: "'Jost'", fontWeight: 300, fontSize: 13.5, lineHeight: 1.8, color: "rgba(240,230,211,0.5)", maxWidth: 480 }}>
-              We're a husband-and-wife photography team based in Beaufort, SC. Our mission is to help every woman see herself the way we see her — powerful, beautiful, and worthy of being celebrated.
+              I'm a boudoir photographer based in Beaufort, SC, serving women across the Lowcountry. My mission is to help every woman see herself the way the people who love her already do — powerful, beautiful, and worthy of being celebrated.
             </p>
           </div>
         </div>
@@ -463,6 +472,109 @@
                 </div>
               </article>
             ))}
+          </div>
+        </section>
+      );
+    }
+
+    // Inline (in-article) versions of the CTA + Contact Form
+    function InlineCTA({ tweaks }) {
+      const acc = tweaks.accentColor;
+      return (
+        <div style={{ margin: "72px 0 48px", padding: "44px 36px", background: "#1c2440", border: "1px solid rgba(240,154,105,0.25)", textAlign: "center", position: "relative" }}>
+          <div style={{ position: "absolute", inset: 6, border: "1px solid rgba(240,154,105,0.18)", pointerEvents: "none" }} />
+          <Diamond size={14} color={acc} style={{ margin: "0 auto 14px" }} />
+          <p style={{ fontFamily: "'Great Vibes'", fontSize: "clamp(28px, 3.5vw, 40px)", color: acc, lineHeight: 1.2, marginBottom: 10 }}>Ready to experience it for yourself?</p>
+          <h3 style={{ fontFamily: "'Cormorant Garamond'", fontSize: "clamp(18px, 2vw, 24px)", fontWeight: 300, color: "#f2f4f8", letterSpacing: "0.02em", marginBottom: 0 }}>The studio door is open. All you have to do is walk through it.</h3>
+        </div>
+      );
+    }
+
+    function InlineContactForm({ tweaks }) {
+      const acc = tweaks.accentColor;
+      useEffect(() => {
+        if (document.getElementById("ghl-form-embed")) return;
+        const s = document.createElement("script");
+        s.src = "https://link.disruptormarketing.io/js/form_embed.js";
+        s.id = "ghl-form-embed";
+        s.async = true;
+        document.body.appendChild(s);
+      }, []);
+      return (
+        <div style={{ margin: "0 0 56px" }}>
+          <div style={{ textAlign: "center", marginBottom: 28 }}>
+            <p style={{ fontFamily: "'Jost'", fontSize: 11, letterSpacing: "0.3em", textTransform: "uppercase", color: acc, marginBottom: 12 }}>No pressure, just a conversation</p>
+            <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(22px, 2.6vw, 32px)", fontWeight: 300, color: "#f2f4f8", lineHeight: 1.2, marginBottom: 14, textWrap: "pretty" }}>
+              If something in this post stirred a feeling — let's talk about it.
+            </h3>
+            <p style={{ fontFamily: "'Cormorant Garamond'", fontStyle: "italic", fontSize: 16, color: "rgba(238,240,245,0.6)", maxWidth: 540, margin: "0 auto" }}>
+              Fill out the form below and a member of my team will reach out directly to start planning your dream photoshoot with us.
+            </p>
+          </div>
+          <GoldFrame style={{ background: "#1c2440", padding: 6 }}>
+            <div style={{ background: "#fff" }}>
+              <iframe
+                src="https://link.disruptormarketing.io/widget/form/nTOiwPHmmCv3FefZwJB3"
+                style={{ width: "100%", height: 720, border: "none", display: "block" }}
+                id="inline-nTOiwPHmmCv3FefZwJB3"
+                data-layout="{'id':'INLINE'}"
+                data-form-id="nTOiwPHmmCv3FefZwJB3"
+                title="Website Contact Form"
+              />
+            </div>
+          </GoldFrame>
+        </div>
+      );
+    }
+
+    function ContactForm({ tweaks }) {
+      const acc = tweaks.accentColor;
+      useEffect(() => {
+        // Inject the form embed script once
+        if (document.getElementById("ghl-form-embed")) return;
+        const s = document.createElement("script");
+        s.src = "https://link.disruptormarketing.io/js/form_embed.js";
+        s.id = "ghl-form-embed";
+        s.async = true;
+        document.body.appendChild(s);
+      }, []);
+      return (
+        <section style={{ padding: "100px 40px 80px", background: "#101626", borderTop: "1px solid rgba(240,154,105,0.12)" }}>
+          <div style={{ maxWidth: 720, margin: "0 auto", textAlign: "center" }}>
+            <Diamond size={12} color={acc} style={{ margin: "0 auto 18px" }} />
+            <p style={{ fontFamily: "'Jost'", fontSize: 11, letterSpacing: "0.3em", textTransform: "uppercase", color: acc, marginBottom: 16 }}>No pressure, just a conversation</p>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(28px, 4vw, 46px)", fontWeight: 300, color: "#f2f4f8", lineHeight: 1.15, marginBottom: 22, textWrap: "pretty" }}>
+              If something in this post stirred a feeling — let's talk about it.
+            </h2>
+            <p style={{ fontFamily: "'Jost'", fontWeight: 300, fontSize: "clamp(15px, 1.4vw, 17px)", lineHeight: 1.85, color: "rgba(238,240,245,0.65)", maxWidth: 560, margin: "0 auto 8px" }}>
+              Whether you're ready to book or just curious to learn more, send a quick note below and I'll personally reach out. There's no commitment, no pressure — only a real conversation about what an experience like this could look like for you.
+            </p>
+            <p style={{ fontFamily: "'Cormorant Garamond'", fontStyle: "italic", fontSize: 18, color: "rgba(238,240,245,0.55)", marginBottom: 48 }}>
+              The hardest part is the first message. After that, I take care of the rest.
+            </p>
+          </div>
+          <div style={{ maxWidth: 720, margin: "0 auto" }}>
+            <GoldFrame style={{ background: "#1c2440", padding: 6 }}>
+              <div style={{ background: "#fff", padding: 0 }}>
+                <iframe
+                  src="https://link.disruptormarketing.io/widget/form/nTOiwPHmmCv3FefZwJB3"
+                  style={{ width: "100%", height: 720, border: "none", display: "block" }}
+                  id="inline-nTOiwPHmmCv3FefZwJB3"
+                  data-layout="{'id':'INLINE'}"
+                  data-trigger-type="alwaysShow"
+                  data-trigger-value=""
+                  data-activation-type="alwaysActivated"
+                  data-activation-value=""
+                  data-deactivation-type="neverDeactivate"
+                  data-deactivation-value=""
+                  data-form-name="Website Contact Form"
+                  data-height="640"
+                  data-layout-iframe-id="inline-nTOiwPHmmCv3FefZwJB3"
+                  data-form-id="nTOiwPHmmCv3FefZwJB3"
+                  title="Website Contact Form"
+                />
+              </div>
+            </GoldFrame>
           </div>
         </section>
       );
@@ -544,7 +656,6 @@
           <BlogBody tweaks={tweaks} />
           <AuthorBio tweaks={tweaks} />
           <RelatedPosts tweaks={tweaks} />
-          <CTA tweaks={tweaks} />
           <Footer tweaks={tweaks} />
 
           <TweaksPanel>
