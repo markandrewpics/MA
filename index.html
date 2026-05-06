@@ -293,23 +293,32 @@
       color: #eef0f5;
     }
 
-    /* STORY (left image, right text on dark) */
+    /* STORY (left image, right heading + text on dark) */
     .story {
       padding: 180px 48px;
       max-width: 1280px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1.05fr;
-      gap: 80px;
-      align-items: center;
+      grid-template-areas:
+        "image heading"
+        "image text";
+      grid-template-rows: auto 1fr;
+      column-gap: 80px;
+      row-gap: 24px;
+      align-items: start;
     }
+    .story-heading { grid-area: heading; align-self: end; }
     .story-image {
+      grid-area: image;
+      align-self: center;
       position: relative;
       aspect-ratio: 2 / 3;
       background: #1c2438;
       overflow: hidden;
     }
     .story-image img { width: 100%; height: 100%; object-fit: cover; }
+    .story-text { grid-area: text; }
 
     /* GOLD DOUBLE-LINE FRAME — matches blog.markandrewboudoir.com */
     .framed {
@@ -324,11 +333,15 @@
       pointer-events: none;
       z-index: 3;
     }
-    .story-text h2 {
+    .story-heading .eyebrow { margin-bottom: 14px; }
+    .story-heading h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
       font-size: 56px;
-      margin-bottom: 28px;
+      line-height: 1.05;
+      margin-bottom: 0;
     }
-    .story-text h2 .script { font-size: 62px; display: inline; vertical-align: 2px; }
+    .story-heading h2 .script { font-size: 62px; display: inline; vertical-align: 2px; }
     .story-text p {
       font-size: 16px;
       line-height: 1.85;
@@ -865,7 +878,7 @@
       font-size: 52px;
       margin-bottom: 14px;
     }
-    .faq h2 .script { font-size: 58px; color: #c97a4a; }
+    .faq h2 .script { font-size: 58px; color: #c97a4a; display: block; margin-top: 10px; }
     .faq-sub {
       font-style: italic;
       font-family: 'Cormorant Garamond', serif;
@@ -1088,6 +1101,9 @@
       .hero-actions { flex-direction: column; align-items: stretch; }
       .hero-scroll { display: none; }
       .story, .how, .includes, .team, .faq, .closing, .booking-section, .what-is { padding-left: 24px; padding-right: 24px; padding-top: 80px; padding-bottom: 80px; }
+      .story { grid-template-columns: 1fr; grid-template-areas: "heading" "image" "text"; row-gap: 36px; }
+      .story-heading { text-align: center; align-self: auto; }
+      .story-image { align-self: auto; max-width: 320px; margin: 0 auto; }
       .what-is-top { margin-bottom: 70px; }
       .what-is-heading { font-size: 48px; margin-bottom: 40px; }
       .what-is-heading .script { font-size: 58px; }
@@ -1102,6 +1118,7 @@
       .tcarousel-wrap { padding: 0 24px; }
       .tcard { flex: 0 0 calc(100% - 8px); padding: 28px 24px; min-height: 280px; }
       .story-text h2, .gallery-head h2, .includes h2, .team > h2, .tcarousel-head h2, .faq h2, .booking-head h2 { font-size: 36px; }
+      .team-headline span { display: block; }
       .closing h2 { font-size: 40px; }
       .closing h2 .script { font-size: 48px; }
       .gallery-head { padding: 80px 24px 30px; }
@@ -1210,12 +1227,14 @@
   </section>
 
   <section class="story" id="story">
+    <div class="story-heading">
+      <div class="eyebrow" style="opacity:0.5">A decade of work</div>
+      <h2 class="fade-in">An experience built around <span class="script">you.</span></h2>
+    </div>
     <div class="story-image framed">
       <img src="/uploads/MarkAndrewHeadshot-b27ac26c.jpg" alt="Mark Andrew — boudoir photographer, South Bend, Indiana" loading="lazy" />
     </div>
     <div class="story-text">
-      <div class="eyebrow" style="opacity:0.5">A decade of work</div>
-      <h2 class="fade-in">An experience built around <span class="script">you.</span></h2>
       <p>Mark Andrew is an award-winning boudoir photographer who has photographed clients internationally over the last decade. With thousands of women through his studios in South Bend, Indiana and Beaufort, South Carolina, his entire experience is built around one outcome — transforming the woman who has never felt photogenic into the woman she didn't know she could be: <em>confident, undeniable, and deeply seen.</em></p>
       <p>Beyond the studio, Mark is a respected voice in modern boudoir photography — invited to speak at industry events, teach at conferences, and help raise the bar for what this experience can mean to the women on the other side of the lens.</p>
       <p>He believes every person deserves to be photographed the way they want to be remembered.</p>
@@ -1301,7 +1320,6 @@
       <div class="framed"><img src="/uploads/black-tan-striped-knit-bodysuit-laying-high-contrast-intimate-portraits-goshen-in.jpg" alt="" loading="lazy" /></div>
       <div class="framed"><img src="/uploads/black-lace-bra-diamond-choker-vintage-updo-purple-light-boudoir-portraits-mishawaka-in.jpg" alt="" loading="lazy" /></div>
       <div class="framed"><img src="/uploads/navy-blazer-paintbrush-palette-artist-boudoir-photographer-mishawaka-in.jpg" alt="" loading="lazy" /></div>
-      <div class="framed"><img src="/uploads/black-white-nude-tulle-flowing-dramatic-shadow-intimate-portraits-granger-in.jpg" alt="" loading="lazy" /></div>
     </div>
   </section>
 
@@ -1334,7 +1352,7 @@
 
   <section class="team" id="team">
     <div class="eyebrow">Your team</div>
-    <h2 class="fade-in">Two people. <span class="script">One day. All for you.</span></h2>
+    <h2 class="fade-in team-headline"><span>Two people.</span> <span>One day.</span> <span class="script">All for you.</span></h2>
     <div class="team-grid">
       <div class="member">
         <div class="member-photo is-square framed"><img src="/uploads/MarkAndrewHeadshot.jpg" alt="Mark Andrew, boudoir photographer" loading="lazy" /></div>
@@ -1470,7 +1488,7 @@
   <section class="cream">
     <div class="faq" id="faq">
       <div class="eyebrow">Common questions</div>
-      <h2 class="fade-in">Yes, you can <span class="script">do this.</span></h2>
+      <h2 class="fade-in">Yes, you can. <span class="script">Do this.</span></h2>
       <p class="faq-sub">If your question isn't here, Mark can answer it in about 30 seconds on the phone.</p>
 
       <div class="faq-item">
