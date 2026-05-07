@@ -43,7 +43,7 @@
     "description": "A past client answers the real buyer questions about boudoir, paired with the photographer's authoritative answer to each.",
     "author": { "@type": "Person", "name": "Mark Andrew" },
     "publisher": { "@id": "https://www.markandrewboudoir.com/#business" },
-    "image": "https://blog.markandrewboudoir.com/uploads/wine-lace-bodysuit-fur-coat-red-curtains-diamond-necklace-intimate-portraits-granger-in.jpg"
+    "image": "https://blog.markandrewboudoir.com/uploads/katherine-bax-blog/katherine-color-23.jpg"
   }
   </script>
 
@@ -529,6 +529,71 @@
       opacity: 0.5;
     }
 
+    /* HERO IMAGE */
+    .hero-image {
+      max-width: 1100px;
+      margin: 0 auto 48px;
+      padding: 0 48px;
+    }
+    .hero-image .frame img {
+      width: 100%;
+      max-height: 720px;
+      object-fit: cover;
+      object-position: center 25%;
+    }
+
+    /* GALLERY GRID */
+    .gallery {
+      max-width: 1100px;
+      margin: 80px auto 0;
+      padding: 0 48px;
+    }
+    .gallery .gallery-head {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .gallery .gallery-head .eyebrow {
+      display: block;
+      font-family: 'Great Vibes', cursive;
+      font-size: 28px;
+      color: #f09a69;
+      margin-bottom: 4px;
+      line-height: 1;
+    }
+    .gallery .gallery-head h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(26px, 3vw, 36px);
+      font-weight: 400;
+      color: #f2f4f8;
+      margin-bottom: 10px;
+    }
+    .gallery .gallery-head p {
+      font-size: 14px;
+      opacity: 0.65;
+      max-width: 540px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .gallery-grid .frame {
+      aspect-ratio: 2 / 3;
+      overflow: hidden;
+    }
+    .gallery-grid .frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @media (max-width: 720px) {
+      .gallery { padding: 0 24px; margin-top: 56px; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .hero-image { padding: 0 24px; }
+    }
+
     /* RESPONSIVE */
     @media (max-width: 720px) {
       .nav { padding: 14px 20px; }
@@ -572,6 +637,12 @@
     <p class="subtitle">The questions every woman asks before booking — answered first by me, then by Katherine, a past client who walked in nervous and walked out of her own story.</p>
   </header>
 
+  <div class="hero-image">
+    <div class="frame">
+      <img src="/uploads/katherine-bax-blog/katherine-color-23.jpg" alt="Katherine in a wine-red lace bodysuit between red velvet curtains with a fur coat draped at her side — Hollywood-glam boudoir portrait" loading="eager" />
+    </div>
+  </div>
+
   <section class="direct-answer">
     <p>Most of the women I talk to are stuck on the same questions: <em>Why should I do this? How do I choose a photographer? What will my family think? Will I be awkward? What do I wear? Is it worth the money?</em> This page answers each one twice — once with my authoritative answer, and once in the verbatim words of <strong>Katherine</strong>, a past client who drove a few hours to my studio last November and answered every one of these questions on camera six months later.</p>
   </section>
@@ -608,6 +679,13 @@
       <cite>— Katherine</cite>
     </div>
 
+    <figure class="framed-image">
+      <div class="frame">
+        <img src="/uploads/katherine-bax-blog/katherine-color-2.jpg" alt="Katherine at a vanity mirror with a red lipstick, diamond necklace, and peach tulle robe — Hollywood-glam boudoir vanity portrait" loading="lazy" />
+      </div>
+      <figcaption>Set 1 · the Hollywood-glam vanity</figcaption>
+    </figure>
+
     <h2>How Do You Choose a Boudoir Photographer?</h2>
     <div class="section-answer">
       <span class="label">My Answer</span>
@@ -642,9 +720,9 @@
 
     <figure class="framed-image">
       <div class="frame">
-        <img src="/uploads/wine-lace-bodysuit-fur-coat-red-curtains-diamond-necklace-intimate-portraits-granger-in.jpg" alt="Studio mood — wine lace bodysuit, fur coat, red curtains, dramatic lighting" loading="lazy" />
+        <img src="/uploads/katherine-bax-blog/katherine-color-13.jpg" alt="Katherine reclining on a navy velvet sofa wrapped in peach tulle and a diamond choker — artistic boudoir portrait" loading="lazy" />
       </div>
-      <figcaption>Studio mood · Hollywood-glam set with red curtains and dramatic lighting</figcaption>
+      <figcaption>An artist's eye · the same client, photographed three different ways</figcaption>
     </figure>
 
     <h2>How Do Families React When You Book a Boudoir Shoot?</h2>
@@ -711,7 +789,7 @@
 
     <figure class="framed-image">
       <div class="frame">
-        <img src="/uploads/red-lace-lingerie-gold-chain-dramatic-red-light-boudoir-session-south-bend-in.jpg" alt="Studio mood — dramatic red light, lace lingerie" loading="lazy" />
+        <img src="/uploads/katherine-bax-blog/katherine-color-5.jpg" alt="Katherine in a black lace bralette with a diamond choker and tulle drape, photographed in dramatic purple light — mid-session boudoir portrait" loading="lazy" />
       </div>
       <figcaption>Mid-session · the moment when nerves turn into confidence</figcaption>
     </figure>
@@ -753,6 +831,16 @@
       <cite>— Katherine, on her three sets</cite>
     </div>
 
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 36px 0;">
+      <div class="frame">
+        <img src="/uploads/katherine-bax-blog/katherine-color-3.jpg" alt="Katherine in a black bralette and peach tulle robe with a diamond choker — Set 1, the Hollywood-glam look" loading="lazy" style="width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block;" />
+      </div>
+      <div class="frame">
+        <img src="/uploads/katherine-bax-blog/katherine-color-18.jpg" alt="Katherine in a wine-red lace bodysuit with a fur coat between red velvet curtains — Set 2, the stage" loading="lazy" style="width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block;" />
+      </div>
+    </div>
+    <p style="text-align: center; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(238,240,245,0.5); margin-top: -22px; margin-bottom: 32px;">Set 1 · the dressing room &nbsp;&nbsp;|&nbsp;&nbsp; Set 2 · the stage</p>
+
     <h2>What Is the Boudoir Photo Reveal Actually Like?</h2>
     <div class="section-answer">
       <span class="label">My Answer</span>
@@ -783,6 +871,13 @@
       <cite>— Katherine</cite>
     </div>
 
+    <figure class="framed-image">
+      <div class="frame">
+        <img src="/uploads/katherine-bax-blog/katherine-color-30.jpg" alt="Katherine seated with a flowing red drape against warm theatrical light — the kind of frame she described as 'a glamorized version of myself'" loading="lazy" />
+      </div>
+      <figcaption>One of Katherine's reveal-day favorites · "is that really me?"</figcaption>
+    </figure>
+
     <h2>Is a Boudoir Photoshoot Worth the Investment?</h2>
     <div class="section-answer">
       <span class="label">My Answer</span>
@@ -807,6 +902,13 @@
       <p>"I'm making monthly payments. It is fine. I'm happy I did. I'm not going to regret it."</p>
       <cite>— Katherine</cite>
     </div>
+
+    <figure class="framed-image">
+      <div class="frame">
+        <img src="/uploads/katherine-bax-blog/katherine-color-34.jpg" alt="Katherine in a wine-red lace bodysuit with a diamond statement necklace and red drape — luxurious heirloom-quality boudoir portrait" loading="lazy" />
+      </div>
+      <figcaption>Heirloom quality · the kind of image you frame, not file away</figcaption>
+    </figure>
 
     <div class="cta-section">
       <div class="eyebrow">your story is next</div>
@@ -850,6 +952,13 @@
       <cite>— Katherine</cite>
     </div>
 
+    <figure class="framed-image">
+      <div class="frame">
+        <img src="/uploads/katherine-bax-blog/katherine-color-44.jpg" alt="Katherine kneeling on a bed in an oversized white shirt with relaxed confidence — Set 3, the after-party" loading="lazy" />
+      </div>
+      <figcaption>Set 3 · the "after-party" — the version of her that walked back into her life</figcaption>
+    </figure>
+
     <h2>How Do You Know If You're Ready to Book a Boudoir Shoot?</h2>
     <div class="section-answer">
       <span class="label">My Answer</span>
@@ -882,6 +991,27 @@
       <h3>"It's a hug to yourself. <em>It's not a punch.</em>"</h3>
       <p>"Self-criticizing who you are is really debilitating. This was very helpful in recovering from being your own bully."</p>
     </div>
+
+    <section class="gallery">
+      <div class="gallery-head">
+        <span class="eyebrow">the full gallery</span>
+        <h3>More From Katherine's Session</h3>
+        <p>Three sets, one afternoon, and the full arc of a woman walking out of her own story. Every image below is from Katherine's shoot.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-7.jpg" alt="Katherine in Set 1 boudoir portrait — Hollywood-glam look" loading="lazy" /></div>
+        <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-8.jpg" alt="Katherine in Set 1 boudoir portrait" loading="lazy" /></div>
+        <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-10.jpg" alt="Katherine in Set 1 boudoir portrait" loading="lazy" /></div>
+        <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-15.jpg" alt="Katherine boudoir portrait" loading="lazy" /></div>
+        <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-21.jpg" alt="Katherine in Set 2 — red velvet curtains and dramatic lighting" loading="lazy" /></div>
+        <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-27.jpg" alt="Katherine in Set 2 — red curtains theatrical boudoir portrait" loading="lazy" /></div>
+        <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-28.jpg" alt="Katherine in Set 2 — red curtains theatrical boudoir portrait" loading="lazy" /></div>
+        <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-31.jpg" alt="Katherine in Set 2 — red curtains theatrical boudoir portrait" loading="lazy" /></div>
+        <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-38.jpg" alt="Katherine in Set 3 — white oversized shirt boudoir portrait, the after-party set" loading="lazy" /></div>
+        <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-40.jpg" alt="Katherine in Set 3 — bed and white shirt boudoir portrait" loading="lazy" /></div>
+        <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-42.jpg" alt="Katherine in Set 3 — reclining on a bed in a white shirt, relaxed boudoir portrait" loading="lazy" /></div>
+      </div>
+    </section>
 
     <section id="book" class="booking-section">
       <div class="booking-intro">
