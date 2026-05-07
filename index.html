@@ -46,100 +46,6 @@
     em { font-style: italic; }
     ::selection { background: rgba(240,154,105,0.28); }
 
-    /* INTRO VIDEO OVERLAY — plays once per session, fades into hero */
-    .intro-video {
-      position: fixed;
-      inset: 0;
-      z-index: 1000;
-      background: #0c1322;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: opacity 0.45s ease, visibility 0.45s;
-      overflow: hidden;
-    }
-    .intro-video.is-done {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-    .intro-video video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .intro-skip {
-      position: absolute;
-      bottom: 28px;
-      right: 28px;
-      background: rgba(0,0,0,0.45);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      border: 1px solid rgba(255,255,255,0.4);
-      color: #fff;
-      padding: 10px 22px;
-      font-family: 'Jost', sans-serif;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      cursor: pointer;
-      border-radius: 2px;
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
-      z-index: 2;
-    }
-    .intro-skip:hover {
-      background: #f09a69;
-      color: #0c1322;
-      border-color: #f09a69;
-    }
-    .intro-start {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 4;
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border: 1px solid #f09a69;
-      color: #f09a69;
-      padding: 18px 36px;
-      font-family: 'Jost', sans-serif;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      cursor: pointer;
-      border-radius: 2px;
-      transition: background 0.2s, color 0.2s;
-    }
-    .intro-start:hover { background: #f09a69; color: #0c1322; }
-    body.intro-active { overflow: hidden; }
-    .intro-logo {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 640px;
-      max-width: 80vw;
-      opacity: 0;
-      transition: opacity 0.8s ease;
-      z-index: 3;
-      mix-blend-mode: screen;
-      pointer-events: none;
-    }
-    .intro-logo.is-visible { opacity: 1; }
-    .intro-logo img { width: 100%; height: auto; display: block; }
-    .intro-fadeout {
-      position: absolute;
-      inset: 0;
-      background: #0c1322;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-      z-index: 2;
-      pointer-events: none;
-    }
-    .intro-fadeout.is-visible { opacity: 1; }
-
     /* NAV */
     .nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -1119,6 +1025,7 @@
       .tcard { flex: 0 0 calc(100% - 8px); padding: 28px 24px; min-height: 280px; }
       .story-text h2, .gallery-head h2, .includes h2, .team > h2, .tcarousel-head h2, .faq h2, .booking-head h2 { font-size: 36px; }
       .team-headline span { display: block; }
+      .includes-grid { grid-template-columns: 1fr; gap: 18px; }
       .closing h2 { font-size: 40px; }
       .closing h2 .script { font-size: 48px; }
       .gallery-head { padding: 80px 24px 30px; }
@@ -1134,19 +1041,6 @@
   </style>
 </head>
 <body>
-
-  <!-- INTRO VIDEO — video plays, logo fades in at 3s, fade-to-black, then hero -->
-  <div class="intro-video" id="introVideo">
-    <video id="introVideoEl" autoplay muted playsinline preload="auto">
-      <source src="/uploads/intro.mp4" type="video/mp4" />
-    </video>
-    <div class="intro-logo" id="introLogo">
-      <img src="/uploads/Boudoir PNG.png" alt="Mark Andrew Boudoir" />
-    </div>
-    <div class="intro-fadeout" id="introFadeout"></div>
-    <button class="intro-start" id="introStart" hidden aria-label="Begin intro">Begin ▸</button>
-    <button class="intro-skip" id="introSkip" aria-label="Skip intro video">Skip ›</button>
-  </div>
 
   <nav class="nav">
     <a href="/" class="nav-logo"><img src="/uploads/Boudoir PNG.png" alt="Mark Andrew Boudoir" /></a>
@@ -1630,92 +1524,6 @@
   </template>
 
   <script>
-    // Intro sequence — video → logo fade-in at 3s after play → fade to black → hero
-    (function() {
-      const overlay = document.getElementById('introVideo');
-      const video = document.getElementById('introVideoEl');
-      const logo = document.getElementById('introLogo');
-      const fadeoutEl = document.getElementById('introFadeout');
-      const skip = document.getElementById('introSkip');
-      const start = document.getElementById('introStart');
-      if (!overlay) return;
-
-      // ?intro in URL forces the intro to replay (useful for testing)
-      const forceIntro = new URLSearchParams(window.location.search).has('intro');
-      if (!forceIntro && sessionStorage.getItem('introPlayed') === '1') {
-        overlay.style.display = 'none';
-        return;
-      }
-
-      document.body.classList.add('intro-active');
-
-      let finished = false;
-      const finish = () => {
-        if (finished) return;
-        finished = true;
-        sessionStorage.setItem('introPlayed', '1');
-        fadeoutEl.classList.add('is-visible');
-        setTimeout(() => {
-          overlay.classList.add('is-done');
-          document.body.classList.remove('intro-active');
-          setTimeout(() => overlay.remove(), 500);
-        }, 500);
-      };
-
-      let logoTimer, fadeTimer, endTimer;
-      const onPlaybackBegin = () => {
-        // Cut the last 2 seconds off the video; effective end = duration - 2
-        const duration = (video && isFinite(video.duration)) ? video.duration : 10;
-        const cutEnd = Math.max(3, duration - 2);
-        const fadeStart = 2; // seconds after play begins
-        const fadeDuration = Math.max(1, cutEnd - fadeStart);
-
-        // Logo fades in at 2s
-        clearTimeout(logoTimer);
-        logoTimer = setTimeout(() => { if (logo) logo.classList.add('is-visible'); }, fadeStart * 1000);
-
-        // Video begins a slow fade-out at 2s, all the way to the cut end
-        clearTimeout(fadeTimer);
-        fadeTimer = setTimeout(() => {
-          if (!video) return;
-          video.style.transition = 'opacity ' + fadeDuration + 's linear';
-          video.style.opacity = '0';
-        }, fadeStart * 1000);
-
-        // End the intro 2s before the real end of the video
-        clearTimeout(endTimer);
-        endTimer = setTimeout(finish, cutEnd * 1000);
-      };
-
-      if (video) {
-        video.addEventListener('ended', finish);
-        video.addEventListener('error', finish);
-        video.addEventListener('play', onPlaybackBegin);
-
-        const tryPlay = () => {
-          const playPromise = video.play();
-          if (playPromise && typeof playPromise.catch === 'function') {
-            playPromise.catch(() => {
-              // Autoplay blocked (common on localhost) — show tap-to-begin
-              if (start) start.hidden = false;
-            });
-          }
-        };
-        tryPlay();
-
-        if (start) {
-          start.addEventListener('click', () => {
-            start.hidden = true;
-            video.muted = true;
-            video.play();
-          });
-        }
-      } else {
-        finish();
-      }
-      if (skip) skip.addEventListener('click', finish);
-    })();
-
     // FAQ accordion
     document.querySelectorAll('.faq-q').forEach(btn => {
       btn.addEventListener('click', () => {
