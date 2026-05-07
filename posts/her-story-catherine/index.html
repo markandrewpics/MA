@@ -43,7 +43,7 @@
     "description": "A past client answers the real buyer questions about boudoir, paired with the photographer's authoritative answer to each.",
     "author": { "@type": "Person", "name": "Mark Andrew" },
     "publisher": { "@id": "https://www.markandrewboudoir.com/#business" },
-    "image": "https://blog.markandrewboudoir.com/uploads/katherine-bax-blog/katherine-color-23.jpg"
+    "image": "https://blog.markandrewboudoir.com/uploads/katherine-bax-blog/katherine-color-13.jpg"
   }
   </script>
 
@@ -529,7 +529,7 @@
       opacity: 0.5;
     }
 
-    /* HERO IMAGE */
+    /* HERO IMAGE — native aspect ratio, never stretched */
     .hero-image {
       max-width: 1100px;
       margin: 0 auto 48px;
@@ -537,12 +537,14 @@
     }
     .hero-image .frame img {
       width: 100%;
-      max-height: 720px;
-      object-fit: cover;
-      object-position: center 25%;
+      height: auto;
+      display: block;
+    }
+    @media (max-width: 720px) {
+      .hero-image { padding: 0 24px; margin-bottom: 36px; }
     }
 
-    /* GALLERY GRID */
+    /* GALLERY — CSS-column masonry, native aspect ratios */
     .gallery {
       max-width: 1100px;
       margin: 80px auto 0;
@@ -574,24 +576,31 @@
       margin: 0 auto;
       line-height: 1.7;
     }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+    .gallery-masonry {
+      column-count: 3;
+      column-gap: 16px;
     }
-    .gallery-grid .frame {
-      aspect-ratio: 2 / 3;
-      overflow: hidden;
+    .gallery-masonry .frame {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      -webkit-column-break-inside: avoid;
+      margin: 0 0 16px;
+      display: block;
     }
-    .gallery-grid .frame img {
+    .gallery-masonry .frame img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
+      display: block;
+    }
+    @media (max-width: 900px) {
+      .gallery-masonry { column-count: 2; column-gap: 12px; }
+      .gallery-masonry .frame { margin-bottom: 12px; }
+    }
+    @media (max-width: 480px) {
+      .gallery-masonry { column-count: 1; }
     }
     @media (max-width: 720px) {
       .gallery { padding: 0 24px; margin-top: 56px; }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-      .hero-image { padding: 0 24px; }
     }
 
     /* RESPONSIVE */
@@ -639,7 +648,7 @@
 
   <div class="hero-image">
     <div class="frame">
-      <img src="/uploads/katherine-bax-blog/katherine-color-23.jpg" alt="Katherine in a wine-red lace bodysuit between red velvet curtains with a fur coat draped at her side — Hollywood-glam boudoir portrait" loading="eager" />
+      <img src="/uploads/katherine-bax-blog/katherine-color-13.jpg" alt="Katherine reclining on a navy velvet sofa in peach tulle and a diamond choker, lit in moody purple — cinematic boudoir portrait" loading="eager" />
     </div>
   </div>
 
@@ -720,7 +729,7 @@
 
     <figure class="framed-image">
       <div class="frame">
-        <img src="/uploads/katherine-bax-blog/katherine-color-13.jpg" alt="Katherine reclining on a navy velvet sofa wrapped in peach tulle and a diamond choker — artistic boudoir portrait" loading="lazy" />
+        <img src="/uploads/katherine-bax-blog/katherine-color-23.jpg" alt="Katherine in a wine-red lace bodysuit between red velvet curtains with a fur coat draped at her side — Hollywood-glam boudoir portrait" loading="lazy" />
       </div>
       <figcaption>An artist's eye · the same client, photographed three different ways</figcaption>
     </figure>
@@ -998,18 +1007,18 @@
         <h3>More From Katherine's Session</h3>
         <p>Three sets, one afternoon, and the full arc of a woman walking out of her own story. Every image below is from Katherine's shoot.</p>
       </div>
-      <div class="gallery-grid">
-        <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-7.jpg" alt="Katherine in Set 1 boudoir portrait — Hollywood-glam look" loading="lazy" /></div>
-        <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-8.jpg" alt="Katherine in Set 1 boudoir portrait" loading="lazy" /></div>
-        <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-10.jpg" alt="Katherine in Set 1 boudoir portrait" loading="lazy" /></div>
-        <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-15.jpg" alt="Katherine boudoir portrait" loading="lazy" /></div>
+      <div class="gallery-masonry">
         <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-21.jpg" alt="Katherine in Set 2 — red velvet curtains and dramatic lighting" loading="lazy" /></div>
+        <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-40.jpg" alt="Katherine in Set 3 — bed and white shirt boudoir portrait" loading="lazy" /></div>
+        <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-7.jpg" alt="Katherine in Set 1 boudoir portrait — Hollywood-glam look" loading="lazy" /></div>
         <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-27.jpg" alt="Katherine in Set 2 — red curtains theatrical boudoir portrait" loading="lazy" /></div>
-        <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-28.jpg" alt="Katherine in Set 2 — red curtains theatrical boudoir portrait" loading="lazy" /></div>
+        <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-15.jpg" alt="Katherine boudoir portrait" loading="lazy" /></div>
+        <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-42.jpg" alt="Katherine in Set 3 — reclining on a bed in a white shirt, relaxed boudoir portrait" loading="lazy" /></div>
+        <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-8.jpg" alt="Katherine in Set 1 boudoir portrait" loading="lazy" /></div>
         <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-31.jpg" alt="Katherine in Set 2 — red curtains theatrical boudoir portrait" loading="lazy" /></div>
         <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-38.jpg" alt="Katherine in Set 3 — white oversized shirt boudoir portrait, the after-party set" loading="lazy" /></div>
-        <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-40.jpg" alt="Katherine in Set 3 — bed and white shirt boudoir portrait" loading="lazy" /></div>
-        <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-42.jpg" alt="Katherine in Set 3 — reclining on a bed in a white shirt, relaxed boudoir portrait" loading="lazy" /></div>
+        <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-28.jpg" alt="Katherine in Set 2 — red curtains theatrical boudoir portrait" loading="lazy" /></div>
+        <div class="frame"><img src="/uploads/katherine-bax-blog/katherine-color-10.jpg" alt="Katherine in Set 1 boudoir portrait" loading="lazy" /></div>
       </div>
     </section>
 
