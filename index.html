@@ -610,15 +610,14 @@
     .team > h2 .script { font-size: 58px; }
     .team-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
       text-align: left;
     }
     .member {
-      display: grid;
-      grid-template-columns: 340px 1fr;
-      gap: 40px;
-      align-items: start;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
     }
     .member-photo {
       width: 100%;
@@ -632,7 +631,7 @@
     .member-name {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 400;
-      font-size: 30px;
+      font-size: 28px;
       line-height: 1.1;
       margin-bottom: 4px;
     }
@@ -641,11 +640,11 @@
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: #f09a69;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
     .member-bio {
-      font-size: 16.5px;
-      line-height: 1.75;
+      font-size: 16px;
+      line-height: 1.7;
       opacity: 0.85;
     }
 
@@ -990,8 +989,7 @@
       .gallery-grid.is-collapsed { grid-template-columns: repeat(3, 1fr); gap: 14px; }
       .gallery-grid.is-collapsed .framed { margin: 0; }
       .includes-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-      .team-grid { grid-template-columns: 1fr; gap: 50px; }
-      .member { grid-template-columns: 240px 1fr; gap: 24px; }
+      .team-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
       .tcard { flex: 0 0 calc((100% - 24px) / 2); }
       .closing h2 { font-size: 56px; }
       .closing h2 .script { font-size: 64px; }
@@ -1033,8 +1031,9 @@
       .gallery-grid .framed { margin-bottom: 8px; }
       .gallery-grid.is-collapsed { grid-template-columns: repeat(2, 1fr); gap: 8px; }
       .gallery-grid.is-collapsed .framed { margin: 0; }
-      .member { grid-template-columns: 1fr; gap: 18px; }
-      .member-photo { max-width: 260px; }
+      /* Mobile team — stacked, one card per row */
+      .team-grid { grid-template-columns: 1fr; gap: 50px; }
+      .member-photo { max-width: 360px; margin: 0 auto; width: 100%; }
       .footer { padding: 50px 24px 30px; }
       .footer-inner { grid-template-columns: 1fr; gap: 36px; }
     }
@@ -1246,7 +1245,7 @@
 
   <section class="team" id="team">
     <div class="eyebrow">Your team</div>
-    <h2 class="fade-in team-headline"><span>Two people.</span> <span>One day.</span> <span class="script">All for you.</span></h2>
+    <h2 class="fade-in team-headline"><span>Three people.</span> <span>One day.</span> <span class="script">All for you.</span></h2>
     <div class="team-grid">
       <div class="member">
         <div class="member-photo is-square framed"><img src="/uploads/MarkAndrewHeadshot.jpg" alt="Mark Andrew, boudoir photographer" loading="lazy" /></div>
@@ -1257,11 +1256,19 @@
         </div>
       </div>
       <div class="member">
-        <div class="member-photo is-square framed"><img src="/uploads/AletheiaJean.jpg" alt="Aletheia Jean, hair and makeup artist" loading="lazy" /></div>
+        <div class="member-photo is-square framed"><img src="/uploads/AletheiaJean.jpg" alt="Aletheia Jean, hair and makeup artist" loading="lazy" style="object-position: center 20%;" /></div>
         <div>
           <div class="member-name">Aletheia Jean</div>
           <div class="member-role">Hair &amp; Makeup Artist</div>
           <p class="member-bio">In-house hair &amp; makeup for every Mark Andrew session. Aletheia builds glam that's made for the camera — soft enough to feel like you, bold enough to hold up under studio light. By the time she's done, you're ready.</p>
+        </div>
+      </div>
+      <div class="member">
+        <div class="member-photo is-square framed"><img src="/uploads/black-white-sheer-tulle-robe-sitting-pose-luxury-boudoir-goshen-in.jpg" alt="Christina Michelle, studio manager" loading="lazy" style="object-position: center 8%;" /></div>
+        <div>
+          <div class="member-name">Christina Michelle</div>
+          <div class="member-role">Studio Manager</div>
+          <p class="member-bio">Christina is the studio manager and the first voice you'll hear when you book. She runs scheduling, prep, day-of logistics, and the dozens of details that keep every session running smoothly — so by the time you walk in, the entire experience is already taken care of.</p>
         </div>
       </div>
     </div>

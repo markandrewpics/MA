@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Lingerie Guide — Mark Andrew Boudoir | South Bend, Indiana</title>
+  <meta name="description" content="A complete editorial styling guide for your boudoir session — what flatters, what photographs beautifully, undertone tips, accessories, and what to skip." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Bebas+Neue&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #0c1322;
+      color: #eef0f5;
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    em { font-style: italic; }
+    ::selection { background: rgba(240,154,105,0.28); }
+
+    /* TOKENS */
+    .script {
+      font-family: 'Bebas Neue', sans-serif;
+      color: #f09a69;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .eyebrow {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      opacity: 0.6;
+      margin-bottom: 18px;
+    }
+    .h-serif {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      letter-spacing: 0.005em;
+      line-height: 1.05;
+    }
+    .btn {
+      display: inline-block;
+      padding: 16px 32px;
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+    .btn-primary { background: #f09a69; color: #0c1322; border-color: #f09a69; }
+    .btn-primary:hover { background: #ecb18b; border-color: #ecb18b; }
+
+    /* Gold double-line frame */
+    .framed { position: relative; border: 1px solid rgba(240,154,105,0.75); }
+    .framed::after {
+      content: '';
+      position: absolute;
+      inset: 5px;
+      border: 1px solid rgba(240,154,105,0.45);
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    /* Ornate divider — between chapters */
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      max-width: 320px;
+      margin: 0 auto;
+      opacity: 0.55;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(240,154,105,0) 0%, rgba(240,154,105,0.7) 50%, rgba(240,154,105,0) 100%);
+    }
+    .divider-dot {
+      width: 7px; height: 7px;
+      background: #f09a69;
+      border-radius: 50%;
+    }
+
+    /* HERO — image-forward, text bottom-left, logo bottom-right */
+    .lg-hero {
+      position: relative;
+      min-height: 88vh;
+      overflow: hidden;
+      padding: 180px 64px 90px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      text-align: left;
+    }
+    .lg-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('/uploads/pearl-fringe-shawl-bouquet-floral-backdrop-tulle-boudoir-portraits-niles-mi.jpg');
+      background-size: cover;
+      background-position: center 20%;
+      background-repeat: no-repeat;
+      opacity: 0.62;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .lg-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(12,19,34,0.18) 0%, rgba(12,19,34,0) 35%, rgba(12,19,34,0.92) 100%),
+        linear-gradient(90deg, rgba(12,19,34,0.42) 0%, rgba(12,19,34,0) 50%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .lg-hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      margin: 0;
+      text-align: left;
+    }
+    .lg-hero-tag {
+      display: inline-block;
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: #f09a69;
+      padding: 8px 18px;
+      border: 1px solid rgba(240,154,105,0.45);
+      border-radius: 2px;
+      margin-bottom: 32px;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      background: rgba(12,19,34,0.25);
+    }
+    .lg-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 80px;
+      line-height: 1.0;
+      margin-bottom: 28px;
+    }
+    .lg-hero h1 .script { font-size: 88px; display: block; line-height: 1.0; margin-top: 14px; }
+    .lg-hero p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 21px;
+      line-height: 1.55;
+      opacity: 0.95;
+      max-width: 560px;
+      margin: 0;
+      text-align: left;
+    }
+    .lg-hero-logo {
+      position: absolute;
+      bottom: 36px;
+      right: 48px;
+      z-index: 3;
+    }
+    .lg-hero-logo img {
+      height: 80px;
+      width: auto;
+      display: block;
+      mix-blend-mode: screen;
+      opacity: 0.95;
+    }
+
+    /* OPENING NOTE */
+    .lg-note {
+      padding: 60px 48px;
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .lg-note p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 22px;
+      line-height: 1.65;
+      opacity: 0.9;
+    }
+
+    /* CHAPTER STRUCTURE */
+    .chapter {
+      padding: 80px 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .chapter-narrow { max-width: 820px; }
+    .chapter-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 22px;
+      color: #f09a69;
+      letter-spacing: 0.06em;
+      margin-bottom: 14px;
+      opacity: 0.95;
+    }
+    .chapter-tag {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(238,240,245,0.6);
+      margin-bottom: 22px;
+    }
+    h2.chapter-h {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 60px;
+      line-height: 1.05;
+      margin-bottom: 32px;
+    }
+    h2.chapter-h .script { font-size: 66px; display: inline; vertical-align: 2px; }
+    .chapter p {
+      font-size: 17px;
+      line-height: 1.85;
+      opacity: 0.88;
+      margin-bottom: 18px;
+      max-width: 680px;
+    }
+    .chapter ul {
+      list-style: none;
+      margin: 14px 0 28px;
+      max-width: 680px;
+    }
+    .chapter ul li {
+      font-size: 16.5px;
+      line-height: 1.85;
+      padding-left: 22px;
+      position: relative;
+      opacity: 0.88;
+    }
+    .chapter ul li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 14px;
+      width: 8px; height: 1px;
+      background: #f09a69;
+    }
+    h3.chapter-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 26px;
+      line-height: 1.3;
+      color: #eef0f5;
+      margin-bottom: 6px;
+      margin-top: 24px;
+    }
+
+    /* TWO-COL chapter layout */
+    .chapter-row {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: 70px;
+      align-items: center;
+    }
+    .chapter-row.is-flipped { grid-template-columns: 1.05fr 1fr; }
+    .chapter-row.is-flipped .chapter-row-img { order: 2; }
+    .chapter-row-img {
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      background: #1c2438;
+      position: relative;
+    }
+    .chapter-row-img img { width: 100%; height: 100%; object-fit: cover; }
+    /* Natural aspect — show entire image without cropping head/limbs */
+    .chapter-row-img.is-natural {
+      aspect-ratio: auto;
+      background: transparent;
+      overflow: visible;
+    }
+    .chapter-row-img.is-natural img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* INTERLUDE — full-bleed image with overlay quote */
+    .interlude {
+      position: relative;
+      min-height: 460px;
+      padding: 110px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .interlude::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.42;
+      z-index: 0;
+    }
+    .interlude::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(12,19,34,0.65) 0%, rgba(12,19,34,0.5) 50%, rgba(12,19,34,0.85) 100%);
+      z-index: 1;
+    }
+    .interlude-inner { position: relative; z-index: 2; max-width: 880px; margin: 0 auto; }
+    .interlude h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 70px;
+      line-height: 1.05;
+      margin-bottom: 26px;
+    }
+    .interlude h2 .script { font-size: 78px; display: block; margin-top: 16px; }
+    .interlude p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 22px;
+      line-height: 1.55;
+      opacity: 0.95;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .interlude-1::before { background-image: url('/uploads/black-white-back-nude-tulle-tattoos-side-light-boudoir-photographer-south-bend-in.jpg'); }
+    .interlude-2::before {
+      background-image: url('/uploads/black-fishnet-bodysuit-feather-boa-cityscape-boudoir-photographer-granger-in.jpg');
+      opacity: 0.62;
+    }
+    .interlude-2::after {
+      background:
+        linear-gradient(180deg, rgba(12,19,34,0.25) 0%, rgba(12,19,34,0.1) 40%, rgba(12,19,34,0.7) 100%),
+        linear-gradient(270deg, rgba(12,19,34,0.55) 0%, rgba(12,19,34,0) 55%);
+    }
+    .interlude-2 { justify-content: flex-end; text-align: right; padding-right: 80px; }
+    .interlude-2 .interlude-inner { margin: 0; max-width: 620px; }
+
+    /* SCROLL ANIMATIONS */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.is-visible { opacity: 1; transform: translateY(0); }
+    .slide-in-left, .slide-in-right {
+      opacity: 0;
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+    .slide-in-left { transform: translateX(-80px); }
+    .slide-in-right { transform: translateX(80px); }
+    .slide-in-left.is-visible, .slide-in-right.is-visible {
+      opacity: 1; transform: translateX(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in, .slide-in-left, .slide-in-right {
+        opacity: 1; transform: none; transition: none;
+      }
+    }
+
+    /* SOFTER LIGHT BLUE — for Stay True section break */
+    .dark-soft-light { background: #1c2748; }
+
+    /* EMPHASIS chapter — bigger body text */
+    .chapter.chapter-emphasis ul li {
+      font-size: 19.5px;
+      line-height: 1.85;
+    }
+    .chapter.chapter-emphasis .chapter-tag {
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      opacity: 0.85;
+    }
+    /* CAUTIONS — framed callout */
+    .cautions-section { text-align: center; }
+    .cautions-frame {
+      padding: 56px 60px 50px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .cautions-h {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 56px;
+      line-height: 1.05;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .cautions-h .script { font-size: 62px; display: inline; vertical-align: 2px; }
+    .cautions-frame ul { text-align: left; max-width: 600px; margin: 0 auto; }
+    @media (max-width: 720px) {
+      .cautions-frame { padding: 36px 28px 32px; }
+      .cautions-h { font-size: 36px; }
+      .cautions-h .script { font-size: 42px; }
+    }
+
+    /* LARGE intro quote */
+    .lg-note.lg-note-large p {
+      font-size: 30px;
+      line-height: 1.5;
+      max-width: 780px;
+      margin: 32px auto 0;
+    }
+
+    /* PULL QUOTE — stand-alone giant text moment */
+    .pullquote {
+      padding: 70px 48px;
+      max-width: 980px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .pullquote .stat {
+      font-family: 'Bebas Neue', sans-serif;
+      color: #f09a69;
+      font-size: 110px;
+      line-height: 1;
+      letter-spacing: 0.04em;
+      margin-bottom: 18px;
+    }
+    .pullquote q {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 38px;
+      line-height: 1.3;
+      quotes: none;
+    }
+    .pullquote q::before, .pullquote q::after { content: ''; }
+    .pullquote-attr {
+      display: block;
+      margin-top: 24px;
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      opacity: 0.55;
+    }
+
+    /* TRIO — three image side-by-side with overlay labels (Bottoms section) */
+    .trio-section { padding: 80px 0; }
+    .trio-head {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 60px;
+      padding: 0 48px;
+    }
+    .trio-head .chapter-num,
+    .trio-head .chapter-tag { display: block; }
+    .trio-head h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 60px;
+      line-height: 1.05;
+      margin-bottom: 22px;
+    }
+    .trio-head h2 .script { font-size: 66px; display: inline; vertical-align: 2px; }
+    .trio-head p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 19px;
+      line-height: 1.55;
+      opacity: 0.88;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .trio {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      padding: 0 24px;
+      max-width: 1480px;
+      margin: 0 auto;
+    }
+    .trio-item {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+    }
+    .trio-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(0.85);
+      transition: transform 0.6s ease, filter 0.4s;
+    }
+    .trio-item:hover img { transform: scale(1.04); filter: brightness(0.95); }
+    .trio-item-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 32px 30px;
+      background: linear-gradient(180deg, rgba(12,19,34,0) 40%, rgba(12,19,34,0.85) 100%);
+      z-index: 2;
+    }
+    .trio-item-label {
+      font-family: 'Bebas Neue', sans-serif;
+      color: #f09a69;
+      font-size: 36px;
+      letter-spacing: 0.06em;
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+    .trio-item-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 17px;
+      line-height: 1.55;
+      color: #eef0f5;
+      opacity: 0.95;
+    }
+
+    /* OVERLAY chapter — full-bleed image w/ side text */
+    .overlay-chapter {
+      position: relative;
+      min-height: 720px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+    }
+    .overlay-chapter-img {
+      position: relative;
+      overflow: hidden;
+      min-height: 600px;
+    }
+    .overlay-chapter-img img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .overlay-chapter-text {
+      padding: 120px 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #161f36;
+    }
+    .overlay-chapter-text .chapter-num,
+    .overlay-chapter-text .chapter-tag { display: block; }
+    .overlay-chapter-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 56px;
+      line-height: 1.05;
+      margin-bottom: 28px;
+    }
+    .overlay-chapter-text h2 .script { font-size: 62px; display: inline; vertical-align: 2px; }
+    .overlay-chapter-text p {
+      font-size: 17px;
+      line-height: 1.85;
+      opacity: 0.9;
+      margin-bottom: 18px;
+      max-width: 480px;
+    }
+
+    /* DUAL LIST */
+    .dual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      margin-top: 30px;
+      max-width: 820px;
+    }
+    .dual-block h4 {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: #f09a69;
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+    .dual-block.avoid h4 { color: #c97a4a; }
+
+    /* COLOR TONES */
+    .tones-section { padding: 80px 48px; max-width: 1100px; margin: 0 auto; }
+    .tones-head { text-align: center; margin-bottom: 56px; max-width: 720px; margin-left: auto; margin-right: auto; }
+    .tones-head h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 60px;
+      line-height: 1.05;
+      margin-bottom: 22px;
+    }
+    .tones-head h2 .script { font-size: 66px; display: inline; vertical-align: 2px; }
+    .tones-head p { font-size: 17px; line-height: 1.7; opacity: 0.88; max-width: 640px; margin: 0 auto; }
+    .tones-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .tone {
+      padding: 36px 30px;
+      border: 1px solid rgba(240,154,105,0.4);
+      border-radius: 4px;
+      text-align: left;
+      background: rgba(255,255,255,0.02);
+    }
+    .tone-swatches {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 22px;
+    }
+    .tone-swatch {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+    }
+    .tone.cool .tone-swatch:nth-child(1) { background: #344e6e; }
+    .tone.cool .tone-swatch:nth-child(2) { background: #6e85a3; }
+    .tone.cool .tone-swatch:nth-child(3) { background: #b3becf; }
+    .tone.warm .tone-swatch:nth-child(1) { background: #6b1e1e; }
+    .tone.warm .tone-swatch:nth-child(2) { background: #b35a3e; }
+    .tone.warm .tone-swatch:nth-child(3) { background: #d9a878; }
+    .tone.neutral .tone-swatch:nth-child(1) { background: #6b5848; }
+    .tone.neutral .tone-swatch:nth-child(2) { background: #a18b73; }
+    .tone.neutral .tone-swatch:nth-child(3) { background: #d6c3ab; }
+    .tone-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 0.06em;
+      color: #f09a69;
+      margin-bottom: 8px;
+    }
+    .tone h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+    .tone p { font-size: 14.5px; line-height: 1.65; opacity: 0.85; margin: 0; }
+
+    /* CREAM SECTION */
+    .cream { background: #f5efe7; color: #1c2438; }
+    .cream .chapter p, .cream .chapter ul li { opacity: 0.82; }
+    .cream .chapter ul li::before { background: #c97a4a; }
+    .cream .chapter-num { color: #c97a4a; }
+    .cream .chapter-tag { color: rgba(28,36,56,0.6); }
+    .cream h3.chapter-sub { color: #1c2438; }
+    .cream .pullquote q { color: #1c2438; }
+    .cream .pullquote .stat { color: #c97a4a; }
+
+    /* GET NAKED GALLERY — masonry of implied-nude editorial images */
+    .naked-gallery {
+      padding: 30px 24px 130px;
+      max-width: 1480px;
+      margin: 0 auto;
+    }
+    .naked-gallery-grid {
+      column-count: 3;
+      column-gap: 20px;
+    }
+    .naked-gallery-grid .framed {
+      display: block;
+      width: 100%;
+      margin: 0 0 20px;
+      break-inside: avoid;
+      -webkit-column-break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .naked-gallery-grid img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease, filter 0.3s;
+      filter: brightness(0.92);
+    }
+    .naked-gallery-grid .framed:hover img { transform: scale(1.02); filter: brightness(1.05); }
+
+    /* CLOSING CTA */
+    .lg-close {
+      position: relative;
+      overflow: hidden;
+      padding: 150px 48px;
+      text-align: center;
+    }
+    .lg-close::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('/uploads/bronze-halter-bodysuit-gold-necklace-velvet-chaise-boudoir-portraits-mishawaka-in.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.16;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .lg-close > * { position: relative; z-index: 1; }
+    .lg-close .eyebrow { color: #f09a69; opacity: 0.9; margin-bottom: 14px; }
+    .lg-close h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 80px;
+      line-height: 1.05;
+      margin-bottom: 30px;
+    }
+    .lg-close h2 .script { font-size: 100px; display: block; margin-top: 16px; }
+    .lg-close p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 21px;
+      opacity: 0.92;
+      max-width: 580px;
+      margin: 0 auto 36px;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: #08101e;
+      padding: 70px 48px 40px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr 1fr;
+      gap: 50px;
+      margin-bottom: 50px;
+    }
+    .footer-brand img { height: 56px; mix-blend-mode: screen; margin-bottom: 18px; }
+    .footer-brand p { font-size: 13px; line-height: 1.7; opacity: 0.6; max-width: 280px; }
+    .footer-col h4 {
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: #f09a69; margin-bottom: 18px; font-weight: 500;
+    }
+    .footer-col a, .footer-col span {
+      display: block; font-size: 13px; line-height: 2.0; opacity: 0.7;
+      transition: opacity 0.2s, color 0.2s;
+    }
+    .footer-col a:hover { opacity: 1; color: #f09a69; }
+    .footer-bottom {
+      max-width: 1280px; margin: 0 auto;
+      padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.06);
+      text-align: center; font-size: 10.5px; letter-spacing: 0.22em;
+      text-transform: uppercase; opacity: 0.4;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1100px) {
+      .chapter-row { grid-template-columns: 1fr; gap: 40px; }
+      .chapter-row.is-flipped .chapter-row-img { order: 0; }
+      .chapter-row-img { max-width: 620px; margin: 0 auto; aspect-ratio: 2 / 3; }
+      .chapter-row-img.is-natural { aspect-ratio: auto; }
+      .trio { grid-template-columns: 1fr; gap: 14px; }
+      .tones-grid { grid-template-columns: 1fr; gap: 16px; }
+      .dual { grid-template-columns: 1fr; gap: 28px; }
+      .overlay-chapter { grid-template-columns: 1fr; }
+      .overlay-chapter-img { min-height: 460px; }
+      .overlay-chapter-text { padding: 70px 40px; }
+    }
+    @media (max-width: 720px) {
+      .lg-hero { padding: 100px 24px 60px; min-height: 75vh; align-items: flex-end; }
+      .lg-hero-logo { top: 22px; right: 24px; bottom: auto; }
+      .lg-hero-logo img { height: 52px; }
+      .lg-hero::before { opacity: 0.55; }
+      .lg-hero h1 { font-size: 44px; }
+      .lg-hero h1 .script { font-size: 50px; }
+      .lg-hero p { font-size: 17px; }
+      .lg-hero-tag { font-size: 9.5px; padding: 6px 14px; margin-bottom: 24px; }
+      .lg-note { padding: 70px 24px; }
+      .lg-note p { font-size: 18px; }
+      .chapter { padding: 80px 24px; }
+      h2.chapter-h, .trio-head h2, .tones-head h2 { font-size: 36px; }
+      h2.chapter-h .script, .trio-head h2 .script, .tones-head h2 .script { font-size: 42px; }
+      .interlude { padding: 80px 24px; min-height: 380px; }
+      .interlude h2 { font-size: 38px; }
+      .interlude h2 .script { font-size: 46px; }
+      .interlude-2 { padding-right: 24px; justify-content: center; text-align: right; }
+      .interlude-2 .interlude-inner { margin-left: auto; }
+      .pullquote { padding: 80px 24px; }
+      .pullquote .stat { font-size: 70px; }
+      .pullquote q { font-size: 24px; }
+      .trio-section { padding: 80px 0; }
+      .trio-head { padding: 0 24px; margin-bottom: 36px; }
+      .trio-item-label { font-size: 28px; }
+      .tones-section { padding: 80px 24px; }
+      .tone { padding: 26px 22px; }
+      .tone-swatch { width: 30px; height: 30px; }
+      .tone-label { font-size: 22px; }
+      .chapter-row-img { max-width: none; }
+      .lg-close { padding: 80px 24px 50px; }
+      .lg-close h2 { font-size: 44px; }
+      .lg-close h2 .script { font-size: 56px; }
+      .naked-gallery { padding: 20px 16px 70px; }
+      .naked-gallery-grid { column-count: 2; column-gap: 10px; }
+      .naked-gallery-grid .framed { margin-bottom: 10px; }
+      .footer { padding: 50px 24px 30px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="lg-hero">
+    <div class="lg-hero-inner">
+      <span class="lg-hero-tag">A Mark Andrew Editorial</span>
+      <h1>The lingerie <span class="script">guide.</span></h1>
+      <p>An editorial styling cheat-sheet for prepping for your boudoir session — what flatters, what photographs beautifully, and what to leave on the rack.</p>
+    </div>
+    <a href="/" class="lg-hero-logo" aria-label="Mark Andrew Boudoir home">
+      <img src="/uploads/Boudoir PNG.png" alt="Mark Andrew Boudoir" />
+    </a>
+  </header>
+
+  <section class="dark-soft-light">
+    <section class="lg-note lg-note-large">
+      <div class="divider"><span class="divider-dot"></span></div>
+      <p class="fade-in">Your wardrobe should reflect <em>you</em> — your style, your story, the parts of yourself you want to celebrate. This guide will take you from "I have no idea what to bring" to "I want to wear all of it."</p>
+    </section>
+  </section>
+
+  <!-- CHAPTER 01 — Get Cozy -->
+  <section class="chapter">
+    <div class="chapter-row">
+      <div class="chapter-row-img framed">
+        <img src="/uploads/champagne-tulle-robe-vanity-mirror-hollywood-lights-boudoir-photography-elkhart-in.jpg" alt="Champagne tulle robe — Hollywood lights vanity, boudoir styling" loading="lazy" />
+      </div>
+      <div>
+        <div class="chapter-num"><em>01.</em></div>
+        <div class="chapter-tag">Before you arrive</div>
+        <h2 class="chapter-h">Get <span class="script">cozy.</span></h2>
+        <p>On shoot day, wear the loosest clothing you own. Tight waistbands, bra straps, and elastic leave indentations on your skin that show up in close-ups and take time to fade.</p>
+        <h3 class="chapter-sub">What to wear in:</h3>
+        <ul>
+          <li>A loose dress, or loose pants with a loose top — no bra</li>
+          <li>Soft, comfortable shoes (UGGs, slippers, flip-flops)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERLUDE 1 — Stop -->
+  <section class="interlude interlude-1">
+    <div class="interlude-inner">
+      <h2>Stop. <span class="script">Right now.</span></h2>
+      <p>Take a deep breath (or ten) and remind yourself: this is going to be amazing. The best experiences happen just outside your comfort zone — and you're already there.</p>
+    </div>
+  </section>
+
+  <!-- CHAPTER 02 — Stay True -->
+  <section class="dark-soft-light">
+    <section class="chapter chapter-narrow" style="text-align: center;">
+      <div style="max-width: 720px; margin: 0 auto;">
+        <div class="chapter-num"><em>02.</em></div>
+        <div class="chapter-tag">The most important rule</div>
+        <h2 class="chapter-h">Stay true to <span class="script">you.</span></h2>
+        <p style="margin-left: auto; margin-right: auto;">Whether you're fancy, casual, frilly, edgy, or bold — bring the pieces that make you feel like the most you-version of you. This shoot is celebrating who you are, not who you think you should be.</p>
+        <p style="margin-left: auto; margin-right: auto; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; opacity: 0.9; margin-top: 22px;">We want to see you <em>shine</em>.</p>
+      </div>
+    </section>
+  </section>
+
+  <!-- CHAPTER 03 — Bottoms (TRIO) -->
+  <section class="trio-section">
+    <div class="trio-head">
+      <div class="chapter-num"><em>03.</em></div>
+      <div class="chapter-tag">The basics</div>
+      <h2>Let's talk <span class="script">bottoms.</span></h2>
+      <p>The right pair can transform a look. Here's a quick breakdown of the three styles that photograph best — and which body type each one flatters.</p>
+    </div>
+    <div class="trio">
+      <div class="trio-item framed">
+        <img src="/uploads/black-floral-lace-bra-mirror-reflection-purple-light-boudoir-portraits-south-bend-in.jpg" alt="Thong example — black floral lace and mirror reflection" loading="lazy" />
+        <div class="trio-item-overlay">
+          <div class="trio-item-label">Thong</div>
+          <p class="trio-item-text">For showing off your curves. Choose coverage thongs over g-strings — they photograph softer and feel more secure during posing.</p>
+        </div>
+      </div>
+      <div class="trio-item framed">
+        <img src="/uploads/burgundy-lace-panty-topless-torn-paper-creative-boudoir-portraits-elkhart-in.jpg" alt="Cheeky bottoms example — burgundy lace back pose" loading="lazy" />
+        <div class="trio-item-overlay">
+          <div class="trio-item-label">Cheeky</div>
+          <p class="trio-item-text">Specifically designed to flatter your bum. If you want to highlight curves from behind, this is the cut.</p>
+        </div>
+      </div>
+      <div class="trio-item framed">
+        <img src="/uploads/lsu-sweatshirt-black-lace-shorts-purple-studio-boudoir-session-south-bend-in.jpg" alt="High-waisted bottoms example — black lace shorts" loading="lazy" />
+        <div class="trio-item-overlay">
+          <div class="trio-item-label">High-waisted</div>
+          <p class="trio-item-text">Flattering on every body type — especially if you feel self-conscious about your midsection. (For the record: we love every tummy.)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULLQUOTE — 80% stat (cream, matches "What Not to Wear") -->
+  <section class="cream">
+    <div class="pullquote">
+      <div class="divider" style="margin-bottom: 36px;"><span class="divider-dot"></span></div>
+      <div class="stat slide-in-left">80%</div>
+      <q class="slide-in-right">of women are wearing the wrong bra size.</q>
+      <span class="pullquote-attr fade-in">— industry stat, and yes, it's probably you</span>
+    </div>
+  </section>
+
+  <!-- CHAPTER 04 — Bras -->
+  <section class="chapter">
+    <div class="chapter-row is-flipped">
+      <div class="chapter-row-img framed">
+        <img src="/uploads/black-feather-coat-rhinestone-bra-boudoir-photographer-south-bend-in.jpg" alt="Rhinestone bra and feather coat — boudoir styling" loading="lazy" />
+      </div>
+      <div>
+        <div class="chapter-num"><em>04.</em></div>
+        <div class="chapter-tag">The most important piece</div>
+        <h2 class="chapter-h">Get fitted by a <span class="script">bra specialist.</span></h2>
+        <p>Visit a local bra specialty shop and get professionally fitted before your shoot. The fit changes everything — bring at least two:</p>
+        <h3 class="chapter-sub">Something classic.</h3>
+        <p>A timeless black bra pairs beautifully with almost any look. Neutrals (nude, ivory, soft mauve) also complement most wardrobes.</p>
+        <h3 class="chapter-sub">Something fun.</h3>
+        <p>Lace, strappy details, embroidery, velvet — texture adds drama. The fun bra is where your personality shows up.</p>
+        <h3 class="chapter-sub">A note on bralettes.</h3>
+        <p>Bralettes are comfortable and move with your body during posing — often more flattering on camera than rigid structured bras for certain shapes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTER 05 — Bodysuits (overlay style) -->
+  <section class="overlay-chapter">
+    <div class="overlay-chapter-img">
+      <img src="/uploads/black-tan-striped-knit-bodysuit-laying-high-contrast-intimate-portraits-goshen-in.jpg" alt="Black and tan striped bodysuit — boudoir styling" loading="lazy" />
+    </div>
+    <div class="overlay-chapter-text">
+      <div class="chapter-num"><em>05.</em></div>
+      <div class="chapter-tag">The MVP</div>
+      <h2>Bodysuits are <span class="script">our jam.</span></h2>
+      <p><strong>Why are bodysuits so flattering?</strong></p>
+      <p>They skim the body and create a sleek silhouette instead of adding bulk. Look for trim or piping details — the lines create an hourglass illusion that flatters every shape.</p>
+      <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; opacity: 0.9; margin-top: 14px;">If you only bring one item — make it a bodysuit.</p>
+    </div>
+  </section>
+
+  <!-- CHAPTER 06 — Texture & Coverage -->
+  <section class="chapter">
+    <div class="chapter-num"><em>06.</em></div>
+    <div class="chapter-tag">Layering</div>
+    <h2 class="chapter-h">Add a little extra <span class="script">texture or coverage.</span></h2>
+    <p>Elevate the look by layering something fun over your lingerie. A robe, a button-up, a faux fur — they add drama, dimension, and let you feel covered when you want to.</p>
+    <div class="dual">
+      <div class="dual-block">
+        <h4>What to look for</h4>
+        <ul>
+          <li>Colors that complement your lingerie</li>
+          <li>Interesting textures (lace, fur, velvet, satin)</li>
+          <li>Timeless patterns</li>
+          <li>Sheer or lightweight materials</li>
+        </ul>
+      </div>
+      <div class="dual-block avoid">
+        <h4>What to avoid</h4>
+        <ul>
+          <li>Anything too tight</li>
+          <li>Pilly, worn-out sweaters</li>
+          <li>Overly-washed pieces that have lost their shape</li>
+        </ul>
+      </div>
+    </div>
+    <h3 class="chapter-sub" style="margin-top: 36px;">Pieces to consider:</h3>
+    <ul>
+      <li>An oversized sweater</li>
+      <li>A button-up shirt (his or yours)</li>
+      <li>A tulle, silk, or satin robe — not a housecoat</li>
+      <li>A kimono</li>
+      <li>A faux fur coat</li>
+    </ul>
+  </section>
+
+  <!-- INTERLUDE 2 — Texture -->
+  <section class="interlude interlude-2">
+    <div class="interlude-inner">
+      <h2>Texture is where it's at <span class="script">in photography.</span></h2>
+      <p>Velvet. Lace. Mesh. Fishnets. Faux fur. Satin. Silk. Sequins. Sparkly accents. Embroidery. Metallic fabrics. They catch light, add depth, and make an image feel <em>rich</em>.</p>
+    </div>
+  </section>
+
+  <section class="chapter chapter-narrow chapter-emphasis cautions-section">
+    <div class="cautions-frame framed">
+      <div class="divider" style="margin-bottom: 22px;"><span class="divider-dot"></span></div>
+      <h2 class="cautions-h">A few <span class="script">cautions.</span></h2>
+      <ul>
+        <li>Skip anything scratchy that irritates your skin (red marks linger)</li>
+        <li>Avoid overwhelming designs that distract from <em>you</em></li>
+        <li>Skip stockings that are too tight — they leave deep lines and pinch</li>
+      </ul>
+      <div class="divider" style="margin-top: 28px;"><span class="divider-dot"></span></div>
+    </div>
+  </section>
+
+  <!-- CHAPTER 07 — Show skin or don't -->
+  <section class="chapter">
+    <div class="chapter-row">
+      <div class="chapter-row-img framed is-natural">
+        <img src="/uploads/black-white-utility-shirt-bralette-glasses-portrait-boudoir-session-elkhart-in.jpg" alt="Black & white utility shirt over a bralette — boudoir styling, Elkhart, IN" loading="lazy" />
+      </div>
+      <div>
+        <div class="chapter-num"><em>07.</em></div>
+        <div class="chapter-tag">Reminder</div>
+        <h2 class="chapter-h">There's no rule that says you have to <span class="script">bare it all.</span></h2>
+        <p>You're allowed to reveal as much — or as little — as you feel comfortable with. Some of our most powerful images come from clients fully covered.</p>
+        <h3 class="chapter-sub">Alternatives that photograph beautifully:</h3>
+        <ul>
+          <li>Long-sleeve bodysuits</li>
+          <li>Fitted shirts (with or without bottoms)</li>
+          <li>Jeans with a great bra</li>
+          <li>Oversized sweaters</li>
+          <li>Rompers</li>
+          <li>Pajama sets</li>
+          <li>Cut-off shorts</li>
+          <li>Leggings</li>
+        </ul>
+        <p>One important thing: don't use wardrobe to hide behind. Pick pieces that fit well — not too tight, not too loose — so you walk in confident, not buried.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTER 08 — Color tones -->
+  <section class="tones-section">
+    <div class="tones-head">
+      <div class="chapter-num"><em>08.</em></div>
+      <div class="chapter-tag">Color theory</div>
+      <h2>Find your <span class="script">undertone.</span></h2>
+      <p>Your skin's undertone tells you which colors will photograph most beautifully on you. Look at the veins on the inside of your wrist:</p>
+    </div>
+    <div class="tones-grid">
+      <div class="tone cool">
+        <div class="tone-swatches">
+          <span class="tone-swatch"></span>
+          <span class="tone-swatch"></span>
+          <span class="tone-swatch"></span>
+        </div>
+        <div class="tone-label">Cool</div>
+        <h3>Blue or purple veins</h3>
+        <p>Cooler shades — jewel tones, blues, plums, silvers — make you glow.</p>
+      </div>
+      <div class="tone warm">
+        <div class="tone-swatches">
+          <span class="tone-swatch"></span>
+          <span class="tone-swatch"></span>
+          <span class="tone-swatch"></span>
+        </div>
+        <div class="tone-label">Warm</div>
+        <h3>Green-leaning veins</h3>
+        <p>Warm colors — burgundy, gold, coral, copper — bring out your skin.</p>
+      </div>
+      <div class="tone neutral">
+        <div class="tone-swatches">
+          <span class="tone-swatch"></span>
+          <span class="tone-swatch"></span>
+          <span class="tone-swatch"></span>
+        </div>
+        <div class="tone-label">Neutral</div>
+        <h3>Can't tell?</h3>
+        <p>You're neutral — almost anything works. Lucky you.</p>
+      </div>
+    </div>
+    <div style="max-width: 720px; margin: 50px auto 0;">
+      <h3 class="chapter-sub">A note on neon:</h3>
+      <p style="font-size: 17px; line-height: 1.85; opacity: 0.88;">Avoid intense neon shades — they bounce color onto your skin and make it look orange or green in photos. Bold and saturated is great; eye-melting neon is not.</p>
+      <h3 class="chapter-sub">Pro tip:</h3>
+      <p style="font-size: 17px; line-height: 1.85; opacity: 0.88;">Think about the studio you're shooting in. Pick wardrobe that complements the setting — it photographs as one cohesive frame instead of fighting it.</p>
+    </div>
+  </section>
+
+  <!-- CHAPTER 09 — Accessories -->
+  <section class="chapter">
+    <div class="chapter-row is-flipped">
+      <div class="chapter-row-img framed is-natural">
+        <img src="/uploads/rhinestone-bra-jeweled-hip-chain-purple-light-brick-wall-boudoir-portraits-south-bend-in.jpg" alt="Rhinestone bra and jeweled hip chain — boudoir accessories" loading="lazy" />
+      </div>
+      <div>
+        <div class="chapter-num"><em>09.</em></div>
+        <div class="chapter-tag">Finishing touches</div>
+        <h2 class="chapter-h">Accessories — add a little <span class="script">something special.</span></h2>
+        <div class="dual">
+          <div class="dual-block">
+            <h4>What to look for</h4>
+            <ul>
+              <li>Body jewelry &amp; chains</li>
+              <li>Statement necklaces</li>
+              <li>Heels</li>
+              <li>Hats</li>
+              <li>Scarves</li>
+              <li>Pasties (especially the X styles)</li>
+              <li>Sunglasses</li>
+            </ul>
+          </div>
+          <div class="dual-block avoid">
+            <h4>What to avoid</h4>
+            <ul>
+              <li>Overly gaudy pieces</li>
+              <li>Anything too "prop-like"</li>
+              <li>Items that scream louder than you</li>
+            </ul>
+          </div>
+        </div>
+        <p>Aim for stylish pieces that enhance your look without taking over. The accessory should add the <em>oomph</em> — not the entire personality.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULLQUOTE — Babydolls -->
+  <section class="cream">
+    <div class="pullquote">
+      <div class="divider" style="margin-bottom: 30px;"><span class="divider-dot"></span></div>
+      <q>Babydolls are the devil. We're here to show off your amazing body — not hide it.</q>
+      <span class="pullquote-attr">— Mark, with love</span>
+    </div>
+  </section>
+
+  <!-- CHAPTER 10 — What not to wear -->
+  <section class="cream">
+    <section class="chapter chapter-narrow">
+      <div class="chapter-num"><em>10.</em></div>
+      <div class="chapter-tag">Honest moment</div>
+      <h2 class="chapter-h">What <span class="script">not to wear.</span></h2>
+      <p><strong>Babydoll lingerie hides your curves rather than highlights them.</strong> They create a tent-like silhouette that adds bulk where you don't want it.</p>
+      <p>Opt for pieces that skim the body and flatter your shape: bodysuits, fitted bralettes with high-waist bottoms, and structured corsets.</p>
+      <h3 class="chapter-sub">Also: most "Amazon best-seller" lingerie</h3>
+      <p>The cheapest options on Amazon almost never fit the way they look in the ads. The fabric is thin, the construction is off, and they photograph rough. Spend a little more on a few quality pieces — your photos (and your confidence) will thank you.</p>
+    </section>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section class="lg-close">
+    <div class="eyebrow">When in doubt</div>
+    <h2>...just <span class="script">get naked.</span></h2>
+    <p>The best images don't come from the perfect outfit. They come from the moment you stop worrying about it.</p>
+  </section>
+
+  <!-- GET NAKED GALLERY — implied-nude editorial collection -->
+  <section class="naked-gallery">
+    <div class="naked-gallery-grid">
+      <div class="framed"><img src="/uploads/black-white-halo-crown-pearls-implied-nude-boudoir-south-bend-in.jpg" alt="Black and white halo crown headpiece with pearls, implied nude boudoir — South Bend" loading="lazy" /></div>
+      <div class="framed"><img src="/uploads/black-white-angel-feather-wings-implied-nude-boudoir-south-bend-in.jpg" alt="Black and white angel feather wings implied nude boudoir — South Bend" loading="lazy" /></div>
+      <div class="framed"><img src="/uploads/black-white-bridal-implied-nude-wedding-dress-backlit-luxury-boudoir-south-bend-in.jpg" alt="Black and white bridal implied nude in wedding dress, backlit luxury boudoir — South Bend" loading="lazy" /></div>
+      <div class="framed"><img src="/uploads/black-white-implied-nude-jeweled-bracelet-laying-pose-intimate-portraits-south-bend-in.jpg" alt="Black and white implied nude with jeweled bracelet, laying pose intimate portraits — South Bend" loading="lazy" /></div>
+      <div class="framed"><img src="/uploads/black-white-soft-light-intimate-close-portrait-boudoir-south-bend-in.jpg" alt="Black and white soft-light intimate close portrait boudoir — South Bend" loading="lazy" /></div>
+      <div class="framed"><img src="/uploads/black-white-nude-tulle-flowing-dramatic-shadow-intimate-portraits-granger-in.jpg" alt="Black and white nude tulle flowing dramatic shadow intimate portraits — Granger, IN" loading="lazy" /></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="/uploads/Boudoir PNG.png" alt="Mark Andrew Boudoir" />
+        <p>Award-winning luxury boudoir photography. Full-day sessions, professional hair &amp; makeup, head-to-toe posing direction, and same-day reveals.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Studio</h4>
+        <a href="/#story">About</a>
+        <a href="/#gallery">Gallery</a>
+        <a href="/#team">Your Team</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/blog/">Journal</a>
+      </div>
+      <div class="footer-col">
+        <h4>Locations</h4>
+        <span>South Bend, IN</span>
+        <span>Beaufort, SC <em style="opacity:0.6">— coming soon</em></span>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:mark@markandrewboudoir.com">mark@markandrewboudoir.com</a>
+        <a href="tel:+15746225109">(574) 622-5109</a>
+        <a href="/#book">Book a consult</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© Mark Andrew Boudoir · South Bend, Indiana</div>
+  </footer>
+
+  <script>
+    // Scroll-triggered fade-in / slide-in animations
+    (function() {
+      // Auto-attach fade-in to all major numbered chapters / interludes / pullquotes
+      const autoFadeSelectors = [
+        'section.chapter',
+        'section.interlude',
+        'section.pullquote',
+        'section.trio-section',
+        'section.tones-section',
+        'section.overlay-chapter',
+        'section.lg-close'
+      ];
+      document.querySelectorAll(autoFadeSelectors.join(', ')).forEach(el => {
+        if (!el.classList.contains('fade-in') && !el.classList.contains('slide-in-left') && !el.classList.contains('slide-in-right')) {
+          el.classList.add('fade-in');
+        }
+      });
+
+      if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.18, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => observer.observe(el));
+    })();
+  </script>
+
+</body>
+</html>
