@@ -15,7 +15,16 @@
   ],
   "headers": [
     {
-      "source": "/:path*",
+      "source": "/",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "</sitemap.xml>; rel=\"describedby\"; type=\"application/xml\", </privacy-policy/>; rel=\"privacy-policy\", </terms-of-service/>; rel=\"terms-of-service\""
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
       "headers": [
         {
           "key": "Link",
