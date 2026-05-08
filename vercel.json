@@ -1,0 +1,16 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "blog.markandrewboudoir.com" }],
+      "destination": "https://www.markandrewboudoir.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "blog.markandrewboudoir.com" }],
+      "destination": "https://www.markandrewboudoir.com/:path*",
+      "permanent": true
+    }
+  ]
+}
