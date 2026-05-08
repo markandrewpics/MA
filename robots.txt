@@ -2,7 +2,7 @@
 # RFC 9309 — robots exclusion protocol
 
 User-agent: *
-Content-Signal: search=yes, ai-input=yes, ai-train=no
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 Disallow: /thank-you/
 
