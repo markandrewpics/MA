@@ -12,5 +12,16 @@
       "destination": "https://www.markandrewboudoir.com/:path*",
       "permanent": true
     }
+  ],
+  "headers": [
+    {
+      "source": "/:path*",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "</sitemap.xml>; rel=\"describedby\"; type=\"application/xml\", </privacy-policy/>; rel=\"privacy-policy\", </terms-of-service/>; rel=\"terms-of-service\""
+        }
+      ]
+    }
   ]
 }
