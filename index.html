@@ -772,6 +772,116 @@
     }
     .tcarousel-arrow:hover { background: #f09a69; color: #0c1322; border-color: #f09a69; }
 
+    /* RECOGNITION — centered ambassador / speaker / featured rows */
+    .recognition {
+      padding: 40px 48px;
+      max-width: 1240px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .recognition-row {
+      position: relative;
+      padding: 22px 0;
+    }
+    .recognition-row::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 12%;
+      right: 12%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(240,154,105,0.55) 30%, rgba(240,154,105,0.55) 70%, transparent 100%);
+    }
+    .recognition-row:last-child::after { display: none; }
+    .recognition-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 26px;
+      font-family: 'Jost', sans-serif;
+      font-size: 17px;
+      font-weight: 500;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: #f09a69;
+      margin-bottom: 22px;
+    }
+    .recognition-label::before,
+    .recognition-label::after {
+      content: '';
+      flex: 0 0 90px;
+      height: 1px;
+    }
+    .recognition-label::before {
+      background: linear-gradient(90deg, transparent 0%, #f09a69 100%);
+    }
+    .recognition-label::after {
+      background: linear-gradient(90deg, #f09a69 0%, transparent 100%);
+    }
+    .recognition-label-inner {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .recognition-label-inner::before,
+    .recognition-label-inner::after {
+      content: '';
+      width: 5px;
+      height: 5px;
+      background: #f09a69;
+      transform: rotate(45deg);
+      flex: 0 0 5px;
+    }
+    .recognition-logos {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .recognition-logos img {
+      height: 130px;
+      width: auto;
+      max-width: 280px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      transition: transform 0.25s, opacity 0.25s;
+    }
+    .recognition-logos img:hover { transform: translateY(-4px) scale(1.04); }
+
+    /* Zoom-in from left/right on scroll */
+    .logo-zoom {
+      opacity: 0;
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .logo-zoom.from-left { transform: scale(0.7) translateX(-50px); }
+    .logo-zoom.from-right { transform: scale(0.7) translateX(50px); }
+    .logo-zoom.is-visible { opacity: 1; transform: scale(1) translateX(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .logo-zoom { opacity: 1; transform: none; transition: none; }
+    }
+
+    @media (max-width: 1100px) {
+      .recognition-logos { gap: 48px; }
+      .recognition-logos img { height: 100px; max-width: 220px; }
+      .recognition-label { font-size: 15px; gap: 20px; }
+      .recognition-label::before, .recognition-label::after { flex-basis: 60px; }
+    }
+    @media (max-width: 720px) {
+      .recognition { padding: 30px 24px; }
+      .recognition-row { padding: 20px 0; }
+      .recognition-label {
+        font-size: 13px;
+        letter-spacing: 0.3em;
+        gap: 14px;
+        margin-bottom: 18px;
+      }
+      .recognition-label::before, .recognition-label::after { flex-basis: 32px; }
+      .recognition-label-inner { gap: 12px; }
+      .recognition-logos { gap: 32px; }
+      .recognition-logos img { height: 78px; max-width: 170px; }
+    }
+
     /* FAQ */
     .faq {
       padding: 130px 48px;
@@ -1386,6 +1496,35 @@
     </div>
   </section>
 
+  <!-- RECOGNITION — Ambassador / Speaker / Featured -->
+  <section class="recognition">
+    <div class="recognition-row">
+      <div class="recognition-label"><span class="recognition-label-inner">Ambassador for</span></div>
+      <div class="recognition-logos">
+        <img src="/uploads/featured-logos/togdrop.png" alt="TogDrop Solutions" class="logo-zoom from-left" loading="lazy" />
+        <img src="/uploads/featured-logos/spiderholster.png" alt="Spider Camera Holster" class="logo-zoom from-right" loading="lazy" />
+      </div>
+    </div>
+    <div class="recognition-row">
+      <div class="recognition-label"><span class="recognition-label-inner">Speaker for</span></div>
+      <div class="recognition-logos">
+        <img src="/uploads/featured-logos/shutterfest.png" alt="ShutterFest" class="logo-zoom from-left" loading="lazy" />
+        <img src="/uploads/featured-logos/hhcolorlab.png" alt="H&amp;H Color Lab" class="logo-zoom from-right" loading="lazy" />
+      </div>
+    </div>
+    <div class="recognition-row">
+      <div class="recognition-label"><span class="recognition-label-inner">Featured in</span></div>
+      <div class="recognition-logos">
+        <img src="/uploads/featured-logos/behindtheshutter.png" alt="Behind the Shutter" class="logo-zoom from-left" loading="lazy" />
+        <img src="/uploads/featured-logos/shuttermagazine.png" alt="Shutter Magazine" class="logo-zoom from-right" loading="lazy" />
+        <img src="/uploads/featured-logos/westcott.png" alt="Westcott" class="logo-zoom from-left" loading="lazy" />
+        <img src="/uploads/featured-logos/canon.png" alt="Canon" class="logo-zoom from-right" loading="lazy" />
+        <img src="/uploads/featured-logos/floricolor.png" alt="Floricolor" class="logo-zoom from-left" loading="lazy" />
+        <img src="/uploads/featured-logos/nanlite.png" alt="Nanlite" class="logo-zoom from-right" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
   <section class="cream">
     <div class="faq" id="faq">
       <div class="eyebrow">Common questions</div>
@@ -1541,10 +1680,11 @@
       });
     });
 
-    // Fade-in on scroll (used by .fade-in elements)
+    // Fade-in / logo zoom on scroll
     (function() {
+      const targets = document.querySelectorAll('.fade-in, .logo-zoom');
       if (!('IntersectionObserver' in window)) {
-        document.querySelectorAll('.fade-in').forEach(el => el.classList.add('is-visible'));
+        targets.forEach(el => el.classList.add('is-visible'));
         return;
       }
       const observer = new IntersectionObserver((entries) => {
@@ -1555,7 +1695,7 @@
           }
         });
       }, { threshold: 0.18, rootMargin: '0px 0px -40px 0px' });
-      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+      targets.forEach(el => observer.observe(el));
     })();
 
     // Gallery — click expand link to reveal the rest of the portfolio inline
