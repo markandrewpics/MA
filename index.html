@@ -1124,8 +1124,17 @@
       .footer-inner { grid-template-columns: 1fr 1fr; gap: 36px; }
     }
     @media (max-width: 720px) {
-      .nav { padding: 14px 20px; }
-      .nav-links { display: none; }
+      .nav { padding: 12px 20px 10px; flex-wrap: wrap; row-gap: 10px; }
+      .nav-links {
+        display: flex;
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 22px;
+        padding-top: 4px;
+        border-top: 1px solid rgba(255,255,255,0.07);
+      }
+      .nav-links .nav-link { font-size: 10.5px; letter-spacing: 0.18em; }
       .hero { padding: 110px 24px 60px; min-height: 90vh; }
       .hero h1 { font-size: 44px; }
       .hero h1 .script { font-size: 50px; }
@@ -1176,7 +1185,6 @@
       <a href="#gallery" class="nav-link">Gallery</a>
       <a href="#team" class="nav-link">Team</a>
       <a href="#faq" class="nav-link">FAQ</a>
-      <a href="/blog/" class="nav-link">Journal</a>
     </div>
     <a href="#book" class="nav-cta">Book a Consult</a>
   </nav>
