@@ -1,0 +1,8 @@
+# robots.txt for Mark Andrew Boudoir
+# RFC 9309 — robots exclusion protocol
+
+User-agent: *
+Allow: /
+Disallow: /thank-you/
+
+Sitemap: https://www.markandrewboudoir.com/sitemap.xml
