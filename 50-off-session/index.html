@@ -222,10 +222,22 @@
       margin: 0 auto;
     }
 
+    /* OFFER WITH SIDE IMAGES */
+    .offer-with-images {
+      display: grid;
+      grid-template-columns: 240px 1fr 240px;
+      gap: 32px;
+      align-items: stretch;
+      max-width: 1240px;
+      margin: 50px auto 0;
+    }
+    .offer-side-image { aspect-ratio: 2 / 3; overflow: hidden; }
+    .offer-side-image.framed::after { inset: 6px; }
+    .offer-side-image img { width: 100%; height: 100%; object-fit: cover; }
+    .offer-mobile-image { display: none; }
+
     /* OFFER BREAKDOWN */
     .offer-card {
-      max-width: 760px;
-      margin: 50px auto 0;
       background: #161f36;
       padding: 50px 56px;
       position: relative;
@@ -324,6 +336,58 @@
       font-weight: 500;
     }
     .tcard .stars { font-size: 14px; margin-bottom: 14px; }
+
+    /* GALLERY */
+    .gallery-section { background: #08101e; padding: 100px 48px; }
+    .gallery-inner { max-width: 1280px; margin: 0 auto; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 50px;
+    }
+    .gallery-tile {
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+    .gallery-tile.framed::after { inset: 5px; }
+    .gallery-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .gallery-tile:hover img { transform: scale(1.04); }
+    .gallery-tile.tall { aspect-ratio: 4 / 7; }
+    .gallery-tile.wide { aspect-ratio: 3 / 2; grid-column: span 2; }
+
+    /* TEAM */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+      margin-top: 60px;
+    }
+    .team-card { text-align: center; }
+    .team-photo {
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      margin-bottom: 22px;
+    }
+    .team-photo.framed::after { inset: 6px; }
+    .team-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .team-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+    .team-role {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #f09a69;
+      margin-bottom: 16px;
+    }
+    .team-bio { font-size: 14.5px; line-height: 1.7; opacity: 0.85; max-width: 320px; margin: 0 auto; }
 
     /* MID CTA BAND */
     .mid-cta {
@@ -486,6 +550,13 @@
       .includes-grid { grid-template-columns: 1fr; }
       .bio { grid-template-columns: 1fr; gap: 32px; text-align: center; }
       .bio-photo { max-width: 240px; margin: 0 auto; }
+      .team-grid { grid-template-columns: 1fr; gap: 40px; }
+      .offer-with-images { grid-template-columns: 1fr; gap: 28px; }
+      .offer-side-image { display: none; }
+      .offer-mobile-image { display: block; aspect-ratio: 16 / 10; max-width: 640px; margin: 0 auto; overflow: hidden; }
+      .offer-mobile-image.framed::after { inset: 6px; }
+      .offer-mobile-image img { width: 100%; height: 100%; object-fit: cover; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 720px) {
       .nav { padding: 12px 18px; }
@@ -545,33 +616,39 @@
     <h2 class="h2">What "50% off" <span class="script">actually means.</span></h2>
     <p class="lead">No bait. No upsell tricks. Half off the session fee — the rate that secures your full day in studio with the team. Below is exactly what's covered and what changes.</p>
 
-    <div class="offer-card framed">
-      <div class="offer-row">
-        <span class="label">Pre-session styling consult (Zoom, 30 min)</span>
-        <span class="now">Included</span>
+    <div class="offer-with-images">
+      <div class="offer-side-image framed">
+        <img src="/uploads/wine-lace-bodysuit-fur-coat-red-curtains-diamond-necklace-intimate-portraits-granger-in.jpg" alt="Luxury boudoir portrait — wine lace bodysuit, fur coat" loading="lazy" />
       </div>
-      <div class="offer-row">
-        <span class="label">Full-day in-studio session</span>
-        <span class="now">Included</span>
+      <div class="offer-card framed">
+        <div class="offer-row">
+          <span class="label">Pre-session styling consult (Zoom, 30 min)</span>
+          <span class="now">Included</span>
+        </div>
+        <div class="offer-row">
+          <span class="label">Full-day in-studio session</span>
+          <span class="now">Included</span>
+        </div>
+        <div class="offer-row">
+          <span class="label">Head-to-toe posing direction by Mark</span>
+          <span class="now">Included</span>
+        </div>
+        <div class="offer-row">
+          <span class="label">Same-day image reveal</span>
+          <span class="now">Included</span>
+        </div>
+        <div class="offer-row">
+          <span class="label">Session fee</span>
+          <span><span class="strike">Normally $499</span><span class="now">50% off</span></span>
+        </div>
       </div>
-      <div class="offer-row">
-        <span class="label">Professional hair &amp; makeup (every change)</span>
-        <span class="now">Included</span>
+      <div class="offer-side-image framed">
+        <img src="/uploads/velvet-curtain-dramatic-lighting-standing-pose-boudoir-session-elkhart-in.jpg" alt="Luxury boudoir portrait — velvet curtain, dramatic standing pose" loading="lazy" />
       </div>
-      <div class="offer-row">
-        <span class="label">Head-to-toe posing direction by Mark</span>
-        <span class="now">Included</span>
-      </div>
-      <div class="offer-row">
-        <span class="label">Same-day image reveal on a 75″ screen</span>
-        <span class="now">Included</span>
-      </div>
-      <div class="offer-row">
-        <span class="label">Session fee</span>
-        <span><span class="strike">Standard rate</span><span class="now">50% off</span></span>
+      <div class="offer-mobile-image framed">
+        <img src="/uploads/burgundy-lace-bra-fur-coat-city-skyline-over-shoulder-boudoir-photography-south-bend-in.jpg" alt="Luxury boudoir — burgundy lace, city skyline" loading="lazy" />
       </div>
     </div>
-    <p class="offer-fineprint">Albums, wall art, and digital files are selected separately at your reveal. The 50% off applies to the session fee only — but that's the most expensive part of getting in the door.</p>
   </section>
 
   <!-- INCLUDES -->
@@ -584,14 +661,14 @@
         <span class="includes-num">01.</span>
         <div class="includes-text">
           <h3>Pro hair &amp; makeup</h3>
-          <p>By Aletheia Jean — glam, soft, editorial. We refresh between every wardrobe change.</p>
+          <p>By Aletheia Jean — glam, soft, editorial. We craft your look so it photographs beautifully under studio light.</p>
         </div>
       </div>
       <div class="includes-item">
         <span class="includes-num">02.</span>
         <div class="includes-text">
           <h3>Multiple wardrobe sets</h3>
-          <p>Bring what you love. Forgot something? We have a fully stocked studio wardrobe.</p>
+          <p>Bring what you love and we'll personally style each look with you — making sure every set photographs at its best.</p>
         </div>
       </div>
       <div class="includes-item">
@@ -605,15 +682,33 @@
         <span class="includes-num">04.</span>
         <div class="includes-text">
           <h3>Same-day image reveal</h3>
-          <p>You see your gallery the day of, on a 75-inch screen, ordered into a curated story.</p>
+          <p>See your edited, retouched images the same day — no waiting days or weeks for your gallery.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery-section">
+    <div class="gallery-inner">
+      <div class="eyebrow">A glimpse of the work</div>
+      <h2 class="h2">From recent <span class="script">sessions.</span></h2>
+      <div class="gallery-grid">
+        <div class="gallery-tile framed"><img src="/uploads/burgundy-lace-bra-fur-coat-city-skyline-over-shoulder-boudoir-photography-south-bend-in.jpg" alt="" loading="lazy" /></div>
+        <div class="gallery-tile framed tall"><img src="/uploads/silver-hair-velvet-bra-tulle-robe-vanity-lipstick-boudoir-photography-niles-mi.jpg" alt="" loading="lazy" /></div>
+        <div class="gallery-tile framed"><img src="/uploads/dark-purple-bra-velvet-sofa-tattoo-ambient-light-intimate-portraits-elkhart-in.jpg" alt="" loading="lazy" /></div>
+        <div class="gallery-tile framed"><img src="/uploads/red-lace-lingerie-gold-chain-dramatic-red-light-boudoir-session-south-bend-in.jpg" alt="" loading="lazy" /></div>
+        <div class="gallery-tile framed"><img src="/uploads/pearl-fringe-shawl-bouquet-floral-backdrop-tulle-boudoir-portraits-niles-mi.jpg" alt="" loading="lazy" /></div>
+        <div class="gallery-tile framed"><img src="/uploads/black-lace-corset-navy-chaise-diamond-necklace-red-light-boudoir-photographer-south-bend-in.jpg" alt="" loading="lazy" /></div>
+        <div class="gallery-tile framed"><img src="/uploads/silver-hair-mature-pearl-necklace-velvet-sofa-blue-light-boudoir-photographer-granger-in.jpg" alt="" loading="lazy" /></div>
+        <div class="gallery-tile framed"><img src="/uploads/floral-bodysuit-tulle-robe-mirror-pose-boudoir-session-niles-mi.jpg" alt="" loading="lazy" /></div>
       </div>
     </div>
   </section>
 
   <!-- MID CTA -->
   <section class="mid-cta">
-    <h3>Don't think about it for <span class="script">three weeks.</span></h3>
+    <h3>Once they're gone, <span class="script">they're gone.</span></h3>
     <p>Five spots. First-come, first-served. Once they're claimed, the standard session fee returns.</p>
     <a href="#book" class="btn btn-primary btn-large">Reserve My Spot</a>
   </section>
@@ -647,19 +742,35 @@
     </section>
   </section>
 
-  <!-- BIO -->
+  <!-- TEAM -->
   <section class="block">
-    <div class="eyebrow">Your photographer</div>
-    <h2 class="h2">Hi — I'm <span class="script">Mark.</span></h2>
+    <div class="eyebrow">Your team</div>
+    <h2 class="h2">Three people. <span class="script">All for you.</span></h2>
 
-    <div class="bio">
-      <div class="bio-photo framed">
-        <img src="/uploads/MarkAndrewHeadshot.jpg" alt="Mark Andrew Boughton — Boudoir Photographer" />
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-photo framed">
+          <img src="/uploads/MarkAndrewHeadshot.jpg" alt="Mark Andrew Boughton — Photographer & Studio Owner" loading="lazy" />
+        </div>
+        <div class="team-name">Mark Andrew</div>
+        <div class="team-role">Photographer · Owner</div>
+        <p class="team-bio">A decade behind the camera, thousands of clients, and an international teaching practice. Mark built this experience for the woman who never thought she could do this — and walks out wishing she'd done it years ago.</p>
       </div>
-      <div class="bio-text">
-        <h3>Mark Andrew Boughton</h3>
-        <div class="role">Photographer · Studio Owner</div>
-        <p>I've spent a decade photographing women who don't think of themselves as "the photogenic type." Most leave saying it was the most powerful thing they've ever done for themselves. I'm an ambassador for Spider Camera Holster and TogDrop, a speaker for ShutterFest and H&amp;H Color Lab, and featured in Behind the Shutter and Shutter Magazine. But none of that matters as much as the look on your face when you see your reveal.</p>
+      <div class="team-card">
+        <div class="team-photo framed">
+          <img src="/uploads/AletheiaJean.jpg" alt="Aletheia Jean — Hair & Makeup Artist" loading="lazy" style="object-position: center 20%;" />
+        </div>
+        <div class="team-name">Aletheia Jean</div>
+        <div class="team-role">Hair &amp; Makeup Artist</div>
+        <p class="team-bio">In-house hair &amp; makeup for every Mark Andrew session. Aletheia builds glam that's made for the camera — soft enough to feel like you, bold enough to hold up under studio light. By the time she's done, you're ready.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-photo framed">
+          <img src="/uploads/black-white-sheer-tulle-robe-sitting-pose-luxury-boudoir-goshen-in.jpg" alt="Christina Michelle — Studio Manager" loading="lazy" style="object-position: center 8%;" />
+        </div>
+        <div class="team-name">Christina Michelle</div>
+        <div class="team-role">Studio Manager</div>
+        <p class="team-bio">Christina is the studio manager and the first voice you'll hear when you book. She runs scheduling, prep, day-of logistics, and the dozens of details that keep every session running smoothly — so by the time you walk in, the entire experience is already taken care of.</p>
       </div>
     </div>
   </section>
@@ -685,7 +796,7 @@
         </div>
         <div class="faq-item">
           <div class="faq-q">What do I need to spend total?</div>
-          <div class="faq-a">The session fee (50% off via this offer) covers the day. Albums, wall art, and digital files are chosen at your same-day reveal — most clients invest in something they'll have for a lifetime, but that part is entirely your call.</div>
+          <div class="faq-a">The session fee (50% off via this offer) covers your full day in studio. Optional keepsakes are available at your same-day reveal — entirely your call, no pressure.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q">Do I have to know what to wear?</div>
