@@ -337,26 +337,29 @@
     }
     .tcard .stars { font-size: 14px; margin-bottom: 14px; }
 
-    /* GALLERY */
+    /* GALLERY — mosaic via CSS columns */
     .gallery-section { background: #08101e; padding: 100px 48px; }
-    .gallery-inner { max-width: 1280px; margin: 0 auto; }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
+    .gallery-inner { max-width: 1320px; margin: 0 auto; }
+    .gallery-mosaic {
+      column-count: 4;
+      column-gap: 14px;
       margin-top: 50px;
     }
-    .gallery-tile {
-      aspect-ratio: 4 / 5;
+    .gallery-mosaic .gallery-tile {
+      break-inside: avoid;
+      margin: 0 0 14px 0;
       overflow: hidden;
       position: relative;
-      transition: transform 0.3s ease;
+      display: block;
     }
-    .gallery-tile.framed::after { inset: 5px; }
-    .gallery-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-    .gallery-tile:hover img { transform: scale(1.04); }
-    .gallery-tile.tall { aspect-ratio: 4 / 7; }
-    .gallery-tile.wide { aspect-ratio: 3 / 2; grid-column: span 2; }
+    .gallery-mosaic .gallery-tile.framed::after { inset: 5px; }
+    .gallery-mosaic .gallery-tile img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .gallery-mosaic .gallery-tile:hover img { transform: scale(1.04); }
 
     /* TEAM */
     .team-grid {
@@ -556,7 +559,8 @@
       .offer-mobile-image { display: block; aspect-ratio: 16 / 10; max-width: 640px; margin: 0 auto; overflow: hidden; }
       .offer-mobile-image.framed::after { inset: 6px; }
       .offer-mobile-image img { width: 100%; height: 100%; object-fit: cover; }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-mosaic { column-count: 2; column-gap: 10px; }
+      .gallery-mosaic .gallery-tile { margin-bottom: 10px; }
     }
     @media (max-width: 720px) {
       .nav { padding: 12px 18px; }
@@ -618,7 +622,7 @@
 
     <div class="offer-with-images">
       <div class="offer-side-image framed">
-        <img src="/uploads/wine-lace-bodysuit-fur-coat-red-curtains-diamond-necklace-intimate-portraits-granger-in.jpg" alt="Luxury boudoir portrait — wine lace bodysuit, fur coat" loading="lazy" />
+        <img src="/uploads/black-bustier-red-backlight-hair-spread-laying-pose-boudoir-session-elkhart-in.jpg" alt="Luxury boudoir portrait — black bustier, red backlight" loading="lazy" />
       </div>
       <div class="offer-card framed">
         <div class="offer-row">
@@ -643,7 +647,7 @@
         </div>
       </div>
       <div class="offer-side-image framed">
-        <img src="/uploads/velvet-curtain-dramatic-lighting-standing-pose-boudoir-session-elkhart-in.jpg" alt="Luxury boudoir portrait — velvet curtain, dramatic standing pose" loading="lazy" />
+        <img src="/uploads/black-white-angel-feather-wings-implied-nude-boudoir-south-bend-in.jpg" alt="Luxury boudoir portrait — black & white angel feather wings" loading="lazy" />
       </div>
       <div class="offer-mobile-image framed">
         <img src="/uploads/burgundy-lace-bra-fur-coat-city-skyline-over-shoulder-boudoir-photography-south-bend-in.jpg" alt="Luxury boudoir — burgundy lace, city skyline" loading="lazy" />
@@ -693,15 +697,25 @@
     <div class="gallery-inner">
       <div class="eyebrow">A glimpse of the work</div>
       <h2 class="h2">From recent <span class="script">sessions.</span></h2>
-      <div class="gallery-grid">
-        <div class="gallery-tile framed"><img src="/uploads/burgundy-lace-bra-fur-coat-city-skyline-over-shoulder-boudoir-photography-south-bend-in.jpg" alt="" loading="lazy" /></div>
-        <div class="gallery-tile framed tall"><img src="/uploads/silver-hair-velvet-bra-tulle-robe-vanity-lipstick-boudoir-photography-niles-mi.jpg" alt="" loading="lazy" /></div>
-        <div class="gallery-tile framed"><img src="/uploads/dark-purple-bra-velvet-sofa-tattoo-ambient-light-intimate-portraits-elkhart-in.jpg" alt="" loading="lazy" /></div>
-        <div class="gallery-tile framed"><img src="/uploads/red-lace-lingerie-gold-chain-dramatic-red-light-boudoir-session-south-bend-in.jpg" alt="" loading="lazy" /></div>
-        <div class="gallery-tile framed"><img src="/uploads/pearl-fringe-shawl-bouquet-floral-backdrop-tulle-boudoir-portraits-niles-mi.jpg" alt="" loading="lazy" /></div>
-        <div class="gallery-tile framed"><img src="/uploads/black-lace-corset-navy-chaise-diamond-necklace-red-light-boudoir-photographer-south-bend-in.jpg" alt="" loading="lazy" /></div>
-        <div class="gallery-tile framed"><img src="/uploads/silver-hair-mature-pearl-necklace-velvet-sofa-blue-light-boudoir-photographer-granger-in.jpg" alt="" loading="lazy" /></div>
-        <div class="gallery-tile framed"><img src="/uploads/floral-bodysuit-tulle-robe-mirror-pose-boudoir-session-niles-mi.jpg" alt="" loading="lazy" /></div>
+      <div class="gallery-mosaic">
+        <div class="gallery-tile framed"><img src="/uploads/black-lace-top-pearl-necklace-green-light-boudoir-photography-mishawaka-in.jpg" alt="Boudoir portrait — black lace top, pearl necklace, green light" loading="lazy" /></div>
+        <div class="gallery-tile framed"><img src="/uploads/silver-hair-mature-pearl-necklace-velvet-sofa-blue-light-boudoir-photographer-granger-in.jpg" alt="Mature boudoir portrait — silver hair, pearl necklace, velvet sofa" loading="lazy" /></div>
+        <div class="gallery-tile framed"><img src="/uploads/burgundy-lace-bra-fur-coat-city-skyline-over-shoulder-boudoir-photography-south-bend-in.jpg" alt="Boudoir portrait — burgundy lace, fur coat, city skyline" loading="lazy" /></div>
+        <div class="gallery-tile framed"><img src="/uploads/black-strappy-lingerie-golf-club-prop-red-smoke-boudoir-session-elkhart-in.jpg" alt="Boudoir portrait — black strappy lingerie, golf club, red smoke" loading="lazy" /></div>
+        <div class="gallery-tile framed"><img src="/uploads/breast-cancer-survivor-empowering-luxury-boudoir-south-bend-in.jpg" alt="Empowering boudoir portrait — breast cancer survivor" loading="lazy" /></div>
+        <div class="gallery-tile framed"><img src="/uploads/silver-hair-velvet-bra-tulle-robe-vanity-lipstick-boudoir-photography-niles-mi.jpg" alt="Mature boudoir portrait — silver hair, velvet bra, tulle robe" loading="lazy" /></div>
+        <div class="gallery-tile framed"><img src="/uploads/dark-purple-bra-velvet-sofa-tattoo-ambient-light-intimate-portraits-elkhart-in.jpg" alt="Boudoir portrait — dark purple bra, velvet sofa, tattoos" loading="lazy" /></div>
+        <div class="gallery-tile framed"><img src="/uploads/red-lace-lingerie-gold-chain-dramatic-red-light-boudoir-session-south-bend-in.jpg" alt="Boudoir portrait — red lace, gold chain, dramatic red light" loading="lazy" /></div>
+        <div class="gallery-tile framed"><img src="/uploads/silver-hair-black-mesh-rose-feathers-boudoir-photography-elkhart-in.jpg" alt="Mature boudoir portrait — silver hair, black mesh, rose feathers" loading="lazy" /></div>
+        <div class="gallery-tile framed"><img src="/uploads/floral-bodysuit-tulle-robe-mirror-pose-boudoir-session-niles-mi.jpg" alt="Boudoir portrait — floral bodysuit, tulle robe, mirror pose" loading="lazy" /></div>
+        <div class="gallery-tile framed"><img src="/uploads/champagne-tulle-robe-vanity-mirror-hollywood-lights-boudoir-photography-elkhart-in.jpg" alt="Boudoir portrait — champagne tulle robe, hollywood lights" loading="lazy" /></div>
+        <div class="gallery-tile framed"><img src="/uploads/black-corset-cowboy-hat-amber-light-boudoir-portraits-granger-in.jpg" alt="Boudoir portrait — black corset, cowboy hat, amber light" loading="lazy" /></div>
+        <div class="gallery-tile framed"><img src="/uploads/pearl-fringe-shawl-bouquet-floral-backdrop-tulle-boudoir-portraits-niles-mi.jpg" alt="Boudoir portrait — pearl fringe shawl, bouquet, floral backdrop" loading="lazy" /></div>
+        <div class="gallery-tile framed"><img src="/uploads/crimson-blazer-lace-bra-chest-tattoo-golden-light-boudoir-session-niles-mi.jpg" alt="Boudoir portrait — crimson blazer, lace bra, chest tattoo, golden light" loading="lazy" /></div>
+        <div class="gallery-tile framed"><img src="/uploads/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in.jpg" alt="Boudoir portrait — fur coat, city skyline, turning pose" loading="lazy" /></div>
+        <div class="gallery-tile framed"><img src="/uploads/red-strappy-bra-warehouse-golden-light-intimate-portraits-goshen-in.jpg" alt="Boudoir portrait — red strappy bra, warehouse, golden light" loading="lazy" /></div>
+        <div class="gallery-tile framed"><img src="/uploads/plum-corset-fur-coat-city-skyline-boudoir-photographer-goshen-in.jpg" alt="Boudoir portrait — plum corset, fur coat, city skyline" loading="lazy" /></div>
+        <div class="gallery-tile framed"><img src="/uploads/black-lace-lingerie-curly-hair-brick-wall-purple-light-intimate-portraits-mishawaka-in.jpg" alt="Boudoir portrait — black lace lingerie, curly hair, brick wall, purple light" loading="lazy" /></div>
       </div>
     </div>
   </section>
