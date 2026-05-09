@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex,follow" />
+  <title>50% Off Your Boudoir Session — Mark Andrew Boudoir | South Bend, IN</title>
+  <meta name="description" content="Limited time: 50% off your luxury boudoir session at Mark Andrew Boudoir. Only 5 spots available. Includes full-day session, hair, makeup, posing, and same-day reveal." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="50% Off Your Boudoir Session — Only 5 Spots" />
+  <meta property="og:description" content="Half-off the session fee for the next 5 women who book. Full-day luxury boudoir experience in South Bend, Indiana." />
+  <meta property="og:image" content="https://www.markandrewboudoir.com/uploads/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Bebas+Neue&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #0c1322;
+      color: #eef0f5;
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      padding-bottom: 90px;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    em { font-style: italic; }
+    ::selection { background: rgba(240,154,105,0.28); }
+
+    .script {
+      font-family: 'Bebas Neue', sans-serif;
+      color: #f09a69;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 18px 36px;
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+    .btn-primary { background: #f09a69; color: #0c1322; border-color: #f09a69; }
+    .btn-primary:hover { background: #ecb18b; border-color: #ecb18b; transform: translateY(-2px); box-shadow: 0 12px 28px -10px rgba(240,154,105,0.5); }
+    .btn-large { padding: 22px 48px; font-size: 13px; }
+
+    /* Gold double-line frame */
+    .framed { position: relative; border: 1px solid rgba(240,154,105,0.75); }
+    .framed::after {
+      content: '';
+      position: absolute;
+      inset: 5px;
+      border: 1px solid rgba(240,154,105,0.45);
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    /* MINIMAL NAV — logo only, no links */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 16px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(16, 22, 38, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(240,154,105,0.18);
+    }
+    .nav-logo img { height: 42px; width: auto; display: block; mix-blend-mode: screen; }
+    .nav-tag {
+      font-family: 'Jost', sans-serif;
+      font-size: 10.5px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #f09a69;
+      font-weight: 500;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      padding: 130px 48px 80px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('/uploads/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.32;
+      z-index: 0;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(12,19,34,0.55) 0%, rgba(12,19,34,0.5) 50%, rgba(12,19,34,0.95) 100%);
+      z-index: 1;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 880px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .scarcity-pill {
+      display: inline-block;
+      padding: 8px 18px;
+      background: rgba(240,154,105,0.12);
+      border: 1px solid rgba(240,154,105,0.55);
+      color: #f09a69;
+      font-size: 11px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 28px;
+      border-radius: 2px;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 78px;
+      line-height: 1.04;
+      margin-bottom: 28px;
+    }
+    .hero h1 .script {
+      font-size: 96px;
+      display: block;
+      line-height: 1.0;
+      margin-top: 18px;
+    }
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 22px;
+      line-height: 1.55;
+      opacity: 0.92;
+      max-width: 620px;
+      margin: 0 auto 40px;
+    }
+    .hero-cta-row {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 38px;
+    }
+    .hero-trust {
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+    .hero-trust span { display: flex; align-items: center; gap: 8px; }
+    .stars { color: #f09a69; letter-spacing: 2px; font-size: 14px; }
+
+    /* SCARCITY BANNER */
+    .scarcity-band {
+      background: #f09a69;
+      color: #0c1322;
+      padding: 22px 48px;
+      text-align: center;
+      font-family: 'Jost', sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .scarcity-band strong { font-weight: 600; }
+
+    /* SECTION SHARED */
+    section.block { padding: 100px 48px; max-width: 1180px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: #f09a69;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+    .h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 52px;
+      line-height: 1.1;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .h2 .script { font-size: 60px; }
+    .lead {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 19px;
+      line-height: 1.6;
+      opacity: 0.85;
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* OFFER BREAKDOWN */
+    .offer-card {
+      max-width: 760px;
+      margin: 50px auto 0;
+      background: #161f36;
+      padding: 50px 56px;
+      position: relative;
+    }
+    .offer-card.framed::after { inset: 6px; }
+    .offer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      font-size: 16px;
+    }
+    .offer-row:last-child { border-bottom: none; padding-top: 24px; padding-bottom: 0; font-size: 22px; font-weight: 500; }
+    .offer-row .label { opacity: 0.85; }
+    .offer-row .strike { text-decoration: line-through; opacity: 0.45; margin-right: 14px; }
+    .offer-row .now { color: #f09a69; font-weight: 500; }
+    .offer-fineprint {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 13px;
+      opacity: 0.6;
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    /* INCLUDES GRID */
+    .includes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: 880px;
+      margin: 60px auto 0;
+    }
+    .includes-item {
+      background: #161f36;
+      padding: 28px 32px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      border-left: 2px solid #f09a69;
+    }
+    .includes-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 28px;
+      color: #f09a69;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .includes-text h3 {
+      font-family: 'Jost', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      color: #f09a69;
+    }
+    .includes-text p { font-size: 14.5px; line-height: 1.65; opacity: 0.82; }
+
+    /* SOCIAL PROOF / TESTIMONIALS */
+    .testimonials-section { background: #08101e; }
+    .tgrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 60px;
+    }
+    .tcard {
+      background: #161f36;
+      padding: 38px 32px;
+      position: relative;
+    }
+    .tcard .quote-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 60px;
+      color: #f09a69;
+      line-height: 0.8;
+      margin-bottom: 12px;
+      opacity: 0.7;
+    }
+    .tcard p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 16.5px;
+      line-height: 1.65;
+      opacity: 0.95;
+      margin-bottom: 22px;
+    }
+    .tcard .name {
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #f09a69;
+      font-weight: 500;
+    }
+    .tcard .stars { font-size: 14px; margin-bottom: 14px; }
+
+    /* MID CTA BAND */
+    .mid-cta {
+      padding: 80px 48px;
+      text-align: center;
+      background: #161f36;
+    }
+    .mid-cta h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 44px;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+    .mid-cta h3 .script { font-size: 50px; }
+    .mid-cta p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 18px;
+      opacity: 0.85;
+      max-width: 580px;
+      margin: 0 auto 32px;
+    }
+
+    /* MARK BIO STRIP */
+    .bio {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 50px;
+      align-items: center;
+      max-width: 900px;
+      margin: 60px auto 0;
+    }
+    .bio-photo { aspect-ratio: 1 / 1; overflow: hidden; }
+    .bio-photo.framed::after { inset: 6px; }
+    .bio-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .bio-text h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 32px;
+      margin-bottom: 14px;
+    }
+    .bio-text .role {
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #f09a69;
+      margin-bottom: 18px;
+    }
+    .bio-text p { font-size: 15.5px; line-height: 1.75; opacity: 0.85; }
+
+    /* FAQ */
+    .faq-section { background: #f5efe7; color: #1c2438; }
+    .faq-section .eyebrow { color: #c97a4a; opacity: 0.85; }
+    .faq-section .h2 { color: #1c2438; }
+    .faq-section .h2 .script { color: #c97a4a; }
+    .faq-list { max-width: 820px; margin: 50px auto 0; }
+    .faq-item { border-bottom: 1px solid rgba(28,36,56,0.18); padding: 28px 0; }
+    .faq-item:first-child { border-top: 1px solid rgba(28,36,56,0.18); }
+    .faq-q {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 500;
+      margin-bottom: 12px;
+      color: #1c2438;
+    }
+    .faq-a { font-size: 15.5px; line-height: 1.75; opacity: 0.82; }
+
+    /* BOOKING SECTION */
+    .booking-section { padding: 110px 48px 120px; max-width: 1100px; margin: 0 auto; }
+    .booking-head { text-align: center; max-width: 720px; margin: 0 auto 50px; }
+    .booking-head .h2 { margin-bottom: 18px; }
+    .booking-head .lead { margin-bottom: 8px; }
+    .booking-head .scarcity-reminder {
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #f09a69;
+      font-weight: 500;
+      margin-top: 18px;
+    }
+    .calendar-embed {
+      background: #ffffff;
+      border-radius: 4px;
+      overflow: hidden;
+      min-height: 600px;
+    }
+    .calendar-embed iframe {
+      width: 100%;
+      border: none;
+      display: block;
+      min-height: 600px;
+    }
+
+    /* FALLBACK CONTACT */
+    .fallback {
+      text-align: center;
+      margin-top: 36px;
+      font-size: 14px;
+      opacity: 0.75;
+    }
+    .fallback a { color: #f09a69; border-bottom: 1px solid rgba(240,154,105,0.4); }
+
+    /* MINI FOOTER */
+    .mini-footer {
+      padding: 36px 48px 30px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      opacity: 0.45;
+    }
+    .mini-footer a { color: #f09a69; opacity: 0.8; margin: 0 12px; }
+    .mini-footer a:hover { opacity: 1; }
+
+    /* STICKY MOBILE CTA */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 200;
+      background: rgba(12,19,34,0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(240,154,105,0.28);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .sticky-cta .copy {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #f09a69;
+      font-weight: 500;
+    }
+    .sticky-cta .copy small {
+      display: block;
+      font-size: 9.5px;
+      letter-spacing: 0.18em;
+      color: #eef0f5;
+      opacity: 0.65;
+      font-weight: 400;
+      margin-top: 2px;
+    }
+    .sticky-cta .btn {
+      padding: 13px 22px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 980px) {
+      .hero h1 { font-size: 60px; }
+      .hero h1 .script { font-size: 72px; }
+      .tgrid { grid-template-columns: 1fr; }
+      .includes-grid { grid-template-columns: 1fr; }
+      .bio { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+      .bio-photo { max-width: 240px; margin: 0 auto; }
+    }
+    @media (max-width: 720px) {
+      .nav { padding: 12px 18px; }
+      .nav-tag { display: none; }
+      .hero { padding: 110px 22px 70px; min-height: 88vh; }
+      .hero h1 { font-size: 44px; }
+      .hero h1 .script { font-size: 54px; }
+      .hero-sub { font-size: 17px; }
+      .hero-trust { gap: 18px; font-size: 11px; }
+      .scarcity-band { padding: 18px 22px; font-size: 11.5px; letter-spacing: 0.16em; }
+      section.block { padding: 70px 22px; }
+      .h2 { font-size: 36px; }
+      .h2 .script { font-size: 42px; }
+      .offer-card { padding: 32px 26px; }
+      .offer-row { font-size: 14px; flex-direction: column; gap: 4px; align-items: flex-start; }
+      .offer-row:last-child { font-size: 18px; }
+      .mid-cta { padding: 60px 22px; }
+      .mid-cta h3 { font-size: 30px; }
+      .mid-cta h3 .script { font-size: 36px; }
+      .booking-section { padding: 70px 22px 100px; }
+      .faq-q { font-size: 19px; }
+      .btn-large { padding: 18px 32px; font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="/" class="nav-logo"><img src="/uploads/Boudoir PNG.png" alt="Mark Andrew Boudoir" /></a>
+    <span class="nav-tag">Limited offer · Only 5 spots</span>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="scarcity-pill">Only 5 spots available</span>
+      <h1>Half off your<br/>boudoir session.<span class="script">Book now.</span></h1>
+      <p class="hero-sub">For the next 5 women who book a complimentary consult and reserve their date — your full-day luxury session fee is 50% off. Hair, makeup, posing direction, and same-day reveal still included.</p>
+      <div class="hero-cta-row">
+        <a href="#book" class="btn btn-primary btn-large">Claim My Spot</a>
+      </div>
+      <div class="hero-trust">
+        <span><span class="stars">★★★★★</span> 200+ five-star reviews</span>
+        <span>South Bend, Indiana</span>
+        <span>Award-winning</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="scarcity-band">
+    Limited to the first <strong>5 women</strong> who book a consult — once they're claimed, the offer ends.
+  </div>
+
+  <!-- THE OFFER -->
+  <section class="block">
+    <div class="eyebrow">The offer</div>
+    <h2 class="h2">What "50% off" <span class="script">actually means.</span></h2>
+    <p class="lead">No bait. No upsell tricks. Half off the session fee — the rate that secures your full day in studio with the team. Below is exactly what's covered and what changes.</p>
+
+    <div class="offer-card framed">
+      <div class="offer-row">
+        <span class="label">Pre-session styling consult (Zoom, 30 min)</span>
+        <span class="now">Included</span>
+      </div>
+      <div class="offer-row">
+        <span class="label">Full-day in-studio session</span>
+        <span class="now">Included</span>
+      </div>
+      <div class="offer-row">
+        <span class="label">Professional hair &amp; makeup (every change)</span>
+        <span class="now">Included</span>
+      </div>
+      <div class="offer-row">
+        <span class="label">Head-to-toe posing direction by Mark</span>
+        <span class="now">Included</span>
+      </div>
+      <div class="offer-row">
+        <span class="label">Same-day image reveal on a 75″ screen</span>
+        <span class="now">Included</span>
+      </div>
+      <div class="offer-row">
+        <span class="label">Session fee</span>
+        <span><span class="strike">Standard rate</span><span class="now">50% off</span></span>
+      </div>
+    </div>
+    <p class="offer-fineprint">Albums, wall art, and digital files are selected separately at your reveal. The 50% off applies to the session fee only — but that's the most expensive part of getting in the door.</p>
+  </section>
+
+  <!-- INCLUDES -->
+  <section class="block" style="padding-top: 0;">
+    <div class="eyebrow">The full experience</div>
+    <h2 class="h2">A full day built <span class="script">around you.</span></h2>
+
+    <div class="includes-grid">
+      <div class="includes-item">
+        <span class="includes-num">01.</span>
+        <div class="includes-text">
+          <h3>Pro hair &amp; makeup</h3>
+          <p>By Aletheia Jean — glam, soft, editorial. We refresh between every wardrobe change.</p>
+        </div>
+      </div>
+      <div class="includes-item">
+        <span class="includes-num">02.</span>
+        <div class="includes-text">
+          <h3>Multiple wardrobe sets</h3>
+          <p>Bring what you love. Forgot something? We have a fully stocked studio wardrobe.</p>
+        </div>
+      </div>
+      <div class="includes-item">
+        <span class="includes-num">03.</span>
+        <div class="includes-text">
+          <h3>Posed by the photographer</h3>
+          <p>Every shot. Head, shoulders, hands, hips, breath. You never have to "figure out what to do."</p>
+        </div>
+      </div>
+      <div class="includes-item">
+        <span class="includes-num">04.</span>
+        <div class="includes-text">
+          <h3>Same-day image reveal</h3>
+          <p>You see your gallery the day of, on a 75-inch screen, ordered into a curated story.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MID CTA -->
+  <section class="mid-cta">
+    <h3>Don't think about it for <span class="script">three weeks.</span></h3>
+    <p>Five spots. First-come, first-served. Once they're claimed, the standard session fee returns.</p>
+    <a href="#book" class="btn btn-primary btn-large">Reserve My Spot</a>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section">
+    <section class="block">
+      <div class="eyebrow">Why women book</div>
+      <h2 class="h2">What they say <span class="script">after.</span></h2>
+
+      <div class="tgrid">
+        <div class="tcard">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>I'm 47 and have never let anyone photograph me like this. Mark made me feel like the most beautiful woman in the room. The reveal made me cry — I've never seen myself that way.</p>
+          <div class="name">— Sarah M.</div>
+        </div>
+        <div class="tcard">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>I was terrified. Within 20 minutes I was laughing and posing like I'd done it a hundred times. The team is incredible — every woman should do this once in her life.</p>
+          <div class="name">— Jessica R.</div>
+        </div>
+        <div class="tcard">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>Worth every cent and then some. The hair, makeup, posing — all of it. I bought the album for myself and the wall art for my husband. He hasn't stopped looking.</p>
+          <div class="name">— Megan T.</div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- BIO -->
+  <section class="block">
+    <div class="eyebrow">Your photographer</div>
+    <h2 class="h2">Hi — I'm <span class="script">Mark.</span></h2>
+
+    <div class="bio">
+      <div class="bio-photo framed">
+        <img src="/uploads/MarkAndrewHeadshot.jpg" alt="Mark Andrew Boughton — Boudoir Photographer" />
+      </div>
+      <div class="bio-text">
+        <h3>Mark Andrew Boughton</h3>
+        <div class="role">Photographer · Studio Owner</div>
+        <p>I've spent a decade photographing women who don't think of themselves as "the photogenic type." Most leave saying it was the most powerful thing they've ever done for themselves. I'm an ambassador for Spider Camera Holster and TogDrop, a speaker for ShutterFest and H&amp;H Color Lab, and featured in Behind the Shutter and Shutter Magazine. But none of that matters as much as the look on your face when you see your reveal.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <section class="block">
+      <div class="eyebrow">Common questions</div>
+      <h2 class="h2">Yes, you can. <span class="script">Do this.</span></h2>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">"I'm not photogenic."</div>
+          <div class="faq-a">Almost everyone says this. It's not true — it's just that you've never been photographed by someone who poses every shot. Mark directs your head, shoulders, hands, hips, and breath, frame by frame. There's no "look natural and figure it out."</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Is it awkward?</div>
+          <div class="faq-a">Not the way we run it. The studio is private (no walk-ins, no other clients), the team is small (Mark + Aletheia), and most women say the awkwardness they expected never showed up. Within the first 30 minutes, you'll be laughing.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What's the catch with 50% off?</div>
+          <div class="faq-a">No catch. We only need 5 women to fill specific dates in our calendar — once those 5 spots are booked, the offer ends. The session fee discount is real and applies the second you reserve your date.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What do I need to spend total?</div>
+          <div class="faq-a">The session fee (50% off via this offer) covers the day. Albums, wall art, and digital files are chosen at your same-day reveal — most clients invest in something they'll have for a lifetime, but that part is entirely your call.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Do I have to know what to wear?</div>
+          <div class="faq-a">Nope. After you book, we send a full wardrobe guide and a Zoom call to plan it together. Forgot something? Studio wardrobe has you covered.</div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- BOOKING -->
+  <section class="booking-section" id="book">
+    <div class="booking-head">
+      <div class="eyebrow">Book your consult</div>
+      <h2 class="h2">Pick a time <span class="script">that works.</span></h2>
+      <p class="lead">10 minutes on the phone. We confirm your date, lock in the 50% off, and start planning your day. Zero pressure.</p>
+      <p class="scarcity-reminder">Only 5 spots — first to book, first to claim.</p>
+    </div>
+    <div class="calendar-embed framed">
+      <iframe src="https://link.disruptormarketing.io/widget/booking/b7eSmyInmj2pwqIQesEp" style="width: 100%; border: none; overflow: hidden;" scrolling="no" id="ghl-50off-booking"></iframe>
+    </div>
+    <div class="fallback">
+      Calendar not loading? Email <a href="mailto:mark@markandrewboudoir.com?subject=50%25%20Off%20Session%20-%20Reserve%20My%20Spot">mark@markandrewboudoir.com</a> or call <a href="tel:+15746225109">(574) 622-5109</a>.
+    </div>
+  </section>
+
+  <footer class="mini-footer">
+    © Mark Andrew Boudoir · South Bend, Indiana · <a href="/privacy-policy/">Privacy</a> · <a href="/terms-of-service/">Terms</a>
+  </footer>
+
+  <!-- STICKY MOBILE CTA -->
+  <div class="sticky-cta">
+    <div class="copy">
+      50% off session fee
+      <small>Only 5 spots available</small>
+    </div>
+    <a href="#book" class="btn btn-primary">Claim Spot</a>
+  </div>
+
+  <script src="https://link.disruptormarketing.io/js/form_embed.js" type="text/javascript"></script>
+
+</body>
+</html>
