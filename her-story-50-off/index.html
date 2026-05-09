@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex,follow" />
+  <title>Her Story — Then Half Off Your Session | Mark Andrew Boudoir</title>
+  <meta name="description" content="Katherine drove hours to my studio nervous. Six months later she answered every question on camera. If her story sounds familiar — your session is 50% off." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Her Story — Then Half Off Your Session" />
+  <meta property="og:description" content="One past client's verbatim story — and an invitation: half off your session for the next 5 women who book." />
+  <meta property="og:image" content="https://www.markandrewboudoir.com/uploads/katherine-bax-blog/katherine-color-13.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #f5efe7;
+      color: #2b1d2e;
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      padding-bottom: 90px;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    em { font-style: italic; }
+    ::selection { background: rgba(168,83,63,0.22); }
+
+    .accent { color: #a8533f; }
+
+    .btn {
+      display: inline-block;
+      padding: 18px 36px;
+      font-family: 'Jost', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      border-radius: 4px;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+    .btn-primary { background: #a8533f; color: #ffffff; border-color: #a8533f; }
+    .btn-primary:hover { background: #8f4434; border-color: #8f4434; transform: translateY(-1px); box-shadow: 0 8px 20px -8px rgba(168,83,63,0.5); }
+    .btn-large { padding: 20px 44px; font-size: 15px; font-weight: 600; }
+
+    /* NAV */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 14px 36px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(245,239,231,0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e8dfd0;
+    }
+    .nav-logo img {
+      height: 38px; width: auto; display: block;
+      filter: brightness(0) saturate(100%) invert(13%) sepia(22%) saturate(1500%) hue-rotate(280deg) brightness(75%);
+    }
+    .nav-tag {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 15px;
+      color: #a8533f;
+    }
+
+    /* HERO — full-bleed photo, quote overlay, no offer yet */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      padding: 120px 36px 70px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('/uploads/katherine-bax-blog/katherine-color-13.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15,5,15,0.25) 0%, rgba(15,5,15,0.45) 60%, rgba(15,5,15,0.85) 100%);
+      z-index: 1;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+      color: #f5efe7;
+    }
+    .hero-eyebrow {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 18px;
+      color: #f5efe7;
+      opacity: 0.85;
+      margin-bottom: 26px;
+      letter-spacing: 0.02em;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: 46px;
+      line-height: 1.25;
+      margin-bottom: 30px;
+      color: #ffffff;
+    }
+    .hero h1::before, .hero h1::after { content: '"'; font-style: italic; opacity: 0.6; }
+    .hero-attribution {
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #f5efe7;
+      opacity: 0.78;
+      margin-bottom: 60px;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 14px;
+      color: #f5efe7;
+      opacity: 0.75;
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+    .hero-scroll-arrow {
+      display: block;
+      margin: 10px auto 0;
+      width: 1px;
+      height: 28px;
+      background: #f5efe7;
+      opacity: 0.55;
+    }
+
+    /* STORY SECTION SHARED */
+    .story-section {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 90px 36px;
+    }
+    .story-section.wide { max-width: 920px; }
+
+    .chapter-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      color: #a8533f;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .story-h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 44px;
+      line-height: 1.2;
+      text-align: center;
+      margin-bottom: 36px;
+      color: #2b1d2e;
+    }
+    .story-h2 em { font-style: italic; color: #a8533f; }
+    .story-p {
+      font-size: 18px;
+      line-height: 1.75;
+      margin-bottom: 26px;
+      color: #2b1d2e;
+    }
+    .story-p:last-child { margin-bottom: 0; }
+    .story-p strong { font-weight: 600; }
+
+    /* PULL QUOTE — Katherine's voice */
+    .pq {
+      background: #ffffff;
+      border-left: 3px solid #a8533f;
+      padding: 32px 36px;
+      margin: 36px 0;
+      border-radius: 4px;
+      box-shadow: 0 2px 14px -8px rgba(43,29,46,0.12);
+    }
+    .pq .pq-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #a8533f;
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+    .pq p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 22px;
+      line-height: 1.5;
+      color: #2b1d2e;
+      margin-bottom: 14px;
+    }
+    .pq cite {
+      font-family: 'Jost', sans-serif;
+      font-style: normal;
+      font-size: 13px;
+      color: #6b5363;
+      letter-spacing: 0.02em;
+    }
+
+    /* FULL-BLEED PHOTO BREAK */
+    .photo-break {
+      width: 100%;
+      max-width: 1280px;
+      margin: 60px auto;
+      padding: 0 36px;
+    }
+    .photo-break img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+      box-shadow: 0 4px 24px -10px rgba(43,29,46,0.25);
+    }
+    .photo-break .caption {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 15px;
+      color: #6b5363;
+      text-align: center;
+      margin-top: 14px;
+    }
+
+    /* PHOTO PAIR */
+    .photo-pair {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 36px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .photo-pair img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 2 / 3;
+      border-radius: 4px;
+      box-shadow: 0 4px 18px -10px rgba(43,29,46,0.2);
+    }
+
+    /* SECTION DIVIDER */
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: #a8533f;
+      opacity: 0.5;
+      margin: 0 auto;
+    }
+
+    /* THE OFFER (drops in mid-page) */
+    .offer-drop {
+      background: #2b1d2e;
+      color: #f5efe7;
+      padding: 90px 36px;
+      text-align: center;
+    }
+    .offer-drop-inner { max-width: 720px; margin: 0 auto; }
+    .offer-drop-eyebrow {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 18px;
+      color: #e8a890;
+      margin-bottom: 22px;
+    }
+    .offer-drop h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 48px;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      color: #ffffff;
+    }
+    .offer-drop h2 em { color: #e8a890; }
+    .offer-drop p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #d8c8c5;
+      margin-bottom: 36px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .offer-drop .scarcity-line {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 17px;
+      color: #e8a890;
+      margin-top: 24px;
+      margin-bottom: 0;
+    }
+    .offer-list {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(232,168,144,0.3);
+      padding: 28px 32px;
+      margin: 36px auto;
+      max-width: 540px;
+      border-radius: 4px;
+      text-align: left;
+    }
+    .offer-list-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      font-size: 15px;
+      color: #f5efe7;
+    }
+    .offer-list-row .check { color: #e8a890; margin-right: 10px; }
+    .offer-list-row .strike { text-decoration: line-through; color: #b8a098; opacity: 0.7; margin-right: 10px; font-size: 14px; }
+    .offer-list-row .now { color: #e8a890; font-weight: 600; }
+
+    /* AFTER-OFFER GALLERY */
+    .her-gallery-section {
+      background: #f5efe7;
+      padding: 90px 36px;
+    }
+    .her-gallery-inner { max-width: 1200px; margin: 0 auto; text-align: center; }
+    .her-gallery-grid {
+      column-count: 3;
+      column-gap: 14px;
+      margin-top: 40px;
+      text-align: left;
+    }
+    .her-gallery-grid .gallery-tile {
+      break-inside: avoid;
+      margin: 0 0 14px 0;
+      overflow: hidden;
+      display: block;
+      border-radius: 4px;
+      box-shadow: 0 4px 18px -10px rgba(43,29,46,0.18);
+    }
+    .her-gallery-grid img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .her-gallery-grid .gallery-tile:hover img { transform: scale(1.03); }
+
+    /* MINI FAQ */
+    .mini-faq-section { background: #ffffff; padding: 80px 36px; border-top: 1px solid #e8dfd0; border-bottom: 1px solid #e8dfd0; }
+    .mini-faq-inner { max-width: 760px; margin: 0 auto; }
+    .mini-faq-item { padding: 24px 0; border-bottom: 1px solid #ede5d6; }
+    .mini-faq-item:last-child { border-bottom: none; }
+    .mini-faq-q {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 10px;
+      color: #2b1d2e;
+    }
+    .mini-faq-a { font-size: 16px; line-height: 1.7; color: #4a3848; }
+
+    /* BOOKING SECTION */
+    .booking-section { padding: 90px 36px 100px; max-width: 1080px; margin: 0 auto; background: #f5efe7; }
+    .booking-head { text-align: center; max-width: 720px; margin: 0 auto 40px; }
+    .booking-head h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 42px;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: #2b1d2e;
+    }
+    .booking-head h2 em { color: #a8533f; font-style: italic; }
+    .booking-head p {
+      font-size: 17px;
+      color: #4a3848;
+      line-height: 1.65;
+    }
+    .booking-head .scarcity-reminder {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 17px;
+      color: #a8533f;
+      margin-top: 14px;
+    }
+    .calendar-embed {
+      background: #ffffff;
+      border: 1px solid #e8dfd0;
+      border-radius: 6px;
+      overflow: hidden;
+      min-height: 600px;
+    }
+    .calendar-embed iframe {
+      width: 100%;
+      border: none;
+      display: block;
+      min-height: 600px;
+    }
+    .fallback {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 14px;
+      color: #6b5363;
+    }
+    .fallback a { color: #a8533f; font-weight: 500; }
+
+    /* MINI FOOTER */
+    .mini-footer {
+      padding: 28px 36px;
+      text-align: center;
+      border-top: 1px solid #e8dfd0;
+      font-size: 13px;
+      color: #6b5363;
+      background: #f5efe7;
+    }
+    .mini-footer a { color: #a8533f; margin: 0 8px; }
+
+    /* STICKY MOBILE CTA */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 200;
+      background: rgba(43,29,46,0.97);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .sticky-cta .copy {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 15px;
+      color: #f5efe7;
+    }
+    .sticky-cta .copy small {
+      display: block;
+      font-family: 'Jost', sans-serif;
+      font-style: normal;
+      font-size: 11px;
+      color: #d8c8c5;
+      margin-top: 2px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 720px) {
+      .nav { padding: 10px 18px; }
+      .nav-tag { font-size: 13px; }
+      .hero { padding: 100px 22px 60px; min-height: 90vh; }
+      .hero-eyebrow { font-size: 15px; margin-bottom: 18px; }
+      .hero h1 { font-size: 30px; line-height: 1.3; }
+      .hero-attribution { font-size: 11px; margin-bottom: 40px; }
+      .story-section { padding: 60px 22px; }
+      .story-h2 { font-size: 30px; }
+      .story-p { font-size: 16px; }
+      .pq { padding: 24px 22px; margin: 28px 0; }
+      .pq p { font-size: 18px; }
+      .photo-break, .photo-pair { padding: 0 22px; margin: 40px auto; }
+      .photo-pair { grid-template-columns: 1fr; }
+      .offer-drop { padding: 70px 22px; }
+      .offer-drop h2 { font-size: 32px; }
+      .offer-list { padding: 22px 24px; }
+      .her-gallery-section { padding: 60px 22px; }
+      .her-gallery-grid { column-count: 2; column-gap: 10px; }
+      .her-gallery-grid .gallery-tile { margin-bottom: 10px; }
+      .mini-faq-section { padding: 60px 22px; }
+      .mini-faq-q { font-size: 20px; }
+      .booking-section { padding: 60px 22px 90px; }
+      .booking-head h2 { font-size: 30px; }
+      .btn-large { padding: 16px 30px; font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="/" class="nav-logo"><img src="/uploads/Boudoir PNG.png" alt="Mark Andrew Boudoir" /></a>
+    <span class="nav-tag">A past client's story</span>
+  </nav>
+
+  <!-- HERO — Katherine's image, her opening quote, no offer mention -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Her story</div>
+      <h1>I had always admired women who would do these boudoir shoots. They looked so confident, so calm — like they weren't stressed at all. And I was like, that's me. I need something to help me loosen up.</h1>
+      <div class="hero-attribution">— Katherine, in her own words</div>
+    </div>
+    <div class="hero-scroll">
+      Read her story
+      <span class="hero-scroll-arrow"></span>
+    </div>
+  </section>
+
+  <!-- ACT 1 — Why she booked -->
+  <section class="story-section">
+    <div class="chapter-mark">Chapter one</div>
+    <h2 class="story-h2">She booked because she <em>wanted herself back.</em></h2>
+
+    <p class="story-p">Katherine drove a few hours to the studio last November. By the time she sat down on my couch six months later to answer questions on camera, the woman across from me wasn't the same one who'd made the booking. But she remembered exactly why she did.</p>
+
+    <div class="pq">
+      <div class="pq-label">In her words</div>
+      <p>"I wanted to feel confident. I wanted to gain some of this confidence back that I've lost. Through years of feeling less than because I don't look a certain way."</p>
+      <cite>— Katherine</cite>
+    </div>
+
+    <p class="story-p">The reason most women book this isn't the photos. The photos are the artifact. The reason is something underneath that — usually some version of <em>I want to feel like myself again. I want to stop apologizing for what I look like. I want to know I can do something hard.</em></p>
+
+    <div class="pq">
+      <div class="pq-label">In her words</div>
+      <p>"I grew up in a family where my cousins and my sister looked a certain way, and I was kind of ostracized — made the black sheep — because I didn't look like them."</p>
+      <cite>— Katherine</cite>
+    </div>
+
+    <p class="story-p">She'd carried that for years. Not visible to most people. Visible to her every morning.</p>
+
+    <div class="pq">
+      <div class="pq-label">In her words</div>
+      <p>"I think what stops a lot of us from doing anything in life is overthinking what could go wrong, instead of thinking — what if it goes right?"</p>
+      <cite>— Katherine</cite>
+    </div>
+  </section>
+
+  <div class="photo-break">
+    <img src="/uploads/katherine-bax-blog/katherine-color-3.jpg" alt="Katherine in soft natural light, getting ready for her session" loading="lazy" />
+  </div>
+
+  <!-- ACT 2 — The research and the choice -->
+  <section class="story-section">
+    <div class="chapter-mark">Chapter two</div>
+    <h2 class="story-h2">She did her <em>homework.</em></h2>
+
+    <p class="story-p">Katherine doesn't make impulse decisions about anything. Her dad was in law enforcement. The phrase she grew up with was <em>"the devil's in the details."</em> So before she sent a deposit, she dug.</p>
+
+    <div class="pq">
+      <div class="pq-label">In her words</div>
+      <p>"I loved the diversity — but not just the diversity of who you photographed. The diversity of <em>shape</em>. The modeling industry is very subjective to a certain look. I'm more comfortable working with someone who's worked with everybody."</p>
+      <cite>— Katherine</cite>
+    </div>
+
+    <p class="story-p">That part matters. When you scroll a photographer's gallery and only see one body type, one age, one skin tone, one polished version of beauty — your brain says <em>this isn't for me</em>. When you see every figure, every age, every season of life represented well — your brain says <em>maybe I could be in there too.</em></p>
+
+    <div class="pq">
+      <div class="pq-label">In her words</div>
+      <p>"Not everybody is who they are on the internet. I was like, you know what? I'm gonna do my research so at least I'm covered."</p>
+      <cite>— Katherine</cite>
+    </div>
+
+    <p class="story-p">She dug into reviews. She read what past clients said. She told her dad. (Her dad wanted to run a background check.) And then she booked.</p>
+
+    <div class="pq">
+      <div class="pq-label">In her words</div>
+      <p>"I was a little nervous working with a man, if I'm gonna be honest. But at the end of the day, you're an artist. Your medium happens to be boudoir. I wasn't going to judge a book by its cover."</p>
+      <cite>— Katherine</cite>
+    </div>
+  </section>
+
+  <div class="photo-pair">
+    <img src="/uploads/katherine-bax-blog/katherine-color-2.jpg" alt="Katherine in glam, full hair and makeup" loading="lazy" />
+    <img src="/uploads/katherine-bax-blog/katherine-color-7.jpg" alt="Katherine in her first wardrobe set" loading="lazy" />
+  </div>
+
+  <!-- ACT 3 — The day -->
+  <section class="story-section">
+    <div class="chapter-mark">Chapter three</div>
+    <h2 class="story-h2">The day was awkward — for about <em>twenty minutes.</em></h2>
+
+    <p class="story-p">Every woman who walks into the studio for the first time has the same nervous-system response. Body says: <em>this is unfamiliar, what am I doing.</em> Fight or flight. Katherine had it too.</p>
+
+    <div class="pq">
+      <div class="pq-label">In her words</div>
+      <p>"When it started, I was a full-on 8.5, 9. I felt so awkward, because even in swimsuits I felt awkward. So this was the first time I was glammed up in a lingerie set, and I'm just awkward in general."</p>
+      <cite>— Katherine, on a 1-to-10 awkwardness scale</cite>
+    </div>
+
+    <p class="story-p">My job in the first 15 minutes is the same job every time: pose every shot. Head, shoulders, hands, hips, breath. You don't have to figure out what to do. The instruction never stops.</p>
+
+    <div class="pq">
+      <div class="pq-label">In her words</div>
+      <p>"You walked me through each pose, each step — where to place my hands, where to turn my head. People who don't know what they're doing want to be told step by step."</p>
+      <cite>— Katherine</cite>
+    </div>
+
+    <p class="story-p">The other thing — the unglamorous-but-essential thing — is that the room is loud with affirmation. Not creepy. Just verbal. <em>Yes, this is looking good. You're doing great. Lift your chin a quarter inch. Perfect.</em> Most women have never been spoken to that way, and certainly not while they're dressed like that.</p>
+
+    <div class="pq">
+      <div class="pq-label">In her words</div>
+      <p>"You were definitely my hype man the entire time. Kayla too. Just hearing it confirmed verbally — <em>yes, this is looking good, you're doing great</em> — for someone like me who's never done it, that 'attagirl' was huge."</p>
+      <cite>— Katherine</cite>
+    </div>
+
+    <p class="story-p">By the third look she was laughing. By the end of the day she had to be reminded to stop posing.</p>
+
+    <div class="pq">
+      <div class="pq-label">In her words</div>
+      <p>"By the end, I was probably a 2 or 3. It was just awkward because of the poses, not what I was wearing. We were both like, <em>it's fine, we'll figure it out.</em>"</p>
+      <cite>— Katherine</cite>
+    </div>
+  </section>
+
+  <div class="photo-break">
+    <img src="/uploads/katherine-bax-blog/katherine-color-15.jpg" alt="Katherine, mid-session, comfortable now" loading="lazy" />
+    <p class="caption">A few hours in. The 8.5 became a 2.</p>
+  </div>
+
+  <!-- ACT 4 — The reveal -->
+  <section class="story-section">
+    <div class="chapter-mark">Chapter four</div>
+    <h2 class="story-h2">Then she <em>saw herself.</em></h2>
+
+    <p class="story-p">Same-day reveal means we shoot, we eat lunch while I edit, and then the gallery comes up on a 75-inch screen. There's no waiting weeks for a download link. The work you did that morning — you see it that afternoon. The room goes quiet.</p>
+
+    <div class="pq">
+      <div class="pq-label">In her words</div>
+      <p>"I wanted to leave the room. I wanted to run down the street. Because it's the big screen, and it's in your face."</p>
+      <cite>— Katherine</cite>
+    </div>
+
+    <p class="story-p">That reaction is normal. Almost universal, actually. The first 10 photos are uncomfortable to watch yourself in because you're looking with the eyes you've used for forty years. By photo 30 or 40, those eyes start to soften.</p>
+
+    <div class="pq">
+      <div class="pq-label">In her words</div>
+      <p>"I saw a glamorized version of myself. It was overwhelming, but in a positive way. It was like being bombarded with what others see — and what you don't see."</p>
+      <cite>— Katherine</cite>
+    </div>
+
+    <div class="pq">
+      <div class="pq-label">In her words</div>
+      <p>"The silhouette was mine. The face was mine. There were lumps and bumps that were mine. But it was shot in such a tasteful, artistic way. I remember being so uncomfortable in those poses — but in the photos, I don't look like it."</p>
+      <cite>— Katherine</cite>
+    </div>
+
+    <p class="story-p">She'd told me at booking she expected to like one or two images. She left having chosen many more than that.</p>
+
+    <div class="pq">
+      <div class="pq-label">In her words</div>
+      <p>"I thought I was only going to get, like, a picture or two. I did not think I would fall in love with more than one."</p>
+      <cite>— Katherine</cite>
+    </div>
+  </section>
+
+  <div class="photo-break">
+    <img src="/uploads/katherine-bax-blog/katherine-color-21.jpg" alt="Katherine — close cinematic boudoir portrait" loading="lazy" />
+  </div>
+
+  <!-- ACT 5 — What changed -->
+  <section class="story-section">
+    <div class="chapter-mark">Chapter five</div>
+    <h2 class="story-h2">Six months later, here's what <em>actually changed.</em></h2>
+
+    <p class="story-p">Katherine came back six months after her session to answer every buyer-question on camera. The thing I noticed most wasn't what she said. It was how she sat. Posture different. Shoulders different. Voice different. I'm not making that up — go watch the footage.</p>
+
+    <div class="pq">
+      <div class="pq-label">In her words</div>
+      <p>"It felt like releasing something I'd kept in a box on a shelf for over a decade. All my insecurities. All my self-confidence issues. All my self-doubt. I think it was finally set free."</p>
+      <cite>— Katherine</cite>
+    </div>
+
+    <div class="pq">
+      <div class="pq-label">In her words</div>
+      <p>"I'm not cured. You're great, but I don't think you cured all of it. But it felt like a stepping stone to finally being comfortable with who I am right now."</p>
+      <cite>— Katherine</cite>
+    </div>
+
+    <p class="story-p">She framed the realization in a way I've heard from dozens of past clients. The realization is rarely <em>"I'm beautiful now"</em>. It's almost always <em>"I'm allowed to stop waiting."</em></p>
+
+    <div class="pq">
+      <div class="pq-label">In her words</div>
+      <p>"If I don't love myself now, I don't think I'm going to love myself anytime — even if I'm 100 pounds lighter, 100 pounds heavier."</p>
+      <cite>— Katherine</cite>
+    </div>
+
+    <div class="pq">
+      <div class="pq-label">In her words</div>
+      <p>"It gave me the confidence to try dating again. So… things have changed."</p>
+      <cite>— Katherine</cite>
+    </div>
+
+    <p class="story-p">If any part of Katherine's story sounds familiar to you — the hesitation, the comparison, the <em>"is this even for someone like me"</em> — keep reading.</p>
+
+    <div class="divider"></div>
+  </section>
+
+  <!-- ★ THE OFFER DROPS HERE ★ -->
+  <section class="offer-drop">
+    <div class="offer-drop-inner">
+      <div class="offer-drop-eyebrow">An invitation</div>
+      <h2>Half off your session — for the next <em>five women</em> who book.</h2>
+      <p>If Katherine's story is your story — and you'd rather stop wondering and just go do it — your full-day boudoir session fee is 50% off. Hair, makeup, posing direction, and same-day reveal still included. Limited to the next five women who book a complimentary consult and reserve their date.</p>
+
+      <div class="offer-list">
+        <div class="offer-list-row"><span><span class="check">✓</span>Pre-session styling consult</span><span class="now">Included</span></div>
+        <div class="offer-list-row"><span><span class="check">✓</span>Full day in studio</span><span class="now">Included</span></div>
+        <div class="offer-list-row"><span><span class="check">✓</span>Posing direction by Mark, every shot</span><span class="now">Included</span></div>
+        <div class="offer-list-row"><span><span class="check">✓</span>Same-day edited image reveal</span><span class="now">Included</span></div>
+        <div class="offer-list-row" style="border-top: 1px solid rgba(232,168,144,0.25); margin-top: 8px; padding-top: 14px;"><span>Session fee</span><span><span class="strike">Normally $499</span><span class="now">50% off</span></span></div>
+      </div>
+
+      <a href="#book" class="btn btn-primary btn-large">Claim My Spot</a>
+      <p class="scarcity-line">Once the five spots are claimed, the standard rate returns.</p>
+    </div>
+  </section>
+
+  <!-- HER OTHER PHOTOS -->
+  <section class="her-gallery-section">
+    <div class="her-gallery-inner">
+      <div class="chapter-mark">More from her session</div>
+      <h2 class="story-h2">Katherine — the rest of <em>her day.</em></h2>
+      <div class="her-gallery-grid">
+        <div class="gallery-tile"><img src="/uploads/katherine-bax-blog/katherine-color-5.jpg" alt="Katherine — boudoir portrait from her session" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/katherine-bax-blog/katherine-color-8.jpg" alt="Katherine — boudoir portrait from her session" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/katherine-bax-blog/katherine-color-10.jpg" alt="Katherine — boudoir portrait from her session" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/katherine-bax-blog/katherine-color-18.jpg" alt="Katherine — boudoir portrait from her session" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/katherine-bax-blog/katherine-color-23.jpg" alt="Katherine — boudoir portrait from her session" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/katherine-bax-blog/katherine-color-27.jpg" alt="Katherine — boudoir portrait from her session" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/katherine-bax-blog/katherine-color-28.jpg" alt="Katherine — boudoir portrait from her session" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/katherine-bax-blog/katherine-color-30.jpg" alt="Katherine — boudoir portrait from her session" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/katherine-bax-blog/katherine-color-31.jpg" alt="Katherine — boudoir portrait from her session" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/katherine-bax-blog/katherine-color-34.jpg" alt="Katherine — boudoir portrait from her session" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/katherine-bax-blog/katherine-color-38.jpg" alt="Katherine — boudoir portrait from her session" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/katherine-bax-blog/katherine-color-44.jpg" alt="Katherine — boudoir portrait from her session" loading="lazy" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HER FINAL WORDS -->
+  <section class="story-section">
+    <div class="chapter-mark">In closing</div>
+    <h2 class="story-h2">A final word from <em>Katherine.</em></h2>
+
+    <div class="pq">
+      <div class="pq-label">In her words</div>
+      <p>"You're more likely to be proud that you did it than regret it. Because at the end of the day, it's your life."</p>
+      <cite>— Katherine</cite>
+    </div>
+
+    <div class="pq">
+      <div class="pq-label">In her words</div>
+      <p>"Do it for you. Don't do it for somebody else. Do it for you."</p>
+      <cite>— Katherine</cite>
+    </div>
+  </section>
+
+  <!-- MINI FAQ — only the most relevant -->
+  <section class="mini-faq-section">
+    <div class="mini-faq-inner">
+      <div class="chapter-mark">Common hesitations</div>
+      <h2 class="story-h2" style="margin-bottom: 28px;">Yes, you can. <em>Do this.</em></h2>
+
+      <div class="mini-faq-item">
+        <div class="mini-faq-q">"I'm not photogenic."</div>
+        <div class="mini-faq-a">Almost everyone says this. It's not true — it's just that you've never been photographed by someone who's used to photographing every figure, every age, every personality. Mark has spent a decade in studio with thousands of women across every body type and every season of life, and he poses every shot — head, shoulders, hands, hips, breath — so you never have to "figure out what to do."</div>
+      </div>
+      <div class="mini-faq-item">
+        <div class="mini-faq-q">"What if I'm awkward like Katherine was?"</div>
+        <div class="mini-faq-a">You probably will be — for the first 15-20 minutes. Then you won't be. Every woman who walks in says the same thing, and almost every one of them is laughing by the third look. The team is small (Mark + Aletheia), the studio is private, and posing direction never stops.</div>
+      </div>
+      <div class="mini-faq-item">
+        <div class="mini-faq-q">"What's the catch with 50% off?"</div>
+        <div class="mini-faq-a">No catch. Five women. First-come, first-served. Once the five spots are booked, the offer ends and the session fee returns to standard rate. The discount applies to the session fee — the rate that secures your full day with the team.</div>
+      </div>
+      <div class="mini-faq-item">
+        <div class="mini-faq-q">Where is the studio?</div>
+        <div class="mini-faq-a">South Bend, Indiana. Specific address shared after booking. Many of our clients drive from Mishawaka, Granger, Elkhart, Goshen, and the broader Michiana area — Katherine drove a few hours.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section class="booking-section" id="book">
+    <div class="booking-head">
+      <div class="chapter-mark">Book your consult</div>
+      <h2>Pick a time <em>that works.</em></h2>
+      <p>10 minutes on the phone. We confirm your date, lock in the 50% off, and start planning your day. Zero pressure.</p>
+      <p class="scarcity-reminder">Only five spots — first to book, first to claim.</p>
+    </div>
+    <div class="calendar-embed">
+      <iframe src="https://link.disruptormarketing.io/widget/booking/b7eSmyInmj2pwqIQesEp" style="width: 100%; border: none; overflow: hidden;" scrolling="no" id="ghl-herstory-booking"></iframe>
+    </div>
+    <div class="fallback">
+      Calendar not loading? Email <a href="mailto:mark@markandrewboudoir.com?subject=Her%20Story%20-%2050%25%20Off%20Reservation">mark@markandrewboudoir.com</a> or call <a href="tel:+15746225109">(574) 622-5109</a>.
+    </div>
+  </section>
+
+  <footer class="mini-footer">
+    © Mark Andrew Boudoir · South Bend, Indiana · <a href="/privacy-policy/">Privacy</a> · <a href="/terms-of-service/">Terms</a>
+  </footer>
+
+  <!-- STICKY MOBILE CTA -->
+  <div class="sticky-cta">
+    <div class="copy">
+      Half off — five spots
+      <small>Like Katherine did</small>
+    </div>
+    <a href="#book" class="btn btn-primary">Claim Spot</a>
+  </div>
+
+  <script src="https://link.disruptormarketing.io/js/form_embed.js" type="text/javascript"></script>
+
+</body>
+</html>
