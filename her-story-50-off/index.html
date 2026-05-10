@@ -557,6 +557,142 @@
       border-radius: 20px;
     }
 
+    /* TEAM SECONDARY (Aletheia + Christina under Mark) */
+    .team-secondary-head {
+      max-width: 980px;
+      margin: 60px auto 22px;
+      text-align: center;
+    }
+    .team-secondary-head h3 {
+      font-family: 'Jost', sans-serif;
+      font-weight: 600;
+      font-size: 22px;
+      letter-spacing: -0.005em;
+      color: #1c2438;
+    }
+    .team-secondary-head h3 .accent { color: #c97a4a; }
+    .team-secondary-head p {
+      font-size: 14.5px;
+      color: #4a5263;
+      margin-top: 8px;
+    }
+    .team-secondary {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+    .team-member {
+      background: #ffffff;
+      border: 1px solid #e5dfd4;
+      border-radius: 6px;
+      padding: 24px 26px;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+    .team-member-photo {
+      flex-shrink: 0;
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    .team-member-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .team-member h4 {
+      font-family: 'Jost', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 2px;
+      color: #1c2438;
+    }
+    .team-member .role {
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #c97a4a;
+      margin-bottom: 8px;
+    }
+    .team-member p {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: #4a5263;
+    }
+
+    /* SCROLLING TESTIMONIALS — horizontal swipeable carousel */
+    .scroll-testimonials {
+      margin: 50px -28px 0;
+      padding: 0 28px 14px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .scroll-testimonials::-webkit-scrollbar { display: none; }
+    .scroll-testimonials-track {
+      display: flex;
+      gap: 16px;
+      padding: 4px;
+    }
+    .scroll-testimonial-card {
+      flex: 0 0 320px;
+      scroll-snap-align: start;
+      background: #161f36;
+      border: 1px solid rgba(232,137,92,0.18);
+      border-radius: 6px;
+      padding: 24px 24px 22px;
+    }
+    .scroll-testimonial-photo {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 14px;
+      border: 2px solid rgba(232,137,92,0.35);
+    }
+    .scroll-testimonial-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .scroll-testimonial-card .stars { color: #e8895c; letter-spacing: 2px; font-size: 14px; margin-bottom: 8px; }
+    .scroll-testimonial-card p { font-size: 14px; line-height: 1.55; margin-bottom: 14px; color: #f5efe7; }
+    .scroll-testimonial-card .name {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #e8895c;
+    }
+    .scroll-hint {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(245,239,231,0.4);
+      font-weight: 600;
+    }
+
+    /* SESSION GALLERY (mosaic) */
+    .session-gallery { max-width: 1200px; margin: 50px auto 0; }
+    .gallery-mosaic { column-count: 4; column-gap: 14px; }
+    .gallery-mosaic .gallery-tile {
+      break-inside: avoid;
+      margin: 0 0 14px 0;
+      overflow: hidden;
+      display: block;
+      border-radius: 4px;
+      box-shadow: 0 4px 18px -10px rgba(0,0,0,0.4);
+    }
+    .gallery-mosaic .gallery-tile img {
+      width: 100%; height: auto; display: block;
+      transition: transform 0.4s ease;
+    }
+    .gallery-mosaic .gallery-tile:hover img { transform: scale(1.03); }
+
     /* FAQ */
     .faq-list { max-width: 760px; margin: 50px auto 0; }
     .faq-item {
@@ -879,28 +1015,149 @@
     </div>
   </section>
 
-  <!-- MORE TESTIMONIALS -->
-  <section class="block darker">
-    <div class="section-eyebrow">More client reviews</div>
-    <h2 class="section-h2">Why women say <span class="accent">"every woman should do this."</span></h2>
+  <!-- MORE OF MARK'S WORK — mosaic gallery -->
+  <section class="block dark">
+    <div class="section-eyebrow">More of the work</div>
+    <h2 class="section-h2">A glimpse of <span class="accent">recent sessions.</span></h2>
+    <p class="section-lead">Every body type. Every age. Every season of life.</p>
 
-    <div class="testimonial-grid">
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p>"I'm 47 and have never let anyone photograph me like this. Mark made me feel like the most beautiful woman in the room. The reveal made me cry."</p>
-        <div class="name">— Sarah M.</div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p>"I was terrified. Within 20 minutes I was laughing and posing like I'd done it a hundred times. Every woman should do this once in her life."</p>
-        <div class="name">— Jessica R.</div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p>"Worth every cent and then some. The hair, makeup, posing — all of it. I bought the album for myself and the wall art for my husband. He hasn't stopped looking."</p>
-        <div class="name">— Megan T.</div>
+    <div class="session-gallery">
+      <div class="gallery-mosaic">
+        <div class="gallery-tile"><img src="/uploads/black-lace-top-pearl-necklace-green-light-boudoir-photography-mishawaka-in.jpg" alt="Boudoir portrait — black lace top, pearl necklace, green light" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/silver-hair-velvet-bra-tulle-robe-vanity-lipstick-boudoir-photography-niles-mi.jpg" alt="Mature boudoir portrait — silver hair, velvet bra" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/burgundy-lace-bra-fur-coat-city-skyline-over-shoulder-boudoir-photography-south-bend-in.jpg" alt="Boudoir portrait — burgundy lace, fur coat, city skyline" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/black-strappy-lingerie-golf-club-prop-red-smoke-boudoir-session-elkhart-in.jpg" alt="Boudoir portrait — black strappy lingerie, golf club, red smoke" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/breast-cancer-survivor-empowering-luxury-boudoir-south-bend-in.jpg" alt="Empowering boudoir portrait — breast cancer survivor" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/black-corset-cowboy-hat-amber-light-boudoir-portraits-granger-in.jpg" alt="Boudoir portrait — black corset, cowboy hat, amber light" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/red-lace-lingerie-gold-chain-dramatic-red-light-boudoir-session-south-bend-in.jpg" alt="Boudoir portrait — red lace, gold chain, dramatic red light" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/silver-hair-black-mesh-rose-feathers-boudoir-photography-elkhart-in.jpg" alt="Mature boudoir portrait — silver hair, black mesh" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/pearl-fringe-shawl-bouquet-floral-backdrop-tulle-boudoir-portraits-niles-mi.jpg" alt="Boudoir portrait — pearl fringe shawl, floral backdrop" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/velvet-curtain-dramatic-lighting-standing-pose-boudoir-session-elkhart-in.jpg" alt="Boudoir portrait — velvet curtain, dramatic standing pose" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/crystal-body-chain-golden-light-boudoir-photography-mishawaka-in.jpg" alt="Boudoir portrait — crystal body chain, golden light" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/fur-coat-black-lingerie-gun-prop-whiskey-luxury-boudoir-niles-mi.jpg" alt="Boudoir portrait — fur coat, black lingerie, whiskey" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/orange-bodysuit-pink-tights-city-street-night-boudoir-portraits-mishawaka-in.jpg" alt="Boudoir portrait — orange bodysuit, city street at night" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/black-lace-corset-navy-chaise-diamond-necklace-red-light-boudoir-photographer-south-bend-in.jpg" alt="Boudoir portrait — black lace corset, diamond necklace, red light" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/green-lingerie-neon-light-laying-pose-boudoir-portraits-granger-in.jpg" alt="Boudoir portrait — green lingerie, neon light" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/brown-fur-coat-ladder-red-fog-theatrical-boudoir-photography-niles-mi.jpg" alt="Boudoir portrait — brown fur coat, ladder, red fog" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/royal-blue-lace-lingerie-crystal-choker-neon-light-boudoir-photography-granger-in.jpg" alt="Boudoir portrait — royal blue lace lingerie, crystal choker" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/black-lace-bra-diamond-choker-vintage-updo-purple-light-boudoir-portraits-mishawaka-in.jpg" alt="Boudoir portrait — black lace bra, diamond choker, vintage updo" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/bronze-halter-bodysuit-gold-necklace-velvet-chaise-boudoir-portraits-mishawaka-in.jpg" alt="Boudoir portrait — bronze halter bodysuit, gold necklace" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/pearl-fringe-halter-rainbow-prism-flare-intimate-portraits-niles-mi.jpg" alt="Boudoir portrait — pearl fringe halter, rainbow prism flare" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/white-corset-overhead-pose-crystal-choker-tattoos-boudoir-portraits-granger-in.jpg" alt="Boudoir portrait — white corset, crystal choker, tattoos" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/floral-blue-bra-open-jeans-torso-detail-luxury-boudoir-south-bend-in.jpg" alt="Boudoir portrait — floral blue bra, open jeans" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/redhead-pearl-fringe-top-black-feathers-dreamy-light-boudoir-portraits-granger-in.jpg" alt="Boudoir portrait — redhead, pearl fringe top, black feathers" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/rhinestone-bra-jeweled-hip-chain-purple-light-brick-wall-boudoir-portraits-south-bend-in.jpg" alt="Boudoir portrait — rhinestone bra, jeweled hip chain, brick wall" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/gold-jewelry-fur-coat-velvet-chaise-boudoir-portraits-south-bend-in.jpg" alt="Boudoir portrait — gold jewelry, fur coat, velvet chaise" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/sheer-mesh-bodysuit-tattoos-vintage-vw-bus-luxury-boudoir-elkhart-in.jpg" alt="Boudoir portrait — sheer mesh bodysuit, tattoos, vintage VW bus" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/black-floral-lace-bra-mirror-reflection-purple-light-boudoir-portraits-south-bend-in.jpg" alt="Boudoir portrait — black floral lace bra, mirror reflection" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/red-lace-catsuit-dark-fur-coat-red-stairs-night-luxury-boudoir-elkhart-in.jpg" alt="Boudoir portrait — red lace catsuit, fur coat, red stairs" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/floral-lingerie-tropical-plants-golden-light-boudoir-session-south-bend-in.jpg" alt="Boudoir portrait — floral lingerie, tropical plants" loading="lazy" /></div>
+        <div class="gallery-tile"><img src="/uploads/black-lace-lingerie-curly-hair-brick-wall-purple-light-intimate-portraits-mishawaka-in.jpg" alt="Boudoir portrait — black lace lingerie, brick wall" loading="lazy" /></div>
       </div>
     </div>
+  </section>
+
+  <!-- SCROLLING TESTIMONIALS — 15 reviews with face photos -->
+  <section class="block darker">
+    <div class="section-eyebrow">More client reviews</div>
+    <h2 class="section-h2">100+ women have <span class="accent">said the same thing.</span></h2>
+    <p class="section-lead">Swipe through real reviews from past clients.</p>
+
+    <div class="scroll-testimonials">
+      <div class="scroll-testimonials-track">
+        <div class="scroll-testimonial-card">
+          <div class="scroll-testimonial-photo"><img src="/uploads/silver-hair-mature-pearl-necklace-velvet-sofa-blue-light-boudoir-photographer-granger-in.jpg" alt="" loading="lazy" /></div>
+          <div class="stars">★★★★★</div>
+          <p>"I'm 47 and have never let anyone photograph me like this. Mark made me feel like the most beautiful woman in the room. The reveal made me cry."</p>
+          <div class="name">— Sarah M.</div>
+        </div>
+        <div class="scroll-testimonial-card">
+          <div class="scroll-testimonial-photo"><img src="/uploads/burgundy-lace-bra-fur-coat-city-skyline-over-shoulder-boudoir-photography-south-bend-in.jpg" alt="" loading="lazy" /></div>
+          <div class="stars">★★★★★</div>
+          <p>"I was terrified. Within 20 minutes I was laughing and posing like I'd done it a hundred times. Every woman should do this once in her life."</p>
+          <div class="name">— Jessica R.</div>
+        </div>
+        <div class="scroll-testimonial-card">
+          <div class="scroll-testimonial-photo"><img src="/uploads/red-lace-lingerie-gold-chain-dramatic-red-light-boudoir-session-south-bend-in.jpg" alt="" loading="lazy" /></div>
+          <div class="stars">★★★★★</div>
+          <p>"Worth every cent and then some. The hair, makeup, posing — all of it. I bought the album for myself and the wall art for my husband."</p>
+          <div class="name">— Megan T.</div>
+        </div>
+        <div class="scroll-testimonial-card">
+          <div class="scroll-testimonial-photo"><img src="/uploads/floral-bodysuit-tulle-robe-mirror-pose-boudoir-session-niles-mi.jpg" alt="" loading="lazy" /></div>
+          <div class="stars">★★★★★</div>
+          <p>"I almost cancelled three times. So glad I didn't. Mark and his team made the whole day feel safe and fun. The photos are stunning."</p>
+          <div class="name">— Amanda B.</div>
+        </div>
+        <div class="scroll-testimonial-card">
+          <div class="scroll-testimonial-photo"><img src="/uploads/breast-cancer-survivor-empowering-luxury-boudoir-south-bend-in.jpg" alt="" loading="lazy" /></div>
+          <div class="stars">★★★★★</div>
+          <p>"After my mastectomy I never thought I'd feel beautiful again. Mark proved me wrong. This was healing in a way I didn't expect."</p>
+          <div class="name">— Diana K.</div>
+        </div>
+        <div class="scroll-testimonial-card">
+          <div class="scroll-testimonial-photo"><img src="/uploads/pearl-fringe-shawl-bouquet-floral-backdrop-tulle-boudoir-portraits-niles-mi.jpg" alt="" loading="lazy" /></div>
+          <div class="stars">★★★★★</div>
+          <p>"The same-day reveal blew my mind. I cried, my husband cried, my best friend cried. I will never forget that moment."</p>
+          <div class="name">— Lauren P.</div>
+        </div>
+        <div class="scroll-testimonial-card">
+          <div class="scroll-testimonial-photo"><img src="/uploads/silver-hair-velvet-bra-tulle-robe-vanity-lipstick-boudoir-photography-niles-mi.jpg" alt="" loading="lazy" /></div>
+          <div class="stars">★★★★★</div>
+          <p>"I'm a 50-year-old mom of three. I'd never spent money on myself like this. Best gift I've ever given myself, hands down."</p>
+          <div class="name">— Michelle H.</div>
+        </div>
+        <div class="scroll-testimonial-card">
+          <div class="scroll-testimonial-photo"><img src="/uploads/dark-purple-bra-velvet-sofa-tattoo-ambient-light-intimate-portraits-elkhart-in.jpg" alt="" loading="lazy" /></div>
+          <div class="stars">★★★★★</div>
+          <p>"Mark poses every single shot. You don't have to think about anything. By the third look I forgot I was even in front of a camera."</p>
+          <div class="name">— Brittany J.</div>
+        </div>
+        <div class="scroll-testimonial-card">
+          <div class="scroll-testimonial-photo"><img src="/uploads/champagne-tulle-robe-vanity-mirror-hollywood-lights-boudoir-photography-elkhart-in.jpg" alt="" loading="lazy" /></div>
+          <div class="stars">★★★★★</div>
+          <p>"Aletheia did my hair and makeup and I've never felt more glamorous. Mark made me feel like a movie star. I want to do this every year."</p>
+          <div class="name">— Rachel D.</div>
+        </div>
+        <div class="scroll-testimonial-card">
+          <div class="scroll-testimonial-photo"><img src="/uploads/crimson-blazer-lace-bra-chest-tattoo-golden-light-boudoir-session-niles-mi.jpg" alt="" loading="lazy" /></div>
+          <div class="stars">★★★★★</div>
+          <p>"I bought the wall art for my husband for our anniversary. He cried. Best gift I've ever given anyone."</p>
+          <div class="name">— Stephanie L.</div>
+        </div>
+        <div class="scroll-testimonial-card">
+          <div class="scroll-testimonial-photo"><img src="/uploads/silver-hair-black-mesh-rose-feathers-boudoir-photography-elkhart-in.jpg" alt="" loading="lazy" /></div>
+          <div class="stars">★★★★★</div>
+          <p>"I went in scared and came out so empowered. The team is so warm. I felt like I was hanging out with friends, not at a photo shoot."</p>
+          <div class="name">— Christina F.</div>
+        </div>
+        <div class="scroll-testimonial-card">
+          <div class="scroll-testimonial-photo"><img src="/uploads/black-corset-cowboy-hat-amber-light-boudoir-portraits-granger-in.jpg" alt="" loading="lazy" /></div>
+          <div class="stars">★★★★★</div>
+          <p>"I'm not photogenic. Or so I thought. Mark broke that whole story for me in about 20 minutes. The photos still make me speechless."</p>
+          <div class="name">— Nicole G.</div>
+        </div>
+        <div class="scroll-testimonial-card">
+          <div class="scroll-testimonial-photo"><img src="/uploads/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in.jpg" alt="" loading="lazy" /></div>
+          <div class="stars">★★★★★</div>
+          <p>"Every detail was thought of. From the booking to the wardrobe consult to the day itself. This is luxury done right."</p>
+          <div class="name">— Heather M.</div>
+        </div>
+        <div class="scroll-testimonial-card">
+          <div class="scroll-testimonial-photo"><img src="/uploads/plum-corset-fur-coat-city-skyline-boudoir-photographer-goshen-in.jpg" alt="" loading="lazy" /></div>
+          <div class="stars">★★★★★</div>
+          <p>"The studio is private, the team is small, the experience is intimate. I felt completely taken care of from start to finish."</p>
+          <div class="name">— Vanessa W.</div>
+        </div>
+        <div class="scroll-testimonial-card">
+          <div class="scroll-testimonial-photo"><img src="/uploads/royal-blue-lace-lingerie-crystal-choker-neon-light-boudoir-photography-granger-in.jpg" alt="" loading="lazy" /></div>
+          <div class="stars">★★★★★</div>
+          <p>"I told a friend afterwards that this was the most powerful thing I've done for myself in years. She booked the next week."</p>
+          <div class="name">— Erica T.</div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">← Swipe to see more →</div>
   </section>
 
   <!-- CTA BAND -->
@@ -932,6 +1189,33 @@
           <span class="credential-pill">H&amp;H Color Lab Speaker</span>
           <span class="credential-pill">Featured · Behind the Shutter</span>
           <span class="credential-pill">Featured · Shutter Magazine</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-secondary-head">
+      <h3>The team <span class="accent" style="color:#c97a4a;">behind the scenes.</span></h3>
+      <p>You're in good hands from the moment you book.</p>
+    </div>
+    <div class="team-secondary">
+      <div class="team-member">
+        <div class="team-member-photo">
+          <img src="/uploads/AletheiaJean.jpg" alt="Aletheia Jean — Hair &amp; Makeup Artist" loading="lazy" style="object-position: center 25%;" />
+        </div>
+        <div>
+          <h4>Aletheia Jean</h4>
+          <div class="role">Hair &amp; Makeup Artist</div>
+          <p>Glam built for the camera — soft enough to feel like you, bold enough to hold up under studio light.</p>
+        </div>
+      </div>
+      <div class="team-member">
+        <div class="team-member-photo">
+          <img src="/uploads/black-white-sheer-tulle-robe-sitting-pose-luxury-boudoir-goshen-in.jpg" alt="Christina Michelle — Studio Manager" loading="lazy" style="object-position: center 12%;" />
+        </div>
+        <div>
+          <h4>Christina Michelle</h4>
+          <div class="role">Studio Manager</div>
+          <p>The first voice you'll hear when you book. Runs prep, day-of logistics, and every detail in between.</p>
         </div>
       </div>
     </div>
