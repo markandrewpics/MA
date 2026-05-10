@@ -355,7 +355,7 @@
     /* HOW IT WORKS — 4 numbered steps */
     .steps-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 24px;
       max-width: 1080px;
       margin: 50px auto 0;
@@ -395,20 +395,27 @@
     /* SESSION GALLERY */
     .session-gallery { max-width: 1200px; margin: 50px auto 0; }
     .gallery-mosaic {
-      column-count: 4;
-      column-gap: 14px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      grid-auto-flow: dense;
     }
     .gallery-mosaic .gallery-tile {
-      break-inside: avoid;
-      margin: 0 0 14px 0;
+      aspect-ratio: 2 / 3;
       overflow: hidden;
+      position: relative;
       display: block;
       border-radius: 4px;
       box-shadow: 0 4px 18px -10px rgba(28,36,56,0.18);
     }
+    .gallery-mosaic .gallery-tile.wide {
+      grid-column: span 2;
+      aspect-ratio: 3 / 2;
+    }
     .gallery-mosaic .gallery-tile img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
       display: block;
       transition: transform 0.4s ease;
     }
@@ -750,8 +757,8 @@
       .cta-band h3 { font-size: 24px; }
       .photographer { padding: 28px 22px; }
       .booking-section { padding: 60px 22px 90px; }
-      .gallery-mosaic { column-count: 2; column-gap: 8px; }
-      .gallery-mosaic .gallery-tile { margin-bottom: 8px; }
+      .gallery-mosaic { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .gallery-mosaic .gallery-tile.wide { aspect-ratio: 3 / 2; }
       .btn-large { padding: 18px 32px; font-size: 13.5px; }
     }
   </style>
@@ -836,7 +843,7 @@
   <section class="cta-band">
     <div class="cta-band-inner">
       <h3>Five spots. <span class="accent">Once they're gone, they're gone.</span></h3>
-      <p>10 minutes on the phone. Zero pressure. We confirm your date and lock in the 50% off.</p>
+      <p>We'll go over every detail of what to expect, ideas for the shoot, confirm your date, and lock in 50% off.</p>
       <a href="#book" class="btn btn-primary btn-large">Claim My Spot</a>
     </div>
   </section>
@@ -844,13 +851,17 @@
   <!-- HOW IT WORKS -->
   <section class="block white">
     <div class="section-eyebrow">How it works</div>
-    <h2 class="section-h2">Four steps. <span class="accent">One day in studio.</span></h2>
+    <h2 class="section-h2">Five steps. <span class="accent">One day in studio.</span></h2>
 
     <div class="steps-grid">
-      <div class="step-card"><div class="step-num">1</div><h4>Book your consult</h4><p>10-minute call to confirm your date and lock in the 50% off.</p></div>
-      <div class="step-card"><div class="step-num">2</div><h4>Studio day</h4><p>Hair, makeup, multiple looks, and head-to-toe posing direction.</p></div>
-      <div class="step-card"><div class="step-num">3</div><h4>Same-day reveal</h4><p>See your edited gallery the same afternoon, in studio.</p></div>
-      <div class="step-card"><div class="step-num">4</div><h4>Take it home</h4><p>Choose your favorites — optional keepsakes available, no pressure.</p></div>
+      <div class="step-card"><div class="step-num">1</div><h4>Book your consultation</h4><p>10-minute call to go over all the details, confirm your date, and lock in the 50% off.</p></div>
+      <div class="step-card"><div class="step-num">2</div><h4>Plan your shoot</h4><p>30-minute video call to plan every detail — wardrobe, color schemes, overall vision.</p></div>
+      <div class="step-card"><div class="step-num">3</div><h4>Studio day</h4><p>Hair, makeup, multiple looks, and head-to-toe posing direction.</p></div>
+      <div class="step-card"><div class="step-num">4</div><h4>Same-day reveal</h4><p>See your edited gallery the same afternoon, in studio.</p></div>
+      <div class="step-card"><div class="step-num">5</div><h4>Take it home</h4><p>Choose your favorites — optional keepsakes available, no pressure.</p></div>
+    </div>
+    <div style="text-align:center; margin-top:40px;">
+      <a href="#book" class="btn btn-primary btn-large">Claim My Spot</a>
     </div>
   </section>
 
@@ -870,20 +881,20 @@
         <div class="gallery-tile"><img src="/uploads/black-corset-cowboy-hat-amber-light-boudoir-portraits-granger-in.jpg" alt="Boudoir portrait — black corset, cowboy hat, amber light" loading="lazy" /></div>
         <div class="gallery-tile"><img src="/uploads/red-lace-lingerie-gold-chain-dramatic-red-light-boudoir-session-south-bend-in.jpg" alt="Boudoir portrait — red lace, gold chain, dramatic red light" loading="lazy" /></div>
         <div class="gallery-tile"><img src="/uploads/silver-hair-black-mesh-rose-feathers-boudoir-photography-elkhart-in.jpg" alt="Mature boudoir portrait — silver hair, black mesh" loading="lazy" /></div>
-        <div class="gallery-tile"><img src="/uploads/pearl-fringe-shawl-bouquet-floral-backdrop-tulle-boudoir-portraits-niles-mi.jpg" alt="Boudoir portrait — pearl fringe shawl, floral backdrop" loading="lazy" /></div>
-        <div class="gallery-tile"><img src="/uploads/velvet-curtain-dramatic-lighting-standing-pose-boudoir-session-elkhart-in.jpg" alt="Boudoir portrait — velvet curtain, dramatic standing pose" loading="lazy" /></div>
+        <div class="gallery-tile wide"><img src="/uploads/pearl-fringe-shawl-bouquet-floral-backdrop-tulle-boudoir-portraits-niles-mi.jpg" alt="Boudoir portrait — pearl fringe shawl, floral backdrop" loading="lazy" /></div>
+        <div class="gallery-tile wide"><img src="/uploads/velvet-curtain-dramatic-lighting-standing-pose-boudoir-session-elkhart-in.jpg" alt="Boudoir portrait — velvet curtain, dramatic standing pose" loading="lazy" /></div>
         <div class="gallery-tile"><img src="/uploads/crystal-body-chain-golden-light-boudoir-photography-mishawaka-in.jpg" alt="Boudoir portrait — crystal body chain, golden light" loading="lazy" /></div>
-        <div class="gallery-tile"><img src="/uploads/fur-coat-black-lingerie-gun-prop-whiskey-luxury-boudoir-niles-mi.jpg" alt="Boudoir portrait — fur coat, black lingerie, whiskey" loading="lazy" /></div>
+        <div class="gallery-tile wide"><img src="/uploads/fur-coat-black-lingerie-gun-prop-whiskey-luxury-boudoir-niles-mi.jpg" alt="Boudoir portrait — fur coat, black lingerie, whiskey" loading="lazy" /></div>
         <div class="gallery-tile"><img src="/uploads/orange-bodysuit-pink-tights-city-street-night-boudoir-portraits-mishawaka-in.jpg" alt="Boudoir portrait — orange bodysuit, city street at night" loading="lazy" /></div>
-        <div class="gallery-tile"><img src="/uploads/black-lace-corset-navy-chaise-diamond-necklace-red-light-boudoir-photographer-south-bend-in.jpg" alt="Boudoir portrait — black lace corset, diamond necklace, red light" loading="lazy" /></div>
-        <div class="gallery-tile"><img src="/uploads/green-lingerie-neon-light-laying-pose-boudoir-portraits-granger-in.jpg" alt="Boudoir portrait — green lingerie, neon light" loading="lazy" /></div>
+        <div class="gallery-tile wide"><img src="/uploads/black-lace-corset-navy-chaise-diamond-necklace-red-light-boudoir-photographer-south-bend-in.jpg" alt="Boudoir portrait — black lace corset, diamond necklace, red light" loading="lazy" /></div>
+        <div class="gallery-tile wide"><img src="/uploads/green-lingerie-neon-light-laying-pose-boudoir-portraits-granger-in.jpg" alt="Boudoir portrait — green lingerie, neon light" loading="lazy" /></div>
         <div class="gallery-tile"><img src="/uploads/brown-fur-coat-ladder-red-fog-theatrical-boudoir-photography-niles-mi.jpg" alt="Boudoir portrait — brown fur coat, ladder, red fog" loading="lazy" /></div>
         <div class="gallery-tile"><img src="/uploads/royal-blue-lace-lingerie-crystal-choker-neon-light-boudoir-photography-granger-in.jpg" alt="Boudoir portrait — royal blue lace lingerie, crystal choker" loading="lazy" /></div>
         <div class="gallery-tile"><img src="/uploads/black-lace-bra-diamond-choker-vintage-updo-purple-light-boudoir-portraits-mishawaka-in.jpg" alt="Boudoir portrait — black lace bra, diamond choker, vintage updo" loading="lazy" /></div>
-        <div class="gallery-tile"><img src="/uploads/bronze-halter-bodysuit-gold-necklace-velvet-chaise-boudoir-portraits-mishawaka-in.jpg" alt="Boudoir portrait — bronze halter bodysuit, gold necklace" loading="lazy" /></div>
+        <div class="gallery-tile wide"><img src="/uploads/bronze-halter-bodysuit-gold-necklace-velvet-chaise-boudoir-portraits-mishawaka-in.jpg" alt="Boudoir portrait — bronze halter bodysuit, gold necklace" loading="lazy" /></div>
         <div class="gallery-tile"><img src="/uploads/pearl-fringe-halter-rainbow-prism-flare-intimate-portraits-niles-mi.jpg" alt="Boudoir portrait — pearl fringe halter, rainbow prism flare" loading="lazy" /></div>
         <div class="gallery-tile"><img src="/uploads/white-corset-overhead-pose-crystal-choker-tattoos-boudoir-portraits-granger-in.jpg" alt="Boudoir portrait — white corset, crystal choker, tattoos" loading="lazy" /></div>
-        <div class="gallery-tile"><img src="/uploads/floral-blue-bra-open-jeans-torso-detail-luxury-boudoir-south-bend-in.jpg" alt="Boudoir portrait — floral blue bra, open jeans" loading="lazy" /></div>
+        <div class="gallery-tile wide"><img src="/uploads/floral-blue-bra-open-jeans-torso-detail-luxury-boudoir-south-bend-in.jpg" alt="Boudoir portrait — floral blue bra, open jeans" loading="lazy" /></div>
         <div class="gallery-tile"><img src="/uploads/redhead-pearl-fringe-top-black-feathers-dreamy-light-boudoir-portraits-granger-in.jpg" alt="Boudoir portrait — redhead, pearl fringe top, black feathers" loading="lazy" /></div>
         <div class="gallery-tile"><img src="/uploads/rhinestone-bra-jeweled-hip-chain-purple-light-brick-wall-boudoir-portraits-south-bend-in.jpg" alt="Boudoir portrait — rhinestone bra, jeweled hip chain, brick wall" loading="lazy" /></div>
         <div class="gallery-tile"><img src="/uploads/gold-jewelry-fur-coat-velvet-chaise-boudoir-portraits-south-bend-in.jpg" alt="Boudoir portrait — gold jewelry, fur coat, velvet chaise" loading="lazy" /></div>
@@ -1001,9 +1012,9 @@
   <!-- CTA BAND -->
   <section class="cta-band">
     <div class="cta-band-inner">
+      <a href="#book" class="btn btn-primary btn-large" style="margin-bottom:26px;">Claim My Spot</a>
       <h3>Don't think about it for <span class="accent">three weeks.</span></h3>
       <p>Five spots. First-come, first-served. Once they're claimed, the standard rate returns.</p>
-      <a href="#book" class="btn btn-primary btn-large">Claim My Spot</a>
     </div>
   </section>
 
