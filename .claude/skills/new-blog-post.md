@@ -91,3 +91,36 @@ Tell user it'll be live at `blog.markandrewboudoir.com/posts/{slug}/` within ~30
 - **Image compression:** if the user uploads new photos, check file sizes. Anything over ~1MB per image should be flagged — recommend running through tinypng.com or similar before commit (don't auto-compress without asking).
 - **SEO basics:** every post should have a unique `<title>` tag and `<meta name="description">` based on the excerpt. The existing post already does this — just adapt.
 - **Don't break the canonical post:** if you need to look at structure, READ `posts/what-is-boudoir-photography/index.html` — don't modify it as part of creating a new one.
+
+## REQUIRED: Open Graph + Twitter Card tags
+
+**Every new blog post MUST include OG and Twitter Card meta tags pointing to a CONTENT image (not the logo)**. Without these, Facebook / iMessage / LinkedIn previews fall back to scraping the nav logo, which looks terrible when shared.
+
+Insert this block in the `<head>` immediately after the existing `<meta name="description">` tag. Replace `{TITLE}`, `{DESC}`, `{SLUG}`, and `{HERO_IMAGE_FILENAME}` with the post's values:
+
+```html
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.markandrewboudoir.com/posts/{SLUG}/" />
+<meta property="og:title" content="{TITLE}" />
+<meta property="og:description" content="{DESC}" />
+<meta property="og:image" content="https://www.markandrewboudoir.com/uploads/{HERO_IMAGE_FILENAME}" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="800" />
+<meta property="og:site_name" content="Mark Andrew Boudoir" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content="https://www.markandrewboudoir.com/posts/{SLUG}/" />
+<meta name="twitter:title" content="{TITLE}" />
+<meta name="twitter:description" content="{DESC}" />
+<meta name="twitter:image" content="https://www.markandrewboudoir.com/uploads/{HERO_IMAGE_FILENAME}" />
+```
+
+**Hero image selection rules:**
+- Must be the post's primary content image, NOT the nav logo.
+- Should be horizontal (landscape) if available — Facebook crops vertical images awkwardly. If only vertical is available, use it but note that previews may show a tall crop.
+- Use a fully-qualified absolute URL (`https://www.markandrewboudoir.com/uploads/...`), not a relative path. Facebook caches by absolute URL.
+- File should already exist in `/uploads/` and be committed before pushing — otherwise Facebook scrapes a 404.
+
+**After publishing:** tell the user to refresh Facebook's cached preview at https://developers.facebook.com/tools/debug/ — paste the post URL, click "Scrape Again." Otherwise the OLD preview lingers for ~24 hours.
