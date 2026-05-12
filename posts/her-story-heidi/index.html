@@ -324,6 +324,61 @@
       .frame-box { margin: 48px 24px; padding: 36px 24px; }
     }
 
+    /* FRAMED IMAGES */
+    .frame {
+      position: relative;
+      border: 1px solid rgba(240,154,105,0.75);
+    }
+    .frame::after {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border: 1px solid rgba(240,154,105,0.45);
+      pointer-events: none;
+      z-index: 3;
+    }
+    .frame img { display: block; width: 100%; height: auto; }
+
+    .framed-image { margin: 56px 0; }
+    .framed-image figcaption {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(238,240,245,0.5);
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    .hero-image {
+      max-width: 980px;
+      margin: 8px auto 0;
+      padding: 0 24px;
+    }
+    .hero-image figcaption {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(238,240,245,0.5);
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 56px 0;
+    }
+    .two-col figcaption {
+      display: none;
+    }
+    @media (max-width: 720px) {
+      .two-col { grid-template-columns: 1fr; gap: 18px; margin: 40px 0; }
+      .framed-image { margin: 40px 0; }
+    }
+
     /* CTA section */
     .cta-section {
       max-width: 820px;
@@ -471,6 +526,13 @@
     <p>Heidi Spaulding is a realtor in Beaufort, SC who has been my client for a handful of shoots over the years — boudoir, maternity, and most recently a full branding shoot for her real estate business. This post answers each of the questions a realtor is Googling before they invest in branding photos. Once with my authoritative answer. Once in her verbatim words. Real numbers, real outcomes, no spin.</p>
   </section>
 
+  <figure class="hero-image">
+    <div class="frame">
+      <img src="/uploads/heidi-spaulding-branding/heidi-paper-burst-laptop-realtor-branding-beaufort-sc.jpg" alt="Heidi Spaulding bursting through torn paper with a laptop, lit in magenta and blue — realtor branding photoshoot, Beaufort SC" loading="lazy" />
+    </div>
+    <figcaption>The image that gets her recognized at coffee socials before she's said her name</figcaption>
+  </figure>
+
   <main class="content">
 
     <h2>Why Should a Realtor Invest in Professional Branding Photos?</h2>
@@ -497,6 +559,13 @@
       <cite>— Heidi Spaulding</cite>
     </div>
 
+    <figure class="framed-image">
+      <div class="frame">
+        <img src="/uploads/heidi-spaulding-branding/heidi-denim-jacket-laptop-brick-realtor-branding-beaufort-sc.jpg" alt="Heidi with a laptop in a denim jacket against an exposed brick wall — realtor branding session, Beaufort SC" loading="lazy" />
+      </div>
+      <figcaption>Working portrait — denim jacket, brick wall, full personality</figcaption>
+    </figure>
+
     <h2>Are Brokerage Headshots Enough for a Realtor?</h2>
     <div class="section-answer">
       <p>A brokerage headshot is functional but interchangeable. Every agent has one, and almost all of them look the same — <strong>gray button-up, plain wall, generic smile</strong>. In a saturated market, a brokerage headshot tells a prospective client nothing about who you are. The realtors winning attention right now have branding photos that show their personality, their environment, and their values — not just their face.</p>
@@ -519,6 +588,19 @@
     <div class="pull-quote">
       <p>"You have to want to work with me, but I also have to want to work with you. If you can be transparent in your photos and when you meet — it brings the whole picture together."</p>
       <cite>— Heidi Spaulding</cite>
+    </div>
+
+    <div class="two-col">
+      <figure>
+        <div class="frame">
+          <img src="/uploads/heidi-spaulding-branding/heidi-white-shirt-jeans-clean-wall-realtor-branding-beaufort-sc.jpg" alt="Heidi in a white silk shirt and jeans against a clean light wall — modern realtor branding portrait, Beaufort SC" loading="lazy" />
+        </div>
+      </figure>
+      <figure>
+        <div class="frame">
+          <img src="/uploads/heidi-spaulding-branding/heidi-white-shirt-jeans-laptop-realtor-branding-beaufort-sc.jpg" alt="Heidi in a white shirt and jeans holding a laptop, light wall background — realtor branding portrait, Beaufort SC" loading="lazy" />
+        </div>
+      </figure>
     </div>
 
     <h2>How Do You Prepare for a Realtor Branding Photoshoot?</h2>
@@ -545,6 +627,13 @@
       <cite>— Heidi Spaulding</cite>
     </div>
 
+    <figure class="framed-image">
+      <div class="frame">
+        <img src="/uploads/heidi-spaulding-branding/heidi-denim-jacket-step-stool-brick-realtor-branding-beaufort-sc.jpg" alt="Heidi seated on a vintage yellow kitchen step stool against an exposed brick wall — personal-prop realtor branding portrait, Beaufort SC" loading="lazy" />
+      </div>
+      <figcaption>The yellow kitchen step stool — the prop that started conversations</figcaption>
+    </figure>
+
     <h2>What Should a Realtor Bring to a Branding Shoot to Stand Out?</h2>
     <div class="section-answer">
       <p>Bring the things that <strong>tell a story about who you are outside of real estate</strong>. The laptop and the blazer cover the professional baseline. The rest should be personal — a collection you love, a piece of vintage furniture, an outfit that doesn't read corporate. Bring color. Bring texture. Bring two or three outfits that would never appear in another agent's portfolio. That's how the scroll stops.</p>
@@ -562,6 +651,19 @@
     <div class="pull-quote">
       <p>"What I would tell another realtor is to really take some time beforehand and think about what they're trying to capture. Think about what values they have in their life, and how they can bring it out in the photo, or things that they like."</p>
       <cite>— Heidi Spaulding</cite>
+    </div>
+
+    <div class="two-col">
+      <figure>
+        <div class="frame">
+          <img src="/uploads/heidi-spaulding-branding/heidi-pastel-dress-coffee-mug-realtor-branding-beaufort-sc.jpg" alt="Heidi in a pastel watercolor dress at a window seat with a coffee mug and retro pink phone — lifestyle realtor branding portrait, Beaufort SC" loading="lazy" />
+        </div>
+      </figure>
+      <figure>
+        <div class="frame">
+          <img src="/uploads/heidi-spaulding-branding/heidi-white-shirt-blue-skirt-vintage-realtor-branding-beaufort-sc.jpg" alt="Heidi in a white silk shirt and blue floral skirt with vintage props and round mirror — editorial realtor branding portrait, Beaufort SC" loading="lazy" />
+        </div>
+      </figure>
     </div>
 
     <h2>What Does Shoot Day Actually Look Like for a Realtor?</h2>
@@ -588,6 +690,13 @@
       <cite>— Heidi Spaulding</cite>
     </div>
 
+    <figure class="framed-image">
+      <div class="frame">
+        <img src="/uploads/heidi-spaulding-branding/heidi-champagne-pop-pink-dress-realtor-branding-beaufort-sc.jpg" alt="Heidi spraying champagne in a pink floral maxi dress with sunlight glittering off the spray — celebratory realtor branding portrait, Beaufort SC" loading="lazy" />
+      </div>
+      <figcaption>The champagne pop — her go-to image after every closing</figcaption>
+    </figure>
+
     <h2>How Should Realtors Actually Use Their Branding Photos?</h2>
     <div class="section-answer">
       <p>Branding photos are <strong>infrastructure for your entire marketing stack</strong>. Social media (Instagram, TikTok, carousels), open house flyers with QR codes, business cards, listing presentations, email signatures, MLS profile, brokerage bio page, paid ads. The same set of images should rotate across every touchpoint a prospective client has with you. The scroll-stopping ones go first.</p>
@@ -606,6 +715,13 @@
       <p>"I use those branding photos for business cards, open house flyers, social media, carousels. And I'm leaning into the TikTok realm — I'm finding if you take a scroll-stopping photo before your TikTok starts and put a caption on it, it draws viewers in just from having that scroll-stopping image."</p>
       <cite>— Heidi Spaulding</cite>
     </div>
+
+    <figure class="framed-image">
+      <div class="frame">
+        <img src="/uploads/heidi-spaulding-branding/heidi-business-cards-magenta-realtor-branding-beaufort-sc.jpg" alt="Heidi holding out her real estate business cards in front of a magenta backdrop — branded marketing materials, Beaufort SC realtor" loading="lazy" />
+      </div>
+      <figcaption>The same images become business cards, flyers, ads, and social posts</figcaption>
+    </figure>
 
     <h2>Are Realtor Branding Photos Worth the Investment?</h2>
     <div class="section-answer">
@@ -636,6 +752,19 @@
       <cite>— Heidi Spaulding</cite>
     </div>
 
+    <div class="two-col">
+      <figure>
+        <div class="frame">
+          <img src="/uploads/heidi-spaulding-branding/heidi-paper-burst-pink-phone-realtor-branding-beaufort-sc.jpg" alt="Heidi bursting through torn paper holding a vintage pink rotary phone, lit in magenta and blue — signature realtor branding image, Beaufort SC" loading="lazy" />
+        </div>
+      </figure>
+      <figure>
+        <div class="frame">
+          <img src="/uploads/heidi-spaulding-branding/heidi-antique-skeleton-keys-realtor-branding-beaufort-sc.jpg" alt="Heidi holding out a set of antique skeleton keys toward the camera — symbolic realtor branding portrait, Beaufort SC" loading="lazy" />
+        </div>
+      </figure>
+    </div>
+
     <div class="cta-section">
       <div class="eyebrow">stop blending in</div>
       <h3>Book a Branding Consultation</h3>
@@ -664,6 +793,13 @@
       <p>"At the end of the day, real estate is all about talking to people and getting to know people. It's communicating."</p>
       <cite>— Heidi Spaulding</cite>
     </div>
+
+    <figure class="framed-image">
+      <div class="frame">
+        <img src="/uploads/heidi-spaulding-branding/heidi-pink-dress-luxury-door-topiary-realtor-branding-beaufort-sc.jpg" alt="Heidi leaning on a luxury door framed by topiary planters in a pink and red floral maxi dress — high-end realtor branding portrait, Beaufort SC" loading="lazy" />
+      </div>
+      <figcaption>Lowcountry luxury on location — the agent, on the front porch of the kind of home she sells</figcaption>
+    </figure>
 
     <div class="frame-box">
       <span class="eyebrow">in her words</span>
