@@ -379,6 +379,53 @@
       .framed-image { margin: 40px 0; }
     }
 
+    /* CALENDAR EMBED */
+    .booking-section {
+      max-width: 820px;
+      margin: 32px auto 80px;
+      padding: 0 40px;
+      scroll-margin-top: 80px;
+    }
+    .booking-intro {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 32px;
+    }
+    .booking-intro .eyebrow {
+      display: block;
+      font-family: 'Great Vibes', cursive;
+      font-size: 28px;
+      color: #f09a69;
+      margin-bottom: 4px;
+      line-height: 1;
+    }
+    .booking-intro h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      font-weight: 400;
+      margin-bottom: 14px;
+      color: #f2f4f8;
+    }
+    .booking-intro p {
+      font-size: 15px;
+      opacity: 0.78;
+      line-height: 1.7;
+    }
+    .calendar-embed {
+      background: #ffffff;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .calendar-embed iframe {
+      width: 100%;
+      min-height: 820px;
+      border: none;
+      display: block;
+    }
+    @media (max-width: 720px) {
+      .booking-section { margin: 24px 0 60px; padding: 0 24px; }
+    }
+
     /* CTA section */
     .cta-section {
       max-width: 820px;
@@ -508,7 +555,7 @@
       <a href="https://www.markandrewboudoir.com/portfolio" class="nav-link">Portfolio</a>
       <a href="https://www.markandrewboudoir.com/about" class="nav-link">About</a>
     </div>
-    <a href="https://www.markandrewboudoir.com/contact" class="nav-cta">Work With Me</a>
+    <a href="#book" class="nav-cta">Work With Me</a>
   </nav>
 
   <header class="hero">
@@ -769,7 +816,7 @@
       <div class="eyebrow">stop blending in</div>
       <h3>Book a Branding Consultation</h3>
       <p>If you're a realtor, a business owner, or any kind of professional whose face is the product — let's build a library of images that actually does the work for you. No pressure, no commitment, just a real conversation.</p>
-      <a href="https://www.markandrewboudoir.com/contact" class="cta-button">Start the Conversation</a>
+      <a href="#book" class="cta-button">Start the Conversation</a>
     </div>
 
     <h2>What Sets a Realtor With Real Branding Apart?</h2>
@@ -806,6 +853,41 @@
       <h3>"They know I've got <em>some badass photos</em>."</h3>
       <p>"They don't know who I am. I don't know who they are. But they know I've got some badass photos. And that — that's the start of every conversation that turns into a transaction."</p>
     </div>
+
+    <section id="book" class="booking-section">
+      <div class="booking-intro">
+        <span class="eyebrow">your next step</span>
+        <h3>Schedule a Free Branding Consultation</h3>
+        <p>Let's talk wardrobe, props, locations, and how you actually want your brand to feel. We'll map out a session built around <em>you</em> — your business, your personality, the way you want clients to see you before they ever shake your hand. Pick a time below.</p>
+      </div>
+      <div class="calendar-embed">
+        <iframe src="https://link.disruptormarketing.io/widget/booking/b7eSmyInmj2pwqIQesEp" style="width: 100%; border: none; overflow: hidden;" scrolling="no" id="heidi-post-booking-embed"></iframe>
+      </div>
+    </section>
+    <script src="https://link.disruptormarketing.io/js/form_embed.js" type="text/javascript"></script>
+
+    <script>
+      (function() {
+        function scrollToBook(retries) {
+          var target = document.getElementById('book');
+          if (!target) return;
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          if (retries > 0) {
+            setTimeout(function() { scrollToBook(retries - 1); }, 500);
+          }
+        }
+        document.addEventListener('click', function(e) {
+          var link = e.target.closest('a[href="#book"]');
+          if (!link) return;
+          e.preventDefault();
+          history.pushState(null, '', '#book');
+          scrollToBook(2);
+        });
+        if (window.location.hash === '#book') {
+          window.addEventListener('load', function() { scrollToBook(2); });
+        }
+      })();
+    </script>
 
   </main>
 
