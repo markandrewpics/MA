@@ -396,6 +396,72 @@
       .framed-image { margin: 40px 0; }
     }
 
+    /* HEIDI CARD — link to her Linktree */
+    .heidi-card {
+      max-width: 720px;
+      margin: 56px auto 32px;
+      padding: 0 40px;
+    }
+    .heidi-card-inner {
+      position: relative;
+      padding: 36px 36px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(240,154,105,0.35);
+      border-radius: 4px;
+      text-align: center;
+    }
+    .heidi-card-eyebrow {
+      display: block;
+      font-family: 'Jost', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #f09a69;
+      margin-bottom: 14px;
+    }
+    .heidi-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: #f2f4f8;
+      margin-bottom: 10px;
+    }
+    .heidi-card p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: rgba(238,240,245,0.7);
+      max-width: 480px;
+      margin: 0 auto 22px;
+    }
+    .heidi-card-link {
+      display: inline-block;
+      padding: 12px 24px;
+      border: 1px solid #f09a69;
+      color: #f09a69;
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .heidi-card-link:hover {
+      background: #f09a69;
+      color: #0c1322;
+    }
+    .heidi-card-link span {
+      margin-left: 6px;
+      font-size: 13px;
+      letter-spacing: 0;
+    }
+    @media (max-width: 720px) {
+      .heidi-card { padding: 0 24px; margin: 40px auto 24px; }
+      .heidi-card-inner { padding: 30px 24px; }
+      .heidi-card h3 { font-size: 24px; }
+    }
+
     /* CALENDAR EMBED */
     .booking-section {
       max-width: 820px;
@@ -870,6 +936,15 @@
       <h3>"They know I've got <em>some badass photos</em>."</h3>
       <p>"They don't know who I am. I don't know who they are. But they know I've got some badass photos. And that — that's the start of every conversation that turns into a transaction."</p>
     </div>
+
+    <aside class="heidi-card">
+      <div class="heidi-card-inner">
+        <span class="heidi-card-eyebrow">Featured Realtor</span>
+        <h3>Work With Heidi</h3>
+        <p>Heidi Spaulding · Realtor · Beaufort, SC. If you're buying or selling in the Lowcountry, you can find every way to reach her below.</p>
+        <a href="https://linktr.ee/heidispauldingrealestate" target="_blank" rel="noopener noreferrer" class="heidi-card-link">linktr.ee/heidispauldingrealestate <span aria-hidden="true">↗</span></a>
+      </div>
+    </aside>
 
     <section id="book" class="booking-section">
       <div class="booking-intro">
