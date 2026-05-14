@@ -143,10 +143,14 @@ def render_post_html(blog):
   </figure>
 """
 
+    og_image_path = blog.get("heroImage") or blog.get("cardImage") or "/uploads/Boudoir PNG.png"
+    og_image_url = f"https://blog.markandrewboudoir.com{og_image_path}"
+
     replacements = {
         "{{TITLE}}": escape(blog["title"]),
         "{{META_DESCRIPTION}}": escape(blog["metaDescription"]),
         "{{CANONICAL}}": f"https://blog.markandrewboudoir.com/posts/{blog['slug']}/",
+        "{{OG_IMAGE}}": og_image_url,
         "{{BREADCRUMB_CATEGORY}}": escape(blog.get("breadcrumbCategory", blog["categoryLabel"])),
         "{{EYEBROW}}": escape(blog.get("eyebrow", "the journal")),
         "{{H1}}": blog["h1"],  # raw, can contain <em>
