@@ -1,0 +1,6 @@
+# Drafts in .github/blog-drafts/ are pre-written posts waiting for the scheduled
+# publish workflow to move them into /posts/. They must not be deployed to Vercel,
+# because they're not ready to be web-accessible until their publish date.
+.github/blog-drafts/
+.github/scripts/
+.github/workflows/

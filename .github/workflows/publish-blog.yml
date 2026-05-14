@@ -1,0 +1,54 @@
+name: Publish next blog post
+
+# Fires Sundays and Wednesdays at 5:47am ET (9:47 UTC during EDT, 10:47 UTC during EST).
+# GitHub cron is UTC, so this lands one hour earlier when ET is on standard time (Nov-Mar) —
+# fine because the queue empties before then.
+#
+# Also supports a manual run via the Actions tab ("Run workflow") for testing or catch-up.
+
+on:
+  schedule:
+    - cron: '47 9 * * 0,3'
+  workflow_dispatch:
+    inputs:
+      force_slug:
+        description: 'Optional: publish a specific draft slug now (skips schedule check)'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Configure git identity
+        run: |
+          git config user.name "Blog Bot"
+          git config user.email "noreply@markandrewboudoir.com"
+
+      - name: Publish next queued post
+        env:
+          FORCE_SLUG: ${{ inputs.force_slug }}
+        run: |
+          python .github/scripts/publish_next.py
+
+      - name: Push commit
+        run: |
+          if git diff --quiet HEAD~1 HEAD 2>/dev/null; then
+            echo "No new commit produced — nothing to push."
+          else
+            git push origin HEAD:main
+          fi

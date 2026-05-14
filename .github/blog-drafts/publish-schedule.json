@@ -1,0 +1,46 @@
+{
+  "description": "Queue of blog drafts to auto-publish on schedule. Edited at runtime by .github/scripts/publish_next.py — each entry flips from 'queued' to 'published' as it ships. Order in the array does not matter; the script picks the first 'queued' entry whose scheduledDate is today or earlier.",
+  "timezone": "America/New_York",
+  "queue": [
+    {
+      "slug": "how-to-prepare-for-boudoir-session",
+      "scheduledDate": "2026-05-17",
+      "status": "queued"
+    },
+    {
+      "slug": "how-long-does-boudoir-photoshoot-take",
+      "scheduledDate": "2026-05-20",
+      "status": "queued"
+    },
+    {
+      "slug": "same-day-reveal-mark-andrew-difference",
+      "scheduledDate": "2026-05-24",
+      "status": "queued"
+    },
+    {
+      "slug": "boudoir-vs-glamour-photography-difference",
+      "scheduledDate": "2026-05-27",
+      "status": "queued"
+    },
+    {
+      "slug": "boudoir-for-plus-size-women",
+      "scheduledDate": "2026-05-31",
+      "status": "queued"
+    },
+    {
+      "slug": "couples-boudoir-perfect-date",
+      "scheduledDate": "2026-06-03",
+      "status": "queued"
+    },
+    {
+      "slug": "bridal-boudoir-wedding-gift",
+      "scheduledDate": "2026-06-07",
+      "status": "queued"
+    },
+    {
+      "slug": "mens-boudoir-why-more-men-booking",
+      "scheduledDate": "2026-06-10",
+      "status": "queued"
+    }
+  ]
+}
