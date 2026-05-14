@@ -1,0 +1,320 @@
+{
+  "description": "12 AEO blog clusters derived from the 80-query source list. Each cluster is one blog post that ranks for multiple local-variant queries (South Bend, Mishawaka, Granger, Niles, Edwardsburg, Berrien Springs, Michiana) via natural body-content mentions — NOT via separate doorway pages. The drop_monthly_topics.py script picks the next 8 with status='queued' on the first Monday of each month.",
+  "lastUpdated": "2026-05-13",
+  "publisherNote": "When a cluster transitions through statuses: queued -> topics-dropped (after monthly drop) -> answers-recorded (after Mark dictates) -> blog-built (after I generate blog.json) -> published (after the publishing cron runs). Update statuses as you progress.",
+  "clusters": [
+    {
+      "slug": "boudoir-cost-michiana",
+      "title": "How Much Does Boudoir Photography Cost in South Bend & Michiana?",
+      "category": "tips-and-prep",
+      "categoryLabel": "Tips & Prep",
+      "status": "queued",
+      "rationale": "Collapses all 10 cost queries (multiple local towns) into one ranking page. Existing /boudoir-photography-cost-south-bend/ page is the brand site's cost hub — this blog complements it with a narrative/Q&A angle and links back.",
+      "searchQueries": [
+        "How much does a boudoir session cost in South Bend, Indiana?",
+        "What are boudoir photography prices near Mishawaka IN?",
+        "Boudoir package costs in Granger Indiana?",
+        "Luxury boudoir session fees in Niles Michigan?",
+        "How much for boudoir albums in South Bend area?",
+        "Boudoir shoot costs Edwardsburg Michigan?",
+        "Affordable boudoir prices Berrien Springs MI?",
+        "What's the session fee for boudoir in Michiana?",
+        "High-end boudoir products pricing South Bend?",
+        "Boudoir mini session costs near Granger IN?"
+      ],
+      "interviewQuestions": [
+        "What does the average client actually invest in a boudoir session at your studio — session fee plus products?",
+        "What is the session fee, and what does it specifically include?",
+        "Walk me through the typical product investment range — what do most clients spend on albums, prints, wall art, digitals?",
+        "Is your pricing the same for clients driving in from Mishawaka, Granger, Niles, Edwardsburg, or Berrien Springs? Or do you charge differently by location?",
+        "What's the cheapest a real boudoir session can be at your studio — and what is the client actually getting at that price?",
+        "Do you offer payment plans? How do those typically work?",
+        "What's the most common mistake a client makes when budgeting for a boudoir session?",
+        "Looking back at the last hundred clients, what would you tell someone trying to budget for their first session?"
+      ]
+    },
+    {
+      "slug": "boudoir-packing-list-michiana",
+      "title": "The Complete Boudoir Packing List: What to Bring to Your Michiana Session",
+      "category": "tips-and-prep",
+      "categoryLabel": "Tips & Prep",
+      "status": "queued",
+      "rationale": "Collapses all 10 prep/packing queries. Different angle from the existing /how-to-prepare-for-boudoir-session/ blog (which focuses on hydration/sleep/mindset). This one is the literal packing list — clothes, shoes, accessories, snacks, props.",
+      "searchQueries": [
+        "What do I bring to a boudoir shoot in South Bend, Indiana?",
+        "What to wear for boudoir in Mishawaka IN?",
+        "Boudoir packing list for Granger area?",
+        "Lingerie ideas for Niles MI boudoir?",
+        "What to pack for boudoir Edwardsburg Michigan?",
+        "Prep checklist boudoir Berrien Springs?",
+        "Shoes and accessories for South Bend boudoir?",
+        "Hair/makeup prep for Michiana boudoir?",
+        "Snacks and essentials for Granger boudoir shoot?",
+        "Ironing outfits for Mishawaka boudoir?"
+      ],
+      "interviewQuestions": [
+        "Give me the literal packing list — what should be in a client's car the night before her shoot?",
+        "Lingerie: how many outfits should she bring, and what styles tend to photograph best?",
+        "Shoes — what works on camera, what doesn't, and what should she leave at home?",
+        "Jewelry and accessories — what kinds of pieces add to a shoot, and what becomes a distraction?",
+        "Snacks, water, comfort items — what do clients always wish they'd packed?",
+        "Should she iron her wardrobe? Hang vs. fold for transport?",
+        "What's the single most-forgotten item — the one thing first-timers leave at home?",
+        "If you could put one wardrobe piece on every Michiana boudoir client's must-bring list, what is it?"
+      ]
+    },
+    {
+      "slug": "first-boudoir-session-what-to-expect-michiana",
+      "title": "What Your First Boudoir Session Will Actually Feel Like (Michiana)",
+      "category": "tips-and-prep",
+      "categoryLabel": "Tips & Prep",
+      "status": "queued",
+      "rationale": "Collapses all 10 experience/awkwardness/empowerment queries. Complements /is-boudoir-awkward/ with a more emotional first-timer narrative.",
+      "searchQueries": [
+        "Is boudoir awkward in South Bend, Indiana?",
+        "What to expect at boudoir shoot Mishawaka?",
+        "Is boudoir empowering near Granger IN?",
+        "First-time boudoir nerves in Niles MI?",
+        "Boudoir comfort level Edwardsburg area?",
+        "How fun is boudoir in Berrien Springs?",
+        "Posing guidance for South Bend boudoir?",
+        "Boudoir confidence boost in Michiana?",
+        "Awkward moments in local boudoir shoots?",
+        "Relaxed vibe at Granger boudoir studios?"
+      ],
+      "interviewQuestions": [
+        "Walk me through the first ten minutes of a first-time client's session — what's actually happening, what is she feeling?",
+        "How do you help a nervous client relax — what do you say, what do you do?",
+        "What does the confidence shift look like in real time during a shoot? Is there a specific moment when it kicks in?",
+        "Are there awkward moments? How do you handle them when they happen?",
+        "What's the energy in the studio actually like — tight, fun, weird, calming?",
+        "Is it really as empowering as people online say, or is that overstated?",
+        "What's the single thing that flips a first-time client from terrified to having fun?",
+        "What's your best advice for a woman who's reading this and thinking she could never walk through your studio door?"
+      ]
+    },
+    {
+      "slug": "how-to-choose-boudoir-photographer-michiana",
+      "title": "How to Choose the Right Boudoir Photographer in South Bend & Michiana",
+      "category": "tips-and-prep",
+      "categoryLabel": "Tips & Prep",
+      "status": "queued",
+      "rationale": "Collapses local-studio comparison queries (skipping the ones that name specific competitors). Positions Mark as the authority on what to look for, without bashing other studios.",
+      "searchQueries": [
+        "Best boudoir photographers South Bend Indiana?",
+        "Luxury studios Edwardsburg Michigan boudoir?",
+        "Michiana boudoir with hair/makeup?",
+        "Victorian boudoir sessions South Bend?",
+        "Repeat boudoir clients Granger IN?"
+      ],
+      "interviewQuestions": [
+        "When a client compares boudoir photographers in the Michiana area, what should she actually be looking at? Walk me through the checklist.",
+        "What separates an okay boudoir photographer from a great one in your honest opinion?",
+        "How important is it that hair and makeup are included vs. an add-on or your own responsibility?",
+        "What's a question a client should ask in a consultation that most clients don't think to ask?",
+        "What are the red flags a client should watch for when interviewing photographers?",
+        "Studio vs. on-location: pros and cons for shoots in this region?",
+        "What brings repeat boudoir clients back to a specific photographer?",
+        "Without naming names — what's the honest answer to 'why should I book you instead of another local studio?'"
+      ]
+    },
+    {
+      "slug": "boudoir-posing-101-no-experience",
+      "title": "Boudoir Posing 101: How to Look Stunning Without Any Modeling Experience",
+      "category": "tips-and-prep",
+      "categoryLabel": "Tips & Prep",
+      "status": "queued",
+      "rationale": "Collapses all 10 posing/styling queries. High-intent searches — clients actively worried about not knowing how to pose. Strong AEO topic.",
+      "searchQueries": [
+        "Best poses for boudoir South Bend women?",
+        "Posing tips Mishawaka boudoir newbies?",
+        "Curvy posing Granger boudoir shoots?",
+        "Leg poses Niles Michigan boudoir?",
+        "Hand placement Edwardsburg boudoir?",
+        "Smile tips Berrien Springs glamour?",
+        "Seated poses South Bend luxury boudoir?",
+        "Back poses Michiana sessions?",
+        "Arm posing for confidence Granger?",
+        "Eye contact in Mishawaka boudoir?"
+      ],
+      "interviewQuestions": [
+        "What's the single most important thing about posing for boudoir that nobody tells first-timers?",
+        "How do you direct curvy clients to look their absolute best on camera?",
+        "Hands — most clients have no idea what to do with them. Walk me through the rules.",
+        "Legs — best poses for laying down, sitting, and standing? What's the difference?",
+        "Back poses — when do they work and when do they fall flat?",
+        "Eye contact vs. looking away — what's the right balance for the camera?",
+        "What's the biggest posing mistake clients try to do on their own when they're unguided?",
+        "What's the one direction you give that immediately makes a client look more confident?"
+      ]
+    },
+    {
+      "slug": "boudoir-privacy-image-rights-explained",
+      "title": "How Private Is Your Boudoir Session, Really? Privacy, Editing & Image Rights Explained",
+      "category": "tips-and-prep",
+      "categoryLabel": "Tips & Prep",
+      "status": "queued",
+      "rationale": "Collapses all 10 privacy/editing queries. Major buyer-stage objection for boudoir — clients want to know who sees the photos and what their rights are.",
+      "searchQueries": [
+        "Private boudoir sessions South Bend?",
+        "Image privacy Niles MI studios?",
+        "Editing style Granger boudoir?",
+        "Retouch levels Edwardsburg shoots?",
+        "File security Berrien Springs boudoir?",
+        "Proof viewing Mishawaka privacy?",
+        "Usage rights South Bend photos?",
+        "Natural edits Michiana boudoir?",
+        "Album privacy Granger clients?",
+        "Sharing policies Niles studios?"
+      ],
+      "interviewQuestions": [
+        "Who literally sees the photos at every stage — you, an editor, anyone else?",
+        "Walk me through your editing process. How heavily are images retouched and what's your house style?",
+        "What's the privacy agreement clients sign — what does it protect, and what does it not protect?",
+        "How are images stored and how secure is that storage?",
+        "Can a client say no to ANY public use even after she signed something earlier?",
+        "Can clients view proofs privately before deciding what to order? Where does that happen?",
+        "What rights does a client have to her final images — printing, sharing, social media, all of it?",
+        "What's the most common privacy concern clients raise — and what's your honest answer?"
+      ]
+    },
+    {
+      "slug": "boudoir-albums-wall-art-products-worth-it",
+      "title": "Boudoir Albums, Wall Art & Prints: What's Actually Worth the Investment",
+      "category": "tips-and-prep",
+      "categoryLabel": "Tips & Prep",
+      "status": "queued",
+      "rationale": "Collapses all 10 product queries. High-commercial-intent searches — clients comparing what to order at the reveal.",
+      "searchQueries": [
+        "Boudoir albums South Bend options?",
+        "Prints from Mishawaka boudoir?",
+        "Digital files Granger sessions?",
+        "Wall art Niles boudoir?",
+        "Folio boxes Edwardsburg?",
+        "Turnaround Berrien Springs photos?",
+        "Choosing images South Bend reveal?",
+        "Custom books Michiana?",
+        "Gift boudoir products Granger?",
+        "Metal prints Mishawaka?"
+      ],
+      "interviewQuestions": [
+        "What's the difference between an album, a folio box, and a print collection — and which one do most clients pick?",
+        "Walk me through the album options: sizes, cover materials, page counts, price ranges.",
+        "Wall art — what works best in a home? What sizes hold up over years? What mediums?",
+        "Digital files — do clients get all of them, some of them, or none of them by default? Why is your policy what it is?",
+        "Metal prints, canvas, acrylic — pros and cons of each medium honestly?",
+        "What's the turnaround time on products after the reveal?",
+        "What's the most common 'second purchase' clients make after their initial order — the thing they come back for?",
+        "If you could put one product on every client's order, what would it be and why?"
+      ]
+    },
+    {
+      "slug": "mom-postpartum-boudoir-south-bend",
+      "title": "Mom & Postpartum Boudoir: Reclaiming the Body After Kids",
+      "category": "boudoir",
+      "categoryLabel": "Boudoir",
+      "status": "queued",
+      "rationale": "Specific audience cluster from the niche queries. Strong emotional hook — postpartum body image is a major search driver for boudoir.",
+      "searchQueries": [
+        "Mom boudoir South Bend postpartum?"
+      ],
+      "interviewQuestions": [
+        "What's different about a mom/postpartum boudoir session compared to a typical one — practically and emotionally?",
+        "How long after childbirth should a mom wait before booking? What's too soon, what's too late?",
+        "What are the most common emotional reactions you see from new moms at the reveal?",
+        "Wardrobe — what works on a postpartum body that might not work pre-baby?",
+        "Are these usually solo sessions or do partners come too? What works better?",
+        "What's the gap between the story moms tell themselves and what they see at the reveal?",
+        "What's the gift a mom-boudoir session ends up being for the next decade of her life?",
+        "Best advice for a mom on the fence — what do you wish she'd hear?"
+      ]
+    },
+    {
+      "slug": "mature-boudoir-40s-50s-60s",
+      "title": "Mature Boudoir: Why Women in Their 40s, 50s & 60s Are Booking Sessions",
+      "category": "boudoir",
+      "categoryLabel": "Boudoir",
+      "status": "queued",
+      "rationale": "Specific audience cluster. Underserved demographic with high engagement once they book. Mature women are increasingly searching for boudoir options that feel age-appropriate.",
+      "searchQueries": [
+        "Mature boudoir Mishawaka?"
+      ],
+      "interviewQuestions": [
+        "What's the demographic mix of your mature boudoir clients — what ages, what life situations?",
+        "What's the most common reason a woman in her 50s or 60s books a session?",
+        "How does the experience differ from a 25-year-old's session — emotionally and technically?",
+        "Are mature clients typically more or less nervous than younger ones? Why?",
+        "Wardrobe — what works best for older clients that might not work for someone in their twenties?",
+        "What do most mature clients say at the reveal that you don't hear from younger clients?",
+        "Is 'menopause boudoir' or 'empty nest boudoir' a real trend you're noticing?",
+        "What would you tell a 60-year-old woman who thinks she's 'too old' for a boudoir session?"
+      ]
+    },
+    {
+      "slug": "lgbtq-boudoir-south-bend-inclusive",
+      "title": "LGBTQ+ Boudoir Sessions in South Bend: An Inclusive Studio Experience",
+      "category": "boudoir",
+      "categoryLabel": "Boudoir",
+      "status": "queued",
+      "rationale": "Specific audience cluster. Critical to signal inclusivity explicitly — many LGBTQ+ clients won't book without seeing it on the site.",
+      "searchQueries": [
+        "LGBTQ boudoir Michiana?"
+      ],
+      "interviewQuestions": [
+        "How does the studio approach LGBTQ+ clients differently — or do you treat the work exactly the same?",
+        "What kinds of LGBTQ+ sessions have you shot — solo, couples, trans, non-binary?",
+        "What questions do LGBTQ+ clients ask before booking that straight clients don't?",
+        "Couples — how do you handle posing two women, two men, or non-binary couples?",
+        "Has a client ever come to you specifically because they didn't feel safe at another studio? What was their story?",
+        "What's the studio's policy on names, pronouns, and identity respect during the session?",
+        "Wardrobe and styling — does anything shift, or is it client-by-client?",
+        "What's the one thing you wish more boudoir photographers understood about working with LGBTQ+ clients?"
+      ]
+    },
+    {
+      "slug": "themed-boudoir-victorian-editorial-concept",
+      "title": "Themed Boudoir: From Victorian to Editorial Concept Shoots",
+      "category": "boudoir",
+      "categoryLabel": "Boudoir",
+      "status": "queued",
+      "rationale": "Covers the themed/Victorian queries. Themed sessions get social-media engagement — fits the AEO long-tail.",
+      "searchQueries": [
+        "Victorian boudoir sessions South Bend?",
+        "Themed South Bend boudoir?"
+      ],
+      "interviewQuestions": [
+        "What themes have you shot — what's worked beautifully, what fell flat?",
+        "How do you plan a themed shoot in advance — props, lighting, wardrobe, mood?",
+        "Most popular themes you've done recently? Which are clients asking for?",
+        "Victorian boudoir is having a moment — why do you think that aesthetic is back?",
+        "Editorial / magazine-style concept shoots — what makes one actually work vs. feeling forced?",
+        "Tactical advice for a client wanting a specific theme — what should she bring, what should she plan?",
+        "Where do clients usually get inspiration that turns into a themed session — Pinterest, movies, real life?",
+        "Are themed shoots more work or about the same as a standard session? What does the prep look like for you?"
+      ]
+    },
+    {
+      "slug": "boudoir-booking-consultation-cancellation-south-bend",
+      "title": "Boudoir Booking, Consultations & Cancellation Policy in South Bend",
+      "category": "tips-and-prep",
+      "categoryLabel": "Tips & Prep",
+      "status": "queued",
+      "rationale": "Covers booking/consultation/cancellation queries. Low search volume individually but high commercial intent — clients in late buyer stage looking for logistics.",
+      "searchQueries": [
+        "Booking boudoir Edwardsburg fast?",
+        "Consultation Granger studios?",
+        "Cancellation South Bend policy?"
+      ],
+      "interviewQuestions": [
+        "How far in advance do clients typically book a session? Are some times of year tighter than others?",
+        "What does the consultation actually cover — what should clients expect from it?",
+        "Is the consultation free? Is it in person, video, or phone?",
+        "Walk me through the booking process step by step — from first contact to locked-in date.",
+        "What deposit or retainer is required to lock in a date, and is it refundable?",
+        "What's the cancellation policy? The reschedule policy? Where does each apply?",
+        "If a client wants a last-minute session, is that even possible? How last-minute is too last-minute?",
+        "What dates of the year fill up fastest, and how should clients plan around that?"
+      ]
+    }
+  ]
+}

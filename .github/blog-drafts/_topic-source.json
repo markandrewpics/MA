@@ -1,0 +1,120 @@
+{
+  "description": "Raw search queries from Perplexity research, May 2026. These are local-SEO-leaning queries for the South Bend / Michiana market. They are CLUSTERED into ~12 distinct blog topics in _topic-clusters.json — never publish each query as its own blog (Google flags doorway pages and demotes the site).",
+  "harvestedAt": "2026-05-13",
+  "sourceTool": "Perplexity",
+  "queryCount": 80,
+  "queriesByTheme": {
+    "cost": [
+      "How much does a boudoir session cost in South Bend, Indiana?",
+      "What are boudoir photography prices near Mishawaka IN?",
+      "Boudoir package costs in Granger Indiana?",
+      "Luxury boudoir session fees in Niles Michigan?",
+      "How much for boudoir albums in South Bend area?",
+      "Boudoir shoot costs Edwardsburg Michigan?",
+      "Affordable boudoir prices Berrien Springs MI?",
+      "What's the session fee for boudoir in Michiana?",
+      "High-end boudoir products pricing South Bend?",
+      "Boudoir mini session costs near Granger IN?"
+    ],
+    "preparation": [
+      "What do I bring to a boudoir shoot in South Bend, Indiana?",
+      "What to wear for boudoir in Mishawaka IN?",
+      "Boudoir packing list for Granger area?",
+      "Lingerie ideas for Niles MI boudoir?",
+      "What to pack for boudoir Edwardsburg Michigan?",
+      "Prep checklist boudoir Berrien Springs?",
+      "Shoes and accessories for South Bend boudoir?",
+      "Hair/makeup prep for Michiana boudoir?",
+      "Snacks and essentials for Granger boudoir shoot?",
+      "Ironing outfits for Mishawaka boudoir?"
+    ],
+    "experience": [
+      "Is boudoir awkward in South Bend, Indiana?",
+      "What to expect at boudoir shoot Mishawaka?",
+      "Is boudoir empowering near Granger IN?",
+      "First-time boudoir nerves in Niles MI?",
+      "Boudoir comfort level Edwardsburg area?",
+      "How fun is boudoir in Berrien Springs?",
+      "Posing guidance for South Bend boudoir?",
+      "Boudoir confidence boost in Michiana?",
+      "Awkward moments in local boudoir shoots?",
+      "Relaxed vibe at Granger boudoir studios?"
+    ],
+    "localStudio": [
+      "Best boudoir photographers South Bend Indiana?",
+      "Nico Studios boudoir reviews Mishawaka?",
+      "Bold Boudoir in Granger area?",
+      "Mark Andrew Boudoir South Bend prices?",
+      "Sarah Sage boudoir near Niles MI?",
+      "Luxury studios Edwardsburg Michigan boudoir?",
+      "Top boudoir Berrien Springs reviews?",
+      "Michiana boudoir with hair/makeup?",
+      "Victorian boudoir sessions South Bend?",
+      "Repeat boudoir clients Granger IN?"
+    ],
+    "posingAndStyling": [
+      "Best poses for boudoir South Bend women?",
+      "Posing tips Mishawaka boudoir newbies?",
+      "Curvy posing Granger boudoir shoots?",
+      "Leg poses Niles Michigan boudoir?",
+      "Hand placement Edwardsburg boudoir?",
+      "Smile tips Berrien Springs glamour?",
+      "Seated poses South Bend luxury boudoir?",
+      "Back poses Michiana sessions?",
+      "Arm posing for confidence Granger?",
+      "Eye contact in Mishawaka boudoir?"
+    ],
+    "privacyAndEditing": [
+      "Private boudoir sessions South Bend?",
+      "Image privacy Niles MI studios?",
+      "Editing style Granger boudoir?",
+      "Retouch levels Edwardsburg shoots?",
+      "File security Berrien Springs boudoir?",
+      "Proof viewing Mishawaka privacy?",
+      "Usage rights South Bend photos?",
+      "Natural edits Michiana boudoir?",
+      "Album privacy Granger clients?",
+      "Sharing policies Niles studios?"
+    ],
+    "productsAndAftermath": [
+      "Boudoir albums South Bend options?",
+      "Prints from Mishawaka boudoir?",
+      "Digital files Granger sessions?",
+      "Wall art Niles boudoir?",
+      "Folio boxes Edwardsburg?",
+      "Turnaround Berrien Springs photos?",
+      "Choosing images South Bend reveal?",
+      "Custom books Michiana?",
+      "Gift boudoir products Granger?",
+      "Metal prints Mishawaka?"
+    ],
+    "nicheAndBooking": [
+      "Mom boudoir South Bend postpartum?",
+      "Plus-size boudoir Niles MI?",
+      "Couple boudoir Granger IN?",
+      "Booking boudoir Edwardsburg fast?",
+      "Wedding boudoir Berrien Springs?",
+      "Mature boudoir Mishawaka?",
+      "Themed South Bend boudoir?",
+      "LGBTQ boudoir Michiana?",
+      "Consultation Granger studios?",
+      "Cancellation South Bend policy?"
+    ]
+  },
+  "skipped": {
+    "competitorNames": [
+      "Nico Studios boudoir reviews Mishawaka?",
+      "Bold Boudoir in Granger area?",
+      "Sarah Sage boudoir near Niles MI?",
+      "Top boudoir Berrien Springs reviews?"
+    ],
+    "ownBrandQueries": [
+      "Mark Andrew Boudoir South Bend prices?"
+    ],
+    "alreadyCoveredInQueue": [
+      "Plus-size boudoir Niles MI?",
+      "Couple boudoir Granger IN?",
+      "Wedding boudoir Berrien Springs?"
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+name: Drop monthly blog topics
+
+# Fires at 9:00 AM ET on the first Monday of every month.
+# Cron is UTC, so 13:00 UTC = 9:00 EDT (March-November) or 8:00 EST (Nov-March).
+# Cron expression: minute=0, hour=13, day-of-month=1-7, day-of-week=Monday.
+# A Monday that lands in days 1-7 of the month IS the first Monday — neat trick.
+#
+# Manual trigger also available via workflow_dispatch for testing.
+
+on:
+  schedule:
+    - cron: '0 13 1-7 * 1'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  drop:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Configure git identity
+        run: |
+          git config user.name "Blog Bot"
+          git config user.email "noreply@markandrewboudoir.com"
+
+      - name: Drop next 8 queued topics
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python .github/scripts/drop_monthly_topics.py
+
+      - name: Push commit
+        run: |
+          if git rev-parse --verify HEAD~1 >/dev/null 2>&1 && git diff --quiet HEAD~1 HEAD; then
+            echo "No new commit produced — nothing to push."
+          else
+            git push origin HEAD:main
+          fi
