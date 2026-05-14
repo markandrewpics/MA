@@ -1,6 +1,6 @@
 {
-  "description": "12 AEO blog clusters derived from the 80-query source list. Each cluster is one blog post that ranks for multiple local-variant queries (South Bend, Mishawaka, Granger, Niles, Edwardsburg, Berrien Springs, Michiana) via natural body-content mentions — NOT via separate doorway pages. The drop_monthly_topics.py script picks the next 8 with status='queued' on the first Monday of each month.",
-  "lastUpdated": "2026-05-13",
+  "description": "20 AEO blog clusters: 12 derived from the May 2026 Perplexity 80-query research pull (queries with local-variant collapse), 8 evergreen buyer-stage gap-fills (no research pull required). Each cluster is one blog post that ranks for multiple local-variant queries (South Bend, Mishawaka, Granger, Niles, Edwardsburg, Berrien Springs, Michiana) via natural body-content mentions — NOT via separate doorway pages. The drop_monthly_topics.py script picks the next 8 with status='queued' on the first Monday of each month.",
+  "lastUpdated": "2026-05-14",
   "publisherNote": "When a cluster transitions through statuses: queued -> topics-dropped (after monthly drop) -> answers-recorded (after Mark dictates) -> blog-built (after I generate blog.json) -> published (after the publishing cron runs). Update statuses as you progress.",
   "clusters": [
     {
@@ -314,6 +314,200 @@
         "What's the cancellation policy? The reschedule policy? Where does each apply?",
         "If a client wants a last-minute session, is that even possible? How last-minute is too last-minute?",
         "What dates of the year fill up fastest, and how should clients plan around that?"
+      ]
+    },
+    {
+      "slug": "how-to-book-boudoir-session-first-step",
+      "title": "How to Book a Boudoir Session: The First Step Most Women Get Wrong",
+      "category": "tips-and-prep",
+      "categoryLabel": "Tips & Prep",
+      "status": "queued",
+      "rationale": "High commercial intent. Walks through booking process from inquiry to locked date. Addresses the silent question 'where do I even start.'",
+      "searchQueries": [
+        "How do I book a boudoir session?",
+        "What's the first step to booking boudoir?",
+        "How does the boudoir booking process work?",
+        "Booking a boudoir photographer South Bend?",
+        "Boudoir consultation what to expect?"
+      ],
+      "interviewQuestions": [
+        "When a woman first reaches out to you, what's the very first thing that happens?",
+        "Walk me through the full booking timeline — from first contact to locked-in date.",
+        "What does the consultation actually cover?",
+        "What's the deposit / retainer policy? How does it work?",
+        "What's the #1 thing women get wrong when trying to book a boudoir session?",
+        "How far in advance should a client book? When do you fill up?",
+        "If somebody is reading this and wants to book — what should her very next click be?"
+      ]
+    },
+    {
+      "slug": "hair-makeup-aletheia-jean-boudoir",
+      "title": "Hair & Makeup at Mark Andrew Boudoir: Meet Aletheia Jean",
+      "category": "behind-the-scenes",
+      "categoryLabel": "Behind the Scenes",
+      "status": "queued",
+      "rationale": "Features the MUA. Builds local trust + sets the H&M part of the experience apart from competitors. Aletheia is a brand asset.",
+      "searchQueries": [
+        "Hair and makeup for boudoir South Bend?",
+        "Is hair and makeup included with boudoir Michiana?",
+        "Who does hair and makeup at Mark Andrew Boudoir?",
+        "Boudoir makeup artist near me?",
+        "How long does boudoir hair and makeup take?"
+      ],
+      "interviewQuestions": [
+        "Tell me about Aletheia Jean — how did you start working together, and what makes her work different?",
+        "Why is professional hair and makeup non-negotiable for a boudoir session?",
+        "How long does the hair and makeup portion take? What does it look like?",
+        "What's the difference between bridal-style makeup and boudoir-style makeup?",
+        "Aletheia is known for maximalism and avant-garde looks — when do clients lean into that vs. soft glam?",
+        "Walk me through the chair experience — what shifts in a client during that hour?",
+        "Does the makeup look heavy in person? How does it photograph vs. how it looks day-to-day?"
+      ]
+    },
+    {
+      "slug": "boudoir-album-sizes-what-fits-home",
+      "title": "Boudoir Album Sizes Explained: What Actually Fits in Your Home",
+      "category": "tips-and-prep",
+      "categoryLabel": "Tips & Prep",
+      "status": "queued",
+      "rationale": "Practical product education. Helps clients arrive at the reveal pre-decided on rough album size. Reduces decision fatigue at the order session.",
+      "searchQueries": [
+        "What size boudoir album should I get?",
+        "Boudoir album sizes explained?",
+        "10x10 vs 12x12 boudoir album?",
+        "Boudoir album options South Bend?",
+        "How big is a boudoir album?"
+      ],
+      "interviewQuestions": [
+        "Walk me through the album sizes you offer — dimensions, page counts, leathers, fabrics.",
+        "Which size do most clients actually pick? Why?",
+        "What's the difference in feel between a 10x10 and a 12x12 in your hands?",
+        "How many images fit in each size? What's the right images-per-page count?",
+        "Where do clients actually keep their albums? Coffee table, drawer, shelf, hidden?",
+        "Are smaller travel albums or duplicate copies common? Who orders them?",
+        "If you could put one album in every client's hands, which size and style would it be?"
+      ]
+    },
+    {
+      "slug": "truth-about-boudoir-editing-retouching",
+      "title": "The Truth About Editing in Boudoir Photography: What Gets Touched Up, What Doesn't",
+      "category": "behind-the-scenes",
+      "categoryLabel": "Behind the Scenes",
+      "status": "queued",
+      "rationale": "Addresses major buyer objection — 'will they Photoshop me into someone else.' Editing transparency builds trust.",
+      "searchQueries": [
+        "How heavily are boudoir photos edited?",
+        "Will my boudoir photos be Photoshopped?",
+        "Do boudoir photographers remove tattoos / scars / stretch marks?",
+        "Boudoir editing style natural vs heavy?",
+        "Boudoir retouching what to expect?"
+      ],
+      "interviewQuestions": [
+        "Walk me through your editing pass. What do you touch, what do you never touch?",
+        "Do you slim clients? Smooth skin to plastic? What's the line?",
+        "Stretch marks, scars, tattoos, cellulite — what's your default policy?",
+        "Can a client request specific things to be edited out or left in?",
+        "How long does the editing actually take per image? And how is yours faster than other studios?",
+        "What's a common request you push back on, and why?",
+        "When a client says 'edit it however you want, I trust you' — what do you do?"
+      ]
+    },
+    {
+      "slug": "telling-your-partner-about-boudoir",
+      "title": "How to Tell Your Partner You're Booking a Boudoir Session (Or Whether to Tell Them at All)",
+      "category": "tips-and-prep",
+      "categoryLabel": "Tips & Prep",
+      "status": "queued",
+      "rationale": "Addresses the 'how do I bring this up' silent objection. Many women are afraid to tell their partner. This blog gives them the language.",
+      "searchQueries": [
+        "Should I tell my husband I'm doing a boudoir shoot?",
+        "How to tell my partner about boudoir?",
+        "Boudoir as a surprise vs. telling him?",
+        "Do husbands like boudoir gifts?",
+        "How to bring up boudoir with my boyfriend?"
+      ],
+      "interviewQuestions": [
+        "When a client tells you she's nervous to mention the shoot to her partner — what do you tell her?",
+        "What percentage of clients keep it a secret vs. tell their partner upfront?",
+        "What kind of reactions do partners typically have when she tells him?",
+        "What if her partner is unsupportive or uncomfortable with it — should she still book?",
+        "Surprise vs. transparent — which approach makes for a better gift / better experience?",
+        "What's the most common partner-reaction story you've heard at the reveal?",
+        "How would you frame the conversation if you were a woman trying to bring it up?"
+      ]
+    },
+    {
+      "slug": "boudoir-gift-certificate-confidence-gift",
+      "title": "Boudoir Gift Certificates: Giving Confidence as a Gift",
+      "category": "tips-and-prep",
+      "categoryLabel": "Tips & Prep",
+      "status": "queued",
+      "rationale": "Opens a new revenue stream and a separate buyer persona — the gifter (mom buying for daughter, husband for wife, friends for bachelorette). Gift certificate SEO ranks well around holidays.",
+      "searchQueries": [
+        "Boudoir gift certificate South Bend?",
+        "Best gift for wife — boudoir session?",
+        "Gift a friend a boudoir shoot?",
+        "Boudoir gift card Michiana?",
+        "Mother's Day boudoir gift?",
+        "Anniversary gift boudoir certificate?"
+      ],
+      "interviewQuestions": [
+        "Do you offer gift certificates? How does it work?",
+        "Who typically buys boudoir gift certificates — husbands, friends, mothers, bachelorette parties?",
+        "What's the most common reaction when a woman receives a boudoir gift certificate?",
+        "What if the recipient doesn't want to use it — is it refundable?",
+        "How long is the certificate valid?",
+        "Are there awkward gift scenarios — like husband buying for wife — that have backfired?",
+        "What's the best occasion to gift one — birthdays, anniversaries, milestones, Mother's Day?"
+      ]
+    },
+    {
+      "slug": "boudoir-just-for-yourself-no-occasion",
+      "title": "Why You Should Book a Boudoir Session Just for Yourself (No Occasion Needed)",
+      "category": "boudoir",
+      "categoryLabel": "Boudoir",
+      "status": "queued",
+      "rationale": "Addresses the silent objection 'I don't have a reason.' Removes the milestone-required mental block. Strong emotional hook.",
+      "searchQueries": [
+        "Do I need a reason to do a boudoir shoot?",
+        "Boudoir for yourself, not for anyone else?",
+        "Solo boudoir session South Bend?",
+        "Is it weird to do boudoir for myself?",
+        "Boudoir without an occasion?"
+      ],
+      "interviewQuestions": [
+        "What percentage of your clients book without a specific occasion in mind?",
+        "When a client says 'I don't have a reason to do this' — how do you respond?",
+        "What do clients who book for themselves get out of it that clients who book for an event don't?",
+        "Has anyone ever told you that the 'just for me' shoot changed their life in a way they didn't expect?",
+        "If a woman has been thinking about it for years but is waiting for a milestone — what would you tell her?",
+        "What's the most common 'no occasion' reason clients eventually give you in the consultation?",
+        "Is the 'just for yourself' boudoir session different in any way from a gift-driven one?"
+      ]
+    },
+    {
+      "slug": "boudoir-photography-mistakes-ruin-photos",
+      "title": "7 Boudoir Photography Mistakes That Ruin Your Photos (And How to Avoid Them)",
+      "category": "tips-and-prep",
+      "categoryLabel": "Tips & Prep",
+      "status": "queued",
+      "rationale": "Listicle format ranks well in AEO. Negative-framing topics ('mistakes that ruin') get high CTR. Covers gaps from other topics.",
+      "searchQueries": [
+        "Boudoir photo mistakes to avoid?",
+        "What ruins boudoir photos?",
+        "Common boudoir shoot mistakes?",
+        "How to avoid bad boudoir photos?",
+        "Worst boudoir photography mistakes?"
+      ],
+      "interviewQuestions": [
+        "What's the #1 mistake first-time clients make that ruins their photos?",
+        "Wardrobe-wise — what's the most common mistake?",
+        "Skin / makeup / hair — what mistakes show up most often?",
+        "Mindset mistakes — what's the wrong attitude to walk in with?",
+        "Communication mistakes — what should clients say BEFORE the shoot to prevent regret?",
+        "Photographer-side mistakes — what red flags should clients catch when choosing one?",
+        "Of all the mistakes you've seen over a decade — which one is the most expensive to fix?",
+        "If you could give a first-time client a single warning, what would it be?"
       ]
     }
   ]
