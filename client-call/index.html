@@ -314,10 +314,13 @@
     }
     .price-strip .price .strike {
       text-decoration: line-through;
-      color: #6b7280;
-      margin-right: 12px;
-      font-weight: 400;
-      font-size: 22px;
+      text-decoration-color: #e8895c;
+      text-decoration-thickness: 2px;
+      color: #ffffff;
+      margin-right: 14px;
+      font-weight: 600;
+      font-size: 28px;
+      opacity: 0.95;
     }
     .price-strip .price .now { color: #e8895c; }
     .price-strip .note {
@@ -349,6 +352,10 @@
       color: #d0c8c0;
       margin-bottom: 26px;
     }
+
+    /* STEEL BLUE — lighter blue section variant for the offer band */
+    section.block.steel-blue { background: #1d2950; }
+    section.cta-band.steel-blue { background: #1d2950; }
 
     /* HOW IT WORKS — 4 numbered steps */
     .steps-grid {
@@ -632,23 +639,53 @@
       font-weight: 600;
     }
 
-    /* FAQ */
+    /* FAQ — collapsible accordion, lighter-blue cards */
     .faq-list { max-width: 760px; margin: 50px auto 0; }
-    .faq-item {
-      background: #161f36;
-      border: 1px solid rgba(232,137,92,0.15);
+    .faq-list details.faq-item {
+      background: #1d2950;
+      border: 1px solid rgba(232,137,92,0.18);
       border-radius: 6px;
-      padding: 22px 26px;
+      padding: 0;
       margin-bottom: 12px;
+      overflow: hidden;
+      transition: background 0.2s;
     }
-    .faq-q {
+    .faq-list details.faq-item[open] { background: #243358; }
+    .faq-list summary.faq-q {
       font-family: 'Jost', sans-serif;
       font-weight: 700;
       font-size: 17px;
-      margin-bottom: 10px;
       color: #ffffff;
+      padding: 22px 26px;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      user-select: none;
+      transition: color 0.2s;
     }
-    .faq-a { font-size: 14.5px; line-height: 1.65; color: #d0c8c0; }
+    .faq-list summary.faq-q::-webkit-details-marker { display: none; }
+    .faq-list summary.faq-q::after {
+      content: '+';
+      font-size: 24px;
+      line-height: 1;
+      color: #e8895c;
+      flex-shrink: 0;
+      font-weight: 300;
+      transition: transform 0.2s;
+    }
+    .faq-list details[open] summary.faq-q::after { content: '−'; }
+    .faq-list summary.faq-q:hover { color: #e8895c; }
+    .faq-list .faq-a {
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: #d0c8c0;
+      padding: 0 26px 22px;
+      border-top: 1px solid rgba(232,137,92,0.12);
+      padding-top: 18px;
+    }
 
     /* BOOKING SECTION */
     .booking-section { padding: 90px 28px 100px; max-width: 1100px; margin: 0 auto; }
@@ -760,6 +797,74 @@
     .step-card.finale::before { left: 50%; transform: translateX(-78px); }
     .step-card.finale::after  { right: 50%; transform: translateX(78px); }
 
+
+    /* RATTLE THE STARS — thin band between FAQ and form */
+    .rattle-band {
+      position: relative;
+      padding: 56px 28px;
+      background: #08101e;
+      overflow: hidden;
+      text-align: center;
+      border-top: 1px solid rgba(232,137,92,0.18);
+      border-bottom: 1px solid rgba(232,137,92,0.18);
+    }
+    .rattle-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('/uploads/velvet-curtain-dramatic-lighting-standing-pose-boudoir-session-elkhart-in.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      opacity: 0.4;
+      z-index: 0;
+    }
+    .rattle-band::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(8,16,30,0.65), rgba(8,16,30,0.45), rgba(8,16,30,0.65));
+      z-index: 1;
+    }
+    .rattle-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 26px;
+    }
+    .rattle-frill {
+      flex: 1;
+      max-width: 200px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #e8895c, transparent);
+      opacity: 0.7;
+    }
+    .rattle-h {
+      font-family: 'Jost', sans-serif;
+      font-weight: 700;
+      font-size: 44px;
+      line-height: 1.1;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+      margin: 0;
+      flex-shrink: 0;
+    }
+    .rattle-h em {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 500;
+      color: #e8895c;
+    }
+    @media (max-width: 720px) {
+      .rattle-band { padding: 36px 22px; }
+      .rattle-h { font-size: 28px; }
+      .rattle-inner { gap: 14px; }
+      .rattle-frill { max-width: 50px; }
+    }
+
     /* RESPONSIVE */
     @media (max-width: 980px) {
       .hero h1 { font-size: 42px; }
@@ -840,7 +945,7 @@
   </section>
 
   <!-- WHAT YOU GET -->
-  <section class="block dark">
+  <section class="block dark steel-blue">
     <div class="section-eyebrow">What to expect</div>
     <h2 class="section-h2">Everything in your <span class="accent">featured session.</span></h2>
 
@@ -849,7 +954,7 @@
         <div class="benefit-text"><h3>Pre-session styling consult</h3><p>30-minute Zoom call to plan your wardrobe, vibe, and shot list.</p></div>
       </div>
       <div class="benefit-card"><span class="benefit-check">✓</span>
-        <div class="benefit-text"><h3>4-hour studio day</h3><p>Multiple sets, lighting setups, and wardrobe changes — start at 9 AM, wrap mid-afternoon.</p></div>
+        <div class="benefit-text"><h3>Full day at the studio, just for you</h3><p>Multiple sets, lighting setups, and wardrobe changes. Hair &amp; makeup at 9 AM, photoshoot through lunch, reveal in the afternoon.</p></div>
       </div>
       <div class="benefit-card"><span class="benefit-check">✓</span>
         <div class="benefit-text"><h3>Pro hair &amp; makeup</h3><p>Glamorous hair and makeup built for the camera — soft enough to feel just like you.</p></div>
@@ -861,7 +966,7 @@
         <div class="benefit-text"><h3>Same-day image reveal</h3><p>See your edited, retouched gallery the same day — no waiting weeks.</p></div>
       </div>
       <div class="benefit-card"><span class="benefit-check">✓</span>
-        <div class="benefit-text"><h3>A confidence boost going into summer</h3><p>You'll walk out as the most magnetic version of yourself — with energy you didn't know you had.</p></div>
+        <div class="benefit-text"><h3>A huge summer confidence boost</h3><p>You'll walk out as the most magnetic version of yourself — with energy you didn't know you had.</p></div>
       </div>
     </div>
 
@@ -873,7 +978,7 @@
   </section>
 
   <!-- CTA BAND -->
-  <section class="cta-band">
+  <section class="cta-band steel-blue">
     <div class="cta-band-inner">
       <h3>Limited dates. <span class="accent">Once they're filled, this closes.</span></h3>
       <p>We'll go over every detail of what to expect, ideas for the shoot, confirm your date, and answer every question.</p>
@@ -1108,61 +1213,69 @@
     <h2 class="section-h2">Yes, you can. <span class="accent">Do this.</span></h2>
 
     <div class="faq-list">
-      <div class="faq-item">
-        <div class="faq-q">"Where is the studio?"</div>
+      <details class="faq-item">
+        <summary class="faq-q">"Where is the studio?"</summary>
         <div class="faq-a">We have a beautiful, private studio in the Habersham Marketplace, Beaufort, SC. The exact address is shared after you're accepted.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">"Why are you offering complimentary sessions?"</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">"Why are you offering complimentary sessions?"</summary>
         <div class="faq-a">We're updating our studio's viewing room and need women to photograph for new sample albums, wall prints, and other products to be featured in studio. In exchange for being featured, your session is on us.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">"How long will the session last?"</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">"How long will the session last?"</summary>
         <div class="faq-a">This is a full-day event. Hair and makeup start at 9 AM, the photoshoot wraps around lunchtime, then you'll come back that afternoon to see your edited, retouched pictures the same day — and we send you on your way with your newfound confidence.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">"Can my partner be photographed too?"</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">"Can my partner be photographed too?"</summary>
         <div class="faq-a">Yes — we love photographing couples. They're welcome to join your shoot at no extra cost.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">"Can I bring a friend?"</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">"Can I bring a friend?"</summary>
         <div class="faq-a">Yes — your friend is welcome to stay during hair and makeup. Aletheia stays during the entire shoot to assist with wardrobe and touchups.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">"Do I have to buy any photos?"</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">"Do I have to buy any photos?"</summary>
         <div class="faq-a">No. You have no obligation to purchase anything. You'll see 100+ edited images at your viewing and choose what (if anything) you want — but fair warning: you're going to love how you look in your pictures.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">"What if I want to buy keepsakes?"</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">"What if I want to buy keepsakes?"</summary>
         <div class="faq-a">Optional. Art pieces start at $590. Most clients invest more — and we offer flexible payment plans in case you love your photos more than you were expecting.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">"I'm not photogenic."</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">"I'm not photogenic."</summary>
         <div class="faq-a">Almost everyone says this. It's not true — it's just that you've never been photographed by someone who's used to photographing every figure, every age, every personality. Mark has spent a decade in studio with thousands of women across every body type and every season of life, and he poses every shot — head, shoulders, hands, hips, breath — so you never have to "figure out what to do."</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Is it awkward?</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Is it awkward?</summary>
         <div class="faq-a">Not the way we run it. The studio is private, the team is small (Mark + Aletheia), and most women say the awkwardness they expected never showed up. Within the first 30 minutes, you'll be laughing.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">"I don't know what to bring."</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">"I don't know what to bring."</summary>
         <div class="faq-a">That's exactly what the planning call is for. We send you a full wardrobe and prep guide after you book, then walk through everything together on a 30-minute video call before the shoot.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">"I don't know what to wear."</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">"I don't know what to wear."</summary>
         <div class="faq-a">Most women say this — and almost every one ends up obsessed with what we choose together. We pick wardrobe based on your body, your colors, and the vibe you're going for. Nothing is off the rack and ill-fitting.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">"I don't know how to pose."</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">"I don't know how to pose."</summary>
         <div class="faq-a">You're not supposed to. Mark poses every shot — head, shoulders, hands, hips, breath — frame by frame. You never have to "figure out what to do." That's his entire job.</div>
-      </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- RATTLE THE STARS — pre-form callout -->
+  <section class="rattle-band">
+    <div class="rattle-inner">
+      <span class="rattle-frill"></span>
+      <h2 class="rattle-h">You could <em>rattle the stars.</em></h2>
+      <span class="rattle-frill"></span>
     </div>
   </section>
 
   <!-- BOOKING -->
   <section class="booking-section" id="book">
     <div class="booking-head">
-      <div class="section-eyebrow">You could rattle the stars.</div>
       <h2 class="section-h2">Apply for your <span class="accent">complimentary photo shoot.</span></h2>
       <p class="section-lead">Tell us about you and why you want this. We'll reach out within 48 hours to let you know if you've been selected.</p>
       <p class="scarcity-line">Limited dates · May, July &amp; August 2026 · Beaufort, SC</p>
