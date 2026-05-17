@@ -2195,26 +2195,38 @@
     var GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/Q6lVK1sfocdqesjFfFhK/webhook-trigger/6cb5b2bc-57ee-4d8e-96ff-203910bd1dec';
     var leadData = { firstName: '', email: '', phone: '' };
 
-    function postLead(payload) {
-      // Always cache locally first (safety net)
+    // Unique session ID — sent with every POST so GHL can dedupe partial-vs-full submissions
+    var quizSessionId;
+    try { quizSessionId = (crypto && crypto.randomUUID) ? crypto.randomUUID() : 'q-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10); }
+    catch (e) { quizSessionId = 'q-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10); }
+
+    function postLead(payload, label) {
+      var body = Object.assign({
+        source: 'Homepage Quiz Popup',
+        tags: ['quiz-lead-100off'],
+        quizSessionId: quizSessionId,
+        quizAnswers: quizState,
+        step: label
+      }, payload);
+      // Cache locally as a safety net
       try {
         var pending = JSON.parse(localStorage.getItem('mab_quiz_leads') || '[]');
-        pending.push(Object.assign({}, payload, { submittedAt: new Date().toISOString(), quizAnswers: quizState }));
+        pending.push(Object.assign({}, body, { submittedAt: new Date().toISOString() }));
         localStorage.setItem('mab_quiz_leads', JSON.stringify(pending));
       } catch (e) {}
-      // Fire-and-forget to GHL (mode 'no-cors' so browser doesn't reject)
-      try {
-        fetch(GHL_WEBHOOK, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(Object.assign({
-            source: 'Homepage Quiz Popup',
-            tags: ['quiz-lead-100off'],
-            quizAnswers: quizState
-          }, payload))
-        }).catch(function () {});
-      } catch (e) {}
+      // Real POST to GHL (mode 'cors' — GHL webhook returns Access-Control-Allow-Origin: *)
+      console.log('[Quiz] POST →', label, body);
+      return fetch(GHL_WEBHOOK, {
+        method: 'POST',
+        mode: 'cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      }).then(function (res) {
+        console.log('[Quiz] POST ✓', label, res.status);
+        return res;
+      }).catch(function (err) {
+        console.warn('[Quiz] POST ✗', label, err);
+      });
     }
 
     // ---- Step 9 (name) ----
@@ -2225,6 +2237,7 @@
     });
     nameNext.addEventListener('click', function () {
       leadData.firstName = nameInput.value.trim();
+      postLead({ firstName: leadData.firstName }, 'name');
       setStep(10);
     });
 
@@ -2237,8 +2250,7 @@
     });
     emailNext.addEventListener('click', function () {
       leadData.email = emailInput.value.trim();
-      // Partial submission — captures lead even if they bail on phone step
-      postLead({ firstName: leadData.firstName, email: leadData.email });
+      postLead({ firstName: leadData.firstName, email: leadData.email }, 'email');
       setStep(11);
     });
 
@@ -2251,8 +2263,7 @@
     });
     phoneNext.addEventListener('click', function () {
       leadData.phone = phoneInput.value.trim();
-      // Final submission — name + email + phone
-      postLead({ firstName: leadData.firstName, email: leadData.email, phone: leadData.phone });
+      postLead({ firstName: leadData.firstName, email: leadData.email, phone: leadData.phone }, 'phone');
       try { localStorage.setItem(STORAGE_KEY, 'completed'); } catch (e) {}
       setStep(12);
     });
