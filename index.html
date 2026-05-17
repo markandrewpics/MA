@@ -2237,7 +2237,7 @@
     });
     nameNext.addEventListener('click', function () {
       leadData.firstName = nameInput.value.trim();
-      postLead({ firstName: leadData.firstName }, 'name');
+      // No POST on name-only — wait until we have email to avoid orphan contacts in GHL
       setStep(10);
     });
 
