@@ -1923,7 +1923,7 @@
     <div class="quiz-modal">
       <button class="quiz-close" id="quizClose" aria-label="Close">×</button>
       <div class="quiz-progress" id="quizProgress">
-        <div class="bar active"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        <div class="bar active"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
       </div>
 
       <!-- Step 0: intro -->
@@ -2035,20 +2035,35 @@
         <button class="quiz-btn" data-quiz-next>Claim my $100 off →</button>
       </div>
 
-      <!-- Step 9: Email capture -->
+      <!-- Step 9a: First name -->
       <div class="quiz-step" data-step="9">
-        <div class="quiz-eyebrow">Last step</div>
-        <h2 class="quiz-h">Where should we send your <em>$100 off code?</em></h2>
-        <p class="quiz-sub">Good for 30 days. No spam — I'll email it once and only follow up if you want me to.</p>
-        <form id="quizForm" novalidate>
-          <input class="quiz-field" type="text" name="firstName" placeholder="First name" required />
-          <input class="quiz-field" type="email" name="email" placeholder="Email address" required />
-          <button class="quiz-btn" type="submit">Send me my code</button>
-        </form>
+        <div class="quiz-eyebrow">Last bit · 30 seconds</div>
+        <h2 class="quiz-h">First, what's your <em>first name?</em></h2>
+        <p class="quiz-sub">So I can address the email to you, not "Hi there."</p>
+        <input class="quiz-field" id="quizName" type="text" placeholder="First name" autocomplete="given-name" />
+        <button class="quiz-btn" id="quizNameNext" disabled>Next →</button>
       </div>
 
-      <!-- Step 10: Thanks -->
+      <!-- Step 9b: Email -->
       <div class="quiz-step" data-step="10">
+        <div class="quiz-eyebrow">2 of 3</div>
+        <h2 class="quiz-h">Where do I send your <em>$100 off code?</em></h2>
+        <p class="quiz-sub">Email only. I send the code once, that's it.</p>
+        <input class="quiz-field" id="quizEmail" type="email" placeholder="Email address" autocomplete="email" />
+        <button class="quiz-btn" id="quizEmailNext" disabled>Next →</button>
+      </div>
+
+      <!-- Step 9c: Phone -->
+      <div class="quiz-step" data-step="11">
+        <div class="quiz-eyebrow">Last step</div>
+        <h2 class="quiz-h">Best <em>phone number?</em></h2>
+        <p class="quiz-sub">In case I need to text the code instead of email. No calls unless you ask for one.</p>
+        <input class="quiz-field" id="quizPhone" type="tel" placeholder="(555) 555-5555" autocomplete="tel" inputmode="tel" />
+        <button class="quiz-btn" id="quizPhoneNext" disabled>Send my code</button>
+      </div>
+
+      <!-- Step 12: Thanks -->
+      <div class="quiz-step" data-step="12">
         <div class="quiz-eyebrow">Done</div>
         <h2 class="quiz-h">Check your inbox. <em>Code's on the way.</em></h2>
         <p class="quiz-sub">While you're here — book a consult and we'll lock in your code on the call.</p>
@@ -2150,34 +2165,70 @@
       });
     });
 
-    // Form submit — store locally and advance to thanks
-    document.getElementById('quizForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      var data = new FormData(e.target);
-      var firstName = (data.get('firstName') || '').trim();
-      var email = (data.get('email') || '').trim();
-      if (!firstName || !email || !/.+@.+\..+/.test(email)) return;
+    // Multi-step lead capture (name → email → phone) with progressive GHL webhook submission
+    var GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/Q6lVK1sfocdqesjFfFhK/webhook-trigger/6cb5b2bc-57ee-4d8e-96ff-203910bd1dec';
+    var leadData = { firstName: '', email: '', phone: '' };
 
-      // Save to localStorage so Mark can recover if needed via console
+    function postLead(payload) {
+      // Always cache locally first (safety net)
       try {
-        localStorage.setItem(STORAGE_KEY, 'completed');
         var pending = JSON.parse(localStorage.getItem('mab_quiz_leads') || '[]');
-        pending.push({
-          firstName: firstName,
-          email: email,
-          quizAnswers: quizState,
-          submittedAt: new Date().toISOString()
-        });
+        pending.push(Object.assign({}, payload, { submittedAt: new Date().toISOString(), quizAnswers: quizState }));
         localStorage.setItem('mab_quiz_leads', JSON.stringify(pending));
-      } catch (err) {}
+      } catch (e) {}
+      // Fire-and-forget to GHL (mode 'no-cors' so browser doesn't reject)
+      try {
+        fetch(GHL_WEBHOOK, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(Object.assign({
+            source: 'Homepage Quiz Popup',
+            tags: ['quiz-lead-100off'],
+            quizAnswers: quizState
+          }, payload))
+        }).catch(function () {});
+      } catch (e) {}
+    }
 
-      // TODO (Mark): wire up real ESP submission here. Options:
-      //   - POST to a GHL webhook URL
-      //   - POST to a Vercel serverless function that forwards to GHL
-      //   - Replace this step's <form> with a GHL form-embed iframe
-      // For now: store the lead client-side and show the thanks step.
+    // ---- Step 9 (name) ----
+    var nameInput = document.getElementById('quizName');
+    var nameNext = document.getElementById('quizNameNext');
+    nameInput.addEventListener('input', function () {
+      nameNext.disabled = nameInput.value.trim().length < 1;
+    });
+    nameNext.addEventListener('click', function () {
+      leadData.firstName = nameInput.value.trim();
+      setStep(10);
+    });
 
-      setStep(currentStep + 1);
+    // ---- Step 10 (email) ----
+    var emailInput = document.getElementById('quizEmail');
+    var emailNext = document.getElementById('quizEmailNext');
+    var emailRegex = /.+@.+\..+/;
+    emailInput.addEventListener('input', function () {
+      emailNext.disabled = !emailRegex.test(emailInput.value.trim());
+    });
+    emailNext.addEventListener('click', function () {
+      leadData.email = emailInput.value.trim();
+      // Partial submission — captures lead even if they bail on phone step
+      postLead({ firstName: leadData.firstName, email: leadData.email });
+      setStep(11);
+    });
+
+    // ---- Step 11 (phone) ----
+    var phoneInput = document.getElementById('quizPhone');
+    var phoneNext = document.getElementById('quizPhoneNext');
+    phoneInput.addEventListener('input', function () {
+      var digits = phoneInput.value.replace(/\D/g, '');
+      phoneNext.disabled = digits.length < 10;
+    });
+    phoneNext.addEventListener('click', function () {
+      leadData.phone = phoneInput.value.trim();
+      // Final submission — name + email + phone
+      postLead({ firstName: leadData.firstName, email: leadData.email, phone: leadData.phone });
+      try { localStorage.setItem(STORAGE_KEY, 'completed'); } catch (e) {}
+      setStep(12);
     });
 
     // Fire after 7 seconds
