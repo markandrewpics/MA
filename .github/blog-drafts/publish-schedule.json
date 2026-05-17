@@ -1,11 +1,12 @@
 {
-  "description": "Queue of blog drafts to auto-publish on schedule. Edited at runtime by .github/scripts/publish_next.py — each entry flips from 'queued' to 'published' as it ships. Order in the array does not matter; the script picks the first 'queued' entry whose scheduledDate is today or earlier.",
+  "description": "Queue of blog drafts to auto-publish on schedule. Edited at runtime by .github/scripts/publish_next.py \u2014 each entry flips from 'queued' to 'published' as it ships. Order in the array does not matter; the script picks the first 'queued' entry whose scheduledDate is today or earlier.",
   "timezone": "America/New_York",
   "queue": [
     {
       "slug": "how-to-prepare-for-boudoir-session",
       "scheduledDate": "2026-05-17",
-      "status": "queued"
+      "status": "published",
+      "publishedAt": "2026-05-17T12:11:03.423490+00:00"
     },
     {
       "slug": "how-long-does-boudoir-photoshoot-take",
