@@ -1283,6 +1283,18 @@
     .quiz-field:focus { border-color: #f09a69; }
     .quiz-field::placeholder { color: rgba(238,240,245,0.4); }
 
+    /* Inline calendar holder (step 12) */
+    .quiz-calendar {
+      margin-top: 14px;
+      background: #ffffff;
+      border-radius: 4px;
+      overflow: hidden;
+      min-height: 720px;
+    }
+    .quiz-calendar iframe { width: 100%; min-height: 720px; border: none; display: block; }
+    /* When showing the calendar, widen the modal so the date grid breathes */
+    .quiz-modal.is-calendar { max-width: 740px; }
+
     @media (max-width: 540px) {
       .quiz-modal { padding: 36px 22px 26px; }
       .quiz-h { font-size: 24px; }
@@ -2062,14 +2074,12 @@
         <button class="quiz-btn" id="quizPhoneNext" disabled>Send my code</button>
       </div>
 
-      <!-- Step 12: Thanks -->
+      <!-- Step 12: Inline calendar — pick a time without leaving the quiz -->
       <div class="quiz-step" data-step="12">
-        <div class="quiz-eyebrow">Done</div>
-        <h2 class="quiz-h">Check your inbox. <em>Code's on the way.</em></h2>
-        <p class="quiz-sub">While you're here — book a consult and we'll lock in your code on the call.</p>
-        <div class="quiz-btn-row">
-          <a class="quiz-btn" href="#book" data-quiz-close>Book a consult →</a>
-        </div>
+        <div class="quiz-eyebrow">Last thing</div>
+        <h2 class="quiz-h">Pick a time <em>to talk.</em></h2>
+        <p class="quiz-sub">10 minutes on the phone. We'll go over your vision, confirm your date, and apply your $100 off the second you book.</p>
+        <div id="quizCalendarHolder" class="quiz-calendar"></div>
       </div>
     </div>
   </div>
@@ -2098,7 +2108,22 @@
         el.classList.toggle('is-active', String(el.dataset.step) === String(n));
       });
       bars.forEach(function (bar, i) { bar.classList.toggle('active', i <= n); });
-      overlay.querySelector('.quiz-modal').scrollTop = 0;
+      var modal = overlay.querySelector('.quiz-modal');
+      modal.scrollTop = 0;
+      modal.classList.toggle('is-calendar', n === 12);
+
+      // Lazy-load the GHL calendar iframe the first time the user reaches step 12
+      if (n === 12) {
+        var holder = document.getElementById('quizCalendarHolder');
+        if (holder && !holder.querySelector('iframe')) {
+          var iframe = document.createElement('iframe');
+          iframe.src = 'https://link.disruptormarketing.io/widget/booking/b7eSmyInmj2pwqIQesEp';
+          iframe.id = 'ghl-quiz-booking';
+          iframe.scrolling = 'no';
+          iframe.title = 'Book your consultation';
+          holder.appendChild(iframe);
+        }
+      }
     }
 
     function openQuiz() {
