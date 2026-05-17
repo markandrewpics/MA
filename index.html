@@ -1289,9 +1289,9 @@
       background: #ffffff;
       border-radius: 4px;
       overflow: hidden;
-      min-height: 720px;
+      min-height: 1100px;
     }
-    .quiz-calendar iframe { width: 100%; min-height: 720px; border: none; display: block; }
+    .quiz-calendar iframe { width: 100%; min-height: 1100px; border: none; display: block; }
     /* When showing the calendar, widen the modal so the date grid breathes */
     .quiz-modal.is-calendar { max-width: 740px; }
 
@@ -2119,7 +2119,8 @@
           var iframe = document.createElement('iframe');
           iframe.src = 'https://link.disruptormarketing.io/widget/booking/b7eSmyInmj2pwqIQesEp';
           iframe.id = 'ghl-quiz-booking';
-          iframe.scrolling = 'no';
+          // Allow internal scroll as fallback if calendar content exceeds our min-height
+          iframe.scrolling = 'auto';
           iframe.title = 'Book your consultation';
           holder.appendChild(iframe);
         }
