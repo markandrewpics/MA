@@ -12,7 +12,7 @@
   <meta property="og:url" content="https://blog.markandrewboudoir.com/posts/her-story-becky/" />
   <meta property="og:title" content="Her Story: Becky — Five Years, Four Sessions, One Reclaimed Identity — Mark Andrew" />
   <meta property="og:description" content="A returning boudoir client answers every question buyers ask before booking — paired with my authoritative answer to each." />
-  <meta property="og:image" content="https://blog.markandrewboudoir.com/uploads/bronze-halter-bodysuit-gold-necklace-velvet-chaise-boudoir-portraits-mishawaka-in.jpg" />
+  <meta property="og:image" content="https://blog.markandrewboudoir.com/uploads/becky-blog/becky-dark-lace-pearls-laying-joyful-smile-boudoir-mishawaka-in.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="800" />
   <meta property="og:site_name" content="Mark Andrew Boudoir" />
@@ -22,7 +22,7 @@
   <meta name="twitter:url" content="https://blog.markandrewboudoir.com/posts/her-story-becky/" />
   <meta name="twitter:title" content="Her Story: Becky — Five Years, Four Sessions, One Reclaimed Identity" />
   <meta name="twitter:description" content="A returning boudoir client on why she came back four times — and why she'd tell every woman to do the same." />
-  <meta name="twitter:image" content="https://blog.markandrewboudoir.com/uploads/bronze-halter-bodysuit-gold-necklace-velvet-chaise-boudoir-portraits-mishawaka-in.jpg" />
+  <meta name="twitter:image" content="https://blog.markandrewboudoir.com/uploads/becky-blog/becky-dark-lace-pearls-laying-joyful-smile-boudoir-mishawaka-in.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -298,6 +298,58 @@
       color: rgba(238,240,245,0.45);
     }
 
+    /* FRAMED IMAGES */
+    .frame {
+      position: relative;
+      border: 1px solid rgba(240,154,105,0.75);
+    }
+    .frame::after {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border: 1px solid rgba(240,154,105,0.45);
+      pointer-events: none;
+      z-index: 3;
+    }
+    .frame img { display: block; width: 100%; height: auto; }
+
+    .framed-image { margin: 56px 0; }
+    .framed-image figcaption {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(238,240,245,0.5);
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    .hero-image {
+      max-width: 980px;
+      margin: 8px auto 0;
+      padding: 0 24px;
+    }
+    .hero-image figcaption {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(238,240,245,0.5);
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 56px 0;
+    }
+    @media (max-width: 720px) {
+      .two-col { grid-template-columns: 1fr; gap: 18px; margin: 40px 0; }
+      .framed-image { margin: 40px 0; }
+    }
+
     .frame-box {
       position: relative;
       max-width: 820px;
@@ -480,6 +532,13 @@
     <p>Becky is a nurse, a wife, a mom of two boys, and one of the longest-running clients in the studio's history — four sessions across five years. She came in postpartum after her second son, looking to <em>"reclaim my inner beauty,"</em> and walked out with the first album she now keeps on a shelf in her bedroom where she can see it every day. This post answers each question a woman is asking before she books — once in my voice as the photographer, once in <strong>Becky's verbatim words</strong>.</p>
   </section>
 
+  <figure class="hero-image">
+    <div class="frame">
+      <img src="/uploads/becky-blog/becky-dark-lace-window-light-jeweled-choker-boudoir-south-bend-in.jpg" alt="Becky in dark lace and a black jeweled choker beside window light — luxury boudoir portrait at Mark Andrew studio, South Bend Indiana" loading="lazy" />
+    </div>
+    <figcaption>The kind of light she drove three hours from upstate South Carolina to stand in</figcaption>
+  </figure>
+
   <main class="content">
 
     <h2>Why Do Women Book a Boudoir Photoshoot in the First Place?</h2>
@@ -504,6 +563,19 @@
     <div class="pull-quote">
       <p>"Women get lost in life. Being the mom, being a businesswoman, in my case a nurse — being the everything to everybody else, and you forget about you. You do these pictures, and it's a way to reclaim yourself."</p>
       <cite>— Becky</cite>
+    </div>
+
+    <div class="two-col">
+      <figure>
+        <div class="frame">
+          <img src="/uploads/becky-blog/becky-black-red-lace-floral-backdrop-boudoir-granger-in.jpg" alt="Becky in black and red lace lingerie against a painted floral backdrop — luxury boudoir portrait, Granger Indiana studio" loading="lazy" />
+        </div>
+      </figure>
+      <figure>
+        <div class="frame">
+          <img src="/uploads/becky-blog/becky-black-lace-side-light-contemplative-pose-boudoir-niles-mi.jpg" alt="Becky in black and red lace with dramatic side light, contemplative pose — intimate boudoir portrait, Niles Michigan area" loading="lazy" />
+        </div>
+      </figure>
     </div>
 
     <h2>How Do You Choose a Boudoir Photographer Worth Trusting?</h2>
@@ -548,6 +620,13 @@
       <p>"As gruff of a guy as he sounds, he really has been able to give me that time."</p>
       <cite>— Becky on her husband, Carol</cite>
     </div>
+
+    <figure class="framed-image">
+      <div class="frame">
+        <img src="/uploads/becky-blog/becky-firefighter-helmet-black-lingerie-themed-boudoir-elkhart-in.jpg" alt="Becky in black lingerie wearing a firefighter helmet — themed personal-prop boudoir session, Elkhart Indiana area" loading="lazy" />
+      </div>
+      <figcaption>A personal prop set — built around the people she loves</figcaption>
+    </figure>
 
     <h2>Is It Worth Traveling Hours for a Boudoir Photographer?</h2>
     <div class="section-answer">
@@ -597,6 +676,13 @@
       <cite>— Becky</cite>
     </div>
 
+    <figure class="framed-image">
+      <div class="frame">
+        <img src="/uploads/becky-blog/becky-dark-lace-pearls-laying-joyful-smile-boudoir-mishawaka-in.jpg" alt="Becky in dark lace and pearl necklace, joyful smile, laying pose — luxury boudoir portrait, Mishawaka Indiana studio" loading="lazy" />
+      </div>
+      <figcaption>The exact moment most clients describe as "halfway through the first outfit, I forgot the camera was there"</figcaption>
+    </figure>
+
     <h2>What's It Like to See Your Boudoir Photos for the First Time?</h2>
     <div class="section-answer">
       <p>Most clients say a version of the same line at the reveal: <em>"is that really me?"</em> The first image on the screen usually lands harder than any of the ones that follow. Some clients cry. Some go silent. Some immediately want to text someone. Almost all of them go home with the album planned, the wall art picked, and a different relationship to their own face.</p>
@@ -620,6 +706,13 @@
       <p>"I would have taken them all home if I could have."</p>
       <cite>— Becky</cite>
     </div>
+
+    <figure class="framed-image">
+      <div class="frame">
+        <img src="/uploads/becky-blog/becky-red-lingerie-pearls-looking-up-album-cover-boudoir-south-bend-in.jpg" alt="Becky in red lingerie and pearls looking up — the image she chose as the acrylic cover of her first boudoir album, South Bend Indiana" loading="lazy" />
+      </div>
+      <figcaption>"That one is always just like — oh man, that's smoking." The image Becky chose as the acrylic cover of her first album.</figcaption>
+    </figure>
 
     <h2>Where Do Boudoir Photos Actually Live After the Shoot?</h2>
     <div class="section-answer">
@@ -669,6 +762,13 @@
       <cite>— Becky</cite>
     </div>
 
+    <figure class="framed-image">
+      <div class="frame">
+        <img src="/uploads/becky-blog/becky-sequin-jacket-off-shoulder-neon-light-glamour-elkhart-in.jpg" alt="Becky in a sequin jacket off-shoulder under neon stage lighting — Project 33 glamour portrait, Elkhart Indiana area" loading="lazy" />
+      </div>
+      <figcaption>Project 33 — the third shoot, three years in. Same client. Different woman.</figcaption>
+    </figure>
+
     <h2>Why Do Some Women Come Back for Multiple Boudoir Sessions?</h2>
     <div class="section-answer">
       <p>Because the first boudoir session is for the woman you <em>were</em>. The second is for the woman you <em>became</em>. The third is for the one you're <em>becoming</em>. Life keeps changing — new tattoos, new milestones, new versions of yourself worth photographing. Returning clients aren't redoing the first shoot. They're documenting <strong>a transformation in progress</strong>. Becky has done four sessions in five years. Different woman each time. Same studio. Same trust.</p>
@@ -691,6 +791,26 @@
     <div class="pull-quote">
       <p>"It helps remind me, even not looking at the pictures, just knowing that I've done the shoots — to stand up a little bit taller. To say, hey, you're not just the mama. You're not just Carol's wife. You're not just that nurse practitioner. You're Becky. You're still you."</p>
       <cite>— Becky</cite>
+    </div>
+
+    <figure class="framed-image">
+      <div class="frame">
+        <img src="/uploads/becky-blog/becky-gold-dress-feather-wings-angel-queen-portrait-boudoir-granger-in.jpg" alt="Becky in a draped gold dress with large feather wings — angel queen portrait, themed boudoir session, Granger Indiana studio" loading="lazy" />
+      </div>
+      <figcaption>The fourth shoot. Five years from the first one. The same woman, reclaimed.</figcaption>
+    </figure>
+
+    <div class="two-col">
+      <figure>
+        <div class="frame">
+          <img src="/uploads/becky-blog/becky-gold-angel-wings-sword-warrior-portrait-boudoir-south-bend-in.jpg" alt="Becky as a warrior angel — gold wings, gold dress, sword in hand — themed boudoir portrait, South Bend Indiana" loading="lazy" />
+        </div>
+      </figure>
+      <figure>
+        <div class="frame">
+          <img src="/uploads/becky-blog/becky-dark-angel-purple-wings-star-corset-boudoir-elkhart-in.jpg" alt="Becky as a dark angel with purple feather wings and a star-patterned corset — themed boudoir portrait, Elkhart Indiana" loading="lazy" />
+        </div>
+      </figure>
     </div>
 
     <div class="frame-box">
