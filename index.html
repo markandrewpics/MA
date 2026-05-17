@@ -1123,6 +1123,173 @@
       .closing h2 .script { font-size: 64px; }
       .footer-inner { grid-template-columns: 1fr 1fr; gap: 36px; }
     }
+    /* QUIZ POP-UP */
+    .quiz-overlay {
+      position: fixed; inset: 0;
+      background: rgba(8, 12, 24, 0.82);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 9000;
+      display: none;
+      align-items: center; justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .quiz-overlay.is-open { display: flex; opacity: 1; }
+    .quiz-modal {
+      background: #0c1322;
+      width: 100%;
+      max-width: 560px;
+      max-height: 92vh;
+      overflow-y: auto;
+      position: relative;
+      border-radius: 6px;
+      border: 1px solid rgba(240,154,105,0.32);
+      box-shadow: 0 30px 70px -20px rgba(0,0,0,0.6);
+      padding: 44px 38px 38px;
+      transform: translateY(10px) scale(0.98);
+      transition: transform 0.4s ease;
+    }
+    .quiz-overlay.is-open .quiz-modal { transform: translateY(0) scale(1); }
+    .quiz-close {
+      position: absolute;
+      top: 12px; right: 12px;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: transparent;
+      border: 1px solid rgba(238,240,245,0.18);
+      color: #eef0f5;
+      font-size: 18px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .quiz-close:hover { background: rgba(240,154,105,0.12); border-color: #f09a69; color: #f09a69; }
+    .quiz-progress {
+      display: flex; gap: 5px;
+      margin-bottom: 28px;
+    }
+    .quiz-progress .bar {
+      flex: 1; height: 3px;
+      background: rgba(238,240,245,0.1);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .quiz-progress .bar.active { background: #f09a69; }
+    .quiz-step { display: none; }
+    .quiz-step.is-active { display: block; }
+    .quiz-eyebrow {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: #f09a69;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .quiz-h {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 1.18;
+      color: #eef0f5;
+      margin-bottom: 12px;
+      letter-spacing: -0.005em;
+    }
+    .quiz-h em { font-style: italic; color: #f09a69; }
+    .quiz-sub {
+      font-size: 15px;
+      line-height: 1.6;
+      color: rgba(238,240,245,0.78);
+      margin-bottom: 26px;
+    }
+    .quiz-body { font-size: 14.5px; line-height: 1.65; color: rgba(238,240,245,0.85); margin-bottom: 22px; }
+    .quiz-body p + p { margin-top: 14px; }
+    .quiz-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+    .quiz-options label {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(238,240,245,0.1);
+      border-radius: 4px;
+      font-size: 14.5px;
+      line-height: 1.45;
+      color: #eef0f5;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .quiz-options label:hover { background: rgba(240,154,105,0.06); border-color: rgba(240,154,105,0.4); }
+    .quiz-options input { margin: 2px 0 0; accent-color: #f09a69; flex-shrink: 0; }
+    .quiz-options label.is-selected { background: rgba(240,154,105,0.1); border-color: #f09a69; }
+    .quiz-btn-row { display: flex; gap: 10px; align-items: center; }
+    .quiz-btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: #f09a69;
+      color: #0c1322;
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border: 1px solid #f09a69;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .quiz-btn:hover { background: #ecb18b; border-color: #ecb18b; }
+    .quiz-btn:disabled { background: rgba(240,154,105,0.25); border-color: rgba(240,154,105,0.25); color: rgba(12,19,34,0.5); cursor: not-allowed; }
+    .quiz-btn-ghost {
+      background: transparent;
+      color: rgba(238,240,245,0.55);
+      border-color: transparent;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      padding: 10px 8px;
+    }
+    .quiz-btn-ghost:hover { background: transparent; color: #f09a69; }
+    .quiz-tiny {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 13px;
+      color: rgba(238,240,245,0.5);
+      margin-top: 14px;
+    }
+    .quiz-feature-img {
+      width: 100%;
+      max-width: 200px;
+      aspect-ratio: 2 / 3;
+      object-fit: cover;
+      border-radius: 4px;
+      margin: 0 auto 18px;
+      display: block;
+      border: 1px solid rgba(240,154,105,0.35);
+    }
+    .quiz-field {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(238,240,245,0.12);
+      border-radius: 3px;
+      color: #eef0f5;
+      font-family: 'Jost', sans-serif;
+      font-size: 15px;
+      margin-bottom: 10px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .quiz-field:focus { border-color: #f09a69; }
+    .quiz-field::placeholder { color: rgba(238,240,245,0.4); }
+
+    @media (max-width: 540px) {
+      .quiz-modal { padding: 36px 22px 26px; }
+      .quiz-h { font-size: 24px; }
+      .quiz-sub { font-size: 14px; }
+      .quiz-options label { padding: 12px 14px; font-size: 14px; }
+    }
+
     @media (max-width: 720px) {
       .nav { padding: 12px 20px 10px; flex-wrap: wrap; row-gap: 10px; }
       .nav-links {
@@ -1749,6 +1916,273 @@
       prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
       next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
     })();
+  </script>
+
+  <!-- QUIZ POP-UP — fires once, 7s after homepage load -->
+  <div class="quiz-overlay" id="quizOverlay" role="dialog" aria-modal="true" aria-labelledby="quizHeading">
+    <div class="quiz-modal">
+      <button class="quiz-close" id="quizClose" aria-label="Close">×</button>
+      <div class="quiz-progress" id="quizProgress">
+        <div class="bar active"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+      </div>
+
+      <!-- Step 0: intro -->
+      <div class="quiz-step is-active" data-step="0">
+        <div class="quiz-eyebrow">Quick · 4 questions · $100 off</div>
+        <h2 class="quiz-h" id="quizHeading">Almost every woman gets at least <em>one of these wrong.</em></h2>
+        <p class="quiz-sub">Take the 90-second quiz. I'll show you the answer either way. Get $100 off your session for finishing.</p>
+        <div class="quiz-btn-row">
+          <button class="quiz-btn" data-quiz-next>Start</button>
+          <button class="quiz-btn quiz-btn-ghost" data-quiz-close>No thanks</button>
+        </div>
+        <p class="quiz-tiny">Takes 90 seconds.</p>
+      </div>
+
+      <!-- Step 1: Q1 -->
+      <div class="quiz-step" data-step="1">
+        <div class="quiz-eyebrow">Question 1 of 4</div>
+        <h2 class="quiz-h">When's the right time to <em>book your session?</em></h2>
+        <div class="quiz-options" data-options>
+          <label><input type="radio" name="q1" value="a" /> After I lose 10–20 pounds.</label>
+          <label><input type="radio" name="q1" value="b" /> When something special comes up — a wedding, anniversary, big birthday.</label>
+          <label><input type="radio" name="q1" value="c" /> When I finally feel ready.</label>
+          <label><input type="radio" name="q1" value="d" /> Honestly? Right now.</label>
+        </div>
+        <button class="quiz-btn" data-quiz-next disabled>Continue</button>
+      </div>
+
+      <!-- Step 2: A1 -->
+      <div class="quiz-step" data-step="2">
+        <div class="quiz-eyebrow">Answer 1</div>
+        <h2 class="quiz-h">Right now. <em>Always right now.</em></h2>
+        <div class="quiz-body">
+          <p>Almost every woman who says <em>"I'll wait until I lose 20 pounds"</em> never books. The camera doesn't care what your scale says. It cares about light, posing, and energy.</p>
+          <p>The version of you right now is the most photogenic you've ever been — and you're only getting more striking as you settle into yourself.</p>
+        </div>
+        <button class="quiz-btn" data-quiz-next>Next question →</button>
+      </div>
+
+      <!-- Step 3: Q2 -->
+      <div class="quiz-step" data-step="3">
+        <div class="quiz-eyebrow">Question 2 of 4</div>
+        <h2 class="quiz-h">Who is boudoir <em>actually for?</em></h2>
+        <div class="quiz-options" data-options>
+          <label><input type="radio" name="q2" value="a" /> Women under 35 who look like models.</label>
+          <label><input type="radio" name="q2" value="b" /> Brides giving a wedding-day gift.</label>
+          <label><input type="radio" name="q2" value="c" /> Women in great shape, photographed professionally.</label>
+          <label><input type="radio" name="q2" value="d" /> Every woman. Every body. Every age.</label>
+        </div>
+        <button class="quiz-btn" data-quiz-next disabled>Continue</button>
+      </div>
+
+      <!-- Step 4: A2 -->
+      <div class="quiz-step" data-step="4">
+        <div class="quiz-eyebrow">Answer 2</div>
+        <h2 class="quiz-h">Every woman. Every body. <em>Every age.</em></h2>
+        <div class="quiz-body">
+          <p>My favorite client demographic is 50+. I've shot women from 19 to 84. Plus-size mothers of three. Cancer survivors. Women in incredible shape. Women who haven't been to a gym in a decade.</p>
+          <p>They all walk out thinking the same thing: <em>"I look like myself, but better than I knew."</em></p>
+        </div>
+        <button class="quiz-btn" data-quiz-next>Next question →</button>
+      </div>
+
+      <!-- Step 5: Q3 -->
+      <div class="quiz-step" data-step="5">
+        <div class="quiz-eyebrow">Question 3 of 4</div>
+        <h2 class="quiz-h">Who is your session <em>actually for?</em></h2>
+        <div class="quiz-options" data-options>
+          <label><input type="radio" name="q3" value="a" /> Me. I deserve to feel like myself again.</label>
+          <label><input type="radio" name="q3" value="b" /> My partner — as a gift.</label>
+          <label><input type="radio" name="q3" value="c" /> Both. A gift for me, a surprise for them.</label>
+          <label><input type="radio" name="q3" value="d" /> I'm not sure yet.</label>
+        </div>
+        <button class="quiz-btn" data-quiz-next disabled>Continue</button>
+      </div>
+
+      <!-- Step 6: A3 -->
+      <div class="quiz-step" data-step="6">
+        <div class="quiz-eyebrow">Answer 3</div>
+        <h2 class="quiz-h">It's <em>for you.</em></h2>
+        <div class="quiz-body">
+          <p>Even the "gift for my partner" sessions transform you first. The day in the studio — getting glammed, being directed, being looked at like you're the only person in the room — that's the gift.</p>
+          <p>The album just makes it permanent.</p>
+        </div>
+        <button class="quiz-btn" data-quiz-next>Next question →</button>
+      </div>
+
+      <!-- Step 7: Q4 (multi-select) -->
+      <div class="quiz-step" data-step="7">
+        <div class="quiz-eyebrow">Question 4 of 4 · Choose all that apply</div>
+        <h2 class="quiz-h">Why women book <em>Mark Andrew Boudoir.</em></h2>
+        <div class="quiz-options" data-options data-multi>
+          <label><input type="checkbox" name="q4" value="a" /> In-house hair &amp; makeup by Aletheia.</label>
+          <label><input type="checkbox" name="q4" value="b" /> Mark poses every shot — you never have to figure it out.</label>
+          <label><input type="checkbox" name="q4" value="c" /> Same-day reveal — you see the edited gallery before you leave.</label>
+          <label><input type="checkbox" name="q4" value="d" /> Private studio — no walk-ins, no other clients, just you.</label>
+          <label><input type="checkbox" name="q4" value="e" /> 10+ years and 700+ women through the door before you.</label>
+        </div>
+        <button class="quiz-btn" data-quiz-next>Continue →</button>
+      </div>
+
+      <!-- Step 8: A4 -->
+      <div class="quiz-step" data-step="8">
+        <div class="quiz-eyebrow">Answer 4</div>
+        <h2 class="quiz-h"><em>All</em> of the above.</h2>
+        <div class="quiz-body">
+          <p>Most of what makes a boudoir experience work isn't the camera — it's everything around it. Hair done right. Poses given to you. Reveal handled same day. A private space where you're not performing for anyone else.</p>
+          <p>Ten years of women before you. Now you.</p>
+        </div>
+        <button class="quiz-btn" data-quiz-next>Claim my $100 off →</button>
+      </div>
+
+      <!-- Step 9: Email capture -->
+      <div class="quiz-step" data-step="9">
+        <div class="quiz-eyebrow">Last step</div>
+        <h2 class="quiz-h">Where should we send your <em>$100 off code?</em></h2>
+        <p class="quiz-sub">Good for 30 days. No spam — I'll email it once and only follow up if you want me to.</p>
+        <form id="quizForm" novalidate>
+          <input class="quiz-field" type="text" name="firstName" placeholder="First name" required />
+          <input class="quiz-field" type="email" name="email" placeholder="Email address" required />
+          <button class="quiz-btn" type="submit">Send me my code</button>
+        </form>
+      </div>
+
+      <!-- Step 10: Thanks -->
+      <div class="quiz-step" data-step="10">
+        <div class="quiz-eyebrow">Done</div>
+        <h2 class="quiz-h">Check your inbox. <em>Code's on the way.</em></h2>
+        <p class="quiz-sub">While you're here — book a consult and we'll lock in your code on the call.</p>
+        <div class="quiz-btn-row">
+          <a class="quiz-btn" href="#book" data-quiz-close>Book a consult →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function() {
+    // Only run on homepage
+    var path = window.location.pathname.replace(/\/+$/, '');
+    if (path !== '' && path !== '/index.html') return;
+
+    var STORAGE_KEY = 'mab_quiz_v1';
+    // Suppress if already shown / dismissed / completed
+    try { if (localStorage.getItem(STORAGE_KEY)) return; } catch (e) { /* ignore */ }
+
+    var overlay = document.getElementById('quizOverlay');
+    if (!overlay) return;
+
+    var totalSteps = overlay.querySelectorAll('.quiz-step').length;
+    var bars = overlay.querySelectorAll('.quiz-progress .bar');
+    var currentStep = 0;
+    var quizState = { q1: null, q2: null, q3: null, q4: [] };
+
+    function setStep(n) {
+      currentStep = n;
+      overlay.querySelectorAll('.quiz-step').forEach(function (el) {
+        el.classList.toggle('is-active', String(el.dataset.step) === String(n));
+      });
+      bars.forEach(function (bar, i) { bar.classList.toggle('active', i <= n); });
+      overlay.querySelector('.quiz-modal').scrollTop = 0;
+    }
+
+    function openQuiz() {
+      overlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      try { localStorage.setItem(STORAGE_KEY, 'shown'); } catch (e) {}
+    }
+
+    function closeQuiz() {
+      overlay.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    // Wire up close buttons
+    document.getElementById('quizClose').addEventListener('click', closeQuiz);
+    overlay.querySelectorAll('[data-quiz-close]').forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        if (el.tagName !== 'A') e.preventDefault();
+        closeQuiz();
+        if (el.getAttribute('href')) window.location.hash = el.getAttribute('href');
+      });
+    });
+
+    // Wire up next buttons
+    overlay.querySelectorAll('[data-quiz-next]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var step = btn.closest('.quiz-step');
+        var opts = step.querySelector('[data-options]');
+
+        // Record answers
+        if (opts) {
+          var qName = opts.querySelector('input').name;
+          if (opts.hasAttribute('data-multi')) {
+            quizState[qName] = Array.prototype.map.call(
+              opts.querySelectorAll('input:checked'), function (i) { return i.value; }
+            );
+          } else {
+            var chosen = opts.querySelector('input:checked');
+            quizState[qName] = chosen ? chosen.value : null;
+          }
+        }
+
+        if (currentStep < totalSteps - 1) setStep(currentStep + 1);
+      });
+    });
+
+    // Enable Continue button when an option is chosen (for single-select)
+    overlay.querySelectorAll('[data-options]:not([data-multi])').forEach(function (group) {
+      group.addEventListener('change', function () {
+        var btn = group.parentElement.querySelector('[data-quiz-next]');
+        if (btn) btn.disabled = !group.querySelector('input:checked');
+        group.querySelectorAll('label').forEach(function (lbl) {
+          lbl.classList.toggle('is-selected', lbl.querySelector('input').checked);
+        });
+      });
+    });
+
+    // Multi-select visual state
+    overlay.querySelectorAll('[data-options][data-multi]').forEach(function (group) {
+      group.addEventListener('change', function () {
+        group.querySelectorAll('label').forEach(function (lbl) {
+          lbl.classList.toggle('is-selected', lbl.querySelector('input').checked);
+        });
+      });
+    });
+
+    // Form submit — store locally and advance to thanks
+    document.getElementById('quizForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var data = new FormData(e.target);
+      var firstName = (data.get('firstName') || '').trim();
+      var email = (data.get('email') || '').trim();
+      if (!firstName || !email || !/.+@.+\..+/.test(email)) return;
+
+      // Save to localStorage so Mark can recover if needed via console
+      try {
+        localStorage.setItem(STORAGE_KEY, 'completed');
+        var pending = JSON.parse(localStorage.getItem('mab_quiz_leads') || '[]');
+        pending.push({
+          firstName: firstName,
+          email: email,
+          quizAnswers: quizState,
+          submittedAt: new Date().toISOString()
+        });
+        localStorage.setItem('mab_quiz_leads', JSON.stringify(pending));
+      } catch (err) {}
+
+      // TODO (Mark): wire up real ESP submission here. Options:
+      //   - POST to a GHL webhook URL
+      //   - POST to a Vercel serverless function that forwards to GHL
+      //   - Replace this step's <form> with a GHL form-embed iframe
+      // For now: store the lead client-side and show the thanks step.
+
+      setStep(currentStep + 1);
+    });
+
+    // Fire after 7 seconds
+    setTimeout(openQuiz, 7000);
+  })();
   </script>
 
 </body>
