@@ -2351,8 +2351,22 @@
       setStep(12);
     });
 
-    // Fire after 7 seconds
-    setTimeout(openQuiz, 15000);
+    // Quiz fires 15s AFTER the intro overlay completes (or 15s after page load
+    // for returning visitors who skip the intro)
+    function startQuizTimer() { setTimeout(openQuiz, 15000); }
+    try {
+      if (sessionStorage.getItem('mab_intro_seen')) {
+        startQuizTimer();
+      } else {
+        document.addEventListener('introComplete', startQuizTimer, { once: true });
+        // Safety net: if the intro never completes for some reason, start anyway after 25s
+        setTimeout(function () {
+          if (!sessionStorage.getItem('mab_intro_seen')) startQuizTimer();
+        }, 25000);
+      }
+    } catch (e) {
+      startQuizTimer();
+    }
   })();
   </script>
 
@@ -2389,6 +2403,8 @@
           setTimeout(function () {
             overlay.classList.add('is-done');
             document.body.classList.remove('intro-active');
+            // Notify other scripts (e.g. quiz timer) that the intro has finished
+            try { document.dispatchEvent(new CustomEvent('introComplete')); } catch (e) {}
           }, 900);
         }, 1100);
       }
