@@ -2394,6 +2394,12 @@
       }
 
       video.addEventListener('ended', finishIntro);
+      // Trigger the fade 1.5s before the video actually ends — feels more cinematic
+      video.addEventListener('timeupdate', function () {
+        if (video.duration && video.currentTime >= video.duration - 1.5) {
+          finishIntro();
+        }
+      });
       skip.addEventListener('click', finishIntro);
 
       // Try to autoplay — if blocked (rare with muted+playsinline), skip
