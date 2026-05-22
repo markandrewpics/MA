@@ -2394,13 +2394,8 @@
       }
 
       video.addEventListener('ended', finishIntro);
-      // Trigger the fade at 1.5s into the video — the fade-to-logo overlaps the
-      // video's tail end and the whole intro stays snappy regardless of clip length
-      video.addEventListener('timeupdate', function () {
-        if (video.currentTime >= 1.5) {
-          finishIntro();
-        }
-      });
+      // Let the video play to its natural end. The CSS crossfade is short enough
+      // (0.6s video out / 0.7s logo in) that the handoff still feels snappy.
       skip.addEventListener('click', finishIntro);
 
       // Try to autoplay — if blocked (rare with muted+playsinline), skip
@@ -2409,10 +2404,11 @@
         playAttempt.catch(function () { finishIntro(); });
       }
 
-      // Failsafe: if video hangs or never fires "ended", finish after 20s
+      // Failsafe: if the video fails to load/play, don't strand the visitor on
+      // a black screen. 6 seconds is plenty for a short hero clip to finish.
       setTimeout(function () {
         if (!finished) finishIntro();
-      }, 20000);
+      }, 6000);
     })();
   </script>
 </body>
