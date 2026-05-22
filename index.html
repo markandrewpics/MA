@@ -1353,9 +1353,92 @@
       .footer { padding: 50px 24px 30px; }
       .footer-inner { grid-template-columns: 1fr; gap: 36px; }
     }
+
+    /* INTRO OVERLAY — autoplay video → fade to black with logo → reveal site */
+    .intro-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 1.2s ease;
+      overflow: hidden;
+    }
+    .intro-overlay.is-done { display: none; }
+    .intro-overlay.is-fading-out { opacity: 0; pointer-events: none; }
+    .intro-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 1s ease;
+    }
+    .intro-overlay.is-fading-to-logo .intro-video { opacity: 0; }
+    .intro-logo {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: scale(0.85);
+      transition: opacity 1.4s ease 0.2s, transform 1.4s ease 0.2s;
+      pointer-events: none;
+    }
+    .intro-overlay.is-fading-to-logo .intro-logo {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .intro-logo img {
+      width: min(62vw, 540px);
+      height: auto;
+      filter: brightness(0) invert(1);
+    }
+    .intro-skip {
+      position: absolute;
+      bottom: 28px;
+      right: 28px;
+      color: rgba(255,255,255,0.65);
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      font-weight: 500;
+      cursor: pointer;
+      z-index: 10000;
+      padding: 8px 14px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 2px;
+      transition: color 0.2s, border-color 0.2s;
+      background: rgba(0,0,0,0.3);
+    }
+    .intro-skip:hover {
+      color: #f09a69;
+      border-color: rgba(240,154,105,0.5);
+    }
+    body.intro-active { overflow: hidden; }
+    @media (max-width: 720px) {
+      .intro-logo img { width: 78vw; }
+      .intro-skip { bottom: 20px; right: 20px; font-size: 10px; padding: 7px 12px; }
+    }
+
   </style>
 </head>
 <body>
+
+  <!-- INTRO OVERLAY — plays a hero video on first visit per session -->
+  <div id="introOverlay" class="intro-overlay">
+    <video id="introVideo" class="intro-video" autoplay muted playsinline preload="auto">
+      <source src="/uploads/website-hero.mov" type="video/mp4" />
+      <source src="/uploads/website-hero.mov" type="video/quicktime" />
+    </video>
+    <div class="intro-logo" id="introLogo">
+      <img src="/uploads/Boudoir PNG.png" alt="Mark Andrew Boudoir" />
+    </div>
+    <div class="intro-skip" id="introSkip">Skip ↓</div>
+  </div>
+
 
   <nav class="nav">
     <a href="/" class="nav-logo"><img src="/uploads/Boudoir PNG.png" alt="Mark Andrew Boudoir" /></a>
@@ -2273,5 +2356,57 @@
   })();
   </script>
 
+
+  <script>
+    // INTRO OVERLAY behavior — once per session
+    (function () {
+      var KEY = 'mab_intro_seen';
+      var overlay = document.getElementById('introOverlay');
+      var video = document.getElementById('introVideo');
+      var skip = document.getElementById('introSkip');
+      if (!overlay || !video) return;
+
+      // Already seen this session — skip the intro entirely
+      try {
+        if (sessionStorage.getItem(KEY)) {
+          overlay.classList.add('is-done');
+          return;
+        }
+      } catch (e) {}
+
+      document.body.classList.add('intro-active');
+
+      var finished = false;
+      function finishIntro() {
+        if (finished) return;
+        finished = true;
+        try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+        // Phase 2: fade video out, logo in
+        overlay.classList.add('is-fading-to-logo');
+        // Phase 3: after logo is visible briefly, fade overlay away
+        setTimeout(function () {
+          overlay.classList.add('is-fading-out');
+          setTimeout(function () {
+            overlay.classList.add('is-done');
+            document.body.classList.remove('intro-active');
+          }, 1300);
+        }, 1800);
+      }
+
+      video.addEventListener('ended', finishIntro);
+      skip.addEventListener('click', finishIntro);
+
+      // Try to autoplay — if blocked (rare with muted+playsinline), skip
+      var playAttempt = video.play();
+      if (playAttempt && typeof playAttempt.catch === 'function') {
+        playAttempt.catch(function () { finishIntro(); });
+      }
+
+      // Failsafe: if video hangs or never fires "ended", finish after 20s
+      setTimeout(function () {
+        if (!finished) finishIntro();
+      }, 20000);
+    })();
+  </script>
 </body>
 </html>
