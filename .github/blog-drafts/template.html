@@ -169,6 +169,27 @@
       text-align: center;
     }
 
+    .framed-image { margin: 56px 0; }
+    .framed-image figcaption {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(238,240,245,0.5);
+      margin-top: 14px;
+      text-align: center;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 56px 0;
+    }
+    @media (max-width: 720px) {
+      .two-col { grid-template-columns: 1fr; gap: 18px; margin: 40px 0; }
+      .framed-image { margin: 40px 0; }
+    }
+
     .content {
       max-width: 820px;
       margin: 0 auto;

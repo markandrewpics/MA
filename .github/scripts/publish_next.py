@@ -21,6 +21,7 @@ The script is pure stdlib — no pip install needed in the workflow.
 import json
 import os
 import shutil
+import struct
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -33,6 +34,68 @@ SCHEDULE_FILE = DRAFTS_DIR / "publish-schedule.json"
 TEMPLATE_FILE = DRAFTS_DIR / "template.html"
 HUB_FILE = REPO_ROOT / "blog" / "index.html"
 POSTS_DIR = REPO_ROOT / "posts"
+
+
+# -- Horizontal-image guard ---------------------------------------------------
+#
+# Hub card thumbnails are cropped at 16:10. If the underlying image is taller
+# than it is wide, the crop chops off heads and feet. This guard reads JPEG
+# dimensions from the SOF marker (pure stdlib — no Pillow needed) and refuses
+# to publish a post whose cardImage or heroImage is vertical.
+
+def _jpeg_dimensions(path):
+    """Return (width, height) by parsing the JPEG SOF marker. None if not JPEG."""
+    try:
+        with open(path, "rb") as f:
+            if f.read(2) != b"\xff\xd8":
+                return None
+            while True:
+                byte = f.read(1)
+                while byte == b"\xff":
+                    byte = f.read(1)
+                if not byte:
+                    return None
+                marker = byte[0]
+                # SOF markers (skip SOF4/SOF8/SOF12 which are non-image)
+                if marker in (0xC0, 0xC1, 0xC2, 0xC3, 0xC5, 0xC6, 0xC7,
+                              0xC9, 0xCA, 0xCB, 0xCD, 0xCE, 0xCF):
+                    f.read(3)  # length(2) + precision(1)
+                    h, w = struct.unpack(">HH", f.read(4))
+                    return w, h
+                length_bytes = f.read(2)
+                if len(length_bytes) < 2:
+                    return None
+                length = struct.unpack(">H", length_bytes)[0]
+                f.read(length - 2)
+    except (OSError, struct.error):
+        return None
+
+
+def assert_horizontal(image_path, role):
+    """Raise SystemExit if the image is not horizontal (width > height).
+
+    image_path is a /uploads/foo.jpg style path. role is a string like 'cardImage'
+    used in the error message.
+    """
+    if not image_path:
+        return
+    full = REPO_ROOT / image_path.lstrip("/")
+    if not full.exists():
+        log(f"FATAL: {role} image missing on disk: {image_path}")
+        sys.exit(1)
+    dims = _jpeg_dimensions(full)
+    if dims is None:
+        log(f"WARNING: could not parse JPEG dimensions for {role} ({image_path}); skipping aspect check")
+        return
+    w, h = dims
+    if w <= h:
+        log(
+            f"FATAL: {role} is VERTICAL ({w}x{h}): {image_path}\n"
+            f"       Hub cards crop at 16:10 — vertical images chop heads/feet.\n"
+            f"       Swap to a horizontal image (width > height) and re-run."
+        )
+        sys.exit(1)
+    log(f"  {role} aspect OK ({w}x{h})")
 
 
 def log(msg):
@@ -89,6 +152,52 @@ def render_section(section):
 """
 
 
+def render_body_image(body_image):
+    """Render an inline body image.
+
+    Shapes supported:
+      {"type": "single", "src": "...", "alt": "...", "caption": "..."}
+      {"type": "two-col", "images": [{"src":"...","alt":"..."}, {"src":"...","alt":"..."}], "caption": "..."}
+    Caption is optional. afterSection (handled by caller) is the 0-based index of the
+    H2 section to place the image after.
+    """
+    img_type = body_image.get("type", "single")
+
+    if img_type == "two-col":
+        figs = []
+        for img in body_image.get("images", []):
+            figs.append(
+                f'      <figure>\n'
+                f'        <div class="frame">\n'
+                f'          <img src="{escape(img["src"])}" alt="{escape(img.get("alt", ""))}" loading="lazy" />\n'
+                f'        </div>\n'
+                f'      </figure>'
+            )
+        block = '    <div class="two-col">\n' + "\n".join(figs) + "\n    </div>\n"
+        if body_image.get("caption"):
+            block += (
+                f'    <p style="text-align: center; font-family: \'Jost\', sans-serif; '
+                f'font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; '
+                f'color: rgba(238,240,245,0.5); margin: -40px 0 56px;">'
+                f'{escape(body_image["caption"])}</p>\n'
+            )
+        return block
+
+    # single (default)
+    caption_html = (
+        f'      <figcaption>{escape(body_image["caption"])}</figcaption>\n'
+        if body_image.get("caption") else ""
+    )
+    return (
+        f'    <figure class="framed-image">\n'
+        f'      <div class="frame">\n'
+        f'        <img src="{escape(body_image["src"])}" alt="{escape(body_image.get("alt", ""))}" loading="lazy" />\n'
+        f'      </div>\n'
+        f'{caption_html}'
+        f'    </figure>\n'
+    )
+
+
 def render_faqs(faqs):
     """Render FAQ schema JSON-LD block."""
     if not faqs:
@@ -129,7 +238,19 @@ def render_post_html(blog):
     with open(TEMPLATE_FILE) as f:
         template = f.read()
 
-    sections_html = "\n".join(render_section(s) for s in blog["sections"])
+    # Group bodyImages by afterSection index for splicing
+    body_images_by_section = {}
+    for bi in blog.get("bodyImages", []):
+        idx = bi.get("afterSection", -1)
+        body_images_by_section.setdefault(idx, []).append(bi)
+
+    # Render sections with bodyImages spliced in
+    section_chunks = []
+    for i, section in enumerate(blog["sections"]):
+        section_chunks.append(render_section(section))
+        for bi in body_images_by_section.get(i, []):
+            section_chunks.append(render_body_image(bi))
+    sections_html = "\n".join(section_chunks)
     faqs_html = render_faqs(blog.get("faqs", []))
     article_schema = render_article_schema(blog)
 
@@ -247,6 +368,12 @@ def main():
 
     with open(blog_json_path) as f:
         blog = json.load(f)
+
+    # Guard: hub cards crop at 16:10. Vertical images chop heads/feet.
+    # Refuse to publish if cardImage or heroImage isn't horizontal.
+    log("Verifying image aspect ratios...")
+    assert_horizontal(blog.get("cardImage"), "cardImage")
+    assert_horizontal(blog.get("heroImage"), "heroImage")
 
     # Render the post
     post_html = render_post_html(blog)
