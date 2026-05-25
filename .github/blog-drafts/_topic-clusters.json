@@ -242,7 +242,7 @@
       "title": "Mature Boudoir: Why Women in Their 40s, 50s & 60s Are Booking Sessions",
       "category": "boudoir",
       "categoryLabel": "Boudoir",
-      "status": "queued",
+      "status": "topics-dropped",
       "rationale": "Specific audience cluster. Underserved demographic with high engagement once they book. Mature women are increasingly searching for boudoir options that feel age-appropriate.",
       "searchQueries": [
         "Mature boudoir Mishawaka?"
@@ -256,14 +256,15 @@
         "What do most mature clients say at the reveal that you don't hear from younger clients?",
         "Is 'menopause boudoir' or 'empty nest boudoir' a real trend you're noticing?",
         "What would you tell a 60-year-old woman who thinks she's 'too old' for a boudoir session?"
-      ]
+      ],
+      "droppedAt": "2026-05-25T18:18:45.383476+00:00"
     },
     {
       "slug": "lgbtq-boudoir-south-bend-inclusive",
       "title": "LGBTQ+ Boudoir Sessions in South Bend: An Inclusive Studio Experience",
       "category": "boudoir",
       "categoryLabel": "Boudoir",
-      "status": "queued",
+      "status": "topics-dropped",
       "rationale": "Specific audience cluster. Critical to signal inclusivity explicitly \u2014 many LGBTQ+ clients won't book without seeing it on the site.",
       "searchQueries": [
         "LGBTQ boudoir Michiana?"
@@ -277,14 +278,15 @@
         "What's the studio's policy on names, pronouns, and identity respect during the session?",
         "Wardrobe and styling \u2014 does anything shift, or is it client-by-client?",
         "What's the one thing you wish more boudoir photographers understood about working with LGBTQ+ clients?"
-      ]
+      ],
+      "droppedAt": "2026-05-25T18:18:45.383476+00:00"
     },
     {
       "slug": "themed-boudoir-victorian-editorial-concept",
       "title": "Themed Boudoir: From Victorian to Editorial Concept Shoots",
       "category": "boudoir",
       "categoryLabel": "Boudoir",
-      "status": "queued",
+      "status": "topics-dropped",
       "rationale": "Covers the themed/Victorian queries. Themed sessions get social-media engagement \u2014 fits the AEO long-tail.",
       "searchQueries": [
         "Victorian boudoir sessions South Bend?",
@@ -299,14 +301,15 @@
         "Tactical advice for a client wanting a specific theme \u2014 what should she bring, what should she plan?",
         "Where do clients usually get inspiration that turns into a themed session \u2014 Pinterest, movies, real life?",
         "Are themed shoots more work or about the same as a standard session? What does the prep look like for you?"
-      ]
+      ],
+      "droppedAt": "2026-05-25T18:18:45.383476+00:00"
     },
     {
       "slug": "boudoir-booking-consultation-cancellation-south-bend",
       "title": "Boudoir Booking, Consultations & Cancellation Policy in South Bend",
       "category": "tips-and-prep",
       "categoryLabel": "Tips & Prep",
-      "status": "queued",
+      "status": "topics-dropped",
       "rationale": "Covers booking/consultation/cancellation queries. Low search volume individually but high commercial intent \u2014 clients in late buyer stage looking for logistics.",
       "searchQueries": [
         "Booking boudoir Edwardsburg fast?",
@@ -322,14 +325,15 @@
         "What's the cancellation policy? The reschedule policy? Where does each apply?",
         "If a client wants a last-minute session, is that even possible? How last-minute is too last-minute?",
         "What dates of the year fill up fastest, and how should clients plan around that?"
-      ]
+      ],
+      "droppedAt": "2026-05-25T18:18:45.383476+00:00"
     },
     {
       "slug": "how-to-book-boudoir-session-first-step",
       "title": "How to Book a Boudoir Session: The First Step Most Women Get Wrong",
       "category": "tips-and-prep",
       "categoryLabel": "Tips & Prep",
-      "status": "queued",
+      "status": "topics-dropped",
       "rationale": "High commercial intent. Walks through booking process from inquiry to locked date. Addresses the silent question 'where do I even start.'",
       "searchQueries": [
         "How do I book a boudoir session?",
@@ -346,14 +350,15 @@
         "What's the #1 thing women get wrong when trying to book a boudoir session?",
         "How far in advance should a client book? When do you fill up?",
         "If somebody is reading this and wants to book \u2014 what should her very next click be?"
-      ]
+      ],
+      "droppedAt": "2026-05-25T18:18:45.383476+00:00"
     },
     {
       "slug": "hair-makeup-aletheia-jean-boudoir",
       "title": "Hair & Makeup at Mark Andrew Boudoir: Meet Aletheia Jean",
       "category": "behind-the-scenes",
       "categoryLabel": "Behind the Scenes",
-      "status": "queued",
+      "status": "topics-dropped",
       "rationale": "Features the MUA. Builds local trust + sets the H&M part of the experience apart from competitors. Aletheia is a brand asset.",
       "searchQueries": [
         "Hair and makeup for boudoir South Bend?",
@@ -370,14 +375,15 @@
         "Aletheia is known for maximalism and avant-garde looks \u2014 when do clients lean into that vs. soft glam?",
         "Walk me through the chair experience \u2014 what shifts in a client during that hour?",
         "Does the makeup look heavy in person? How does it photograph vs. how it looks day-to-day?"
-      ]
+      ],
+      "droppedAt": "2026-05-25T18:18:45.383476+00:00"
     },
     {
       "slug": "boudoir-album-sizes-what-fits-home",
       "title": "Boudoir Album Sizes Explained: What Actually Fits in Your Home",
       "category": "tips-and-prep",
       "categoryLabel": "Tips & Prep",
-      "status": "queued",
+      "status": "topics-dropped",
       "rationale": "Practical product education. Helps clients arrive at the reveal pre-decided on rough album size. Reduces decision fatigue at the order session.",
       "searchQueries": [
         "What size boudoir album should I get?",
@@ -394,14 +400,15 @@
         "Where do clients actually keep their albums? Coffee table, drawer, shelf, hidden?",
         "Are smaller travel albums or duplicate copies common? Who orders them?",
         "If you could put one album in every client's hands, which size and style would it be?"
-      ]
+      ],
+      "droppedAt": "2026-05-25T18:18:45.383476+00:00"
     },
     {
       "slug": "truth-about-boudoir-editing-retouching",
       "title": "The Truth About Editing in Boudoir Photography: What Gets Touched Up, What Doesn't",
       "category": "behind-the-scenes",
       "categoryLabel": "Behind the Scenes",
-      "status": "queued",
+      "status": "topics-dropped",
       "rationale": "Addresses major buyer objection \u2014 'will they Photoshop me into someone else.' Editing transparency builds trust.",
       "searchQueries": [
         "How heavily are boudoir photos edited?",
@@ -418,7 +425,8 @@
         "How long does the editing actually take per image? And how is yours faster than other studios?",
         "What's a common request you push back on, and why?",
         "When a client says 'edit it however you want, I trust you' \u2014 what do you do?"
-      ]
+      ],
+      "droppedAt": "2026-05-25T18:18:45.383476+00:00"
     },
     {
       "slug": "telling-your-partner-about-boudoir",
