@@ -433,7 +433,7 @@
       "title": "How to Tell Your Partner You're Booking a Boudoir Session (Or Whether to Tell Them at All)",
       "category": "tips-and-prep",
       "categoryLabel": "Tips & Prep",
-      "status": "queued",
+      "status": "topics-dropped",
       "rationale": "Addresses the 'how do I bring this up' silent objection. Many women are afraid to tell their partner. This blog gives them the language.",
       "searchQueries": [
         "Should I tell my husband I'm doing a boudoir shoot?",
@@ -450,14 +450,15 @@
         "Surprise vs. transparent \u2014 which approach makes for a better gift / better experience?",
         "What's the most common partner-reaction story you've heard at the reveal?",
         "How would you frame the conversation if you were a woman trying to bring it up?"
-      ]
+      ],
+      "droppedAt": "2026-06-01T22:34:49.615826+00:00"
     },
     {
       "slug": "boudoir-gift-certificate-confidence-gift",
       "title": "Boudoir Gift Certificates: Giving Confidence as a Gift",
       "category": "tips-and-prep",
       "categoryLabel": "Tips & Prep",
-      "status": "queued",
+      "status": "topics-dropped",
       "rationale": "Opens a new revenue stream and a separate buyer persona \u2014 the gifter (mom buying for daughter, husband for wife, friends for bachelorette). Gift certificate SEO ranks well around holidays.",
       "searchQueries": [
         "Boudoir gift certificate South Bend?",
@@ -475,14 +476,15 @@
         "How long is the certificate valid?",
         "Are there awkward gift scenarios \u2014 like husband buying for wife \u2014 that have backfired?",
         "What's the best occasion to gift one \u2014 birthdays, anniversaries, milestones, Mother's Day?"
-      ]
+      ],
+      "droppedAt": "2026-06-01T22:34:49.615826+00:00"
     },
     {
       "slug": "boudoir-just-for-yourself-no-occasion",
       "title": "Why You Should Book a Boudoir Session Just for Yourself (No Occasion Needed)",
       "category": "boudoir",
       "categoryLabel": "Boudoir",
-      "status": "queued",
+      "status": "topics-dropped",
       "rationale": "Addresses the silent objection 'I don't have a reason.' Removes the milestone-required mental block. Strong emotional hook.",
       "searchQueries": [
         "Do I need a reason to do a boudoir shoot?",
@@ -499,14 +501,15 @@
         "If a woman has been thinking about it for years but is waiting for a milestone \u2014 what would you tell her?",
         "What's the most common 'no occasion' reason clients eventually give you in the consultation?",
         "Is the 'just for yourself' boudoir session different in any way from a gift-driven one?"
-      ]
+      ],
+      "droppedAt": "2026-06-01T22:34:49.615826+00:00"
     },
     {
       "slug": "boudoir-photography-mistakes-ruin-photos",
       "title": "7 Boudoir Photography Mistakes That Ruin Your Photos (And How to Avoid Them)",
       "category": "tips-and-prep",
       "categoryLabel": "Tips & Prep",
-      "status": "queued",
+      "status": "topics-dropped",
       "rationale": "Listicle format ranks well in AEO. Negative-framing topics ('mistakes that ruin') get high CTR. Covers gaps from other topics.",
       "searchQueries": [
         "Boudoir photo mistakes to avoid?",
@@ -524,7 +527,8 @@
         "Photographer-side mistakes \u2014 what red flags should clients catch when choosing one?",
         "Of all the mistakes you've seen over a decade \u2014 which one is the most expensive to fix?",
         "If you could give a first-time client a single warning, what would it be?"
-      ]
+      ],
+      "droppedAt": "2026-06-01T22:34:49.615826+00:00"
     }
   ]
 }
