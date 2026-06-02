@@ -82,29 +82,30 @@
       position: relative;
       overflow: hidden;
     }
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url('/uploads/red-lace-catsuit-dark-fur-coat-red-stairs-night-luxury-boudoir-elkhart-in.jpg');
+    /* No hero background photo — clean dark navy. Visual reminder of boudoir
+       sits in the thin .hero-photo-band between hero and scarcity bar. */
+    .hero { background: #0c1322; }
+
+    /* Thin horizontal photo band — sits below the hero trust row,
+       above the scarcity bar. Pure visual cue that this is a boudoir shoot. */
+    .hero-photo-band {
+      width: 100%;
+      height: 160px;
+      background-image: url('/uploads/burgundy-lace-bra-fur-coat-city-skyline-over-shoulder-boudoir-photography-south-bend-in.jpg');
       background-size: cover;
-      background-position: center 25%;
-      opacity: 0.5;
-      z-index: 0;
+      background-position: center 35%;
+      position: relative;
     }
-    .hero::after {
+    .hero-photo-band::after {
       content: '';
       position: absolute;
       inset: 0;
-      /* Heavier top + bottom gradients so nav, text and stats-row transition stay legible
-         while the middle of the photo stays bold and present */
-      background: linear-gradient(180deg,
-        rgba(12,19,34,0.92) 0%,
-        rgba(12,19,34,0.55) 18%,
-        rgba(12,19,34,0.35) 50%,
-        rgba(12,19,34,0.75) 85%,
-        rgba(12,19,34,0.98) 100%);
-      z-index: 1;
+      /* Subtle vignette on top & bottom edges so the strip blends into the
+         dark navy hero above and the scarcity bar below */
+      background: linear-gradient(180deg, rgba(12,19,34,0.35) 0%, rgba(12,19,34,0) 25%, rgba(12,19,34,0) 75%, rgba(12,19,34,0.35) 100%);
+    }
+    @media (max-width: 720px) {
+      .hero-photo-band { height: 110px; background-position: center 30%; }
     }
     .hero-inner {
       position: relative;
@@ -133,7 +134,6 @@
       letter-spacing: -0.015em;
       margin-bottom: 26px;
       color: #ffffff;
-      text-shadow: 0 4px 30px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4);
     }
     .hero h1 .accent { color: #e8895c; }
     .hero-sub {
@@ -144,7 +144,6 @@
       max-width: 640px;
       margin: 0 auto 28px;
       font-weight: 400;
-      text-shadow: 0 2px 18px rgba(0,0,0,0.7);
     }
     .hero-sub strong { color: #e8895c; font-weight: 700; }
     .hero-bullets {
@@ -962,6 +961,9 @@
       </div>
     </div>
   </section>
+
+  <!-- Thin photo band — visual reminder this is a boudoir shoot -->
+  <div class="hero-photo-band" aria-hidden="true"></div>
 
   <!-- SCARCITY BAR -->
   <div class="scarcity-bar">
