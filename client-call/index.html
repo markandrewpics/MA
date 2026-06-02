@@ -86,17 +86,24 @@
       content: '';
       position: absolute;
       inset: 0;
-      background-image: url('/uploads/burgundy-lace-bra-fur-coat-city-skyline-over-shoulder-boudoir-photography-south-bend-in.jpg');
+      background-image: url('/uploads/red-lace-catsuit-dark-fur-coat-red-stairs-night-luxury-boudoir-elkhart-in.jpg');
       background-size: cover;
-      background-position: center 30%;
-      opacity: 0.18;
+      background-position: center 25%;
+      opacity: 1;
       z-index: 0;
     }
     .hero::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(12,19,34,0.6) 0%, rgba(12,19,34,0.5) 40%, rgba(12,19,34,0.95) 100%);
+      /* Heavier top + bottom gradients so nav, text and stats-row transition stay legible
+         while the middle of the photo stays bold and present */
+      background: linear-gradient(180deg,
+        rgba(12,19,34,0.92) 0%,
+        rgba(12,19,34,0.55) 18%,
+        rgba(12,19,34,0.35) 50%,
+        rgba(12,19,34,0.75) 85%,
+        rgba(12,19,34,0.98) 100%);
       z-index: 1;
     }
     .hero-inner {
@@ -126,18 +133,20 @@
       letter-spacing: -0.015em;
       margin-bottom: 26px;
       color: #ffffff;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4);
     }
     .hero h1 .accent { color: #e8895c; }
     .hero-sub {
       font-family: 'Jost', sans-serif;
       font-size: 17px;
       line-height: 1.55;
-      color: #d0c8c0;
+      color: #f5efe7;
       max-width: 640px;
       margin: 0 auto 28px;
       font-weight: 400;
+      text-shadow: 0 2px 18px rgba(0,0,0,0.7);
     }
-    .hero-sub strong { color: #e8895c; font-weight: 600; }
+    .hero-sub strong { color: #e8895c; font-weight: 700; }
     .hero-bullets {
       display: flex;
       gap: 22px;
@@ -212,72 +221,6 @@
       text-transform: uppercase;
       font-weight: 500;
       color: #b8a8a0;
-    }
-
-    /* DRAMATIC SHOWPIECE — full-bleed visual divider */
-    .showpiece {
-      position: relative;
-      width: 100%;
-      height: 75vh;
-      min-height: 540px;
-      max-height: 760px;
-      overflow: hidden;
-      background: #0c1322;
-    }
-    .showpiece img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-    }
-    .showpiece-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(12,19,34,0.05) 30%, rgba(12,19,34,0.6) 75%, rgba(12,19,34,0.95) 100%);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: center;
-      padding: 0 28px 70px;
-      text-align: center;
-    }
-    .showpiece-h {
-      font-family: 'Jost', sans-serif;
-      font-weight: 700;
-      font-size: 56px;
-      line-height: 1.05;
-      color: #ffffff;
-      letter-spacing: -0.015em;
-      margin: 0 0 14px;
-      text-shadow: 0 4px 30px rgba(0,0,0,0.5);
-    }
-    .showpiece-h .accent {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 500;
-      color: #e8895c;
-    }
-    .showpiece-sub {
-      font-size: 15px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: #e8895c;
-      margin: 0;
-      text-shadow: 0 2px 16px rgba(0,0,0,0.6);
-    }
-    @media (max-width: 980px) {
-      .showpiece { height: 70vh; min-height: 480px; }
-      .showpiece-h { font-size: 44px; }
-      .showpiece-sub { font-size: 13px; letter-spacing: 0.18em; }
-    }
-    @media (max-width: 720px) {
-      .showpiece { height: 70vh; min-height: 460px; max-height: 620px; }
-      .showpiece img { object-position: center 30%; }
-      .showpiece-h { font-size: 34px; }
-      .showpiece-sub { font-size: 11.5px; }
-      .showpiece-overlay { padding: 0 22px 50px; }
     }
 
     /* SECTION SHARED */
@@ -1032,15 +975,6 @@
       <div><div class="stat-num">700+</div><div class="stat-label">Women Photographed</div></div>
       <div><div class="stat-num">100+</div><div class="stat-label">Five-Star Reviews</div></div>
       <div><div class="stat-num">$500</div><div class="stat-label">Value</div></div>
-    </div>
-  </section>
-
-  <!-- DRAMATIC SHOWPIECE — full-bleed eye-catcher between stats and offer details -->
-  <section class="showpiece">
-    <img src="/uploads/red-monochromatic-light-harness-belt-flowing-hair-boudoir-photographer-mishawaka-in.jpg" alt="Dramatic boudoir portrait — red monochromatic light, flowing hair" loading="lazy" />
-    <div class="showpiece-overlay">
-      <p class="showpiece-h">This could <span class="accent">be you.</span></p>
-      <p class="showpiece-sub">Apply to be featured</p>
     </div>
   </section>
 
