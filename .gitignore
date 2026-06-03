@@ -4,4 +4,4 @@ email-campaigns/
 .env
 .env.local
 .env.*.local
-blog-drafts/
+/blog-drafts/

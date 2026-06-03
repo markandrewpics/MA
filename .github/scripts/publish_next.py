@@ -27,6 +27,7 @@ import sys
 from datetime import datetime, timezone
 from html import escape
 from pathlib import Path
+from urllib.parse import unquote
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DRAFTS_DIR = REPO_ROOT / ".github" / "blog-drafts"
@@ -79,7 +80,8 @@ def assert_horizontal(image_path, role):
     """
     if not image_path:
         return
-    full = REPO_ROOT / image_path.lstrip("/")
+    # URL-decode (paths in JSON are URL-encoded for HTML/img src — %20 etc).
+    full = REPO_ROOT / unquote(image_path).lstrip("/")
     if not full.exists():
         log(f"FATAL: {role} image missing on disk: {image_path}")
         sys.exit(1)
