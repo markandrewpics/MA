@@ -1430,12 +1430,16 @@
     .gallery-grid.is-collapsed .framed picture{width:100%;height:100%}
     .story-image picture,.member-photo picture,.gallery-modal-grid picture,.what-is-image picture{display:block;width:100%;height:100%}
   </style>
-  <!-- Microsoft Clarity — heatmaps + session recordings -->
+  <!-- Microsoft Clarity — heatmaps + session recordings (deferred to idle so it never blocks content) -->
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        function load(){
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        }
+        if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:4000});}
+        else{window.addEventListener('load',function(){setTimeout(load,1200);});}
     })(window, document, "clarity", "script", "x0iw1q7j1d");
   </script>
   <link rel="preload" as="image" type="image/avif" imagesrcset="/uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-400.avif 400w, /uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-800.avif 800w, /uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-1200.avif 1200w, /uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-2000.avif 2000w" imagesizes="100vw" />
@@ -1883,10 +1887,41 @@
       <p>Choose a 10-minute consultation slot. Mark will call you at the time you select.</p>
     </div>
     <div class="calendar-embed framed">
-      <iframe src="https://link.disruptormarketing.io/widget/booking/b7eSmyInmj2pwqIQesEp" style="width: 100%; border: none; overflow: hidden;" scrolling="no" id="fvYFvYDs5pqNKk8pagtT_homepage"></iframe>
+      <iframe data-src="https://link.disruptormarketing.io/widget/booking/b7eSmyInmj2pwqIQesEp" style="width: 100%; border: none; overflow: hidden;" scrolling="no" id="fvYFvYDs5pqNKk8pagtT_homepage" title="Book your consultation"></iframe>
     </div>
   </section>
-  <script src="https://link.disruptormarketing.io/js/form_embed.js" type="text/javascript"></script>
+  <script>
+    // Lazy-load the booking widget (GoHighLevel/Disruptor) only when the visitor
+    // nears the booking section — keeps bookings 100% functional, removes ~313KB
+    // and ~19 requests from the initial page load.
+    (function () {
+      var frame = document.getElementById('fvYFvYDs5pqNKk8pagtT_homepage');
+      if (!frame) return;
+      var loaded = false;
+      function loadBooking() {
+        if (loaded) return;
+        loaded = true;
+        frame.src = frame.getAttribute('data-src');
+        var s = document.createElement('script');
+        s.src = 'https://link.disruptormarketing.io/js/form_embed.js';
+        s.async = true;
+        document.body.appendChild(s);
+      }
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting) { loadBooking(); io.disconnect(); }
+        }, { rootMargin: '800px' });
+        io.observe(frame);
+      } else {
+        loadBooking();
+      }
+      // Safety net: if a "#book" link is clicked, load immediately.
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href="#book"]');
+        if (a) loadBooking();
+      });
+    })();
+  </script>
 
   <footer class="footer">
     <div class="footer-inner">
