@@ -54,12 +54,6 @@
       ]
     },
     {
-      "source": "/uploads/(.*)\\.(jpg|jpeg|png|webp|avif|gif|svg|mp4|mov)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=2592000, stale-while-revalidate=86400" }
-      ]
-    },
-    {
       "source": "/uploads/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
