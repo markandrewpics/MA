@@ -2,61 +2,115 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.markandrewboudoir.com/</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.markandrewboudoir.com/blog/</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.markandrewboudoir.com/lingerie-guide/</loc>
-    <lastmod>2026-05-08</lastmod>
+    <loc>https://www.markandrewboudoir.com/boudoir-photography-cost-south-bend/</loc>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.markandrewboudoir.com/boudoir-photography-cost-south-bend/</loc>
-    <lastmod>2026-05-08</lastmod>
+    <loc>https://www.markandrewboudoir.com/lingerie-guide/</loc>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.markandrewboudoir.com/what-to-wear-boudoir-session/</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.markandrewboudoir.com/is-boudoir-awkward/</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.markandrewboudoir.com/posts/what-is-boudoir-photography/</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.markandrewboudoir.com/posts/how-to-prepare-for-boudoir-session/</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.markandrewboudoir.com/posts/how-long-does-boudoir-photoshoot-take/</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.markandrewboudoir.com/posts/boudoir-for-plus-size-women/</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.markandrewboudoir.com/posts/bridal-boudoir-wedding-gift/</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.markandrewboudoir.com/posts/couples-boudoir-perfect-date/</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.markandrewboudoir.com/posts/boudoir-vs-glamour-photography-difference/</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.markandrewboudoir.com/posts/same-day-reveal-mark-andrew-difference/</loc>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.markandrewboudoir.com/posts/her-story-catherine/</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.markandrewboudoir.com/posts/her-story-becky/</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.markandrewboudoir.com/posts/her-story-heidi/</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.markandrewboudoir.com/privacy-policy/</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://www.markandrewboudoir.com/terms-of-service/</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
