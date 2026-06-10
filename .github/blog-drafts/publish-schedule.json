@@ -47,7 +47,8 @@
     {
       "slug": "mens-boudoir-why-more-men-booking",
       "scheduledDate": "2026-06-10",
-      "status": "queued"
+      "status": "published",
+      "publishedAt": "2026-06-10T12:45:47.033558+00:00"
     }
   ]
 }
