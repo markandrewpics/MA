@@ -50,7 +50,7 @@ Posts are written as data, then a scheduled GitHub Action renders + publishes th
 ```
 slug, title, h1 (may contain <em>), subtitle, metaDescription, datePublished,
 breadcrumbCategory, eyebrow, category, categoryLabel,
-cardTitle, cardExcerpt, cardDate, cardImage, heroImage, heroAlt, heroCaption,
+cardTitle, cardExcerpt, cardDate, cardImage, cardImageSource, cardOverlayText, heroImage, heroAlt, heroCaption,
 directAnswer,
 sections: [ { h2, answer, prose:[...], bullets:[...] } ],   // see format rule below
 faqs: [ { q, a } ],
@@ -61,7 +61,7 @@ social: { instagramCaption, youtubeDescription, hashtags:[...], tweet }
 
 ## Hard rules (these caused real problems — don't break them)
 
-1. **Hub card + hero images MUST be horizontal (width > height).** Cards crop 16:10 — vertical images chop off heads and feet. `publish_next.py` has a guard that refuses to publish a vertical `cardImage`/`heroImage`. Verify aspect before assigning any thumbnail.
+1. **Hub card + hero images MUST be horizontal (width > height).** Cards crop 16:10 — vertical images chop off heads and feet. `publish_next.py` has a guard that refuses to publish a vertical `cardImage`/`heroImage`. Verify aspect before assigning any thumbnail. The `todays-blog` skill builds the `cardImage` as a 16:10 thumbnail with the post's title set over it via `.github/scripts/make_blog_card.py`, and never reuses the same photo twice in a post (card-background ≠ hero ≠ each body image).
 2. **Image paths are URL-encoded.** Spaces become `%20` (e.g. `/uploads/Use%20These%20Images/foo.jpg`). The guard URL-decodes before checking disk. Images may live in `/uploads/` or `/uploads/Use These Images/`.
 3. **AEO format (current standard):** Each `h2` is a real question people Google. Lead with a tight **40–60 word direct answer** (this is what AI engines extract), then flow into cohesive first-person prose **as if Mark wrote it himself**. Do NOT use the old visible "answer box vs. prose" split — one continuous expert voice. Add `faqs` for FAQPage schema.
 4. **Don't feed AI with AI.** Real blogs come from Mark's recorded answers (interview prompts → he records → weave his words in). Don't ghost-write 12 pure-AI posts and call it done.

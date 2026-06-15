@@ -8,7 +8,7 @@ description: Turn Mark's newest Apple Note titled "Today's Blog" into a finished
 Read `CLAUDE.md` at the repo root first — studio facts, the blog.json schema, brand tokens, booking embed, image rules, git workflow. Mark is non-technical; just do the work and report plainly. The whole point of this blog is **SEO + AEO discovery — getting found in AI search engines.** That is the #1 goal of every choice you make.
 
 ## What this skill does
-Reads the newest Apple Note whose title starts with **"Today's Blog"** (Mark records his answers there), turns it into one AEO blog post in his first-person voice, auto-selects 4+ images that actually match the topic, and **publishes it live right now** — renders the page, injects the hub card, updates the sitemap + llms.txt, commits and pushes. Vercel deploys on push.
+Reads the newest Apple Note whose title starts with **"Today's Blog"** (Mark records his answers there), turns it into one AEO blog post in his first-person voice, auto-selects 4+ topic-matching images (all unique — no photo used twice), builds a horizontal hub thumbnail with the post's title set over it, and **publishes it live right now** — renders the page, injects the hub card, updates the sitemap + llms.txt, commits and pushes. Vercel deploys on push.
 
 This reuses the existing auto-publish machinery (`template.html` + `publish_next.py`) so the post is identical in structure to every other post on the site — it just ships immediately instead of waiting for the cron.
 
@@ -33,19 +33,34 @@ Single cohesive first-person voice — Mark is the author. Fill **every** `blog.
 - Write `directAnswer` (the top extract), `metaDescription` (~155 chars, keyworded), `faqs` (4–5 — powers FAQPage schema, distinct from the H2s), `closer*`, and the full `social` block (Instagram caption, YouTube description, 12 hashtags incl. local, tweet).
 - `datePublished` and `cardDate` = today.
 
-## Step 4 — Auto-pick 4+ images that match the topic
+## Step 4 — Pick 4+ matching images (all unique) + build the titled thumbnail
 The image filenames are SEO-descriptive (subject + wardrobe + light/prop + "boudoir" + town), so match by reading the names. **Make the photos correspond to the subject** — men's boudoir → `mens-boudoir-*`; bridal → `bridal-*`/`*veil*`/`*bouquet*`; dramatic/dark moody → `*dramatic*`/`*shadow*`/`*theatrical*`/`*velvet-curtain*`; couples → `couples-*`; confidence/empowerment → `*empowering*`/`*velvet-curtain*`/`*fur-coat*`/`*gold*`.
 
-- **THE HARD RULE: `cardImage` + `heroImage` MUST be horizontal (width > height).** The publisher guard rejects vertical (hub cards crop 16:10 → chopped heads/feet). Body images can be vertical. Get the horizontal palette first:
-  ```bash
-  find uploads -maxdepth 2 \( -iname "*.jpg" -o -iname "*.jpeg" \) ! -path "*Featured Logos*" | while read -r f; do
-    dims=$(sips -g pixelWidth -g pixelHeight "$f" 2>/dev/null | awk '/pixelWidth/{w=$2}/pixelHeight/{h=$2}END{print w,h}')
-    w=${dims% *}; h=${dims#* }
-    [ -n "$w" ] && [ -n "$h" ] && [ "$w" -gt "$h" ] 2>/dev/null && echo "${w}x${h}  ${f#uploads/}"
-  done | sort
-  ```
-- Pick a strong horizontal hero/card that matches the emotional theme. Add `bodyImages` between sections (`single` + one `two-col` pair) so there are **4+ images total**, each with real alt text + a short caption. Prefer images from **different Michiana towns** — it reinforces local SEO. Images live in `/uploads/` or `/uploads/Use These Images/`; **URL-encode spaces** (`/uploads/Use%20These%20Images/...`). `afterSection` is 0-based.
-- If nothing in the library fits the subject, tell Mark rather than forcing an off-topic image.
+Get the horizontal palette first (card + hero must be horizontal; body images may be vertical):
+```bash
+find uploads -maxdepth 2 \( -iname "*.jpg" -o -iname "*.jpeg" \) ! -path "*Featured Logos*" ! -path "*blog-cards*" | while read -r f; do
+  dims=$(sips -g pixelWidth -g pixelHeight "$f" 2>/dev/null | awk '/pixelWidth/{w=$2}/pixelHeight/{h=$2}END{print w,h}')
+  w=${dims% *}; h=${dims#* }
+  [ -n "$w" ] && [ -n "$h" ] && [ "$w" -gt "$h" ] 2>/dev/null && echo "${w}x${h}  ${f#uploads/}"
+done | sort
+```
+
+**Three hard rules for images:**
+1. **NEVER use the same photo twice on a post.** The card-background, the hero, and every body image must be DISTINCT files. (Before Step 6, verify uniqueness — see the sanity check.) Prefer photos from different Michiana towns; it also helps local SEO.
+2. **The hub thumbnail (`cardImage`) is ALWAYS horizontal.** It's generated at 1600×1000 (the 16:10 the hub crops to), so it's horizontal by construction — but the publisher guard double-checks. Pick a strong, on-theme, reasonably *covered* horizontal photo as its background (the thumbnail is the most public-facing image; keep heavy implied-nude shots for the hero/body, not the card).
+3. **The thumbnail has the post's short title set over it**, in brand style. Generate it — don't reuse a plain photo as the card:
+   ```bash
+   python3 .github/scripts/make_blog_card.py \
+     --src "uploads/<chosen card-background photo>" \
+     --out "uploads/blog-cards/<slug>-card.jpg" \
+     --title "<short title>" \
+     --eyebrow "<categoryLabel, e.g. Boudoir>"
+   ```
+   - `--title` is the punchy short form of the H1 (the hook before any colon/em-dash) — e.g. `Are Boudoir Photos a Good Idea?`, not the full subtitle. Keep it ≤ ~6 words so it stays large and legible.
+   - The script crops to 16:10, adds the brand navy scrim, and sets the title in Cormorant Garamond SemiBold with a peach eyebrow + rule (font bundled at `fonts/ttf/CormorantGaramond-Variable.ttf`). **View the output** (Read the jpg) to confirm the text is legible before publishing.
+   - Then in `blog.json`: set `cardImage` to `/uploads/blog-cards/<slug>-card.jpg`, and record `cardImageSource` (the clean background photo) + `cardOverlayText` (the title used). The card-background photo counts toward the no-repeat rule — don't also use it as hero/body.
+
+Set `heroImage` to a different strong horizontal photo, and add `bodyImages` between sections (`single` + one `two-col` pair) so there are **4+ images total**, each with real alt text + a short caption. Images live in `/uploads/` or `/uploads/Use These Images/`; **URL-encode spaces** in those paths (`/uploads/Use%20These%20Images/...`) — the generated card lives in `/uploads/blog-cards/` (no spaces). `afterSection` is 0-based. If nothing in the library fits the subject, tell Mark rather than forcing an off-topic image.
 
 ## Step 5 — Publish immediately
 1. Write `.github/blog-drafts/<slug>/blog.json`.
@@ -65,11 +80,19 @@ The image filenames are SEO-descriptive (subject + wardrobe + light/prop + "boud
 6. `git pull --rebase origin main` then `git push origin HEAD:main`. Vercel redeploys.
 
 ## Step 6 — Verify before you call it done
-- Sanity-render locally (also runs the horizontal guard); must not raise and must leave no `{{ }}` placeholders:
+- Sanity-render + guard + image-uniqueness in one check (must not raise; no `{{ }}` left; ALL UNIQUE):
   ```bash
-  python3 -c "import sys,json; sys.path.insert(0,'.github/scripts'); import publish_next as p; html=p.render_post_html(json.load(open('.github/blog-drafts/<slug>/blog.json'))); print('OK', len(html), 'placeholders:', html.count('{{'))"
+  python3 -c "
+  import sys,json; sys.path.insert(0,'.github/scripts'); import publish_next as p
+  b=json.load(open('.github/blog-drafts/<slug>/blog.json'))
+  p.assert_horizontal(b.get('cardImage'),'cardImage'); p.assert_horizontal(b.get('heroImage'),'heroImage')
+  imgs=[b.get('cardImageSource') or b['cardImage'], b['heroImage']]
+  [imgs.extend([i['src'] for i in x['images']] if x.get('type')=='two-col' else [x['src']]) for x in b.get('bodyImages',[])]
+  print('images', len(imgs), 'unique' if len(set(imgs))==len(imgs) else 'DUPLICATE!!')
+  h=p.render_post_html(b); print('OK', len(h), 'placeholders:', h.count('{{'))"
   ```
-- Confirm `posts/<slug>/index.html` exists, the hub card is in `blog/index.html`, the queue entry is `published`, and the new URL is in `sitemap.xml` + `llms.txt`.
+- **View the generated thumbnail** (Read `uploads/blog-cards/<slug>-card.jpg`) — confirm it's horizontal and the title text is legible.
+- Confirm `posts/<slug>/index.html` exists, the hub card is in `blog/index.html` (pointing at the `/uploads/blog-cards/` thumbnail), the queue entry is `published`, and the new URL is in `sitemap.xml` + `llms.txt`.
 
 ## Report back
-Give Mark: the post title, the live URL (`https://blog.markandrewboudoir.com/posts/<slug>/`), which images went where (confirm card/hero are horizontal), and that it's pushed and deploying. Optionally add a ~10am ET review reminder on the "To Do List" calendar.
+Give Mark: the post title, the live URL (`https://blog.markandrewboudoir.com/posts/<slug>/`), which images went where (confirm the thumbnail is horizontal, carries the title text, and that no photo is repeated), and that it's pushed and deploying. Optionally add a ~10am ET review reminder on the "To Do List" calendar.
