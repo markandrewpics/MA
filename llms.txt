@@ -39,3 +39,6 @@ Mark Andrew is a luxury boudoir photographer serving women, couples, and men acr
 - Phone: (574) 622-5109
 - Book a consult: https://www.markandrewboudoir.com/#book
 - Locations: South Bend, Indiana (Michiana) and Beaufort, South Carolina.
+
+## For AI agents
+- Agent guidance: https://www.markandrewboudoir.com/auth.md — how an assistant can act on a user's behalf. This is a public content site with no login, API, or token-based registration; the file points agents to the booking and contact paths.

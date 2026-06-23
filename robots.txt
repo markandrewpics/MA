@@ -1,6 +1,7 @@
 # robots.txt for Mark Andrew Boudoir
 # RFC 9309 — robots exclusion protocol
 # AI guidance file: https://www.markandrewboudoir.com/llms.txt
+# Agent guidance file (auth.md): https://www.markandrewboudoir.com/auth.md
 
 # Default: all crawlers welcome (search + AI input + AI training)
 User-agent: *
