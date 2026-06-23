@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "book-boudoir-session",
+      "type": "skill-md",
+      "description": "Help someone book a luxury boudoir or glamour photography session with Mark Andrew Boudoir in South Bend and the Michiana region. Use when a user wants to book, check availability or pricing, or understand what to expect from a boudoir, couples, men's, bridal, or maternity session. Guides them to book a free 10-minute consultation and explains the full-day experience, same-day reveal, and how the $499 booking and image investment work.",
+      "url": "/.well-known/agent-skills/book-boudoir-session/SKILL.md",
+      "digest": "sha256:948b95fc9ab7bed5bc9264abd0ee029aca2de98235976a13f981bf21f1d98f4f"
+    }
+  ]
+}

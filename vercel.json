@@ -34,11 +34,17 @@
       ]
     },
     {
+      "source": "/.well-known/agent-skills/:skill/SKILL.md",
+      "headers": [
+        { "key": "Content-Type", "value": "text/markdown; charset=utf-8" }
+      ]
+    },
+    {
       "source": "/",
       "headers": [
         {
           "key": "Link",
-          "value": "</sitemap.xml>; rel=\"describedby\"; type=\"application/xml\", </privacy-policy/>; rel=\"privacy-policy\", </terms-of-service/>; rel=\"terms-of-service\", </llms.txt>; rel=\"llms-txt\", </auth.md>; rel=\"auth-md\""
+          "value": "</sitemap.xml>; rel=\"describedby\"; type=\"application/xml\", </privacy-policy/>; rel=\"privacy-policy\", </terms-of-service/>; rel=\"terms-of-service\", </llms.txt>; rel=\"llms-txt\", </auth.md>; rel=\"auth-md\", </.well-known/agent-skills/index.json>; rel=\"agent-skills\"; type=\"application/json\""
         }
       ]
     },
@@ -47,7 +53,7 @@
       "headers": [
         {
           "key": "Link",
-          "value": "</sitemap.xml>; rel=\"describedby\"; type=\"application/xml\", </privacy-policy/>; rel=\"privacy-policy\", </terms-of-service/>; rel=\"terms-of-service\", </llms.txt>; rel=\"llms-txt\", </auth.md>; rel=\"auth-md\""
+          "value": "</sitemap.xml>; rel=\"describedby\"; type=\"application/xml\", </privacy-policy/>; rel=\"privacy-policy\", </terms-of-service/>; rel=\"terms-of-service\", </llms.txt>; rel=\"llms-txt\", </auth.md>; rel=\"auth-md\", </.well-known/agent-skills/index.json>; rel=\"agent-skills\"; type=\"application/json\""
         }
       ]
     },

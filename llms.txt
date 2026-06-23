@@ -42,3 +42,4 @@ Mark Andrew is a luxury boudoir photographer serving women, couples, and men acr
 
 ## For AI agents
 - Agent guidance: https://www.markandrewboudoir.com/auth.md — how an assistant can act on a user's behalf. This is a public content site with no login, API, or token-based registration; the file points agents to the booking and contact paths.
+- Agent skills: https://www.markandrewboudoir.com/.well-known/agent-skills/index.json — a discoverable index of Agent Skills an assistant can load on demand (e.g. "book-boudoir-session", which guides someone to book a consult). Follows the Agent Skills Discovery standard (agentskills.io).
