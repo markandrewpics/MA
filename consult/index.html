@@ -3,289 +3,474 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Consultation — Mark Andrew Boudoir</title>
-  <meta name="description" content="You booked your consult — here's the rest of the story. What boudoir is, what your day looks like, and what to expect on your call with Mark." />
   <meta name="robots" content="noindex, nofollow" />
+  <title>Your Consultation — Mark Andrew Boudoir</title>
+  <meta name="description" content="You booked your consult — here's the rest of the story. What boudoir is, what your day looks like, the team, and what to expect on your call with Mark." />
 
-  <!-- Open Graph (link preview when texted) -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.markandrewboudoir.com/consult/" />
-  <meta property="og:title" content="Your Consultation — Mark Andrew Boudoir" />
-  <meta property="og:description" content="You booked your consult — here's the rest of the story. What boudoir is, what your day looks like, and what to expect on your call with Mark." />
-  <meta property="og:image" content="https://www.markandrewboudoir.com/uploads/Use%20These%20Images/black-bodysuit-fur-golden-light-flare-painted-backdrop-boudoir-photography-niles-mi.jpg" />
+  <meta property="og:title" content="Your Consultation — Here's the Rest of Your Story" />
+  <meta property="og:description" content="What boudoir actually is, what your day at the studio looks like, and what happens on your 10-minute call with Mark." />
+  <meta property="og:image" content="https://www.markandrewboudoir.com/consult/media/what-to-expect-cover.jpg" />
   <meta property="og:site_name" content="Mark Andrew Boudoir" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Great+Vibes&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500&family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
-    :root {
-      --bg: #0c1322;
-      --peach: #f09a69;
-      --text: #eef0f5;
-      --muted: rgba(238, 240, 245, 0.72);
-      --card: rgba(238, 240, 245, 0.05);
-      --line: rgba(240, 154, 105, 0.25);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      background: var(--bg);
-      color: var(--text);
+      background: #0c1322;
+      color: #f5efe7;
       font-family: 'Jost', sans-serif;
-      font-weight: 300;
-      line-height: 1.7;
+      font-weight: 400;
       -webkit-font-smoothing: antialiased;
+      line-height: 1.55;
     }
-    a { color: var(--peach); text-decoration: none; }
+    a { color: inherit; text-decoration: none; }
     img, video { max-width: 100%; display: block; }
+    em { font-style: italic; }
+    ::selection { background: rgba(232,137,92,0.32); }
+    .accent { color: #e8895c; }
 
+    /* NAV */
     .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 14px 28px;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 18px 24px; border-bottom: 1px solid rgba(238,240,245,0.08);
+      background: rgba(12,19,34,0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(232,137,92,0.18);
     }
-    .nav-logo img { height: 46px; width: auto; }
-    .nav-cta {
-      font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase;
-      border: 1px solid var(--line); padding: 10px 18px; border-radius: 999px;
-      color: var(--text);
+    .nav-logo img { height: 38px; width: auto; mix-blend-mode: screen; }
+    .nav-tag {
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      font-weight: 600; color: #e8895c;
     }
 
-    .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
-
-    .hero { text-align: center; padding: 56px 0 36px; }
-    .script { font-family: 'Great Vibes', cursive; color: var(--peach); font-size: clamp(1.6rem, 5vw, 2.2rem); }
-    h1 {
-      font-family: 'Cormorant Garamond', serif; font-weight: 500;
-      font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1.15; margin: 8px 0 18px;
+    /* HERO */
+    .hero { padding: 120px 28px 56px; text-align: center; background: #0c1322; }
+    .hero-inner { max-width: 760px; margin: 0 auto; }
+    .hero-eyebrow {
+      display: inline-block; padding: 7px 16px;
+      background: rgba(232,137,92,0.12); border: 1px solid rgba(232,137,92,0.5);
+      color: #e8895c; font-size: 11.5px; letter-spacing: 0.22em;
+      text-transform: uppercase; font-weight: 600; border-radius: 20px;
+      margin-bottom: 26px;
     }
-    .sub { color: var(--muted); max-width: 34em; margin: 0 auto; }
+    .hero h1 {
+      font-weight: 700; font-size: 52px; line-height: 1.08;
+      letter-spacing: -0.015em; margin-bottom: 22px; color: #ffffff;
+    }
+    .hero-sub { font-size: 17px; line-height: 1.55; color: #f5efe7; max-width: 620px; margin: 0 auto 30px; }
+    .hero-sub strong { color: #e8895c; font-weight: 700; }
 
     .save-number {
-      margin: 30px auto 0; max-width: 30em;
-      background: rgba(240,154,105,0.1); border: 1px solid var(--line);
-      border-radius: 16px; padding: 18px 22px; font-size: 0.98rem;
+      max-width: 560px; margin: 0 auto;
+      background: #161f36; border: 2px solid #e8895c; border-radius: 6px;
+      padding: 24px 28px; text-align: left;
+      display: flex; gap: 16px; align-items: flex-start;
     }
-    .save-number strong { color: var(--peach); font-weight: 500; }
+    .save-number .icon { font-size: 26px; line-height: 1.2; }
+    .save-number h3 { font-size: 16px; font-weight: 700; color: #ffffff; margin-bottom: 4px; }
+    .save-number p { font-size: 14.5px; color: #d0c8c0; }
+    .save-number strong { color: #e8895c; font-weight: 700; }
 
-    section { padding: 44px 0; }
-    .eyebrow {
-      font-size: 0.74rem; letter-spacing: 0.24em; text-transform: uppercase;
-      color: var(--peach); margin-bottom: 12px;
+    /* SECTION SHARED */
+    section.block { padding: 80px 28px; }
+    section.block.dark { background: #0c1322; }
+    section.block.darker { background: #08101e; }
+    section.block.cream { background: #f5efe7; color: #1c2438; }
+    .section-eyebrow {
+      font-size: 11.5px; letter-spacing: 0.28em; text-transform: uppercase;
+      font-weight: 600; color: #e8895c; margin-bottom: 16px; text-align: center;
     }
-    h2 {
-      font-family: 'Cormorant Garamond', serif; font-weight: 500;
-      font-size: clamp(1.7rem, 5vw, 2.3rem); line-height: 1.2; margin-bottom: 16px;
+    .section-h2 {
+      font-weight: 700; font-size: 40px; line-height: 1.12;
+      letter-spacing: -0.012em; text-align: center; margin-bottom: 22px; color: inherit;
     }
-    h2 em { font-style: italic; color: var(--peach); }
-    p + p { margin-top: 14px; }
-    .muted { color: var(--muted); }
+    .section-h2 .accent { color: #e8895c; }
+    .section-lead { font-size: 17px; line-height: 1.6; max-width: 660px; margin: 0 auto; text-align: center; opacity: 0.88; }
+    .section-lead strong { color: #e8895c; font-weight: 700; }
+    section.block.cream .section-lead strong { color: #c96a35; }
 
+    /* VIDEO */
+    .video-wrap { max-width: 400px; margin: 44px auto 0; }
     .video-frame {
-      position: relative; margin: 26px auto 0; max-width: 380px;
-      border-radius: 20px; overflow: hidden;
-      border: 1px solid rgba(238,240,245,0.12);
-      box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+      border-radius: 8px; overflow: hidden;
+      border: 1px solid rgba(232,137,92,0.3);
+      box-shadow: 0 30px 70px -20px rgba(0,0,0,0.7);
     }
-    .video-frame video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: #000; }
+    .video-frame video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: #08101e; }
 
-    .timeline { margin-top: 26px; display: grid; gap: 0; }
-    .step { display: grid; grid-template-columns: 74px 1fr; gap: 18px; padding: 16px 0; border-bottom: 1px solid rgba(238,240,245,0.08); }
-    .step:last-child { border-bottom: none; }
-    .step-time { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--peach); white-space: nowrap; }
-    .step h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 1.2rem; margin-bottom: 4px; }
-    .step p { color: var(--muted); font-size: 0.95rem; }
+    /* STAT ROW */
+    .stat-row { background: #08101e; padding: 50px 28px; border-top: 1px solid rgba(232,137,92,0.15); border-bottom: 1px solid rgba(232,137,92,0.15); }
+    .stat-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
+    .stat-num { font-weight: 700; font-size: 46px; line-height: 1; color: #e8895c; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .stat-label { font-size: 11.5px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; color: #b8a8a0; }
 
-    .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 26px; }
-    .gallery img { border-radius: 14px; width: 100%; height: 100%; object-fit: cover; }
-    .gallery .wide { grid-column: span 2; aspect-ratio: 16 / 10; }
-    .gallery .tall { aspect-ratio: 3 / 4; }
+    /* BENEFIT CARDS */
+    .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 1040px; margin: 44px auto 0; }
+    .benefit-card {
+      background: #161f36; border: 1px solid rgba(232,137,92,0.18); border-radius: 6px;
+      padding: 26px 24px; display: flex; gap: 15px; align-items: flex-start;
+    }
+    section.block.cream .benefit-card { background: #ffffff; border-color: #e5dfd4; }
+    .benefit-check {
+      flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+      background: #e8895c; color: #0c1322; display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 14px;
+    }
+    .benefit-text h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; color: inherit; }
+    .benefit-text p { font-size: 14.5px; line-height: 1.55; opacity: 0.78; }
 
-    .meet { display: grid; grid-template-columns: 128px 1fr; gap: 22px; align-items: start; margin-top: 10px; }
-    .meet img { border-radius: 50%; aspect-ratio: 1; object-fit: cover; border: 2px solid var(--line); }
-    @media (max-width: 480px) { .meet { grid-template-columns: 96px 1fr; } }
+    /* STEPS (your day) */
+    .steps-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 22px; max-width: 1080px; margin: 44px auto 0; }
+    .step-card { text-align: center; padding: 22px 14px; }
+    .step-num {
+      display: inline-block; width: 56px; height: 56px; border-radius: 50%;
+      background: rgba(232,137,92,0.12); border: 2px solid #e8895c; color: #e8895c;
+      font-weight: 700; font-size: 20px; line-height: 52px; margin-bottom: 16px;
+    }
+    .step-card h4 { font-weight: 700; font-size: 16px; margin-bottom: 8px; }
+    .step-card .time { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #e8895c; font-weight: 600; margin-bottom: 8px; }
+    .step-card p { font-size: 14px; line-height: 1.55; opacity: 0.78; }
 
+    /* GALLERY MOSAIC */
+    .gallery-mosaic {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+      grid-auto-flow: dense; max-width: 1200px; margin: 44px auto 0;
+    }
+    .gallery-tile { aspect-ratio: 2 / 3; overflow: hidden; border-radius: 4px; box-shadow: 0 4px 18px -10px rgba(0,0,0,0.4); }
+    .gallery-tile.wide { grid-column: span 2; aspect-ratio: 3 / 2; }
+    .gallery-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+    .gallery-tile:hover img { transform: scale(1.03); }
+
+    /* REELS */
+    .reels-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1080px; margin: 44px auto 0; align-items: start; }
+    .reel-cell { border-radius: 6px; overflow: hidden; background: #161f36; border: 1px solid rgba(232,137,92,0.18); min-height: 480px; }
+    .reel-cell blockquote { margin: 0 !important; min-width: 0 !important; width: 100% !important; }
+
+    /* TEAM */
+    .photographer {
+      max-width: 940px; margin: 44px auto 0; background: #ffffff; border-radius: 6px;
+      padding: 44px 46px; display: grid; grid-template-columns: 200px 1fr; gap: 40px; align-items: center;
+    }
+    .photographer-photo { aspect-ratio: 1 / 1; overflow: hidden; border-radius: 6px; }
+    .photographer-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .photographer h3 { font-weight: 700; font-size: 25px; margin-bottom: 4px; color: #1c2438; }
+    .photographer .role { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; color: #e8895c; margin-bottom: 14px; }
+    .photographer p { font-size: 15px; line-height: 1.65; color: #4a5263; margin-bottom: 14px; }
+    .team-secondary { max-width: 940px; margin: 22px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .team-member {
+      background: #ffffff; border: 1px solid #e5dfd4; border-radius: 6px;
+      padding: 24px 26px; display: flex; gap: 18px; align-items: center;
+    }
+    .team-member-photo { flex-shrink: 0; width: 76px; height: 76px; border-radius: 50%; overflow: hidden; }
+    .team-member-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .team-member h4 { font-weight: 700; font-size: 16px; margin-bottom: 2px; color: #1c2438; }
+    .team-member .role { font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; color: #c97a4a; margin-bottom: 8px; }
+    .team-member p { font-size: 13.5px; line-height: 1.55; color: #4a5263; }
+
+    /* CALL CHECKLIST */
     .call-card {
-      background: var(--card); border: 1px solid rgba(238,240,245,0.1);
-      border-radius: 18px; padding: 26px; margin-top: 22px;
+      max-width: 640px; margin: 44px auto 0;
+      background: #161f36; border: 1px solid rgba(232,137,92,0.18); border-radius: 6px;
+      padding: 32px 34px;
     }
-    .call-card ul { list-style: none; margin-top: 12px; }
-    .call-card li { padding: 8px 0 8px 30px; position: relative; color: var(--muted); }
-    .call-card li::before { content: "✓"; position: absolute; left: 4px; color: var(--peach); }
+    .call-card ul { list-style: none; }
+    .call-card li { padding: 11px 0 11px 42px; position: relative; font-size: 15.5px; color: #f5efe7; border-bottom: 1px solid rgba(232,137,92,0.1); }
+    .call-card li:last-child { border-bottom: none; }
+    .call-card li::before {
+      content: "✓"; position: absolute; left: 0; top: 9px;
+      width: 26px; height: 26px; border-radius: 50%;
+      background: #e8895c; color: #0c1322; font-weight: 700; font-size: 13px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .reschedule-note { text-align: center; margin-top: 22px; font-size: 14.5px; color: #d0c8c0; }
+    .reschedule-note a { color: #e8895c; font-weight: 600; border-bottom: 1px solid rgba(232,137,92,0.4); }
 
-    .invest-note {
-      border-left: 2px solid var(--peach); padding: 4px 0 4px 20px;
-      margin-top: 18px; color: var(--muted); font-style: italic;
-      font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; line-height: 1.6;
+    /* PRICE STRIP */
+    .price-strip {
+      max-width: 580px; margin: 44px auto 0;
+      background: #161f36; border: 2px solid #e8895c; border-radius: 6px;
+      padding: 30px 32px; text-align: center;
+    }
+    .price-strip .label { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; color: #b8a8a0; margin-bottom: 10px; }
+    .price-strip .big { font-weight: 700; font-size: 34px; letter-spacing: -0.01em; color: #ffffff; margin-bottom: 6px; }
+    .price-strip .big .accent { color: #e8895c; }
+    .price-strip .note { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 15.5px; color: #b8a8a0; margin-top: 10px; line-height: 1.5; }
+    .plans-row { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+    .plan-pill {
+      font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600;
+      color: #f5efe7; background: rgba(232,137,92,0.12); border: 1px solid rgba(232,137,92,0.4);
+      padding: 6px 14px; border-radius: 20px;
     }
 
-    .socials { display: flex; gap: 14px; margin-top: 22px; flex-wrap: wrap; }
-    .social-btn {
-      flex: 1; min-width: 200px; text-align: center;
-      border: 1px solid var(--line); border-radius: 999px; padding: 14px 20px;
-      color: var(--text); font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase;
+    /* FAQ */
+    .faq-list { max-width: 720px; margin: 44px auto 0; }
+    .faq-list a.faq-item {
+      display: flex; justify-content: space-between; align-items: center; gap: 18px;
+      background: #1d2950; border: 1px solid rgba(232,137,92,0.18); border-radius: 6px;
+      padding: 20px 26px; margin-bottom: 12px;
+      font-weight: 700; font-size: 16.5px; color: #ffffff;
       transition: background 0.2s;
     }
-    .social-btn:hover { background: rgba(240,154,105,0.12); }
+    .faq-list a.faq-item:hover { background: #243358; }
+    .faq-list a.faq-item .arrow { color: #e8895c; font-size: 20px; flex-shrink: 0; }
+    .faq-list a.faq-item small { display: block; font-weight: 400; font-size: 13px; color: #d0c8c0; margin-top: 3px; }
 
-    .faq-links { margin-top: 20px; display: grid; gap: 10px; }
-    .faq-links a {
-      display: block; background: var(--card); border: 1px solid rgba(238,240,245,0.08);
-      border-radius: 12px; padding: 14px 18px; color: var(--text); font-size: 0.95rem;
+    /* SOCIAL CTA BAND */
+    .cta-band { padding: 70px 28px; text-align: center; background: #08101e; border-top: 1px solid rgba(232,137,92,0.15); }
+    .cta-band h3 { font-weight: 700; font-size: 30px; line-height: 1.18; margin-bottom: 12px; color: #ffffff; letter-spacing: -0.01em; }
+    .cta-band p { font-size: 15.5px; color: #d0c8c0; margin-bottom: 26px; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .btn {
+      display: inline-block; padding: 17px 34px;
+      font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      border-radius: 4px; transition: all 0.2s ease; border: 1px solid transparent; text-align: center;
     }
-    .faq-links a span { color: var(--peach); }
+    .btn-primary { background: #e8895c; color: #0c1322; border-color: #e8895c; }
+    .btn-primary:hover { background: #f3a079; transform: translateY(-1px); box-shadow: 0 12px 30px -10px rgba(232,137,92,0.6); }
+    .btn-ghost { background: transparent; color: #f5efe7; border-color: rgba(232,137,92,0.5); }
+    .btn-ghost:hover { background: rgba(232,137,92,0.12); }
+    .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
-    .divider { text-align: center; color: var(--peach); font-family: 'Great Vibes', cursive; font-size: 1.7rem; padding: 8px 0; }
+    footer { padding: 40px 28px 50px; text-align: center; color: #b8a8a0; font-size: 13px; background: #0c1322; }
+    footer .brand { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px; color: #f5efe7; margin-bottom: 8px; }
 
-    footer {
-      border-top: 1px solid rgba(238,240,245,0.08); margin-top: 40px;
-      padding: 34px 24px; text-align: center; color: var(--muted); font-size: 0.85rem;
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .benefits-grid { grid-template-columns: 1fr 1fr; }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); max-width: 560px; }
+      .gallery-mosaic { grid-template-columns: repeat(2, 1fr); }
+      .reels-grid { grid-template-columns: 1fr; max-width: 380px; }
+      .stat-grid { grid-template-columns: 1fr 1fr; gap: 34px 20px; }
+      .photographer { grid-template-columns: 1fr; gap: 26px; padding: 34px 28px; text-align: center; }
+      .photographer-photo { max-width: 190px; margin: 0 auto; }
+      .team-secondary { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .hero h1 { font-size: 37px; }
+      .section-h2 { font-size: 30px; }
+      .benefits-grid { grid-template-columns: 1fr; }
+      section.block { padding: 64px 22px; }
+      .stat-num { font-size: 38px; }
     }
   </style>
 </head>
 <body>
 
   <nav class="nav">
-    <a href="https://www.markandrewboudoir.com" class="nav-logo">
-      <img src="/uploads/Boudoir PNG.png" alt="Mark Andrew Boudoir" />
-    </a>
-    <a class="nav-cta" href="#your-call">Your Call</a>
+    <a href="https://www.markandrewboudoir.com" class="nav-logo"><img src="/uploads/Boudoir PNG.png" alt="Mark Andrew Boudoir" /></a>
+    <div class="nav-tag">Your Consultation</div>
   </nav>
 
-  <div class="wrap">
-
-    <div class="hero">
-      <div class="script">You booked the call&hellip;</div>
-      <h1>Here's the Rest of<br />Your Story</h1>
-      <p class="sub">You found us through an ad, answered a few questions, and grabbed a time on my calendar. That was the easy part. This page is everything the ad didn't have room to say.</p>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">You're on the calendar 🎉</div>
+      <h1>Here's the Rest of <span class="accent">Your Story</span></h1>
+      <p class="hero-sub">You found us through an ad, answered a few questions, and grabbed a time to talk. That was the easy part. <strong>This page is everything the ad didn't have room to say</strong> — what boudoir actually is, what your day looks like, and who'll be on the other end of the phone.</p>
       <div class="save-number">
-        📱 <strong>First, do this one thing:</strong> save the number that texted you this link as <strong>Mark Andrew Boudoir</strong>. That's the number I'll be calling you from — so when your phone rings, you'll know it's me and not a robot.
+        <div class="icon">📱</div>
+        <div>
+          <h3>First — do this one thing</h3>
+          <p>Save the number that texted you this link as <strong>Mark Andrew Boudoir</strong>. That's the exact number I'll call you from — so when your phone rings, you'll know it's me and not a robot.</p>
+        </div>
       </div>
     </div>
+  </header>
 
-    <section>
-      <div class="eyebrow">47 Seconds</div>
-      <h2>Watch this before <em>we talk</em></h2>
-      <p class="muted">This is what actually happens at a shoot — the real studio, the real experience.</p>
+  <!-- VIDEO -->
+  <section class="block darker">
+    <div class="section-eyebrow">47 Seconds</div>
+    <h2 class="section-h2">Watch this <span class="accent">before we talk</span></h2>
+    <p class="section-lead">The real studio, the real experience — this is what actually happens at a shoot.</p>
+    <div class="video-wrap">
       <div class="video-frame">
-        <video controls playsinline preload="metadata" poster="/uploads/Use%20These%20Images/black-bodysuit-brown-fur-wrap-wooden-ladder-golden-light-boudoir-photographer-south-bend-in.jpg">
+        <video controls playsinline preload="metadata" poster="/consult/media/what-to-expect-cover.jpg">
           <source src="/consult/media/what-to-expect.mp4" type="video/mp4" />
         </video>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section>
-      <div class="eyebrow">The Honest Answer</div>
-      <h2>What is boudoir, <em>actually?</em></h2>
-      <p>Boudoir is a professional portrait session where you're the subject, the muse, and the entire point. Think old-Hollywood glamour — bold lighting, statement jewelry, painted backdrops, fur coats, gowns — not trends that will look dated in five years. My rule: these should look so timeless your granddaughter says, <em>"look how good Grandma looked."</em></p>
-      <p class="muted">It's tasteful and classy by default — you decide how glamorous or how spicy it gets. And no, you don't need modeling experience. I pose every client head to toe, hands to chin, in every single shot. Most women who walk through my door have never done anything like this. That's normal. That's the job.</p>
-    </section>
+  <!-- STATS -->
+  <div class="stat-row">
+    <div class="stat-grid">
+      <div><div class="stat-num">850+</div><div class="stat-label">Women Transformed</div></div>
+      <div><div class="stat-num">130–160</div><div class="stat-label">Images Revealed Same Day</div></div>
+      <div><div class="stat-num">3 × 3</div><div class="stat-label">Outfits &amp; Sets Per Shoot</div></div>
+      <div><div class="stat-num">1</div><div class="stat-label">Client Per Day — Just You</div></div>
+    </div>
+  </div>
 
-    <section>
-      <div class="eyebrow">Who It's For</div>
-      <h2>Real women. <em>Every body.</em></h2>
-      <p class="muted">Birthdays and milestones. Brides making a wedding gift. Women coming out the other side of divorce, weight change, cancer, motherhood — or no reason at all except that it's time to feel like yourself again. Ages 18 to 80. No "boudoir body" required, because there's no such thing — posing and light are my problem, not yours.</p>
-      <div class="gallery">
-        <img class="wide" src="/uploads/Use%20These%20Images/black-bodysuit-fur-golden-light-flare-painted-backdrop-boudoir-photography-niles-mi.jpg" alt="Golden light glamour portrait on a painted backdrop — Mark Andrew Boudoir studio" loading="lazy" />
-        <img class="tall" src="/uploads/Use%20These%20Images/black-bodysuit-tulle-robe-armchair-reclining-pose-boudoir-photography-goshen-in.jpg" alt="Tulle robe armchair pose — boudoir photography" loading="lazy" />
-        <img class="tall" src="/uploads/Use%20These%20Images/black-bodysuit-brown-fur-coat-beaded-necklace-tattoos-boudoir-portraits-mishawaka-in.jpg" alt="Fur coat and beaded necklace boudoir portrait" loading="lazy" />
-        <img class="wide" src="/uploads/Use%20These%20Images/black-bodysuit-beaded-necklace-golden-light-portrait-intimate-boudoir-south-bend-in.jpg" alt="Golden light intimate portrait — South Bend boudoir studio" loading="lazy" />
+  <!-- WHAT IS BOUDOIR -->
+  <section class="block cream">
+    <div class="section-eyebrow">The Honest Answer</div>
+    <h2 class="section-h2">What is boudoir, <span class="accent">actually?</span></h2>
+    <p class="section-lead">A professional portrait experience where <strong>you're the entire point</strong>. Old-Hollywood glamour — bold lighting, statement jewelry, painted backdrops, fur, gowns. Timeless, never trendy. Our rule: these should look so good your granddaughter someday says, <em>"look how good Grandma looked."</em></p>
+    <div class="benefits-grid">
+      <div class="benefit-card"><div class="benefit-check">✓</div><div class="benefit-text"><h3>No modeling experience needed</h3><p>Mark poses every client head to toe in every single shot — hands, chin, hips, breath. You never guess what to do.</p></div></div>
+      <div class="benefit-card"><div class="benefit-check">✓</div><div class="benefit-text"><h3>Every body. Every age. 18–80.</h3><p>There's no "boudoir body." Posing and light are our job, not yours. Most clients have never done anything like this.</p></div></div>
+      <div class="benefit-card"><div class="benefit-check">✓</div><div class="benefit-text"><h3>Tasteful by default</h3><p>Classy and glamorous is the baseline — you decide how spicy it gets. Photos stay private unless you say otherwise.</p></div></div>
+    </div>
+  </section>
+
+  <!-- YOUR DAY -->
+  <section class="block dark">
+    <div class="section-eyebrow">Hour by Hour</div>
+    <h2 class="section-h2">Your day at <span class="accent">the studio</span></h2>
+    <p class="section-lead">One client per day. The studio is yours alone — no strangers, no walk-ins, no waiting weeks to see your photos.</p>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">1</div><div class="time">9:00a</div><h4>Arrive &amp; exhale</h4><p>Coffee, music, and a locked door. The day belongs to you.</p></div>
+      <div class="step-card"><div class="step-num">2</div><div class="time">9:15a</div><h4>Hair &amp; makeup</h4><p>Camera-ready glam by Aletheia — soft and natural or bold and maximal. Lashes included.</p></div>
+      <div class="step-card"><div class="step-num">3</div><div class="time">~11a</div><h4>We shoot</h4><p>3 outfits, 3 sets, ~90 minutes. Mark directs every pose head to toe.</p></div>
+      <div class="step-card"><div class="step-num">4</div><div class="time">12:30p</div><h4>Lunch while we edit</h4><p>Most studios make you wait 2–4 weeks. Your editing finishes over lunch.</p></div>
+      <div class="step-card"><div class="step-num">5</div><div class="time">1–3p</div><h4>The same-day reveal</h4><p>130–160 fully edited images on a 65″ TV in 4K — the same afternoon. This is the moment clients cry. The good way.</p></div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="block darker">
+    <div class="section-eyebrow">Who It's For</div>
+    <h2 class="section-h2">Real women. <span class="accent">Every body.</span></h2>
+    <p class="section-lead">Birthdays, bridal gifts, milestones, fresh starts — or no reason at all except that it's time to feel like yourself again.</p>
+    <div class="gallery-mosaic">
+      <div class="gallery-tile wide"><img src="/uploads/Use%20These%20Images/black-bodysuit-fur-golden-light-flare-painted-backdrop-boudoir-photography-niles-mi.jpg" alt="Golden light glamour portrait on a painted backdrop" loading="lazy" /></div>
+      <div class="gallery-tile"><img src="/uploads/Use%20These%20Images/black-bodysuit-tulle-robe-armchair-reclining-pose-boudoir-photography-goshen-in.jpg" alt="Tulle robe armchair pose" loading="lazy" /></div>
+      <div class="gallery-tile"><img src="/uploads/Use%20These%20Images/black-bodysuit-brown-fur-coat-beaded-necklace-tattoos-boudoir-portraits-mishawaka-in.jpg" alt="Fur coat and beaded necklace portrait" loading="lazy" /></div>
+      <div class="gallery-tile"><img src="/uploads/Use%20These%20Images/black-bodysuit-brown-fur-wrap-wooden-ladder-golden-light-boudoir-photographer-south-bend-in.jpg" alt="Golden light portrait with fur wrap" loading="lazy" /></div>
+      <div class="gallery-tile"><img src="/uploads/black-lace-top-pearl-necklace-green-light-boudoir-photography-mishawaka-in.jpg" alt="Black lace and pearls in green light" loading="lazy" /></div>
+      <div class="gallery-tile wide"><img src="/uploads/Use%20These%20Images/black-bodysuit-beaded-necklace-golden-light-portrait-intimate-boudoir-south-bend-in.jpg" alt="Golden light intimate portrait" loading="lazy" /></div>
+    </div>
+  </section>
+
+  <!-- REELS -->
+  <section class="block dark">
+    <div class="section-eyebrow">Straight From Our Instagram</div>
+    <h2 class="section-h2">See it <span class="accent">in motion</span></h2>
+    <p class="section-lead">Real reels from real shoot days — behind the scenes, honest answers, and the moments that made us.</p>
+    <div class="reels-grid">
+      <div class="reel-cell">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DZ2tHEHTNfh/" data-instgrm-version="14" style="background:#161f36; border:0; width:100%;"></blockquote>
       </div>
-    </section>
-
-    <div class="divider">the day itself</div>
-
-    <section>
-      <div class="eyebrow">Hour by Hour</div>
-      <h2>Your day at <em>the studio</em></h2>
-      <div class="timeline">
-        <div class="step">
-          <div class="step-time">9:00a</div>
-          <div><h3>You arrive — and exhale</h3><p>The studio is booked for you alone. One shoot per day, always. No strangers, no walk-ins.</p></div>
-        </div>
-        <div class="step">
-          <div class="step-time">9:15a</div>
-          <div><h3>Hair &amp; makeup</h3><p>Professional camera-ready glam — soft and natural or bold and maximal, your call. Lashes included.</p></div>
-        </div>
-        <div class="step">
-          <div class="step-time">~11a</div>
-          <div><h3>We shoot — 3 outfits, 3 sets</h3><p>About 90 minutes. I direct every pose from head to toe. You never have to guess what to do with your hands.</p></div>
-        </div>
-        <div class="step">
-          <div class="step-time">12:30p</div>
-          <div><h3>Lunch break — while I edit</h3><p>Most studios make you wait 2–4 weeks for images. I shoot print-ready in camera, so your editing finishes over lunch.</p></div>
-        </div>
-        <div class="step">
-          <div class="step-time">1–3p</div>
-          <div><h3>The same-day reveal</h3><p>You sit down to 130–160 fully edited images on a 65-inch TV in 4K — the same afternoon. This is the moment clients cry. In the good way.</p></div>
-        </div>
+      <div class="reel-cell">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Dadbz_4TJnb/" data-instgrm-version="14" style="background:#161f36; border:0; width:100%;"></blockquote>
       </div>
-      <div class="video-frame" style="margin-top:34px;">
-        <video autoplay muted loop playsinline preload="metadata">
-          <source src="/consult/media/bts-flowered-wall.mp4" type="video/mp4" />
-        </video>
+      <div class="reel-cell">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DagJSlYzXFH/" data-instgrm-version="14" style="background:#161f36; border:0; width:100%;"></blockquote>
       </div>
-      <p class="muted" style="text-align:center; font-size:0.85rem; margin-top:10px;">Behind the scenes — an actual set, mid-shoot.</p>
-    </section>
+    </div>
+  </section>
 
-    <section>
-      <div class="eyebrow">Meet Your Photographer</div>
-      <h2>Hi, I'm <em>Mark</em></h2>
-      <div class="meet">
-        <img src="/uploads/MarkAndrewHeadshot.jpg" alt="Mark Andrew — boudoir photographer" loading="lazy" />
+  <!-- TEAM -->
+  <section class="block cream">
+    <div class="section-eyebrow">Who You'll Be With</div>
+    <h2 class="section-h2">Meet <span class="accent">your team</span></h2>
+    <p class="section-lead">Three people, one job: making you feel safe, styled, and spectacular.</p>
+
+    <div class="photographer">
+      <div class="photographer-photo"><img src="/uploads/MarkAndrewHeadshot.jpg" alt="Mark Andrew — Photographer" loading="lazy" /></div>
+      <div>
+        <h3>Mark Andrew</h3>
+        <div class="role">Photographer &amp; Posing Director</div>
+        <p>I photograph women the way old Hollywood photographed its stars — deliberately, gorgeously, and without apology. Award-winning, internationally published, and 850+ women in front of my camera.</p>
+        <p>I built this studio around one promise: <strong>you see your finished images the same day</strong>, because the worst part of most photo experiences is the waiting and the wondering. When your phone rings for your consult — that's me.</p>
+      </div>
+    </div>
+
+    <div class="team-secondary">
+      <div class="team-member">
+        <div class="team-member-photo"><img src="/uploads/AletheiaJean.jpg" alt="Aletheia Jean — Hair &amp; Makeup Artist" loading="lazy" style="object-position: center 25%;" /></div>
         <div>
-          <p class="muted">I photograph women the way old Hollywood photographed its stars — deliberately, gorgeously, and without apology. I built this studio around one promise: you'll see your finished images the same day, because the worst part of most photo experiences is the waiting and the wondering.</p>
-          <p class="muted">When you text us, you're usually talking to Christina. When your phone rings for your consult — that's me.</p>
+          <h4>Aletheia Jean</h4>
+          <div class="role">Hair &amp; Makeup Artist</div>
+          <p>Glam built for the camera — soft enough to feel like you, bold enough to hold up under studio light.</p>
         </div>
       </div>
-      <div class="socials">
-        <a class="social-btn" href="https://www.instagram.com/markandrewphotos/" target="_blank" rel="noopener">Follow on Instagram ↗</a>
-        <a class="social-btn" href="https://www.facebook.com/218730474928473" target="_blank" rel="noopener">Follow on Facebook ↗</a>
+      <div class="team-member">
+        <div class="team-member-photo"><img src="/uploads/black-white-sheer-tulle-robe-sitting-pose-luxury-boudoir-goshen-in.jpg" alt="Christina Michelle — Studio Manager" loading="lazy" style="object-position: center 12%;" /></div>
+        <div>
+          <h4>Christina Michelle</h4>
+          <div class="role">Studio Manager</div>
+          <p>The first voice you'll hear when you text us. Runs prep, day-of logistics, and every detail in between.</p>
+        </div>
       </div>
-      <p class="muted" style="font-size:0.85rem; margin-top:12px;">Our Instagram is the best place to see recent shoots, behind-the-scenes reels, and real client reveals.</p>
-    </section>
+    </div>
+  </section>
 
-    <section id="your-call">
-      <div class="eyebrow">About Your Call</div>
-      <h2>Ten minutes. <em>No pressure.</em></h2>
-      <div class="call-card">
-        <p>When I call, here's all we're doing:</p>
-        <ul>
-          <li>You tell me the occasion — or that there isn't one (also perfect)</li>
-          <li>I walk you through how the day works and answer anything on your mind</li>
-          <li>We talk vision — the looks, sets, and styles that fit <em>you</em></li>
-          <li>If it feels right, we look at dates. If not, no hard feelings — truly</li>
-        </ul>
+  <!-- YOUR CALL -->
+  <section class="block dark" id="your-call">
+    <div class="section-eyebrow">About Your Call</div>
+    <h2 class="section-h2">Ten minutes. <span class="accent">Zero pressure.</span></h2>
+    <p class="section-lead">Here's everything that happens when the phone rings:</p>
+    <div class="call-card">
+      <ul>
+        <li>You tell Mark the occasion — or that there isn't one. (Also perfect.)</li>
+        <li>He walks you through the day and answers anything on your mind — especially the questions you think are silly. They never are.</li>
+        <li>You talk vision — the looks, sets, and styles that fit <em>you</em>.</li>
+        <li>If it feels right, you look at dates. If not — no hard feelings. Truly.</li>
+      </ul>
+    </div>
+    <p class="reschedule-note">Life happens. If your time stopped working, <a href="https://link.disruptormarketing.io/widget/booking/b7eSmyInmj2pwqIQesEp">grab a new time here</a> instead of ghosting us — we'd rather reschedule than wonder. 🙂</p>
+  </section>
+
+  <!-- INVESTMENT -->
+  <section class="block darker">
+    <div class="section-eyebrow">The Investment</div>
+    <h2 class="section-h2">Let's talk about it <span class="accent">before the call</span></h2>
+    <p class="section-lead">We'd rather you hear this now than be surprised on the phone. The session retainer holds your date — one client per day — and covers the full-day experience: three outfits across three sets, your planning call, prep guides, and the same-day reveal. You choose your images <strong>after you've seen them</strong>, and most clients invest $1,000–$2,500 on the images they love.</p>
+    <div class="price-strip">
+      <div class="label">Worth Knowing</div>
+      <div class="big">You only buy images <span class="accent">you love</span></div>
+      <div class="note">"It is a lavish expense — and you deserve to treat yourself to lavish expenses. That's exactly why we offer payment plans."</div>
+      <div class="plans-row">
+        <span class="plan-pill">Affirm</span>
+        <span class="plan-pill">Klarna</span>
+        <span class="plan-pill">Afterpay</span>
+        <span class="plan-pill">Interest-free options</span>
       </div>
-      <p class="muted" style="margin-top:16px;">Life happens — if your time no longer works, <a href="https://link.disruptormarketing.io/widget/booking/b7eSmyInmj2pwqIQesEp">grab a new time here</a> instead of ghosting me. I'd rather reschedule than wonder. 🙂</p>
-    </section>
+    </div>
+  </section>
 
-    <section>
-      <div class="eyebrow">The Investment</div>
-      <h2>Let's talk about it <em>before the call</em></h2>
-      <p class="muted">I'd rather you hear this from me now than be surprised on the phone. The session retainer holds your date — one client per day — and includes the full-day experience, three outfits across three sets, your planning call, prep guides, and the same-day reveal. Your images are chosen after you've seen them, and most clients invest $1,000–$2,500 all-in on the images they love.</p>
-      <div class="invest-note">"It is a lavish expense — and you deserve to treat yourself to lavish expenses. That's exactly why we offer payment plans."</div>
-      <p class="muted" style="margin-top:14px;">Affirm, Klarna, and Afterpay are all available, including interest-free options — we'll cover what fits your budget on the call.</p>
-    </section>
+  <!-- FAQ LINKS -->
+  <section class="block dark">
+    <div class="section-eyebrow">Still Wondering…</div>
+    <h2 class="section-h2">The questions everyone <span class="accent">asks first</span></h2>
+    <div class="faq-list">
+      <a class="faq-item" href="https://www.markandrewboudoir.com/is-boudoir-awkward/">
+        <span>Is boudoir awkward?<small>Honest answer: no — here's exactly why</small></span><span class="arrow">→</span>
+      </a>
+      <a class="faq-item" href="https://www.markandrewboudoir.com/what-to-wear-boudoir-session/">
+        <span>What do I wear?<small>You don't need to own a single thing yet</small></span><span class="arrow">→</span>
+      </a>
+      <a class="faq-item" href="https://www.markandrewboudoir.com/boudoir-photography-cost-south-bend/">
+        <span>What does it all cost?<small>The full breakdown, in writing</small></span><span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
 
-    <section>
-      <div class="eyebrow">Still Wondering&hellip;</div>
-      <h2>The questions everyone <em>asks first</em></h2>
-      <div class="faq-links">
-        <a href="https://www.markandrewboudoir.com/is-boudoir-awkward/"><span>→</span> Is boudoir awkward? (Honest answer: no — here's why)</a>
-        <a href="https://www.markandrewboudoir.com/what-to-wear-boudoir-session/"><span>→</span> What do I wear? (You don't need to own a thing yet)</a>
-        <a href="https://www.markandrewboudoir.com/boudoir-photography-cost-south-bend/"><span>→</span> The full cost breakdown, in writing</a>
-      </div>
-    </section>
-
+  <!-- SOCIAL CTA -->
+  <div class="cta-band">
+    <h3>Between now and your call…</h3>
+    <p>Our Instagram is where the recent shoots, behind-the-scenes reels, and real reveals live. Come see who we are.</p>
+    <div class="cta-buttons">
+      <a class="btn btn-primary" href="https://www.instagram.com/markandrewphotos/" target="_blank" rel="noopener">Follow on Instagram</a>
+      <a class="btn btn-ghost" href="https://www.facebook.com/218730474928473" target="_blank" rel="noopener">Follow on Facebook</a>
+    </div>
   </div>
 
   <footer>
-    <div class="script" style="font-size:1.6rem; margin-bottom:8px;">Mark Andrew Boudoir</div>
+    <div class="brand">Mark Andrew Boudoir</div>
     <p>South Bend · Mishawaka · Granger · Elkhart · Niles — the Michiana area</p>
-    <p style="margin-top:6px;">Talk soon. Answer the phone — it's just me. 📞</p>
+    <p style="margin-top:6px;">Talk soon. Answer the phone — it's just Mark. 📞</p>
   </footer>
 
+  <script async src="https://www.instagram.com/embed.js"></script>
   <script src="/webmcp.js" defer></script>
 </body>
 </html>
