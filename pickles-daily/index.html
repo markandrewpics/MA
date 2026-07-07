@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Daily Reel Scripts — Pickles</title>
+</head>
+<body>
+<style>
+  :root{
+    --navy:#0c1322; --navy2:#161d30; --card:#1a2340; --line:#2b3557;
+    --gold:#ffbf8f; --gold-deep:#e0a878; --cream:#eef0f5; --muted:#94a0bb;
+    --ok:#7fd1a6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+    background:linear-gradient(178deg,#0c1322 0%,#161d30 60%,#131a2c 100%);
+    color:var(--cream); -webkit-font-smoothing:antialiased;
+    min-height:100vh; padding:22px 16px 60px;
+  }
+  .wrap{max-width:620px;margin:0 auto}
+  .eyebrow{
+    font-size:12px;letter-spacing:.32em;color:var(--gold-deep);
+    text-transform:uppercase;font-weight:600;text-align:center;margin-bottom:8px;
+  }
+  h1{
+    font-family:Georgia,"Times New Roman",serif;font-weight:600;
+    font-size:34px;line-height:1.05;text-align:center;color:var(--cream);
+    letter-spacing:.01em;text-wrap:balance;
+  }
+  .date{text-align:center;color:var(--muted);font-size:14px;margin-top:10px}
+  .howto{
+    text-align:center;color:var(--muted);font-size:13.5px;line-height:1.5;
+    margin:14px auto 26px;max-width:440px;
+  }
+  .howto b{color:var(--cream);font-weight:600}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:18px;
+    padding:20px 18px;margin-bottom:20px;
+  }
+  .card.bts{border-color:var(--gold-deep)}
+  .rhead{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+  .rnum{
+    font-family:Georgia,serif;font-size:26px;color:var(--gold);
+    line-height:1;font-variant-numeric:tabular-nums;
+  }
+  .rtitle{font-family:Georgia,serif;font-size:21px;color:var(--cream);line-height:1.15}
+  .chip{
+    display:inline-block;margin:8px 0 16px;font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--gold-deep);border:1px solid var(--line);
+    border-radius:100px;padding:4px 11px;font-weight:600;
+  }
+  .lbl{
+    font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);
+    font-weight:700;margin:2px 0 8px;
+  }
+  .text{
+    background:#111834;border:1px solid var(--line);border-radius:12px;
+    padding:14px 15px;font-size:16px;line-height:1.62;color:#e7ebf6;
+    white-space:pre-line;
+  }
+  .text.cap{color:#d2d9ec;font-size:15px}
+  .btn{
+    -webkit-appearance:none;appearance:none;border:none;cursor:pointer;
+    width:100%;min-height:54px;border-radius:13px;margin:11px 0 4px;
+    font-size:16px;font-weight:700;letter-spacing:.01em;
+    display:flex;align-items:center;justify-content:center;gap:9px;
+    transition:transform .08s ease,background .2s ease,color .2s ease;
+  }
+  .btn:active{transform:scale(.985)}
+  .btn.primary{background:var(--gold);color:#241608}
+  .btn.ghost{background:transparent;color:var(--gold);border:1.5px solid var(--gold-deep)}
+  .btn.copied{background:var(--ok)!important;color:#0b2417!important;border-color:var(--ok)!important}
+  .btn:focus-visible{outline:3px solid #6f8fe0;outline-offset:2px}
+  .divider{height:1px;background:var(--line);border:none;margin:16px 0}
+  img.cardcover{
+    width:100%;max-width:250px;height:auto;display:block;margin:8px auto 0;
+    border-radius:12px;border:1px solid var(--line);background:var(--navy);
+  }
+  .btn.save{background:#20304f;color:var(--gold);border:1.5px solid var(--gold-deep)}
+  .foot{text-align:center;color:var(--muted);font-size:12.5px;line-height:1.6;margin-top:30px}
+  .foot b{color:var(--gold-deep)}
+  @media (prefers-reduced-motion:reduce){.btn{transition:none}}
+</style>
+
+<div class="wrap">
+  <div class="eyebrow">Mark Andrew Photography</div>
+  <h1>Daily Reel Scripts</h1>
+  <div class="date" id="date"></div>
+  <p class="howto">Tap <b>Copy Script</b> → paste into your teleprompter. Tap <b>Copy Caption</b> → paste into Instagram. No selecting, no fighting your phone.</p>
+  <div id="cards"></div>
+  <p class="foot">Refreshes every morning at <b>5:30</b>. Add this page to your home screen so it opens like an app.<br>— Pickles</p>
+</div>
+
+<script>
+const DATE = "Tuesday, July 7, 2026 — film any 2";
+// Each DATA item may carry an optional `cover:"data:image/png;base64,..."` that the routine fills daily;
+// it renders as a tap-to-save image directly under that reel's caption.
+const DATA = [
+  {
+    n:"1", title:"You're Not Staying",
+    cover:"covers/face-1.jpg", format:"Studio Rule · Ep. 1",
+    script:`If you're not being photographed, you're not staying during the shoot.
+Not your husband. Not your best friend. Not your mom who "just wants to watch."
+I mean it, and here's why the rule exists.
+The version of you I photograph shows up about twenty minutes after the robe comes off the hanger — when you stop performing for the room and start being in it. An audience of one keeps that woman hidden. She checks his face after every pose. She apologizes with her shoulders.
+But alone with me and my wife on set? Different person entirely. Taller. Louder. Fifteen years lighter.
+So the rule isn't me being difficult. The rule is me protecting the exact thing you came here to find.
+Whoever drove you can wait at the coffee shop down the street. They get the surprise of their life at the reveal.
+You didn't come here to be watched. You came here to be seen.`,
+    caption:`The rule that shocks every husband: if you're not being photographed, you're not staying. It's not attitude — it's protection. The woman I'm here to photograph only shows up when the audience leaves. If you're ready to meet her, the form's in my bio.
+
+#southbendphotographer #boudoirphotography #michiana #selfconfidence #photoshootexperience #womenover40 #southbendindiana`
+  },
+  {
+    n:"2", title:"No Kids Allowed",
+    cover:"covers/face-2.jpg", format:"Studio Rule · Ep. 2",
+    script:`No kids allowed in my studio. Period. And it's the most loving rule I have.
+Not because I don't like kids. I've got a house full of chaos myself.
+It's because I know exactly what happens the second your daughter walks in. You stop being the subject and go right back to being the snack-getter, the referee, the "one second, honey" machine.
+You've been that woman for fifteen years. Beautifully. Faithfully. On four hours of sleep.
+But this whole day exists so you can remember who she was before everyone needed her.
+Hair and makeup with a mimosa in your hand. Ninety minutes of someone directing every pose. An afternoon where the only name anyone says is yours.
+Therefore: no kids. Not for my sake — for hers. For the woman who's about to see herself again.
+The mom walks in. The woman walks out. That's the whole point.`,
+    caption:`When we say no kids allowed, we mean NO. KIDS. ALLOWED. And every mother who's done a session with me eventually says the same thing: thank you for that rule. One day where nobody needs you. Imagine it. The form's in my bio when you're ready.
+
+#southbendphotographer #boudoir #momlife #michianamoms #selfcare #photoshootday #womenover40`
+  },
+  {
+    n:"3", title:"3 Hours, Not 3 Weeks",
+    cover:"covers/face-3.jpg", format:"Unpopular Opinion",
+    script:`Most photographers make you wait two to four weeks to see your photos. You'll see 130 of yours the same afternoon.
+Same day. Fully edited. On a 65-inch screen in 4K, hours after your last outfit.
+Photographers hear this and tell me it's impossible. It's not impossible — it just requires getting the shot right when it happens.
+Weeks of editing usually means fixing in a computer what should've been fixed in the room. The light. The pose. The angle. I fix those live, while you're standing in front of me, because that's the job.
+So while you're at lunch, my editing finishes. By two o'clock you're on my couch watching yourself on a movie screen, ugly-crying the good tears.
+And you take everything home the same day. No waiting by the phone. No wondering if they turned out.
+You walk in nervous at nine. You leave holding proof by four.`,
+    caption:`Two to four weeks of waiting means they didn't get the shot when it mattered. You'll watch 130 fully edited images on a 65-inch screen the same afternoon you shoot. That's not a brag — that's the standard. Form's in my bio.
+
+#southbendphotographer #boudoirphotography #samedayreveal #michiana #luxuryexperience #photographystudio #southbend`
+  },
+  {
+    n:"4", title:"The 15-Pound Lie",
+    cover:"covers/face-4.jpg", format:"Waiting List",
+    script:`The fifteen pounds isn't the reason you haven't booked. It's the excuse that feels the most responsible.
+I've photographed over 850 women. You know how many lost the weight first? Almost none. You know how many wished they'd waited longer? Zero.
+One client told me she'd been "fifteen pounds away" for six years. Six years of walking past mirrors fast. Six years of cropping herself out of family photos.
+Her body didn't change before her session. The story she told about it did — in one afternoon, watching herself on a 65-inch screen.
+Because here's what the scale never told her: the weight was never the thing in the way. The waiting was.
+You don't earn the right to feel beautiful by shrinking first. You just decide to stop postponing it.
+Right now. Today. Not fifteen pounds from now.`,
+    caption:`"After I lose 15 pounds" is the most common sentence in my inbox — and the most expensive one. It's cost women in this town years. Your body isn't the obstacle. The waiting is. When you're done waiting, the form's in my bio.
+
+#southbendphotographer #boudoir #bodyconfidence #selflove #michiana #everybodyisworthy #womenover40`
+  },
+  {
+    n:"★", title:"Reveal Reaction",
+    cover:"covers/reel-5.jpg", format:"BTS Overlay · text over you working", bts:true,
+    script:`850+ women. Almost every single one says the same 4 words at the reveal.`,
+    caption:`"I had no idea."
+Not "I had no idea the photos would be this good." That's not what they mean.
+I had no idea I still looked like that. I had no idea she was still in there. I had no idea what my husband's been seeing this whole time.
+850 women, and that sentence never stops landing the same way. That's the actual product — the photos are just the evidence.
+
+#southbendphotographer #boudoirphotography #samedayreveal #confidence #michiana #selflovejourney`
+  }
+];
+
+function copy(text, btn, label){
+  const done = () => {
+    btn.classList.add("copied");
+    const prev = btn.dataset.label;
+    btn.textContent = "Copied ✓";
+    setTimeout(()=>{ btn.classList.remove("copied"); btn.textContent = prev; }, 1400);
+  };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(()=>fallback(text,done));
+  } else { fallback(text,done); }
+}
+function fallback(text, done){
+  const ta=document.createElement("textarea");
+  ta.value=text; ta.style.position="fixed"; ta.style.opacity="0";
+  document.body.appendChild(ta); ta.focus(); ta.select();
+  try{document.execCommand("copy");}catch(e){}
+  document.body.removeChild(ta); done();
+}
+// Build a File synchronously from a data URI (no await — keeps iOS "user gesture" alive for share)
+function b64ToFile(dataUri, filename){
+  const c=dataUri.indexOf(","), meta=dataUri.slice(0,c), b64=dataUri.slice(c+1);
+  const mime=(meta.match(/data:(.*?);/)||[,"image/jpeg"])[1];
+  const bin=atob(b64), arr=new Uint8Array(bin.length);
+  for(let i=0;i<bin.length;i++) arr[i]=bin.charCodeAt(i);
+  return new File([arr], filename, {type:mime});
+}
+function saveImg(dataUri, name){
+  const slug=(name||"reel").replace(/[^a-z0-9]+/gi,"-").toLowerCase();
+  let file=null;
+  try{ file=b64ToFile(dataUri, slug+"-cover.jpg"); }catch(e){}
+  // Primary: iOS share sheet → "Save Image" to Photos. Called synchronously in the tap.
+  if(file && navigator.canShare && navigator.canShare({files:[file]})){
+    navigator.share({files:[file]}).catch(err=>{ if(!err||err.name!=="AbortError") openFull(dataUri); });
+    return;
+  }
+  openFull(dataUri);
+}
+// Fallback: blow the image up full-screen so a long-press gives Save to Photos
+function openFull(dataUri){
+  const ov=document.createElement("div");
+  ov.style.cssText="position:fixed;inset:0;z-index:99;background:#0c1322;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px;gap:12px";
+  const tip=document.createElement("div");
+  tip.style.cssText="color:#eef0f5;font-size:15px;text-align:center;line-height:1.4";
+  tip.innerHTML="Press &amp; hold the image → <b>Save to Photos</b>.<br>Tap the dark area to close.";
+  const img=document.createElement("img"); img.src=dataUri;
+  img.style.cssText="max-width:100%;max-height:80vh;border-radius:10px";
+  ov.appendChild(tip); ov.appendChild(img);
+  ov.addEventListener("click",e=>{ if(e.target===ov) document.body.removeChild(ov); });
+  document.body.appendChild(ov);
+}
+
+document.getElementById("date").textContent = DATE;
+
+const host = document.getElementById("cards");
+DATA.forEach(d=>{
+  const card=document.createElement("div");
+  card.className="card"+(d.bts?" bts":"");
+  const scriptLbl = d.bts ? "On-screen text" : "Script";
+  const scriptBtn = d.bts ? "Copy On-Screen Text" : "Copy Script";
+  card.innerHTML = `
+    <div class="rhead"><span class="rnum">${d.n}</span><span class="rtitle">${d.title}</span></div>
+    <span class="chip">${d.format}</span>
+    <div class="lbl">${scriptLbl}</div>
+    <div class="text"></div>
+    <button class="btn primary" data-label="${scriptBtn}">${scriptBtn}</button>
+    <hr class="divider">
+    <div class="lbl">Caption</div>
+    <div class="text cap"></div>
+    <button class="btn ghost" data-label="Copy Caption">Copy Caption</button>
+    ${d.cover ? `<div class="lbl" style="margin-top:16px">Cover — press &amp; hold → Save to Photos</div><img class="cardcover" src="${d.cover}" alt="${d.title} cover">` : ""}
+  `;
+  card.querySelectorAll(".text")[0].textContent = d.script;
+  card.querySelectorAll(".text")[1].textContent = d.caption;
+  card.querySelector(".btn.primary").addEventListener("click", e=>copy(d.script, e.currentTarget));
+  card.querySelector(".btn.ghost").addEventListener("click", e=>copy(d.caption, e.currentTarget));
+  const saveBtn = card.querySelector(".btn.save");
+  if(saveBtn) saveBtn.addEventListener("click", ()=>saveImg(d.cover, d.title, saveBtn));
+  host.appendChild(card);
+});
+</script>
+
+</body>
+</html>
