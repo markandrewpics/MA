@@ -180,6 +180,34 @@
     }
     .j-card .cap { display: block; font-size: 13px; font-weight: 600; color: #f5efe7; margin-top: 8px; line-height: 1.35; }
 
+    /* REEL LIGHTBOX */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 300;
+      background: rgba(5, 9, 18, 0.94);
+      display: none; align-items: center; justify-content: center;
+      padding: 20px;
+    }
+    .lightbox.open { display: flex; }
+    .lb-inner { width: min(400px, 92vw); }
+    .lb-player {
+      border-radius: 10px; overflow: hidden;
+      border: 1px solid rgba(232,137,92,0.35);
+      box-shadow: 0 40px 90px -20px rgba(0,0,0,0.9);
+      background: #000;
+    }
+    .lb-player video { width: 100%; max-height: 76vh; aspect-ratio: 9 / 16; object-fit: contain; background: #000; }
+    .lb-bar { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; }
+    .lb-ig {
+      font-size: 11.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: #e8895c; border: 1px solid rgba(232,137,92,0.45); border-radius: 20px; padding: 8px 16px;
+    }
+    .lb-close {
+      background: none; border: none; cursor: pointer;
+      color: #f5efe7; font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; padding: 8px 4px;
+    }
+    .lb-close:hover, .lb-ig:hover { color: #f3a079; }
+
     /* TEAM */
     .photographer {
       max-width: 940px; margin: 44px auto 0; background: #ffffff; border-radius: 6px;
@@ -386,42 +414,42 @@
       <div class="j-step">
         <div class="j-head"><div class="j-num">1</div><div><h3>Why women book</h3><p>Everyone arrives with a reason — a milestone, a gift, a fresh start, or just "it's time."</p></div></div>
         <div class="j-row">
-          <a class="j-card" href="https://www.instagram.com/reel/DZpxgBVxMnI/" target="_blank" rel="noopener"><span class="thumb"><img src="/consult/media/reels/DZpxgBVxMnI.jpg" alt="Why Soza booked her boudoir shoot" loading="lazy" /></span><span class="cap">Why Soza booked</span></a>
-          <a class="j-card" href="https://www.instagram.com/reel/DZsaHVcx5DY/" target="_blank" rel="noopener"><span class="thumb"><img src="/consult/media/reels/DZsaHVcx5DY.jpg" alt="Why you should book a boudoir session" loading="lazy" /></span><span class="cap">Why YOU should book</span></a>
-          <a class="j-card" href="https://www.instagram.com/reel/DZImsp_TFiV/" target="_blank" rel="noopener"><span class="thumb"><img src="/consult/media/reels/DZImsp_TFiV.jpg" alt="What happened when Lindsay booked" loading="lazy" /></span><span class="cap">What happened when Lindsay booked</span></a>
+          <a class="j-card" href="https://www.instagram.com/reel/DZpxgBVxMnI/" target="_blank" rel="noopener" data-video="/consult/media/reels/DZpxgBVxMnI.mp4"><span class="thumb"><img src="/consult/media/reels/DZpxgBVxMnI.jpg" alt="Why Soza booked her boudoir shoot" loading="lazy" /></span><span class="cap">Why Soza booked</span></a>
+          <a class="j-card" href="https://www.instagram.com/reel/DZsaHVcx5DY/" target="_blank" rel="noopener" data-video="/consult/media/reels/DZsaHVcx5DY.mp4"><span class="thumb"><img src="/consult/media/reels/DZsaHVcx5DY.jpg" alt="Why you should book a boudoir session" loading="lazy" /></span><span class="cap">Why YOU should book</span></a>
+          <a class="j-card" href="https://www.instagram.com/reel/DZImsp_TFiV/" target="_blank" rel="noopener" data-video="/consult/media/reels/DZImsp_TFiV.mp4"><span class="thumb"><img src="/consult/media/reels/DZImsp_TFiV.jpg" alt="What happened when Lindsay booked" loading="lazy" /></span><span class="cap">What happened when Lindsay booked</span></a>
         </div>
       </div>
 
       <div class="j-step">
         <div class="j-head"><div class="j-num">2</div><div><h3>The wardrobe consultation</h3><p>Before your shoot, we plan every look together — you never have to figure it out alone.</p></div></div>
         <div class="j-row">
-          <a class="j-card" href="https://www.instagram.com/reel/C35ac9iuOjr/" target="_blank" rel="noopener"><span class="thumb"><img src="/consult/media/reels/C35ac9iuOjr.jpg" alt="The wardrobe consultation explained" loading="lazy" /></span><span class="cap">Planning your looks with Mark</span></a>
+          <a class="j-card" href="https://www.instagram.com/reel/C35ac9iuOjr/" target="_blank" rel="noopener" data-video="/consult/media/reels/C35ac9iuOjr.mp4"><span class="thumb"><img src="/consult/media/reels/C35ac9iuOjr.jpg" alt="The wardrobe consultation explained" loading="lazy" /></span><span class="cap">Planning your looks with Mark</span></a>
         </div>
       </div>
 
       <div class="j-step">
         <div class="j-head"><div class="j-num">3</div><div><h3>Shoot day — behind the scenes</h3><p>Watch how the posing direction works and what the sets really look like mid-shoot.</p></div></div>
         <div class="j-row">
-          <a class="j-card" href="https://www.instagram.com/reel/DY0ChPnTTB5/" target="_blank" rel="noopener"><span class="thumb"><img src="/consult/media/reels/DY0ChPnTTB5.jpg" alt="Behind the scenes magic" loading="lazy" /></span><span class="cap">Behind-the-scenes magic</span></a>
-          <a class="j-card" href="https://www.instagram.com/reel/DVJX20_ESC8/" target="_blank" rel="noopener"><span class="thumb"><img src="/consult/media/reels/DVJX20_ESC8.jpg" alt="I don't know how to pose — watch how posing direction works" loading="lazy" /></span><span class="cap">"I don't know how to pose"</span></a>
-          <a class="j-card" href="https://www.instagram.com/reel/DVmgnh2DvsD/" target="_blank" rel="noopener"><span class="thumb"><img src="/consult/media/reels/DVmgnh2DvsD.jpg" alt="Before and after transformation" loading="lazy" /></span><span class="cap">Before &amp; after magic</span></a>
+          <a class="j-card" href="https://www.instagram.com/reel/DY0ChPnTTB5/" target="_blank" rel="noopener" data-video="/consult/media/reels/DY0ChPnTTB5.mp4"><span class="thumb"><img src="/consult/media/reels/DY0ChPnTTB5.jpg" alt="Behind the scenes magic" loading="lazy" /></span><span class="cap">Behind-the-scenes magic</span></a>
+          <a class="j-card" href="https://www.instagram.com/reel/DVJX20_ESC8/" target="_blank" rel="noopener" data-video="/consult/media/reels/DVJX20_ESC8.mp4"><span class="thumb"><img src="/consult/media/reels/DVJX20_ESC8.jpg" alt="I don't know how to pose — watch how posing direction works" loading="lazy" /></span><span class="cap">"I don't know how to pose"</span></a>
+          <a class="j-card" href="https://www.instagram.com/reel/DVmgnh2DvsD/" target="_blank" rel="noopener" data-video="/consult/media/reels/DVmgnh2DvsD.mp4"><span class="thumb"><img src="/consult/media/reels/DVmgnh2DvsD.jpg" alt="Before and after transformation" loading="lazy" /></span><span class="cap">Before &amp; after magic</span></a>
         </div>
       </div>
 
       <div class="j-step">
         <div class="j-head"><div class="j-num">4</div><div><h3>The same-day reveal</h3><p>130–160 edited images on the big screen, the same afternoon. The moment it all lands.</p></div></div>
         <div class="j-row">
-          <a class="j-card" href="https://www.instagram.com/reel/C2uV-7zuacF/" target="_blank" rel="noopener"><span class="thumb"><img src="/consult/media/reels/C2uV-7zuacF.jpg" alt="The same-day image reveal" loading="lazy" /></span><span class="cap">The reveal</span></a>
-          <a class="j-card" href="https://www.instagram.com/reel/C51sSvluW4J/" target="_blank" rel="noopener"><span class="thumb"><img src="/consult/media/reels/C51sSvluW4J.jpg" alt="Seeing yourself differently at the reveal" loading="lazy" /></span><span class="cap">Seeing yourself differently</span></a>
+          <a class="j-card" href="https://www.instagram.com/reel/C2uV-7zuacF/" target="_blank" rel="noopener" data-video="/consult/media/reels/C2uV-7zuacF.mp4"><span class="thumb"><img src="/consult/media/reels/C2uV-7zuacF.jpg" alt="The same-day image reveal" loading="lazy" /></span><span class="cap">The reveal</span></a>
+          <a class="j-card" href="https://www.instagram.com/reel/C51sSvluW4J/" target="_blank" rel="noopener" data-video="/consult/media/reels/C51sSvluW4J.mp4"><span class="thumb"><img src="/consult/media/reels/C51sSvluW4J.jpg" alt="Seeing yourself differently at the reveal" loading="lazy" /></span><span class="cap">Seeing yourself differently</span></a>
         </div>
       </div>
 
       <div class="j-step">
         <div class="j-head"><div class="j-num">5</div><div><h3>Your products come home</h3><p>Albums, acrylics, and wall art — the part your grandkids will find someday.</p></div></div>
         <div class="j-row">
-          <a class="j-card" href="https://www.instagram.com/reel/C9jEmHXOpEn/" target="_blank" rel="noopener"><span class="thumb"><img src="/consult/media/reels/C9jEmHXOpEn.jpg" alt="Product reveal — seeing your album for the first time" loading="lazy" /></span><span class="cap">"That seeing-your-pictures-again feeling"</span></a>
-          <a class="j-card" href="https://www.instagram.com/reel/DQC3vAAEcoE/" target="_blank" rel="noopener"><span class="thumb"><img src="/consult/media/reels/DQC3vAAEcoE.jpg" alt="The products" loading="lazy" /></span><span class="cap">The products</span></a>
-          <a class="j-card" href="https://www.instagram.com/reel/C5wlQi1uION/" target="_blank" rel="noopener"><span class="thumb"><img src="/consult/media/reels/C5wlQi1uION.jpg" alt="Albums and wall art" loading="lazy" /></span><span class="cap">Albums &amp; art</span></a>
+          <a class="j-card" href="https://www.instagram.com/reel/C9jEmHXOpEn/" target="_blank" rel="noopener" data-video="/consult/media/reels/C9jEmHXOpEn.mp4"><span class="thumb"><img src="/consult/media/reels/C9jEmHXOpEn.jpg" alt="Product reveal — seeing your album for the first time" loading="lazy" /></span><span class="cap">"That seeing-your-pictures-again feeling"</span></a>
+          <a class="j-card" href="https://www.instagram.com/reel/DQC3vAAEcoE/" target="_blank" rel="noopener" data-video="/consult/media/reels/DQC3vAAEcoE.mp4"><span class="thumb"><img src="/consult/media/reels/DQC3vAAEcoE.jpg" alt="The products" loading="lazy" /></span><span class="cap">The products</span></a>
+          <a class="j-card" href="https://www.instagram.com/reel/C5wlQi1uION/" target="_blank" rel="noopener" data-video="/consult/media/reels/C5wlQi1uION.mp4"><span class="thumb"><img src="/consult/media/reels/C5wlQi1uION.jpg" alt="Albums and wall art" loading="lazy" /></span><span class="cap">Albums &amp; art</span></a>
           <a class="j-card" href="https://www.instagram.com/p/C_JXuHzPKXb/" target="_blank" rel="noopener"><span class="thumb"><img src="/consult/media/reels/C_JXuHzPKXb.jpg" alt="Product reveal" loading="lazy" /></span><span class="cap">Product reveal</span></a>
           <a class="j-card" href="https://www.instagram.com/p/C2TDEjyuEaZ/" target="_blank" rel="noopener"><span class="thumb"><img src="/consult/media/reels/C2TDEjyuEaZ.jpg" alt="Product close-ups" loading="lazy" /></span><span class="cap">Product close-ups</span></a>
         </div>
@@ -532,6 +560,45 @@
     <p style="margin-top:6px;">Talk soon. Answer the phone — it's just Mark. 📞</p>
   </footer>
 
+  <!-- REEL LIGHTBOX -->
+  <div class="lightbox" id="reelbox" aria-hidden="true">
+    <div class="lb-inner">
+      <div class="lb-player"><video id="reelvid" controls playsinline preload="none"></video></div>
+      <div class="lb-bar">
+        <a class="lb-ig" id="reelig" href="#" target="_blank" rel="noopener">Open on Instagram ↗</a>
+        <button class="lb-close" id="reelclose" type="button">✕ Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var box = document.getElementById('reelbox');
+      var vid = document.getElementById('reelvid');
+      var ig = document.getElementById('reelig');
+      var close = document.getElementById('reelclose');
+      function shut() {
+        box.classList.remove('open');
+        vid.pause();
+        vid.removeAttribute('src');
+        vid.load();
+        document.body.style.overflow = '';
+      }
+      document.querySelectorAll('.j-card[data-video]').forEach(function (card) {
+        card.addEventListener('click', function (e) {
+          e.preventDefault();
+          ig.href = card.href;
+          vid.src = card.getAttribute('data-video');
+          box.classList.add('open');
+          document.body.style.overflow = 'hidden';
+          vid.play().catch(function () {});
+        });
+      });
+      close.addEventListener('click', shut);
+      box.addEventListener('click', function (e) { if (e.target === box) shut(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') shut(); });
+    })();
+  </script>
   <script src="/webmcp.js" defer></script>
 </body>
 </html>
