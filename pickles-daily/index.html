@@ -90,89 +90,55 @@
   <h1>Daily Reel Scripts</h1>
   <div class="date" id="date"></div>
   <p class="howto">Tap <b>Copy Script</b> → paste into your teleprompter. Tap <b>Copy Caption</b> → paste into Instagram. No selecting, no fighting your phone.</p>
-  <div class="card">
-    <div class="rhead"><span class="rnum">★</span><span class="rtitle">3 Things I Wish You Knew</span></div>
-    <span class="chip">Prep List · today's cover</span>
-    <div class="lbl" style="margin-top:8px">Cover — press &amp; hold → Save to Photos</div>
-    <img class="cardcover" src="covers/extra-first-shoot.jpg" alt="3 things I wish you knew — cover">
-  </div>
   <div id="cards"></div>
   <p class="foot">Refreshes every morning at <b>5:30</b>. Add this page to your home screen so it opens like an app.<br>— Pickles</p>
 </div>
 
 <script>
-const DATE = "Tuesday, July 7, 2026 — film any 2";
+const DATE = "Wednesday, July 8, 2026 — film any 2. Script first, caption underneath.";
 // Each DATA item may carry an optional `cover:"data:image/png;base64,..."` that the routine fills daily;
 // it renders as a tap-to-save image directly under that reel's caption.
 const DATA = [
   {
-    n:"1", title:"You're Not Staying",
-    cover:"covers/face-1.jpg", format:"Studio Rule · Ep. 1",
-    script:`If you're not being photographed, you're not staying during the shoot.
-Not your husband. Not your best friend. Not your mom who "just wants to watch."
-I mean it, and here's why the rule exists.
-The version of you I photograph shows up about twenty minutes after the robe comes off the hanger — when you stop performing for the room and start being in it. An audience of one keeps that woman hidden. She checks his face after every pose. She apologizes with her shoulders.
-But alone with me and my wife on set? Different person entirely. Taller. Louder. Fifteen years lighter.
-So the rule isn't me being difficult. The rule is me protecting the exact thing you came here to find.
-Whoever drove you can wait at the coffee shop down the street. They get the surprise of their life at the reveal.
-You didn't come here to be watched. You came here to be seen.`,
-    caption:`The rule that shocks every husband: if you're not being photographed, you're not staying. It's not attitude — it's protection. The woman I'm here to photograph only shows up when the audience leaves. If you're ready to meet her, the form's in my bio.
-
-#southbendphotographer #boudoirphotography #michiana #selfconfidence #womenover40`
+    n:"1",
+    title:"Three People, One Reason",
+    format:"Studio Rule \u00b7 Ep. 4",
+    script:"I've kicked exactly three people out of my studio in 850 sessions. All for the same reason.\nNot the client. Never the client. It was the person she brought with her.\nStudio rule number four: if you make my client feel smaller, you're gone. I don't care if you're her husband, her mother, or her best friend since third grade.\nBecause here's what I've watched happen. A woman finally books the thing she's wanted for ten years. She's nervous, she's brave, she's standing in front of my camera \u2014 and one comment from the couch undoes all of it. One little \"are you really wearing that.\" One eye-roll.\nI built this studio to be the one room in her life where nobody gets to do that to her.\nSo the three people who tried? Coffee shop down the street. Every time.\nMy job is to protect the woman in front of the lens. Even from the people who love her.",
+    caption:"Three people in 850 sessions. Every one of them made my client feel smaller \u2014 so every one of them got walked to the door. This room has exactly one rule that matters: she is safe here. When you're ready to feel that, the form's in my bio.\n\n#southbendphotographer #boudoirphotography #michiana #womenover40 #selfworth",
+    cover:"covers/face-1.jpg"
   },
   {
-    n:"2", title:"No Kids Allowed",
-    cover:"covers/face-2.jpg", format:"Studio Rule · Ep. 2",
-    script:`No kids allowed in my studio. Period. And it's the most loving rule I have.
-Not because I don't like kids. I've got a house full of chaos myself.
-It's because I know exactly what happens the second your daughter walks in. You stop being the subject and go right back to being the snack-getter, the referee, the "one second, honey" machine.
-You've been that woman for fifteen years. Beautifully. Faithfully. On four hours of sleep.
-But this whole day exists so you can remember who she was before everyone needed her.
-Hair and makeup with a mimosa in your hand. Ninety minutes of someone directing every pose. An afternoon where the only name anyone says is yours.
-Therefore: no kids. Not for my sake — for hers. For the woman who's about to see herself again.
-The mom walks in. The woman walks out. That's the whole point.`,
-    caption:`When we say no kids allowed, we mean NO. KIDS. ALLOWED. And every mother who's done a session with me eventually says the same thing: thank you for that rule. One day where nobody needs you. Imagine it. The form's in my bio when you're ready.
-
-#southbendphotographer #boudoir #michianamoms #momlife #selfcare`
+    n:"2",
+    title:"Don't Make Me Look Sexy",
+    format:"Overheard in the Studio",
+    script:"\"Don't make me look sexy.\" Ma'am, that is the one thing I cannot prevent.\nI hear it almost every week. She sits down in the makeup chair, gets nervous, and out it comes \u2014 \"just don't make me look, you know\u2026 like that.\"\nAnd I get it. She's spent her whole life being told confidence is arrogance. That taking up space is too much.\nBut here's what actually happens by the third outfit. She stops asking me not to. She catches herself in the monitor and goes quiet. Then she says the other sentence I hear every week \u2014 \"I didn't know I could look like that.\"\nThat's not sexy. That's not a costume. That's just her, without twenty years of apologizing stacked on top.\nI'm not making anybody into anything. I'm getting the apologizing to sit down and be quiet long enough for the camera to see who was there the whole time.",
+    caption:"\"Don't make me look sexy\" is one of the most common things women say in my chair \u2014 usually right before they realize the woman in the monitor was never a costume. She was just her, without the apologizing. The form's in my bio when you're ready to meet her.\n\n#southbendphotographer #boudoirphotography #michiana #confidence #selflove",
+    cover:"covers/face-2.jpg"
   },
   {
-    n:"3", title:"3 Hours, Not 3 Weeks",
-    cover:"covers/face-3.jpg", format:"Unpopular Opinion",
-    script:`Most photographers make you wait two to four weeks to see your photos. You'll see 130 of yours the same afternoon.
-Same day. Fully edited. On a 65-inch screen in 4K, hours after your last outfit.
-Photographers hear this and tell me it's impossible. It's not impossible — it just requires getting the shot right when it happens.
-Weeks of editing usually means fixing in a computer what should've been fixed in the room. The light. The pose. The angle. I fix those live, while you're standing in front of me, because that's the job.
-So while you're at lunch, my editing finishes. By two o'clock you're on my couch watching yourself on a movie screen, ugly-crying the good tears.
-And you take everything home the same day. No waiting by the phone. No wondering if they turned out.
-You walk in nervous at nine. You leave holding proof by four.`,
-    caption:`Two to four weeks of waiting means they didn't get the shot when it mattered. You'll watch 130 fully edited images on a 65-inch screen the same afternoon you shoot. That's not a brag — that's the standard. Form's in my bio.
-
-#southbendphotographer #boudoirphotography #samedayreveal #michiana #luxuryexperience`
+    n:"3",
+    title:"Confidence Peaks After 40",
+    format:"Unpopular Opinion",
+    script:"Unpopular opinion: a woman's confidence doesn't peak at twenty-five. It peaks somewhere between forty and sixty. And the research actually backs me up.\nSelf-esteem climbs for most of adult life and tops out in your fifties. Psychologists have measured it. I just get to photograph it.\nBecause the twenty-five-year-old in my studio is still asking me if she looks okay. The fifty-two-year-old walks in, looks at the set, and goes \"oh, we're going to have fun today.\"\nOne of them is performing. The other one has stopped auditioning for a life she already has.\nThe culture sells you the opposite. It tells you the clock is running out and beauty is behind you. That's not wisdom \u2014 that's a business model, and you've been the customer.\nThe women who book me at fifty aren't chasing twenty-five. They're done pretending they peaked there. And it shows in every single frame.",
+    caption:"Unpopular opinion backed by actual research: self-esteem peaks in your 40s and 50s, not your 20s. I've watched it through my lens 850 times. The woman who's done auditioning photographs completely differently than the one still asking if she's enough. The form's in my bio.\n\n#southbendphotographer #boudoirphotography #michiana #womenover40 #confidence",
+    cover:"covers/face-3.jpg"
   },
   {
-    n:"4", title:"The 15-Pound Lie",
-    cover:"covers/face-4.jpg", format:"Waiting List",
-    script:`The fifteen pounds isn't the reason you haven't booked. It's the excuse that feels the most responsible.
-I've photographed over 850 women. You know how many lost the weight first? Almost none. You know how many wished they'd waited longer? Zero.
-One client told me she'd been "fifteen pounds away" for six years. Six years of walking past mirrors fast. Six years of cropping herself out of family photos.
-Her body didn't change before her session. The story she told about it did — in one afternoon, watching herself on a 65-inch screen.
-Because here's what the scale never told her: the weight was never the thing in the way. The waiting was.
-You don't earn the right to feel beautiful by shrinking first. You just decide to stop postponing it.
-Right now. Today. Not fifteen pounds from now.`,
-    caption:`"After I lose 15 pounds" is the most common sentence in my inbox — and the most expensive one. It's cost women in this town years. Your body isn't the obstacle. The waiting is. When you're done waiting, the form's in my bio.
-
-#southbendphotographer #boudoir #bodyconfidence #michiana #everybodyisworthy`
+    n:"4",
+    title:"You're Already The Type",
+    format:"The Waiting List",
+    script:"Every woman is the type. Right now, today. Not fifteen pounds from now.\nI need you to hear this, because I know what you're doing. You saw a photo like this and something in you leaned in \u2014 and then the second voice showed up. Not you. Not now. Maybe when things settle down.\nThings don't settle down. I've been doing this long enough to promise you that. The kids get older, the calendar gets fuller, and the woman who keeps waiting for the right time just collects more years of not being in a single photograph.\nYou are not too old. You are not too much. You are not too far from some finish line that was never real.\nThe right time was always going to be a decision, not a date on the calendar.\nSo make it. Not because you're ready. Because you're worth it before you feel ready.\nThat's the whole secret. There was never a list. You were always on it.",
+    caption:"There's no version of you that's more \"ready\" waiting fifteen pounds or five years from now. The right time was never a date \u2014 it was a decision. You've been on the list the whole time. When you're done waiting, the form's in my bio.\n\n#southbendphotographer #boudoirphotography #michiana #selfworth #everybodyisworthy",
+    cover:"covers/face-4.jpg"
   },
   {
-    n:"★", title:"Reveal Reaction",
-    cover:"covers/reel-5.jpg", format:"BTS Overlay · text over you working", bts:true,
-    script:`850+ women. Almost every single one says the same 4 words at the reveal.`,
-    caption:`"I had no idea."
-Not "I had no idea the photos would be this good." That's not what they mean.
-I had no idea I still looked like that. I had no idea she was still in there. I had no idea what my husband's been seeing this whole time.
-850 women, and that sentence never stops landing the same way. That's the actual product — the photos are just the evidence.
-
-#southbendphotographer #boudoirphotography #samedayreveal #michiana #confidence`
+    n:"\u2605",
+    title:"Just Show Up",
+    format:"BTS Overlay \u00b7 text over you working",
+    script:"Your only job before a shoot: show up. I handle the other 47 things.",
+    caption:"People think prepping for a session is a whole project. Here's the actual list: show up. That's it.\nHair and makeup \u2014 handled here. Outfits \u2014 we planned them on your consult. Posing \u2014 I direct every finger, chin, and shoulder, so you never wonder what to do with your hands. The set, the lighting, the fur, the jewelry \u2014 my job.\nThe women who stress for two weeks beforehand always say the same thing afterward: \"that was so much easier than I built it up to be.\"\nYour only assignment is to walk in and let it happen. The form's in my bio.\n\n#southbendphotographer #boudoirphotography #michiana #whattoexpect #selfcare",
+    cover:"covers/reel-5.jpg",
+    bts:true
   }
 ];
 
