@@ -161,11 +161,10 @@
     .j-head h3 { font-weight: 700; font-size: 21px; color: #ffffff; letter-spacing: -0.005em; }
     .j-head p { font-size: 14.5px; color: #d0c8c0; margin-top: 3px; }
     .j-row {
-      display: flex; gap: 12px; overflow-x: auto; padding: 4px 4px 10px;
-      scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+      display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;
+      padding: 4px 4px 10px;
     }
-    .j-row::-webkit-scrollbar { display: none; }
-    .j-card { flex: 0 0 158px; width: 158px; min-width: 0; scroll-snap-align: start; display: block; }
+    .j-card { flex: 0 0 158px; width: 158px; min-width: 0; display: block; }
     .j-card .thumb {
       display: block; position: relative; width: 100%; aspect-ratio: 9 / 16; border-radius: 6px; overflow: hidden;
       border: 1px solid rgba(232,137,92,0.3); box-shadow: 0 10px 26px -14px rgba(0,0,0,0.7);
@@ -312,6 +311,7 @@
       .benefits-grid { grid-template-columns: 1fr; }
       section.block { padding: 64px 22px; }
       .stat-num { font-size: 38px; }
+      .j-card { flex: 0 0 calc(50% - 7px); width: calc(50% - 7px); }
     }
   </style>
 </head>
@@ -450,7 +450,7 @@
           <a class="j-card" href="https://www.instagram.com/reel/C9jEmHXOpEn/" target="_blank" rel="noopener" data-video="/consult/media/reels/C9jEmHXOpEn.mp4"><span class="thumb"><img src="/consult/media/reels/C9jEmHXOpEn.jpg" alt="Product reveal — seeing your album for the first time" loading="lazy" /></span><span class="cap">"That seeing-your-pictures-again feeling"</span></a>
           <a class="j-card" href="https://www.instagram.com/reel/DQC3vAAEcoE/" target="_blank" rel="noopener" data-video="/consult/media/reels/DQC3vAAEcoE.mp4"><span class="thumb"><img src="/consult/media/reels/DQC3vAAEcoE.jpg" alt="The products" loading="lazy" /></span><span class="cap">The products</span></a>
           <a class="j-card" href="https://www.instagram.com/reel/C5wlQi1uION/" target="_blank" rel="noopener" data-video="/consult/media/reels/C5wlQi1uION.mp4"><span class="thumb"><img src="/consult/media/reels/C5wlQi1uION.jpg" alt="Albums and wall art" loading="lazy" /></span><span class="cap">Albums &amp; art</span></a>
-          <a class="j-card" href="https://www.instagram.com/p/C_JXuHzPKXb/" target="_blank" rel="noopener"><span class="thumb"><img src="/consult/media/reels/C_JXuHzPKXb.jpg" alt="Product reveal" loading="lazy" /></span><span class="cap">Product reveal</span></a>
+          <a class="j-card" href="https://www.instagram.com/p/C_JXuHzPKXb/" target="_blank" rel="noopener" data-video="/consult/media/reels/C_JXuHzPKXb.mp4"><span class="thumb"><img src="/consult/media/reels/C_JXuHzPKXb.jpg" alt="Product reveal" loading="lazy" /></span><span class="cap">Product reveal</span></a>
           <a class="j-card" href="https://www.instagram.com/p/C2TDEjyuEaZ/" target="_blank" rel="noopener"><span class="thumb"><img src="/consult/media/reels/C2TDEjyuEaZ.jpg" alt="Product close-ups" loading="lazy" /></span><span class="cap">Product close-ups</span></a>
         </div>
       </div>
