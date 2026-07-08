@@ -1,0 +1,128 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ad Scripts — Pickles</title>
+<style>
+  :root{
+    --navy:#0c1322; --navy2:#161d30; --card:#1a2340; --line:#2b3557;
+    --gold:#ffbf8f; --gold-deep:#e0a878; --cream:#eef0f5; --muted:#94a0bb;
+    --ok:#7fd1a6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+    background:linear-gradient(178deg,#0c1322 0%,#161d30 60%,#131a2c 100%);
+    color:var(--cream); -webkit-font-smoothing:antialiased;
+    min-height:100vh; padding:22px 16px 60px;
+  }
+  .wrap{max-width:620px;margin:0 auto}
+  .eyebrow{
+    font-size:12px;letter-spacing:.32em;color:var(--gold-deep);
+    text-transform:uppercase;font-weight:600;text-align:center;margin-bottom:8px;
+  }
+  h1{
+    font-family:Georgia,"Times New Roman",serif;font-weight:600;
+    font-size:34px;line-height:1.05;text-align:center;color:var(--cream);
+    letter-spacing:.01em;text-wrap:balance;
+  }
+  .date{text-align:center;color:var(--muted);font-size:14px;margin-top:10px}
+  .howto{
+    text-align:center;color:var(--muted);font-size:13.5px;line-height:1.5;
+    margin:14px auto 26px;max-width:440px;
+  }
+  .howto b{color:var(--cream);font-weight:600}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:18px;
+    padding:20px 18px;margin-bottom:20px;
+  }
+  .card.bts{border-color:var(--gold-deep)}
+  .rhead{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+  .rnum{
+    font-family:Georgia,serif;font-size:26px;color:var(--gold);
+    line-height:1;font-variant-numeric:tabular-nums;
+  }
+  .rtitle{font-family:Georgia,serif;font-size:21px;color:var(--cream);line-height:1.15}
+  .chip{
+    display:inline-block;margin:8px 0 16px;font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--gold-deep);border:1px solid var(--line);
+    border-radius:100px;padding:4px 11px;font-weight:600;
+  }
+  .lbl{
+    font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);
+    font-weight:700;margin:2px 0 8px;
+  }
+  .text{
+    background:#111834;border:1px solid var(--line);border-radius:12px;
+    padding:14px 15px;font-size:16px;line-height:1.62;color:#e7ebf6;
+    white-space:pre-line;
+  }
+  .text.cap{color:#d2d9ec;font-size:15px}
+  .btn{
+    -webkit-appearance:none;appearance:none;border:none;cursor:pointer;
+    width:100%;min-height:54px;border-radius:13px;margin:11px 0 4px;
+    font-size:16px;font-weight:700;letter-spacing:.01em;
+    display:flex;align-items:center;justify-content:center;gap:9px;
+    transition:transform .08s ease,background .2s ease,color .2s ease;
+  }
+  .btn:active{transform:scale(.985)}
+  .btn.primary{background:var(--gold);color:#241608}
+  .btn.ghost{background:transparent;color:var(--gold);border:1.5px solid var(--gold-deep)}
+  .btn.copied{background:var(--ok)!important;color:#0b2417!important;border-color:var(--ok)!important}
+  .btn:focus-visible{outline:3px solid #6f8fe0;outline-offset:2px}
+  .divider{height:1px;background:var(--line);border:none;margin:16px 0}
+  img.cardcover{
+    width:100%;max-width:250px;height:auto;display:block;margin:8px auto 0;
+    border-radius:12px;border:1px solid var(--line);background:var(--navy);
+  }
+  .btn.save{background:#20304f;color:var(--gold);border:1.5px solid var(--gold-deep)}
+  .foot{text-align:center;color:var(--muted);font-size:12.5px;line-height:1.6;margin-top:30px}
+  .foot b{color:var(--gold-deep)}
+  @media (prefers-reduced-motion:reduce){.btn{transition:none}}
+</style>
+<div class="wrap">
+  <div class="eyebrow">Mark Andrew Photography</div>
+  <h1>Facebook Ad Scripts</h1>
+  <div class="date">50% Off Campaign · 3 reels × 5 hooks · July 2026</div>
+  <p class="howto">Pick <b>one hook</b> per reel (tap it to copy), then <b>Copy Script</b> for the rest. Film all three — Meta picks the winner.</p>
+  <div id="cards"></div>
+  <p class="foot">Permanent page — tomorrow's 5:30 refresh won't touch it.<br>— Pickles</p>
+</div>
+
+<script>
+function copy(text, btn){
+  navigator.clipboard.writeText(text).then(()=>{ if(btn&&btn.classList){btn.classList.add("copied");btn.textContent="Copied ✓";setTimeout(()=>{btn.classList.remove("copied");btn.textContent=btn.dataset.label;},1400);} })
+  .catch(()=>{ const ta=document.createElement("textarea");ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand("copy");document.body.removeChild(ta); if(btn&&btn.classList){btn.classList.add("copied");btn.textContent="Copied ✓";setTimeout(()=>{btn.classList.remove("copied");btn.textContent=btn.dataset.label;},1400);} });
+}
+</script>
+
+<script>
+const AD_DATA = [{"n": "A", "title": "Hiding in Every Family Photo", "angle": "Brutal callout", "hooks": ["Look at your last family photo. You're hiding half your body behind your husband. Again.", "Every family photo you're in — and I mean every one — you're standing BEHIND somebody.", "Your kids have 4,000 photos of their childhood and their mom is in nine of them. Nine.", "You have a pose you do in pictures. It's called the human shield. Kid in front. Arm across. Angle away.", "Someday your kids will look for pictures of you. What are they going to find?"], "script": "So here's what me and my team do about that — and it's not what you think.\nYou spend one day with us. Hair. Makeup. And you don't have to know how to pose — I pose you head to toe, every single shot. Hands, chin, breath. That part's my job.\nAnd then, the same afternoon, something happens that most women don't believe until they're sitting there.\nA hundred and thirty finished images. On a 65-inch screen. That day. Not next month — before dinner.\nAnd the woman on that screen isn't hiding behind anybody.\nFill out the form below for more information — and you'll get 50% off your photo shoot."}, {"n": "B", "title": "The Parking Lot", "angle": "Story", "hooks": ["A woman sat in the parking lot for twenty minutes last month, deciding whether to come in.", "She cancelled on me three times. THREE. What she said at her reveal is why I'm making this video.", "\"I'll book it when I lose ten pounds.\" She said that two years ago. She's still waiting. The weight isn't the problem.", "The most confident woman I photographed this year almost didn't get out of her car.", "I watched a woman cry looking at a photo of herself. Not the sad kind. Let me tell you what happened in the six hours before that."], "script": "I know, because she told me at her reveal — while she was looking at a version of herself she hadn't seen in fifteen years.\nShe almost cancelled three times. Said she wanted to lose ten pounds first. Said she didn't have the body for it.\nHere's what she didn't know.\nThere's no body type for a boudoir shoot. Me and my team have photographed women from 21 into their 70s — every body, every story.\nHair and makeup takes an hour. I direct every single pose. And the same afternoon — this is the part she didn't believe —\nshe watched 130 finished images of herself on a 65-inch screen, and cried in the good way.\nTwenty minutes in the parking lot. Fifteen years of avoiding cameras. Gone in one day.\nFill out the form below for more information, and you'll get 50% off your shoot."}, {"n": "C", "title": "Not For Your Husband", "angle": "Contrarian / myth-bust", "hooks": ["Boudoir photos are not for your husband. I said what I said.", "Husbands don't book boudoir shoots. Women who are done hiding do. The album's just a bonus for him.", "The biggest myth in boudoir photography? That it's a gift for HIM.", "Every woman says the same thing when she books: \"It's for my husband.\" By the reveal, none of them are talking about their husband.", "There's a 65-inch TV in my reveal room, and every week it makes a grown woman cry. In the good way."], "script": "Yes — he can have the album. He will lose his mind over the album.\nBut me and my team have photographed hundreds of women, and I'll tell you what actually happens at the reveal —\nbecause there's a moment, every single time, when the first image comes up on that 65-inch screen. Same day. Full hair and makeup. Posed by me, so she never had to guess what to do.\nAnd in that moment, she's not thinking about him at all.\nShe's thinking: \"THAT's what I look like?\"\nThat's who these are for.\nFill out the form below for more information — 50% off your shoot when you do."}];
+(function(){
+  const host = document.getElementById("cards");
+  const hd = document.createElement("div");
+  hd.style.cssText = "margin:34px 0 18px;text-align:center;";
+  hd.innerHTML = '<div class="eyebrow" style="margin-bottom:6px">Facebook Ad Scripts</div>'
+    + '<div style="font-family:Georgia,serif;font-size:24px;color:var(--cream)">50% Off Campaign — 3 Reels</div>'
+    + '<div style="color:var(--muted);font-size:13px;margin-top:6px">Pick ONE hook per reel, then read the script. These stay put at <b style="color:var(--gold-deep)">/pickles-daily/ads/</b> always.</div>';
+  host.appendChild(hd);
+  AD_DATA.forEach(d=>{
+    const card=document.createElement("div");
+    card.className="card";
+    card.style.borderColor="#5a6c9e";
+    card.innerHTML = `<div class="rhead"><span class="rnum">${d.n}</span><span class="rtitle">${d.title}</span></div><span class="chip">AD &middot; ${d.angle}</span>`;
+    const hl=document.createElement("div"); hl.className="lbl"; hl.textContent="Hooks — pick one (tap to copy)"; card.appendChild(hl);
+    d.hooks.forEach((h,idx)=>{
+      const row=document.createElement("div"); row.className="text"; row.style.cssText="margin-bottom:7px;cursor:pointer;font-size:15px;";
+      row.textContent = (idx+1)+". "+h;
+      row.addEventListener("click",()=>{ copy(h,{classList:{add(){},remove(){}},dataset:{}}); row.style.borderColor="var(--ok)"; row.style.color="#bfeeD5".toLowerCase(); setTimeout(()=>{row.style.borderColor="";row.style.color="";},1200); });
+      card.appendChild(row);
+    });
+    const hr=document.createElement("hr"); hr.className="divider"; card.appendChild(hr);
+    const sl=document.createElement("div"); sl.className="lbl"; sl.textContent="Script (everything after the hook)"; card.appendChild(sl);
+    const txt=document.createElement("div"); txt.className="text"; txt.textContent=d.script; card.appendChild(txt);
+    const btn=document.createElement("button"); btn.className="btn primary"; btn.dataset.label="Copy Script"; btn.textContent="Copy Script";
+    btn.addEventListener("click",()=>copy(d.script,btn)); card.appendChild(btn);
+    host.appendChild(card);
+  });
+})();
+</script>
