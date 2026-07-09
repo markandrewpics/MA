@@ -140,14 +140,13 @@
     .step-card p { font-size: 14px; line-height: 1.55; opacity: 0.78; }
 
     /* GALLERY MOSAIC */
-    .gallery-mosaic {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
-      grid-auto-flow: dense; max-width: 1200px; margin: 44px auto 0;
+    .gallery-8 {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 28px;
     }
-    .gallery-tile { aspect-ratio: 2 / 3; overflow: hidden; border-radius: 4px; box-shadow: 0 4px 18px -10px rgba(0,0,0,0.4); }
-    .gallery-tile.wide { grid-column: span 2; aspect-ratio: 3 / 2; }
-    .gallery-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-    .gallery-tile:hover img { transform: scale(1.03); }
+    .gallery-8 .framed { position: relative; border: 1px solid rgba(240,154,105,0.75); aspect-ratio: 3 / 4; overflow: hidden; }
+    .gallery-8 .framed::after { content: ''; position: absolute; inset: 5px; border: 1px solid rgba(240,154,105,0.45); pointer-events: none; }
+    .gallery-8 .framed img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease, filter 0.3s; filter: brightness(0.92); }
+    .gallery-8 .framed:hover img { transform: scale(1.02); filter: brightness(1.05); }
 
     /* CLIENT JOURNEY */
     .journey { max-width: 980px; margin: 10px auto 0; }
@@ -309,7 +308,7 @@
     @media (max-width: 900px) {
       .benefits-grid { grid-template-columns: 1fr 1fr; }
       .steps-grid { grid-template-columns: repeat(2, 1fr); max-width: 560px; }
-      .gallery-mosaic { grid-template-columns: repeat(2, 1fr); }
+      .gallery-8 { grid-template-columns: repeat(2, 1fr); gap: 12px; }
       .reels-grid { grid-template-columns: 1fr; max-width: 380px; }
       .stat-grid { grid-template-columns: 1fr 1fr; gap: 34px 20px; }
       .photographer { grid-template-columns: 1fr; gap: 26px; padding: 34px 28px; text-align: center; }
@@ -405,13 +404,15 @@
     <div class="section-eyebrow">Who It's For</div>
     <h2 class="section-h2">Real women. <span class="accent">Every body.</span></h2>
     <p class="section-lead">Birthdays, bridal gifts, milestones, fresh starts — or no reason at all except that it's time to feel like yourself again.</p>
-    <div class="gallery-mosaic">
-      <div class="gallery-tile wide"><img src="/uploads/Use%20These%20Images/black-bodysuit-fur-golden-light-flare-painted-backdrop-boudoir-photography-niles-mi.jpg?v=2" alt="Golden light glamour portrait on a painted backdrop" loading="lazy" /></div>
-      <div class="gallery-tile"><img src="/uploads/Use%20These%20Images/black-bodysuit-tulle-robe-armchair-reclining-pose-boudoir-photography-goshen-in.jpg?v=2" alt="Tulle robe armchair pose" loading="lazy" /></div>
-      <div class="gallery-tile"><img src="/uploads/Use%20These%20Images/black-bodysuit-brown-fur-coat-beaded-necklace-tattoos-boudoir-portraits-mishawaka-in.jpg?v=2" alt="Fur coat and beaded necklace portrait" loading="lazy" /></div>
-      <div class="gallery-tile"><img src="/uploads/Use%20These%20Images/black-bodysuit-brown-fur-wrap-wooden-ladder-golden-light-boudoir-photographer-south-bend-in.jpg?v=2" alt="Golden light portrait with fur wrap" loading="lazy" /></div>
-      <div class="gallery-tile"><img src="/uploads/black-lace-top-pearl-necklace-green-light-boudoir-photography-mishawaka-in.jpg" alt="Black lace and pearls in green light" loading="lazy" /></div>
-      <div class="gallery-tile wide"><img src="/uploads/Use%20These%20Images/black-bodysuit-beaded-necklace-golden-light-portrait-intimate-boudoir-south-bend-in.jpg?v=2" alt="Golden light intimate portrait" loading="lazy" /></div>
+    <div class="gallery-8">
+      <div class="framed"><picture><source type="image/webp" srcset="/uploads/r/burgundy-lace-bra-fur-coat-city-skyline-over-shoulder-boudoir-photography-south-bend-in-400.webp 400w, /uploads/r/burgundy-lace-bra-fur-coat-city-skyline-over-shoulder-boudoir-photography-south-bend-in-800.webp 800w, /uploads/r/burgundy-lace-bra-fur-coat-city-skyline-over-shoulder-boudoir-photography-south-bend-in-1200.webp 1200w" sizes="(max-width:720px) 50vw, 25vw" /><img src="/uploads/burgundy-lace-bra-fur-coat-city-skyline-over-shoulder-boudoir-photography-south-bend-in.jpg" alt="Fur coat and city skyline boudoir portrait" loading="lazy" /></picture></div>
+      <div class="framed"><picture><source type="image/webp" srcset="/uploads/r/black-feather-wings-fishnet-stockings-rose-boudoir-photographer-mishawaka-in-400.webp 400w, /uploads/r/black-feather-wings-fishnet-stockings-rose-boudoir-photographer-mishawaka-in-800.webp 800w, /uploads/r/black-feather-wings-fishnet-stockings-rose-boudoir-photographer-mishawaka-in-1200.webp 1200w" sizes="(max-width:720px) 50vw, 25vw" /><img src="/uploads/black-feather-wings-fishnet-stockings-rose-boudoir-photographer-mishawaka-in.jpg" alt="Black feather wings and rose boudoir portrait" loading="lazy" /></picture></div>
+      <div class="framed"><picture><source type="image/webp" srcset="/uploads/r/breast-cancer-survivor-empowering-luxury-boudoir-south-bend-in-400.webp 400w, /uploads/r/breast-cancer-survivor-empowering-luxury-boudoir-south-bend-in-800.webp 800w, /uploads/r/breast-cancer-survivor-empowering-luxury-boudoir-south-bend-in-1200.webp 1200w" sizes="(max-width:720px) 50vw, 25vw" /><img src="/uploads/breast-cancer-survivor-empowering-luxury-boudoir-south-bend-in.jpg" alt="Breast cancer survivor — empowering luxury boudoir portrait" loading="lazy" /></picture></div>
+      <div class="framed"><picture><source type="image/webp" srcset="/uploads/r/couples-boudoir-almost-kiss-purple-light-black-bra-boudoir-photographer-mishawaka-in-400.webp 400w, /uploads/r/couples-boudoir-almost-kiss-purple-light-black-bra-boudoir-photographer-mishawaka-in-800.webp 800w, /uploads/r/couples-boudoir-almost-kiss-purple-light-black-bra-boudoir-photographer-mishawaka-in-1200.webp 1200w" sizes="(max-width:720px) 50vw, 25vw" /><img src="/uploads/couples-boudoir-almost-kiss-purple-light-black-bra-boudoir-photographer-mishawaka-in.jpg" alt="Couples boudoir in purple light" loading="lazy" /></picture></div>
+      <div class="framed"><picture><source type="image/webp" srcset="/uploads/r/royal-blue-lace-lingerie-crystal-choker-neon-light-boudoir-photography-granger-in-400.webp 400w, /uploads/r/royal-blue-lace-lingerie-crystal-choker-neon-light-boudoir-photography-granger-in-800.webp 800w, /uploads/r/royal-blue-lace-lingerie-crystal-choker-neon-light-boudoir-photography-granger-in-1200.webp 1200w" sizes="(max-width:720px) 50vw, 25vw" /><img src="/uploads/royal-blue-lace-lingerie-crystal-choker-neon-light-boudoir-photography-granger-in.jpg" alt="Royal blue lace and crystal choker portrait" loading="lazy" /></picture></div>
+      <div class="framed"><picture><source type="image/webp" srcset="/uploads/r/couples-boudoir-kiss-tattoos-blue-studio-light-boudoir-photography-elkhart-in-400.webp 400w, /uploads/r/couples-boudoir-kiss-tattoos-blue-studio-light-boudoir-photography-elkhart-in-800.webp 800w, /uploads/r/couples-boudoir-kiss-tattoos-blue-studio-light-boudoir-photography-elkhart-in-1200.webp 1200w" sizes="(max-width:720px) 50vw, 25vw" /><img src="/uploads/couples-boudoir-kiss-tattoos-blue-studio-light-boudoir-photography-elkhart-in.jpg" alt="Couples boudoir kiss in blue studio light" loading="lazy" /></picture></div>
+      <div class="framed"><picture><source type="image/webp" srcset="/uploads/r/black-strappy-lingerie-golf-club-prop-red-smoke-boudoir-session-elkhart-in-400.webp 400w, /uploads/r/black-strappy-lingerie-golf-club-prop-red-smoke-boudoir-session-elkhart-in-800.webp 800w, /uploads/r/black-strappy-lingerie-golf-club-prop-red-smoke-boudoir-session-elkhart-in-1200.webp 1200w" sizes="(max-width:720px) 50vw, 25vw" /><img src="/uploads/black-strappy-lingerie-golf-club-prop-red-smoke-boudoir-session-elkhart-in.jpg" alt="Red smoke boudoir portrait" loading="lazy" /></picture></div>
+      <div class="framed"><picture><source type="image/webp" srcset="/uploads/r/black-lace-top-pearl-necklace-green-light-boudoir-photography-mishawaka-in-400.webp 400w, /uploads/r/black-lace-top-pearl-necklace-green-light-boudoir-photography-mishawaka-in-800.webp 800w, /uploads/r/black-lace-top-pearl-necklace-green-light-boudoir-photography-mishawaka-in-1200.webp 1200w" sizes="(max-width:720px) 50vw, 25vw" /><img src="/uploads/black-lace-top-pearl-necklace-green-light-boudoir-photography-mishawaka-in.jpg" alt="Black lace and pearls in green light" loading="lazy" /></picture></div>
     </div>
   </section>
 
