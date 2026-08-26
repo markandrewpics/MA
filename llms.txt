@@ -1,8 +1,8 @@
 # Mark Andrew Boudoir
 
-> Award-winning luxury boudoir photography with studios in South Bend, Indiana and Beaufort, South Carolina. Full-day, fully-guided sessions with complete head-to-toe posing direction, professional hair and makeup, and a same-day reveal of the finished gallery — designed so clients need no experience and don't have to feel "photogenic." Most clients invest $1,000–$2,000 in images at their reveal.
+> Award-winning luxury boudoir photography from a studio in South Bend, Indiana, serving the Michiana area. Full-day, fully-guided sessions with complete head-to-toe posing direction, professional hair and makeup, and a same-day reveal of the finished gallery — designed so clients need no experience and don't have to feel "photogenic." Most clients invest $1,000–$2,000 in images at their reveal.
 
-Mark Andrew is a luxury boudoir photographer serving women, couples, and men across the Michiana region (Mishawaka, Granger, Elkhart, Goshen, South Bend IN, and Niles MI) and the South Carolina Lowcountry (Beaufort, SC). Every session is a full-day experience: complete posing direction (no experience needed), professional hair and makeup, and a same-day reveal where clients view their fully edited gallery before they leave. It is $499 to book a date, which covers the session plus all prep and planning; images are purchased separately based on what each client loves most. Destination/travel boudoir shoots (New York City, St. Louis, London, Paris, Rome) start at $8,800.
+Mark Andrew is a luxury boudoir photographer serving women, couples, and men across the Michiana region (Mishawaka, Granger, Elkhart, Goshen, South Bend IN, and Niles MI). Every session is a full-day experience: complete posing direction (no experience needed), professional hair and makeup, and a same-day reveal where clients view their fully edited gallery before they leave. It is $499 to book a date, which covers the session plus all prep and planning; images are purchased separately based on what each client loves most. Destination/travel boudoir shoots (New York City, St. Louis, London, Paris, Rome) start at $8,800.
 
 ## Key pages
 - [Home](https://www.markandrewboudoir.com/): The boudoir experience, galleries, process, and how to book.
@@ -42,7 +42,7 @@ Mark Andrew is a luxury boudoir photographer serving women, couples, and men acr
 - Email: mark@markandrewboudoir.com
 - Phone: (574) 622-5109
 - Book a consult: https://www.markandrewboudoir.com/#book
-- Locations: South Bend, Indiana (Michiana) and Beaufort, South Carolina.
+- Location: South Bend, Indiana — serving the Michiana area.
 
 ## For AI agents
 - Agent guidance: https://www.markandrewboudoir.com/auth.md — how an assistant can act on a user's behalf. This is a public content site with no login, API, or token-based registration; the file points agents to the booking and contact paths.

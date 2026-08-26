@@ -5,7 +5,7 @@ This is the cheat sheet for the blog at **blog.markandrewboudoir.com**. Read it 
 ## The business
 
 - **Mark Andrew Boudoir** — luxury boudoir + glamour photography.
-- **Two studios:** South Bend, IN and Beaufort, SC. Always confirm which studio a post/campaign is for if it matters; don't assume.
+- **Studio:** South Bend, IN — serving the Michiana area. (Beaufort, SC is no longer a current location; don't market it as one.)
 - **Hair & makeup:** Aletheia Jean (camera-ready soft glam → bold maximalism).
 - **Signature style:** old-Hollywood glamour — bold lighting, statement jewelry, painted backdrops, fur coats, gowns. Timeless, not trendy. "Look how good Grandma looked in 30 years," not cringe.
 
@@ -18,7 +18,6 @@ This is the cheat sheet for the blog at **blog.markandrewboudoir.com**. Read it 
 
 ### Local SEO geography (work these into body copy naturally — never as separate doorway pages)
 - **Michiana (South Bend):** South Bend, Mishawaka, Granger, Elkhart, Goshen IN; Niles, Edwardsburg, Berrien Springs MI.
-- **Lowcountry (Beaufort):** Beaufort, Bluffton, Hilton Head, Savannah, Charleston.
 
 ## The site / repo
 
@@ -26,7 +25,7 @@ This is the cheat sheet for the blog at **blog.markandrewboudoir.com**. Read it 
 - **Blog hub:** `blog/index.html` — contains a `POSTS` array (JS). Every new post needs a card added here.
 - **Published posts:** `posts/<slug>/index.html`.
 - **Standalone pages:** `is-boudoir-awkward/`, `what-to-wear-boudoir-session/`, `boudoir-photography-cost-south-bend/`, `lingerie-guide/`, etc.
-- **Brand tokens (don't change):** bg `#0c1322`, accent/peach `#f09a69`, text `#eef0f5`. Fonts: Cormorant Garamond (headings), Great Vibes (script), Jost (body).
+- **Brand tokens (don't change):** bg `#0c1322`, accent/peach `#f09a69`, text `#eef0f5`. Fonts: Cormorant Garamond (headings), Bebas Neue (the `.script` accent class — uppercase, self-hosted), Jost (body).
 - **Booking calendar embed (use in every post CTA):**
   `https://link.disruptormarketing.io/widget/booking/b7eSmyInmj2pwqIQesEp`
   Pattern: a `<section id="book">` with the iframe + the `#book` smooth-scroll script + nav "Work With Me" → `#book`.
