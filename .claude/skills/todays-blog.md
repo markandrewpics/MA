@@ -25,7 +25,7 @@ The note is usually an **interview**: a topic on the first line, then "Question 
 ## Step 2 — Topic, slug, and real Google questions
 - One blog = ONE topic (the first line of the note). Make a clean keyworded slug, e.g. `are-boudoir-photos-a-good-idea`.
 - **Dedupe first:** check `posts/`, the standalone folders, and `.github/blog-drafts/publish-schedule.json` so you don't republish a live topic.
-- Turn each interview answer into an **H2 that is a real question people Google** (not Mark's internal prompt). Aim for 6–8 H2s. Collapse local variants into ONE post; weave the Michiana towns (South Bend, Mishawaka, Granger, Elkhart, Goshen IN; Niles, Edwardsburg, Berrien Springs MI) into body copy — never doorway pages. Confirm which studio the note is about (Michiana vs Beaufort Lowcountry) and use that region's towns.
+- Turn each interview answer into an **H2 that is a real question people Google** (not Mark's internal prompt). Aim for 6–8 H2s. Collapse local variants into ONE post; weave the Michiana towns (South Bend, Mishawaka, Granger, Elkhart, Goshen IN; Niles, Edwardsburg, Berrien Springs MI) into body copy — never doorway pages. The studio is South Bend / Michiana — use those towns (South Bend, Mishawaka, Granger, Elkhart, Goshen, Niles).
 
 ## Step 3 — Write it in Mark's voice (AEO format)
 Single cohesive first-person voice — Mark is the author. Fill **every** `blog.json` field (schema in `CLAUDE.md`):
