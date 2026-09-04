@@ -95,98 +95,132 @@
 </div>
 
 <script>
-const DATE = "Wednesday, September 3, 2026 — film any 2";
+const DATE = "Thursday, September 4, 2026 — film any 2";
 // Each DATA item may carry an optional `cover:"data:image/png;base64,..."` that the routine fills daily;
 // it renders as a tap-to-save image directly under that reel's caption.
 const DATA = [
   {
-    n:"1", title:"This One Doesn't Have A Job", format:"The Waiting List", cover:"covers/face-1.jpg",
-    script:`Everything you have bought this year had a job. This is the first thing that doesn't.
-Look at the last ten things you spent real money on. School shoes. Tires. Somebody's braces. The dishwasher that finally died in February. Every one of them was useful, and not one of them was for you.
-This is for nothing. It feeds nobody. It fixes nothing. It helps exactly one person in your entire house, and that is the thing you have not allowed yourself in about fifteen years.
-I know what happens next, because it happens on every call. You do the arithmetic out loud and you land on "that's a lot for photos." It is a real number. There are payment plans, and I will walk you through them without flinching.
-But you already own free photographs of yourself. Taken badly, in bad light, by somebody who wasn't looking. You have hundreds of those.
-This is the other kind.`,
-    caption:`Every single thing you bought this year had a job to do. School shoes. Tires. Braces. The dishwasher that died in February.
+    n:"1", title:"Nobody Knew She Booked It", format:"Overheard in the Studio",
+    cover:"covers/face-1.jpg",
+    script:`"I didn't tell anybody I was coming today."
 
-This one doesn't. It feeds nobody, fixes nothing, and helps exactly one person in the house — which is precisely why it has been sitting at the bottom of your list for fifteen years.
+I hear that about once a week, usually twenty minutes in, and it's always said like a confession.
 
-Yes, it's a real number. Yes, there are payment plans, and I'll walk you through them without flinching. And yes, you already own free photographs of yourself — taken badly, in bad light, by somebody who wasn't looking.
+No husband. No sister. No group chat. She booked it, drove here, and told nobody.
 
-When was the last time you bought something that had no job except being yours?
+And I understand exactly why. The second you tell people, you've handed out votes. Somebody asks what it costs. Somebody asks why. Somebody makes a face and doesn't say anything, which is worse.
 
-#southbendboudoir #michianaphotographer #boudoirphotography #womenover40 #grangerindiana`
+So she keeps it to herself, and that turns out to be the most protective thing she could have done — because for one entire day the only opinion in this building is hers.
+
+Here's the part nobody sees coming. The women who told nobody are the loudest ones at three o'clock. Every single time. She sits down in front of a sixty-five inch screen with nothing to defend and no face to check, and she just reacts.
+
+You don't owe anyone a heads-up. This one gets to be yours.
+
+Form's on my site whenever you want it.`,
+    caption:`"I didn't tell anybody I was coming today."
+
+I hear it about once a week, and it's always said like a confession. No husband, no sister, no group chat — she booked it, drove to South Bend, and told nobody.
+
+I used to think that was fear. It isn't. Telling people hands out votes, and she'd already made the decision. The women who tell nobody are the loudest ones at the reveal, every single time — nothing to defend, no face in the room to check.
+
+Do you think keeping it to yourself is hiding, or is it the one time a woman is allowed to make a decision without a committee?
+
+#boudoirphotography #southbendphotographer #michiana #womenover40 #boudoirsouthbend`
   },
   {
-    n:"2", title:"I Won't Retouch You Into Somebody Else", format:"The Unpopular Opinion", cover:"covers/face-2.jpg",
-    script:`Unpopular opinion: airbrushing a woman into a different woman is not editing. It is lying, and it is most of the reason you don't trust photographs of yourself.
-Here is exactly what I take out. A light stand that crept into the corner of the frame. A stray hair across your mouth. I will extend a backdrop if the set ran out before the picture did.
-Here is what I do not touch. The lines around your eyes. The scar. The stretch marks. The softness of your stomach that you have already apologized for twice today.
-And if you ask me to — women do ask, quietly, usually at the reveal — I will tell you exactly what I am telling you now. The version of you that gets erased is the version your daughter would recognize.
-An unrecognizable photograph is not a compliment. It is a stranger wearing your jewelry.`,
-    caption:`Unpopular opinion: airbrushing a woman into a different woman isn't editing. It's lying.
+    n:"2", title:"I Turned Down Next Tuesday", format:"Studio Rule \u00b7 Ep. 44",
+    cover:"covers/face-2.jpg",
+    script:`You can't book me for next week. Even when the calendar's wide open. Studio rule forty-four, and it costs me money every single month.
 
-I'll take out a light stand and a stray hair. I'll extend a backdrop. I will not take out the lines around your eyes, the scar, the stretch marks, or the stomach you've already apologized for twice today.
+Most women are on my calendar one to two months out. That's not scarcity and it's not a waiting list I invented to look busy. It's how long this actually takes to do properly.
 
-Half this industry sells the erasing as the service, and that's a large part of why women flinch at pictures of themselves — not because of how they look, but because they've been taught the photograph is supposed to be somebody else.
+Between the day you book and the day you shoot, there's a thirty-minute planning call where we build the whole thing — colors, sets, wardrobe, what we're not doing. Then a styling guide. Then you have to order things, have them arrive, and try them on before they matter.
 
-The version of you that gets edited out is the version your daughter would recognize. I'd rather hand you a photograph you can be recognized in than one you can be complimented on.
+Squeeze all of that into six days and you shoot in whatever was already in the drawer. Which is exactly the shoot you've been avoiding for six years.
 
-#boudoirphotographer #southbendindiana #unretouched #michianaboudoir #glamourphotography`
+The rush is never the emergency. Being underprepared for the one day that's entirely about you — that's the emergency.
+
+Form's on my site when you're ready to pick a date.`,
+    caption:`Studio rule forty-four: you can't book me for next week, even when my calendar is wide open.
+
+Most women shoot one to two months out. Not scarcity — logistics. There's a planning call, a styling guide, and things you have to order and actually try on. Compress that into six days and you shoot in whatever was already in the drawer, which is the exact shoot you've been avoiding for six years.
+
+Every photographer I know would take the last-minute money. I think turning it down is the whole job.
+
+Would you rather have the date you want, or the shoot you want?
+
+#boudoirphotography #southbendphotographer #mishawaka #michianaphotographer #boudoirstudio`
   },
   {
-    n:"3", title:"The One Rule I Bend \u2014 Studio Rules Ep. 43", format:"The Studio Rule \u00b7 Ep. 43", cover:"covers/face-3.jpg",
-    script:`If you wake up sick on your session day, call me. That is the one rule I bend, and it is the only one.
-Studio rules, episode forty-three. I am rigid about nearly all of this. Move your date inside thirty days and the retainer is gone. Don't show up and it's gone. I do not negotiate either of those, and every woman who books with me knows it before she pays a dollar.
-But genuinely ill — actually sick, not nervous — you call me. If we can get you back on the calendar inside a couple of weeks, we move it. No argument, no lecture, no fee.
-Not because the policy is soft. Because a woman who drags herself in on antibiotics to protect five hundred dollars gets photographs of a woman who feels terrible, and there is no light in this building that fixes that.
-The rules exist to protect the day. So does this one.`,
-    caption:`Studio Rules, Episode 43: if you wake up sick, call me.
+    n:"3", title:"Designed In Front Of You", format:"Unpopular Opinion",
+    cover:"covers/face-3.jpg",
+    script:`Unpopular opinion: you should never let a photographer design your album without you in the room.
 
-I'm rigid about almost everything else. Move your date inside thirty days and the retainer is gone. No-show and it's gone. Nobody who books with me finds that out late — it's said out loud, on a call, before any money changes hands.
+It's standard in this industry. You shoot, you wait, and weeks later a PDF lands in your inbox with somebody else's version of your day in it. Then you spend three polite emails asking to move image fourteen.
 
-This is the one place I bend. Genuinely ill, and if we can get you back on the calendar within a couple of weeks, we move it. No argument, no fee.
+I design your book in front of you, the same afternoon you shoot it. You're sitting right there while the spreads go together — that one, not that one, that one bigger, she goes on the left. It takes as long as it takes, and you leave having actually seen your own album.
 
-It isn't softness. A woman who drags herself in on antibiotics to protect a retainer gets photographs of a woman who feels terrible, and there's no light in South Bend that fixes that.
+Photographers will tell you they need the distance to make good design choices. I think they need the distance because they're guessing at what mattered to you, and you were standing right there when it happened.
 
-Which rule would you want your photographer to hold — and which would you want them to bend?
+It's your book. Your face. Your call, in the room, that day.
 
-#studiorules #boudoirphotography #southbendphotographer #michiana #mishawakaindiana`
+Form's on my site if you want that afternoon.`,
+    caption:`Unpopular opinion: you should never let a photographer design your album without you in the room.
+
+The industry standard is a PDF that lands weeks later with somebody else's version of your day in it, and then three polite emails asking to move image fourteen.
+
+I design the book in front of you the same afternoon you shoot — that one, not that one, that one bigger. It takes as long as it takes. You leave having seen your own album instead of approving it later like a work email.
+
+Photographers, come argue with me on this one: is the distance craft, or is it just guessing at what mattered to her?
+
+#boudoirphotography #southbendphotographer #samedayreveal #michiana #luxuryboudoir`
   },
   {
-    n:"4", title:"Don't Buy Jewelry For This", format:"The Prep List", cover:"covers/face-4.jpg",
-    script:`Don't go out and buy jewelry for your session. I already own more of it than you could wear in a day.
-There is a wall of it here, and every piece on it was chosen for exactly one thing: how it reads on camera. Most of what photographs well is far bigger than anything you would wear to dinner in Granger. A lens shrinks scale. The necklace that feels theatrical in your hand looks like nothing at all on the screen.
-So save the money. What I actually want you to bring is the piece that means something.
-Your grandmother's ring. The necklace he gave you the year everything was hard. The thing that has sat in the box for a decade because it felt like too much for a Tuesday.
-That is the frame you end up hanging on a wall. And it is the only thing in this room I cannot provide.`,
-    caption:`Don't buy jewelry for your session. I have a wall of it.
+    n:"4", title:"Nobody Walks In Confident", format:"The Waiting List",
+    cover:"covers/face-4.jpg",
+    script:`You think this is for confident women. Eight hundred and fifty sessions, and almost nobody walks through that door confident.
 
-Statement pieces, all chosen for one reason — how they read on camera. Nearly everything that photographs well is bigger than what you'd wear to dinner in Granger, because a lens shrinks scale. The piece that feels theatrical in your hand looks like nothing on screen.
+They walk in apologizing. For their arms. For not knowing how to pose. For taking up my morning, as though I had somewhere better to be.
 
-Bring the one that means something instead. Your grandmother's ring. The necklace from the year everything was hard. The thing that's been in the box for ten years because it felt like too much for a Tuesday.
+The confident woman you're picturing — the one you've decided you'd have to become first — she doesn't exist in my studio at nine in the morning. She shows up around one o'clock. And she's the same person who was apologizing four hours earlier.
 
-That's the frame that ends up on a wall. And it's the only thing in this studio I can't provide for you.
+That's the part you have backwards. Confidence isn't the ticket in. It's what the day hands you on the way out.
 
-What's the one piece you own that you never wear and would never sell?
+You're not waiting until you're ready. You're waiting to become a woman who never needed this in the first place, and she isn't coming.
 
-#boudoirprep #southbendboudoir #michianaphotographer #whattobring #boudoirphotography`
+The form on my site is there whenever.
+
+Come as the woman who's nervous. That one photographs beautifully.`,
+    caption:`You think this is for confident women.
+
+Eight hundred and fifty sessions and almost nobody walks in confident. They walk in apologizing — for their arms, for not knowing how to pose, for taking up my morning.
+
+The confident woman you've decided you'd have to become first doesn't exist in my studio at nine in the morning. She shows up around one. Same person, four hours later.
+
+Confidence isn't the ticket in. It's what the day hands you on the way out. You're not waiting until you're ready — you're waiting to become someone who never needed this, and she isn't coming.
+
+What are you actually waiting for? I'd genuinely like to know, because I've heard about six answers and they're all the same one.
+
+#boudoirphotography #southbendphotographer #michiana #selfworth #womenover40`
   },
   {
-    n:"5", title:"\u201cDon't Make Me Look Sexy.\u201d", format:"Overheard in the Studio \u00b7 BTS overlay", cover:"covers/reel-5.jpg", bts:true,
-    screenTrial:`There's a sentence almost every woman says to me in her first ten minutes — and it's the one request I genuinely can't honor. The reason is in the description.`,
-    screenGrid:`She apologized before she asked me for it, and I still had to tell her no. The whole thing's in the caption.`,
-    caption:`“Don't make me look sexy.”
+    n:"★", title:"Three Outfits Is Not Enough", format:"BTS Overlay \u00b7 The Prep List", bts:true,
+    cover:"covers/reel-5.jpg",
+    screenTrial:`Every woman brings exactly three outfits to her shoot. That's the mistake, and it's the one thing I can't fix on the day. The whole reason is in the description.`,
+    screenGrid:`The outfit she's most sure about is almost never the one she buys. There's a reason that happens every single time — I put the whole thing in the caption.`,
+    caption:`You shoot three sets. That does not mean you pack three outfits.
 
-She says it in the first ten minutes, almost apologizing, like she's asking me to switch something off. And I know exactly what she means — don't make me look like a photograph I've scrolled past and cringed at.
+Here's what happens when you bring exactly three: the one you were most sure about is the one that doesn't work. Not because it's wrong — because you bought it for a mirror, and a mirror doesn't have a strobe in it. Something reads flat on camera, or the color fights the set, or it's beautiful and it does nothing for the light we're standing in.
 
-It's the one request I can't honor, because it isn't a setting on my camera. It's what happens to a woman's face around the second set, when she's stopped checking the back of the screen and started standing like she owns the room.
+With three, that's it. We shoot it anyway. With six or seven, we lay everything out at nine in the morning, put it against the actual sets, and choose in the room instead of in your bedroom three weeks ago.
 
-That isn't sexy. That's her, uninterrupted. And everybody who sees the picture reads it exactly the way she does — which is the part nobody warns you about.
+Bring more than you need. Bring the gown you've never worn, his shirt, the thing that means something. Robes, furs and statement jewelry are already here — that part's covered.
 
-So what do you actually want a photograph of yourself to say?
+Nine times out of ten, the favorite image of the day comes off the outfit she almost left at home.
 
-#overheardinthestudio #boudoirphotography #southbendindiana #michianaboudoir #confidence`
+What's the one thing in your closet you'd never have the nerve to bring? That's usually the one.
+
+#boudoirphotography #southbendphotographer #michiana #whattowear #boudoirsouthbend`
   }
 ];
 
