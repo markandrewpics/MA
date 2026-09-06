@@ -16,7 +16,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500&family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="preload" href="/fonts/barlow-condensed-black-italic.ttf" as="font" type="font/ttf" crossorigin />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -33,7 +35,7 @@
     }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
-    em { font-style: italic; }
+    em { font-style: normal; }
     ::selection { background: rgba(240,154,105,0.32); }
 
     .accent { color: #f09a69; }
@@ -325,7 +327,7 @@
     .price-strip .price .now { color: #f09a69; }
     .price-strip .note {
       font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
+      font-style: normal;
       font-size: 14.5px;
       color: #b8a8a0;
       margin-top: 6px;
@@ -777,7 +779,7 @@
     }
     .step-card.finale h4 {
       font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
+      font-style: normal;
       font-weight: 500;
       font-size: 22px;
       color: #f09a69;
@@ -854,7 +856,7 @@
     }
     .rattle-h em {
       font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
+      font-style: normal;
       font-weight: 500;
       color: #f09a69;
     }
@@ -906,6 +908,7 @@
     }
 
     /* Local client-call edition: photography first. */
+    @font-face { font-family: 'Barlow Condensed'; font-style: italic; font-weight: 900; font-display: swap; src: url('/fonts/barlow-condensed-black-italic.ttf') format('truetype'); }
     html { scroll-padding-top: 90px; }
     body { padding-bottom: 0; }
     :focus-visible { outline: 3px solid #f09a69; outline-offset: 5px; }
@@ -922,26 +925,33 @@
     .hero-layout { position: relative; z-index: 2; width: 100%; max-width: 1280px; margin: 0 auto; }
     .hero-inner { max-width: 650px; min-width: 0; margin: 0; }
     .hero-eyebrow { border: 0; border-radius: 0; background: none; padding: 0; margin-bottom: 18px; font-size: 12px; letter-spacing: .15em; }
-    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(54px, 5.7vw, 84px); font-weight: 400; line-height: .98; letter-spacing: -.035em; margin-bottom: 24px; text-wrap: balance; }
-    .hero h1 em { font-weight: 500; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(54px, 5.7vw, 84px); font-style: normal; font-weight: 600; line-height: .98; letter-spacing: -.035em; margin-bottom: 24px; text-wrap: balance; }
+    .hero h1 .hero-offer { display: block; margin-top: .16em; font-family: 'Jost', sans-serif; font-size: .84em; font-weight: 800; font-style: normal; line-height: 1; letter-spacing: -.045em; text-transform: uppercase; }
     .hero-sub { max-width: 490px; font-size: 17px; line-height: 1.6; margin: 0 0 16px; text-shadow: 0 1px 12px rgba(0,0,0,.35); }
     .hero-details { max-width: 460px; color: #d4d9e1; font-size: 16px; line-height: 1.6; margin-bottom: 24px; }
     .hero-cta-row { align-items: flex-start; gap: 12px; margin-bottom: 20px; }
     .hero .btn-large { font-size: 14px; padding: 18px 28px; }
-    .offer-note { max-width: 400px; color: #d4d9e1; font-size: 14px; line-height: 1.5; }
-    .hero-trust { display: block; font-size: 14px; color: #d4d9e1; letter-spacing: 0; text-transform: none; }
-    .hero-trust .stars { margin-right: 8px; }
     .featured-portrait picture { display: block; width: 100%; height: 100%; }
     .featured-portrait img { width: 100%; height: 100%; object-fit: cover; }
     .featured-work { padding: 38px 28px 42px; background: #08101e; border-top: 1px solid rgba(240,154,105,.18); }
-    .featured-heading { max-width: 1200px; margin: 0 auto 24px; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
-    .featured-heading .section-eyebrow { text-align: left; font-size: 12px; margin-bottom: 8px; }
-    .featured-heading h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 3vw, 42px); font-weight: 400; line-height: 1.15; }
-    .featured-heading h2 em { color: #f09a69; }
+    .featured-heading { max-width: 1200px; margin: 0 auto 30px; }
+    .featured-heading h2 { font-family: 'Barlow Condensed', 'Jost', sans-serif; font-size: clamp(70px, 12.2vw, 176px); font-weight: 900; font-style: italic; line-height: .94; letter-spacing: -.025em; text-transform: uppercase; text-align: center; }
     .gallery-link { padding: 10px 0; font-size: 14px; color: #f09a69; white-space: nowrap; text-decoration: underline; text-underline-offset: 5px; }
     .featured-grid { max-width: 1200px; margin: auto; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
     .featured-portrait { aspect-ratio: 2 / 3; overflow: hidden; }
-    .featured-note { max-width: 1200px; margin: 20px auto 0; color: #c5cbd5; font-size: 16px; text-align: center; }
+    .featured-note { max-width: 980px; margin: 28px auto 0; color: #eef0f5; font-size: clamp(20px, 2vw, 26px); font-weight: 600; line-height: 1.4; text-align: center; }
+    .featured-work > .gallery-link { display: block; width: fit-content; margin: 12px auto 0; }
+    .price-strip .note { font-family: 'Jost', sans-serif; font-style: normal; font-size: 16px; }
+    .step-card.finale h4 { font-family: 'Jost', sans-serif; font-style: normal; font-weight: 700; font-size: 18px; }
+    .application-intro { max-width: 780px; margin: 24px auto 0; font-size: 18px; line-height: 1.65; }
+    .gallery-mosaic { grid-auto-flow: row; }
+    .photographer p { font-size: 16px; }
+    .rattle-band { min-height: clamp(400px, 40vw, 600px); padding: 64px 28px; display: flex; align-items: center; text-align: left; }
+    .rattle-band::before { background-position: center 12%; opacity: .84; }
+    .rattle-band::after { background: linear-gradient(90deg, rgba(8,16,30,.05) 0%, rgba(8,16,30,.06) 42%, rgba(8,16,30,.42) 100%); }
+    .rattle-inner { display: block; width: 100%; max-width: 1200px; }
+    .rattle-h { width: 46%; margin-left: auto; font-family: 'Cormorant Garamond', serif; font-size: clamp(38px, 4vw, 58px); font-style: normal; font-weight: 600; line-height: 1.05; }
+    .rattle-h span { display: block; margin-top: 12px; font-family: 'Jost', sans-serif; font-size: 1.05em; font-weight: 700; font-style: normal; line-height: 1.05; color: #f09a69; }
     #book, #gallery { scroll-margin-top: 24px; }
     .sticky-cta .copy { min-width: 0; }
     .mini-footer { overflow-wrap: anywhere; }
@@ -969,13 +979,17 @@
       .hero-details { font-size: 16px; margin-bottom: 20px; }
       .hero-cta-row { gap: 10px; margin-bottom: 16px; }
       .hero .btn-large { width: 100%; font-size: 14px; padding: 18px 12px; }
-      .hero-trust { font-size: 14px; }
       .featured-work { padding: 32px 18px; }
       .featured-heading { display: block; margin-bottom: 20px; }
-      .featured-heading h2 { font-size: 32px; }
+      .featured-heading h2 { font-size: clamp(62px, 17vw, 112px); text-wrap: balance; }
       .gallery-link { display: inline-block; margin-top: 8px; }
       .featured-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-      .featured-note { text-align: left; }
+      .featured-note { text-align: center; font-size: 21px; }
+      .application-intro { font-size: 17px; }
+      .rattle-band { min-height: 420px; padding: 36px 22px; }
+      .rattle-band::before { background-position: center top; }
+      .rattle-h { width: 48%; font-size: clamp(26px, 7vw, 42px); }
+      .rattle-h span { font-size: 1.05em; }
       .sticky-cta { padding: 12px 18px calc(12px + env(safe-area-inset-bottom)); gap: 12px; }
       .sticky-cta .copy { font-size: 12px; letter-spacing: 0; }
       .sticky-cta .copy small { font-size: 12px; letter-spacing: 0; }
@@ -1016,33 +1030,28 @@
     <div class="hero-layout">
       <div class="hero-inner">
         <span class="hero-eyebrow">Michiana · Granger · South Bend</span>
-        <h1 id="offer-title">Your $500 boudoir session.<br /><em class="accent">On us.</em></h1>
+        <h1 id="offer-title">Your $500 boudoir session.<span class="hero-offer accent">On us.</span></h1>
         <p class="hero-sub">We're looking for women from Granger, South Bend, and across Michiana to feature in our studio sample albums and wall art. If you're selected, your session is <strong>complimentary.</strong></p>
         <p class="hero-details">Wardrobe guidance. Posing direction every step. Your edited images revealed the same afternoon.</p>
         <div class="hero-cta-row">
           <a href="#book" class="btn btn-primary btn-large">Apply for My Session</a>
-          <p class="offer-note">Photos and products sold separately. No purchase required.</p>
         </div>
-        <p class="hero-trust"><span class="stars" aria-label="5 stars">★★★★★</span> 100+ five-star reviews</p>
       </div>
     </div>
   </section>
 
   <section class="featured-work" aria-labelledby="featured-title">
     <div class="featured-heading">
-      <div>
-        <p class="section-eyebrow">This could be you</p>
-        <h2 id="featured-title">You bring yourself. <em>I'll guide the rest.</em></h2>
-      </div>
-      <a class="gallery-link" href="#gallery">See more portraits <span aria-hidden="true">↓</span></a>
+      <h2 id="featured-title">This could be you</h2>
     </div>
     <div class="featured-grid">
+        <div class="featured-portrait"><picture><source type="image/webp" srcset="/uploads/r/red-lace-lingerie-gold-chain-dramatic-red-light-boudoir-session-south-bend-in-400.webp 400w, /uploads/r/red-lace-lingerie-gold-chain-dramatic-red-light-boudoir-session-south-bend-in-800.webp 800w, /uploads/r/red-lace-lingerie-gold-chain-dramatic-red-light-boudoir-session-south-bend-in-1200.webp 1200w, /uploads/r/red-lace-lingerie-gold-chain-dramatic-red-light-boudoir-session-south-bend-in-1333.webp 1333w" sizes="(max-width: 720px) 44vw, 24vw" /><img src="/uploads/red-lace-lingerie-gold-chain-dramatic-red-light-boudoir-session-south-bend-in.jpg" alt="Client in red lace and gold jewelry in dramatic red light" width="1066" height="1600" loading="lazy" decoding="async" /></picture></div>
         <div class="featured-portrait"><picture><source type="image/webp" srcset="/uploads/r/breast-cancer-survivor-empowering-luxury-boudoir-south-bend-in-400.webp 400w, /uploads/r/breast-cancer-survivor-empowering-luxury-boudoir-south-bend-in-800.webp 800w, /uploads/r/breast-cancer-survivor-empowering-luxury-boudoir-south-bend-in-1200.webp 1200w, /uploads/r/breast-cancer-survivor-empowering-luxury-boudoir-south-bend-in-1333.webp 1333w" sizes="(max-width: 720px) 44vw, 24vw" /><img src="/uploads/breast-cancer-survivor-empowering-luxury-boudoir-south-bend-in.jpg" alt="Silver-haired client in an open blue shirt, photographed in the studio" width="1066" height="1600" loading="lazy" decoding="async" /></picture></div>
         <div class="featured-portrait"><picture><source type="image/webp" srcset="/uploads/r/black-corset-cowboy-hat-amber-light-boudoir-portraits-granger-in-400.webp 400w, /uploads/r/black-corset-cowboy-hat-amber-light-boudoir-portraits-granger-in-800.webp 800w, /uploads/r/black-corset-cowboy-hat-amber-light-boudoir-portraits-granger-in-1200.webp 1200w, /uploads/r/black-corset-cowboy-hat-amber-light-boudoir-portraits-granger-in-1333.webp 1333w" sizes="(max-width: 720px) 44vw, 24vw" /><img src="/uploads/black-corset-cowboy-hat-amber-light-boudoir-portraits-granger-in.jpg" alt="Client in a black corset and cowboy hat in warm amber light" width="1066" height="1600" loading="lazy" decoding="async" /></picture></div>
-        <div class="featured-portrait"><picture><source type="image/webp" srcset="/uploads/r/red-lace-lingerie-gold-chain-dramatic-red-light-boudoir-session-south-bend-in-400.webp 400w, /uploads/r/red-lace-lingerie-gold-chain-dramatic-red-light-boudoir-session-south-bend-in-800.webp 800w, /uploads/r/red-lace-lingerie-gold-chain-dramatic-red-light-boudoir-session-south-bend-in-1200.webp 1200w, /uploads/r/red-lace-lingerie-gold-chain-dramatic-red-light-boudoir-session-south-bend-in-1333.webp 1333w" sizes="(max-width: 720px) 44vw, 24vw" /><img src="/uploads/red-lace-lingerie-gold-chain-dramatic-red-light-boudoir-session-south-bend-in.jpg" alt="Client in red lace and gold jewelry in dramatic red light" width="1066" height="1600" loading="lazy" decoding="async" /></picture></div>
         <div class="featured-portrait"><picture><source type="image/webp" srcset="/uploads/r/crystal-body-chain-golden-light-boudoir-photography-mishawaka-in-400.webp 400w, /uploads/r/crystal-body-chain-golden-light-boudoir-photography-mishawaka-in-800.webp 800w, /uploads/r/crystal-body-chain-golden-light-boudoir-photography-mishawaka-in-1200.webp 1200w, /uploads/r/crystal-body-chain-golden-light-boudoir-photography-mishawaka-in-1333.webp 1333w" sizes="(max-width: 720px) 44vw, 24vw" /><img src="/uploads/crystal-body-chain-golden-light-boudoir-photography-mishawaka-in.jpg" alt="Client wearing crystal jewelry in golden studio light" width="1066" height="1600" loading="lazy" decoding="async" /></picture></div>
     </div>
     <p class="featured-note">You don't need modeling experience or a single pose memorized.</p>
+    <a class="gallery-link" href="#gallery">See more portraits <span aria-hidden="true">↓</span></a>
   </section>
 
   <!-- SCARCITY BAR -->
@@ -1054,7 +1063,7 @@
   <section class="stat-row">
     <div class="stat-grid">
       <div><div class="stat-num">10+</div><div class="stat-label">Years Changing Lives</div></div>
-      <div><div class="stat-num">700+</div><div class="stat-label">Women Photographed</div></div>
+      <div><div class="stat-num">850+</div><div class="stat-label">Women Photographed</div></div>
       <div><div class="stat-num">100+</div><div class="stat-label">Five-Star Reviews</div></div>
       <div><div class="stat-num">$500</div><div class="stat-label">Value</div></div>
     </div>
@@ -1073,10 +1082,10 @@
         <div class="benefit-text"><h3>Full day at the studio, just for you</h3><p>Multiple sets, lighting setups, and wardrobe changes. Your shoot runs through midday, with your same-day reveal that afternoon.</p></div>
       </div>
       <div class="benefit-card"><span class="benefit-check">✓</span>
-        <div class="benefit-text"><h3>Expert wardrobe styling</h3><p>We help you choose and style every look so it photographs beautifully — bring your favorites or build them with us.</p></div>
+        <div class="benefit-text"><h3>Expert wardrobe styling</h3><p>You do not need to know what to wear. We will help you pick out the perfect pieces for your vibe and your figure.</p></div>
       </div>
       <div class="benefit-card"><span class="benefit-check">✓</span>
-        <div class="benefit-text"><h3>Posed by the photographer</h3><p>Every shot. Head, shoulders, hands, hips, breath — never figure it out alone.</p></div>
+        <div class="benefit-text"><h3>Posed by the photographer</h3><p>Mark will pose you head to toe. No experience in front of the camera is required to look incredible.</p></div>
       </div>
       <div class="benefit-card"><span class="benefit-check">✓</span>
         <div class="benefit-text"><h3>Same-day image reveal</h3><p>See your edited, retouched gallery the same day — no waiting weeks.</p></div>
@@ -1105,10 +1114,11 @@
   <!-- HOW IT WORKS -->
   <section class="block darker">
     <div class="section-eyebrow">How it works</div>
-    <h2 class="section-h2">Five steps. <span class="accent">One day in studio.</span></h2>
+    <h2 class="section-h2">Apply to be <span class="accent">featured.</span></h2>
+    <p class="section-lead application-intro">We're looking for women willing to let us use images from their shoot for new studio samples: handcrafted fine art albums, wall art, and fine art prints. <strong>If selected, your $500 session is complimentary.</strong></p>
 
     <div class="steps-grid">
-      <div class="step-card"><div class="step-num">1</div><h4>Apply</h4><p>Quick form below. Tell us a bit about you and why you want to do this — the more detail, the better.</p></div>
+      <div class="step-card"><div class="step-num">1</div><h4>Apply</h4><p>Tell us about yourself and why you want a boudoir session. The more detail, the better. If selected, we'll be in touch to plan your shoot.</p></div>
       <div class="step-card"><div class="step-num">2</div><h4>Plan your shoot</h4><p>30-minute video call to plan every detail — wardrobe, color schemes, overall vision.</p></div>
       <div class="step-card"><div class="step-num">3</div><h4>Studio day</h4><p>Your studio day in Michiana. Multiple looks, wardrobe styling, head-to-toe posing direction.</p></div>
       <div class="step-card"><div class="step-num">4</div><h4>Same-day reveal</h4><p>See 100+ edited images the same afternoon, in studio.</p></div>
@@ -1127,29 +1137,27 @@
 
     <div class="session-gallery">
       <div class="gallery-mosaic">
-        <div class="gallery-tile"><img src="/uploads/black-lace-top-pearl-necklace-green-light-boudoir-photography-mishawaka-in.jpg" alt="Boudoir portrait — black lace top, pearl necklace, green light" loading="lazy" width="1066" height="1600" /></div>
-        <div class="gallery-tile"><img src="/uploads/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in.jpg" alt="Boudoir portrait — burgundy lace, fur coat, city skyline" loading="lazy" width="1600" height="1066" /></div>
-        <div class="gallery-tile"><img src="/uploads/black-strappy-lingerie-golf-club-prop-red-smoke-boudoir-session-elkhart-in.jpg" alt="Boudoir portrait — black strappy lingerie, golf club, red smoke" loading="lazy" width="1066" height="1600" /></div>
-        <div class="gallery-tile"><img src="/uploads/silver-hair-black-mesh-rose-feathers-boudoir-photography-elkhart-in.jpg" alt="Mature boudoir portrait — silver hair, black mesh" loading="lazy" width="1066" height="1600" /></div>
-        <div class="gallery-tile wide"><img src="/uploads/pearl-fringe-shawl-bouquet-floral-backdrop-tulle-boudoir-portraits-niles-mi.jpg" alt="Boudoir portrait — pearl fringe shawl, floral backdrop" loading="lazy" width="1600" height="1066" /></div>
-        <div class="gallery-tile wide"><img src="/uploads/velvet-curtain-dramatic-lighting-standing-pose-boudoir-session-elkhart-in.jpg" alt="Boudoir portrait — velvet curtain, dramatic standing pose" loading="lazy" width="1600" height="1067" /></div>
-        <div class="gallery-tile"><img src="/uploads/orange-bodysuit-pink-tights-city-street-night-boudoir-portraits-mishawaka-in.jpg" alt="Boudoir portrait — orange bodysuit, city street at night" loading="lazy" width="1066" height="1600" /></div>
-        <div class="gallery-tile wide"><img src="/uploads/black-lace-corset-navy-chaise-diamond-necklace-red-light-boudoir-photographer-south-bend-in.jpg" alt="Boudoir portrait — black lace corset, diamond necklace, red light" loading="lazy" width="1600" height="1066" /></div>
-        <div class="gallery-tile wide"><img src="/uploads/green-lingerie-neon-light-laying-pose-boudoir-portraits-granger-in.jpg" alt="Boudoir portrait — green lingerie, neon light" loading="lazy" width="1600" height="1066" /></div>
-        <div class="gallery-tile"><img src="/uploads/brown-fur-coat-ladder-red-fog-theatrical-boudoir-photography-niles-mi.jpg" alt="Boudoir portrait — brown fur coat, ladder, red fog" loading="lazy" width="1066" height="1600" /></div>
-        <div class="gallery-tile"><img src="/uploads/royal-blue-lace-lingerie-crystal-choker-neon-light-boudoir-photography-granger-in.jpg" alt="Boudoir portrait — royal blue lace lingerie, crystal choker" loading="lazy" width="1066" height="1600" /></div>
-        <div class="gallery-tile"><img src="/uploads/black-lace-bra-diamond-choker-vintage-updo-purple-light-boudoir-portraits-mishawaka-in.jpg" alt="Boudoir portrait — black lace bra, diamond choker, vintage updo" loading="lazy" width="1066" height="1600" /></div>
-        <div class="gallery-tile wide"><img src="/uploads/bronze-halter-bodysuit-gold-necklace-velvet-chaise-boudoir-portraits-mishawaka-in.jpg" alt="Boudoir portrait — bronze halter bodysuit, gold necklace" loading="lazy" width="1600" height="1066" /></div>
-        <div class="gallery-tile"><img src="/uploads/pearl-fringe-halter-rainbow-prism-flare-intimate-portraits-niles-mi.jpg" alt="Boudoir portrait — pearl fringe halter, rainbow prism flare" loading="lazy" width="1066" height="1600" /></div>
-        <div class="gallery-tile"><img src="/uploads/white-corset-overhead-pose-crystal-choker-tattoos-boudoir-portraits-granger-in.jpg" alt="Boudoir portrait — white corset, crystal choker, tattoos" loading="lazy" width="1280" height="1600" /></div>
-        <div class="gallery-tile wide"><img src="/uploads/floral-blue-bra-open-jeans-torso-detail-luxury-boudoir-south-bend-in.jpg" alt="Boudoir portrait — floral blue bra, open jeans" loading="lazy" width="1600" height="1066" /></div>
-        <div class="gallery-tile"><img src="/uploads/redhead-pearl-fringe-top-black-feathers-dreamy-light-boudoir-portraits-granger-in.jpg" alt="Boudoir portrait — redhead, pearl fringe top, black feathers" loading="lazy" width="1066" height="1600" /></div>
-        <div class="gallery-tile"><img src="/uploads/rhinestone-bra-jeweled-hip-chain-purple-light-brick-wall-boudoir-portraits-south-bend-in.jpg" alt="Boudoir portrait — rhinestone bra, jeweled hip chain, brick wall" loading="lazy" width="1066" height="1600" /></div>
-        <div class="gallery-tile"><img src="/uploads/gold-jewelry-fur-coat-velvet-chaise-boudoir-portraits-south-bend-in.jpg" alt="Boudoir portrait — gold jewelry, fur coat, velvet chaise" loading="lazy" width="1066" height="1600" /></div>
-        <div class="gallery-tile"><img src="/uploads/sheer-mesh-bodysuit-tattoos-vintage-vw-bus-luxury-boudoir-elkhart-in.jpg" alt="Boudoir portrait — sheer mesh bodysuit, tattoos, vintage VW bus" loading="lazy" width="1066" height="1600" /></div>
-        <div class="gallery-tile"><img src="/uploads/black-floral-lace-bra-mirror-reflection-purple-light-boudoir-portraits-south-bend-in.jpg" alt="Boudoir portrait — black floral lace bra, mirror reflection" loading="lazy" width="1066" height="1600" /></div>
-        <div class="gallery-tile"><img src="/uploads/red-lace-catsuit-dark-fur-coat-red-stairs-night-luxury-boudoir-elkhart-in.jpg" alt="Boudoir portrait — red lace catsuit, fur coat, red stairs" loading="lazy" width="1067" height="1600" /></div>
-        <div class="gallery-tile"><img src="/uploads/floral-lingerie-tropical-plants-golden-light-boudoir-session-south-bend-in.jpg" alt="Boudoir portrait — floral lingerie, tropical plants" loading="lazy" width="1066" height="1600" /></div>
+        <div class="gallery-tile wide"><picture><source type="image/webp" srcset="/uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-400.webp 400w, /uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-800.webp 800w, /uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-1200.webp 1200w, /uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-2000.webp 2000w" sizes="(max-width: 720px) 90vw, 46vw" /><img src="/uploads/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in.jpg" alt="" width="1600" height="1066" loading="lazy" decoding="async" /></picture></div>
+        <div class="gallery-tile wide"><picture><source type="image/webp" srcset="/uploads/r/green-lingerie-neon-light-laying-pose-boudoir-portraits-granger-in-400.webp 400w, /uploads/r/green-lingerie-neon-light-laying-pose-boudoir-portraits-granger-in-800.webp 800w, /uploads/r/green-lingerie-neon-light-laying-pose-boudoir-portraits-granger-in-1200.webp 1200w, /uploads/r/green-lingerie-neon-light-laying-pose-boudoir-portraits-granger-in-2000.webp 2000w" sizes="(max-width: 720px) 90vw, 46vw" /><img src="/uploads/green-lingerie-neon-light-laying-pose-boudoir-portraits-granger-in.jpg" alt="Boudoir portrait — green lingerie, neon light" width="1600" height="1066" loading="lazy" decoding="async" /></picture></div>
+        <div class="gallery-tile"><picture><source type="image/webp" srcset="/uploads/r/orange-bodysuit-pink-tights-city-street-night-boudoir-portraits-mishawaka-in-400.webp 400w, /uploads/r/orange-bodysuit-pink-tights-city-street-night-boudoir-portraits-mishawaka-in-800.webp 800w, /uploads/r/orange-bodysuit-pink-tights-city-street-night-boudoir-portraits-mishawaka-in-1200.webp 1200w, /uploads/r/orange-bodysuit-pink-tights-city-street-night-boudoir-portraits-mishawaka-in-1333.webp 1333w" sizes="(max-width: 720px) 44vw, 23vw" /><img src="/uploads/orange-bodysuit-pink-tights-city-street-night-boudoir-portraits-mishawaka-in.jpg" alt="Boudoir portrait — orange bodysuit, city street at night" width="1066" height="1600" loading="lazy" decoding="async" /></picture></div>
+        <div class="gallery-tile"><picture><source type="image/webp" srcset="/uploads/r/black-lace-bra-diamond-choker-vintage-updo-purple-light-boudoir-portraits-mishawaka-in-400.webp 400w, /uploads/r/black-lace-bra-diamond-choker-vintage-updo-purple-light-boudoir-portraits-mishawaka-in-800.webp 800w, /uploads/r/black-lace-bra-diamond-choker-vintage-updo-purple-light-boudoir-portraits-mishawaka-in-1200.webp 1200w, /uploads/r/black-lace-bra-diamond-choker-vintage-updo-purple-light-boudoir-portraits-mishawaka-in-1333.webp 1333w" sizes="(max-width: 720px) 44vw, 23vw" /><img src="/uploads/black-lace-bra-diamond-choker-vintage-updo-purple-light-boudoir-portraits-mishawaka-in.jpg" alt="Boudoir portrait — black lace bra, diamond choker, vintage updo" width="1066" height="1600" loading="lazy" decoding="async" /></picture></div>
+        <div class="gallery-tile wide"><picture><source type="image/webp" srcset="/uploads/r/velvet-curtain-dramatic-lighting-standing-pose-boudoir-session-elkhart-in-400.webp 400w, /uploads/r/velvet-curtain-dramatic-lighting-standing-pose-boudoir-session-elkhart-in-800.webp 800w, /uploads/r/velvet-curtain-dramatic-lighting-standing-pose-boudoir-session-elkhart-in-1200.webp 1200w, /uploads/r/velvet-curtain-dramatic-lighting-standing-pose-boudoir-session-elkhart-in-2000.webp 2000w" sizes="(max-width: 720px) 90vw, 46vw" /><img src="/uploads/velvet-curtain-dramatic-lighting-standing-pose-boudoir-session-elkhart-in.jpg" alt="Boudoir portrait — velvet curtain, dramatic standing pose" width="1600" height="1067" loading="lazy" decoding="async" /></picture></div>
+        <div class="gallery-tile"><picture><source type="image/webp" srcset="/uploads/r/black-strappy-lingerie-golf-club-prop-red-smoke-boudoir-session-elkhart-in-400.webp 400w, /uploads/r/black-strappy-lingerie-golf-club-prop-red-smoke-boudoir-session-elkhart-in-800.webp 800w, /uploads/r/black-strappy-lingerie-golf-club-prop-red-smoke-boudoir-session-elkhart-in-1200.webp 1200w, /uploads/r/black-strappy-lingerie-golf-club-prop-red-smoke-boudoir-session-elkhart-in-1333.webp 1333w" sizes="(max-width: 720px) 44vw, 23vw" /><img src="/uploads/black-strappy-lingerie-golf-club-prop-red-smoke-boudoir-session-elkhart-in.jpg" alt="Boudoir portrait — black strappy lingerie, golf club, red smoke" width="1066" height="1600" loading="lazy" decoding="async" /></picture></div>
+        <div class="gallery-tile"><picture><source type="image/webp" srcset="/uploads/r/rhinestone-bra-jeweled-hip-chain-purple-light-brick-wall-boudoir-portraits-south-bend-in-400.webp 400w, /uploads/r/rhinestone-bra-jeweled-hip-chain-purple-light-brick-wall-boudoir-portraits-south-bend-in-800.webp 800w, /uploads/r/rhinestone-bra-jeweled-hip-chain-purple-light-brick-wall-boudoir-portraits-south-bend-in-1200.webp 1200w, /uploads/r/rhinestone-bra-jeweled-hip-chain-purple-light-brick-wall-boudoir-portraits-south-bend-in-1333.webp 1333w" sizes="(max-width: 720px) 44vw, 23vw" /><img src="/uploads/rhinestone-bra-jeweled-hip-chain-purple-light-brick-wall-boudoir-portraits-south-bend-in.jpg" alt="" width="1066" height="1600" loading="lazy" decoding="async" /></picture></div>
+        <div class="gallery-tile wide"><picture><source type="image/webp" srcset="/uploads/r/pearl-fringe-shawl-bouquet-floral-backdrop-tulle-boudoir-portraits-niles-mi-400.webp 400w, /uploads/r/pearl-fringe-shawl-bouquet-floral-backdrop-tulle-boudoir-portraits-niles-mi-800.webp 800w, /uploads/r/pearl-fringe-shawl-bouquet-floral-backdrop-tulle-boudoir-portraits-niles-mi-1200.webp 1200w, /uploads/r/pearl-fringe-shawl-bouquet-floral-backdrop-tulle-boudoir-portraits-niles-mi-2000.webp 2000w" sizes="(max-width: 720px) 90vw, 46vw" /><img src="/uploads/pearl-fringe-shawl-bouquet-floral-backdrop-tulle-boudoir-portraits-niles-mi.jpg" alt="" width="1600" height="1066" loading="lazy" decoding="async" /></picture></div>
+        <div class="gallery-tile wide"><picture><source type="image/webp" srcset="/uploads/r/black-lace-corset-navy-chaise-diamond-necklace-red-light-boudoir-photographer-south-bend-in-400.webp 400w, /uploads/r/black-lace-corset-navy-chaise-diamond-necklace-red-light-boudoir-photographer-south-bend-in-800.webp 800w, /uploads/r/black-lace-corset-navy-chaise-diamond-necklace-red-light-boudoir-photographer-south-bend-in-1200.webp 1200w, /uploads/r/black-lace-corset-navy-chaise-diamond-necklace-red-light-boudoir-photographer-south-bend-in-2000.webp 2000w" sizes="(max-width: 720px) 90vw, 46vw" /><img src="/uploads/black-lace-corset-navy-chaise-diamond-necklace-red-light-boudoir-photographer-south-bend-in.jpg" alt="Boudoir portrait — black lace corset, diamond necklace, red light" width="1600" height="1066" loading="lazy" decoding="async" /></picture></div>
+        <div class="gallery-tile wide"><picture><source type="image/webp" srcset="/uploads/r/bronze-halter-bodysuit-gold-necklace-velvet-chaise-boudoir-portraits-mishawaka-in-400.webp 400w, /uploads/r/bronze-halter-bodysuit-gold-necklace-velvet-chaise-boudoir-portraits-mishawaka-in-800.webp 800w, /uploads/r/bronze-halter-bodysuit-gold-necklace-velvet-chaise-boudoir-portraits-mishawaka-in-1200.webp 1200w, /uploads/r/bronze-halter-bodysuit-gold-necklace-velvet-chaise-boudoir-portraits-mishawaka-in-2000.webp 2000w" sizes="(max-width: 720px) 90vw, 46vw" /><img src="/uploads/bronze-halter-bodysuit-gold-necklace-velvet-chaise-boudoir-portraits-mishawaka-in.jpg" alt="Boudoir portrait — bronze halter bodysuit, gold necklace" width="1600" height="1066" loading="lazy" decoding="async" /></picture></div>
+        <div class="gallery-tile"><picture><img src="/uploads/sheer-mesh-bodysuit-tattoos-vintage-vw-bus-luxury-boudoir-elkhart-in.jpg" alt="Boudoir portrait — sheer mesh bodysuit, tattoos, vintage VW bus" width="1066" height="1600" loading="lazy" decoding="async" /></picture></div>
+        <div class="gallery-tile"><picture><source type="image/webp" srcset="/uploads/r/black-lace-top-pearl-necklace-green-light-boudoir-photography-mishawaka-in-400.webp 400w, /uploads/r/black-lace-top-pearl-necklace-green-light-boudoir-photography-mishawaka-in-800.webp 800w, /uploads/r/black-lace-top-pearl-necklace-green-light-boudoir-photography-mishawaka-in-1200.webp 1200w, /uploads/r/black-lace-top-pearl-necklace-green-light-boudoir-photography-mishawaka-in-1333.webp 1333w" sizes="(max-width: 720px) 44vw, 23vw" /><img src="/uploads/black-lace-top-pearl-necklace-green-light-boudoir-photography-mishawaka-in.jpg" alt="Boudoir portrait — black lace top, pearl necklace, green light" width="1066" height="1600" loading="lazy" decoding="async" /></picture></div>
+        <div class="gallery-tile wide"><picture><source type="image/webp" srcset="/uploads/r/floral-blue-bra-open-jeans-torso-detail-luxury-boudoir-south-bend-in-400.webp 400w, /uploads/r/floral-blue-bra-open-jeans-torso-detail-luxury-boudoir-south-bend-in-800.webp 800w, /uploads/r/floral-blue-bra-open-jeans-torso-detail-luxury-boudoir-south-bend-in-1200.webp 1200w, /uploads/r/floral-blue-bra-open-jeans-torso-detail-luxury-boudoir-south-bend-in-2000.webp 2000w" sizes="(max-width: 720px) 90vw, 46vw" /><img src="/uploads/floral-blue-bra-open-jeans-torso-detail-luxury-boudoir-south-bend-in.jpg" alt="Boudoir portrait — floral blue bra, open jeans" width="1600" height="1066" loading="lazy" decoding="async" /></picture></div>
+        <div class="gallery-tile"><picture><source type="image/webp" srcset="/uploads/r/royal-blue-lace-lingerie-crystal-choker-neon-light-boudoir-photography-granger-in-400.webp 400w, /uploads/r/royal-blue-lace-lingerie-crystal-choker-neon-light-boudoir-photography-granger-in-800.webp 800w, /uploads/r/royal-blue-lace-lingerie-crystal-choker-neon-light-boudoir-photography-granger-in-1200.webp 1200w, /uploads/r/royal-blue-lace-lingerie-crystal-choker-neon-light-boudoir-photography-granger-in-1333.webp 1333w" sizes="(max-width: 720px) 44vw, 23vw" /><img src="/uploads/royal-blue-lace-lingerie-crystal-choker-neon-light-boudoir-photography-granger-in.jpg" alt="" width="1066" height="1600" loading="lazy" decoding="async" /></picture></div>
+        <div class="gallery-tile"><picture><img src="/uploads/redhead-pearl-fringe-top-black-feathers-dreamy-light-boudoir-portraits-granger-in.jpg" alt="" width="1066" height="1600" loading="lazy" decoding="async" /></picture></div>
+        <div class="gallery-tile"><picture><source type="image/webp" srcset="/uploads/r/silver-hair-black-mesh-rose-feathers-boudoir-photography-elkhart-in-400.webp 400w, /uploads/r/silver-hair-black-mesh-rose-feathers-boudoir-photography-elkhart-in-800.webp 800w, /uploads/r/silver-hair-black-mesh-rose-feathers-boudoir-photography-elkhart-in-1200.webp 1200w, /uploads/r/silver-hair-black-mesh-rose-feathers-boudoir-photography-elkhart-in-1333.webp 1333w" sizes="(max-width: 720px) 44vw, 23vw" /><img src="/uploads/silver-hair-black-mesh-rose-feathers-boudoir-photography-elkhart-in.jpg" alt="" width="1066" height="1600" loading="lazy" decoding="async" /></picture></div>
+        <div class="gallery-tile"><picture><img src="/uploads/floral-lingerie-tropical-plants-golden-light-boudoir-session-south-bend-in.jpg" alt="Boudoir portrait — floral lingerie, tropical plants" width="1066" height="1600" loading="lazy" decoding="async" /></picture></div>
+        <div class="gallery-tile"><picture><source type="image/webp" srcset="/uploads/r/brown-fur-coat-ladder-red-fog-theatrical-boudoir-photography-niles-mi-400.webp 400w, /uploads/r/brown-fur-coat-ladder-red-fog-theatrical-boudoir-photography-niles-mi-800.webp 800w, /uploads/r/brown-fur-coat-ladder-red-fog-theatrical-boudoir-photography-niles-mi-1200.webp 1200w, /uploads/r/brown-fur-coat-ladder-red-fog-theatrical-boudoir-photography-niles-mi-1333.webp 1333w" sizes="(max-width: 720px) 44vw, 23vw" /><img src="/uploads/brown-fur-coat-ladder-red-fog-theatrical-boudoir-photography-niles-mi.jpg" alt="Boudoir portrait — brown fur coat, ladder, red fog" width="1066" height="1600" loading="lazy" decoding="async" /></picture></div>
+        <div class="gallery-tile"><picture><source type="image/webp" srcset="/uploads/r/gold-jewelry-fur-coat-velvet-chaise-boudoir-portraits-south-bend-in-400.webp 400w, /uploads/r/gold-jewelry-fur-coat-velvet-chaise-boudoir-portraits-south-bend-in-800.webp 800w, /uploads/r/gold-jewelry-fur-coat-velvet-chaise-boudoir-portraits-south-bend-in-1200.webp 1200w, /uploads/r/gold-jewelry-fur-coat-velvet-chaise-boudoir-portraits-south-bend-in-1333.webp 1333w" sizes="(max-width: 720px) 44vw, 23vw" /><img src="/uploads/gold-jewelry-fur-coat-velvet-chaise-boudoir-portraits-south-bend-in.jpg" alt="Boudoir portrait — gold jewelry, fur coat, velvet chaise" width="1066" height="1600" loading="lazy" decoding="async" /></picture></div>
+        <div class="gallery-tile"><picture><source type="image/webp" srcset="/uploads/r/black-floral-lace-bra-mirror-reflection-purple-light-boudoir-portraits-south-bend-in-400.webp 400w, /uploads/r/black-floral-lace-bra-mirror-reflection-purple-light-boudoir-portraits-south-bend-in-800.webp 800w, /uploads/r/black-floral-lace-bra-mirror-reflection-purple-light-boudoir-portraits-south-bend-in-1200.webp 1200w, /uploads/r/black-floral-lace-bra-mirror-reflection-purple-light-boudoir-portraits-south-bend-in-1333.webp 1333w" sizes="(max-width: 720px) 44vw, 23vw" /><img src="/uploads/black-floral-lace-bra-mirror-reflection-purple-light-boudoir-portraits-south-bend-in.jpg" alt="Boudoir portrait — black floral lace bra, mirror reflection" width="1066" height="1600" loading="lazy" decoding="async" /></picture></div>
+        <div class="gallery-tile"><picture><source type="image/webp" srcset="/uploads/r/pearl-fringe-halter-rainbow-prism-flare-intimate-portraits-niles-mi-400.webp 400w, /uploads/r/pearl-fringe-halter-rainbow-prism-flare-intimate-portraits-niles-mi-800.webp 800w, /uploads/r/pearl-fringe-halter-rainbow-prism-flare-intimate-portraits-niles-mi-1200.webp 1200w, /uploads/r/pearl-fringe-halter-rainbow-prism-flare-intimate-portraits-niles-mi-1333.webp 1333w" sizes="(max-width: 720px) 44vw, 23vw" /><img src="/uploads/pearl-fringe-halter-rainbow-prism-flare-intimate-portraits-niles-mi.jpg" alt="Boudoir portrait — pearl fringe halter, rainbow prism flare" width="1066" height="1600" loading="lazy" decoding="async" /></picture></div>
       </div>
     </div>
   </section>
@@ -1262,7 +1270,7 @@
     <div class="cta-band-inner">
       <a href="#book" class="btn btn-primary btn-large" style="margin-bottom:26px;">Apply Now</a>
       <h3>Once they're gone, <span class="accent">they're gone.</span></h3>
-      <p>This is a full-day event. We start in the morning, the photoshoot wraps around lunchtime, then you'll come back that afternoon to see your edited, retouched pictures the same day. We send you on your way with your newfound confidence. Limited session dates. Apply to find out which dates are available.</p>
+      <p>We're only looking for a few new faces for our portfolio. If you're selected, your images may become part of our new studio samples. Once those places are filled, applications for this offer close.</p>
     </div>
   </section>
 
@@ -1278,7 +1286,9 @@
       <div>
         <h3>Mark Andrew Boughton</h3>
         <div class="role">Photographer · Studio Owner</div>
-        <p>I've spent a decade photographing women who don't think of themselves as "the photogenic type." Most leave saying it was the most powerful thing they've ever done for themselves. I pose every shot — head, shoulders, hands, hips, breath — so you never have to figure out what to do.</p>
+        <p>Mark Andrew is an award-winning boudoir photographer who has photographed clients internationally over the last decade. With more than 850 women photographed and a studio experience serving South Bend, Granger, and the wider Michiana area, his entire experience is built around one outcome — transforming the woman who has never felt photogenic into the woman she didn't know she could be: <strong>confident, undeniable, and deeply seen.</strong></p>
+        <p>Beyond the studio, Mark is a respected voice in modern boudoir photography — invited to speak at industry events, teach at conferences, and help raise the bar for what this experience can mean to the women on the other side of the lens.</p>
+        <p>He believes every person deserves to be photographed the way they want to be remembered.</p>
         <div class="credentials">
           <span class="credential-pill">Spider Holster Ambassador</span>
           <span class="credential-pill">TogDrop Ambassador</span>
@@ -1350,11 +1360,11 @@
       </details>
       <details class="faq-item">
         <summary class="faq-q">"What if I want to buy keepsakes?"</summary>
-        <div class="faq-a">Optional. Art pieces start at $590. Most clients invest more — and we offer flexible payment plans in case you love your photos more than you were expecting.</div>
+        <div class="faq-a">The average client spends about $1,000, and we offer flexible payment plans on anything you take home.</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">"I'm not photogenic."</summary>
-        <div class="faq-a">Almost everyone says this. It's not true — it's just that you've never been photographed by someone who's used to photographing every figure, every age, every personality. Mark has spent a decade in studio with thousands of women across every body type and every season of life, and he poses every shot — head, shoulders, hands, hips, breath — so you never have to "figure out what to do."</div>
+        <div class="faq-a">Almost everyone says this. It's not true — it's just that you've never been photographed by someone who's used to photographing every figure, every age, every personality. Mark has spent a decade in studio with more than 850 women across every body type and every season of life, and he poses every shot — head, shoulders, hands, hips, breath — so you never have to "figure out what to do."</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">Is it awkward?</summary>
@@ -1378,9 +1388,7 @@
   <!-- RATTLE THE STARS — pre-form callout -->
   <section class="rattle-band">
     <div class="rattle-inner">
-      <span class="rattle-frill"></span>
-      <h2 class="rattle-h">You could <em>rattle the stars.</em></h2>
-      <span class="rattle-frill"></span>
+      <h2 class="rattle-h">You could<span>rattle the stars.</span></h2>
     </div>
   </section>
 
