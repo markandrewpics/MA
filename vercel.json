@@ -113,7 +113,7 @@
       ]
     },
     {
-      "source": "/groceries/:path*",
+      "source": "/groceries(.*)",
       "headers": [
         {
           "key": "X-Robots-Tag",
