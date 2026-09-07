@@ -2,19 +2,35 @@
   "redirects": [
     {
       "source": "/",
-      "has": [{ "type": "host", "value": "blog.markandrewboudoir.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.markandrewboudoir.com"
+        }
+      ],
       "destination": "https://www.markandrewboudoir.com/blog",
       "permanent": true
     },
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "blog.markandrewboudoir.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.markandrewboudoir.com"
+        }
+      ],
       "destination": "https://www.markandrewboudoir.com/:path*",
       "permanent": true
     },
     {
       "source": "/",
-      "has": [{ "type": "header", "key": "accept", "value": ".*text/markdown.*" }],
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": ".*text/markdown.*"
+        }
+      ],
       "destination": "/index.md",
       "permanent": false
     }
@@ -23,20 +39,32 @@
     {
       "source": "/index.md",
       "headers": [
-        { "key": "Content-Type", "value": "text/markdown; charset=utf-8" },
-        { "key": "Vary", "value": "Accept" }
+        {
+          "key": "Content-Type",
+          "value": "text/markdown; charset=utf-8"
+        },
+        {
+          "key": "Vary",
+          "value": "Accept"
+        }
       ]
     },
     {
       "source": "/auth.md",
       "headers": [
-        { "key": "Content-Type", "value": "text/markdown; charset=utf-8" }
+        {
+          "key": "Content-Type",
+          "value": "text/markdown; charset=utf-8"
+        }
       ]
     },
     {
       "source": "/.well-known/agent-skills/:skill/SKILL.md",
       "headers": [
-        { "key": "Content-Type", "value": "text/markdown; charset=utf-8" }
+        {
+          "key": "Content-Type",
+          "value": "text/markdown; charset=utf-8"
+        }
       ]
     },
     {
@@ -60,20 +88,56 @@
     {
       "source": "/uploads/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/fonts/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/pickles-daily/(.*)",
       "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
       ]
+    },
+    {
+      "source": "/groceries/:path*",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "private, no-store"
+        },
+        {
+          "key": "x-vercel-enable-rewrite-caching",
+          "value": "0"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/groceries/api/:path*",
+      "destination": "https://family-table-weekly.markandrewmusic.chatgpt.site/api/:path*"
     }
   ]
 }
