@@ -21,10 +21,10 @@ def update(page, now):
     if 'data-offer-window' not in text:
         replacements = {
             '<p class="hero-details">': f'<p class="hero-details"><strong>For shoots in {span} only.</strong></p>\n        <p class="hero-details">',
-            'Complimentary session · <strong>$500 value</strong> · Application required': f'{span} shoots only · <strong>$500 value</strong> · Application required',
+            'Complimentary session · <strong>$499 value</strong> · Application required': f'{span} shoots only · <strong>$499 value</strong> · Application required',
             "We're only looking for a few new faces for our portfolio. If you're selected, your images may become part of our new studio samples. Once those places are filled, applications for this offer close.": f"We're selecting five women for new studio samples, including handcrafted albums, wall art, and fine art prints. This offer is only for shoots taking place in {span}. Apply to be considered for an available date in this window.",
             '<h3>Once they\'re gone, <span class="accent">they\'re gone.</span></h3>': '<h3>Five new faces. <span class="accent">Limited shoot dates.</span></h3>',
-            'Limited session dates · Granger, South Bend &amp; Michiana': f'Shoots in {span} only · Granger, South Bend &amp; Michiana',
+            'Limited session dates · Granger, South Bend &amp; Michiana': f'Shoots in {span} only · The South Bend studio',
             '<summary class="faq-q">"Why are you offering complimentary sessions?"</summary>': '<summary class="faq-q">"Why are you offering complimentary sessions?"</summary>',
         }
         for old, new in replacements.items():
