@@ -1,5 +1,5 @@
 {
-  "description": "Queue of blog drafts to auto-publish on schedule. Edited at runtime by .github/scripts/publish_next.py \u2014 each entry flips from 'queued' to 'published' as it ships. Order in the array does not matter; the script picks the first 'queued' entry whose scheduledDate is today or earlier.",
+  "description": "Backlog of blog drafts checked every morning. Edited at runtime by .github/scripts/publish_next.py; each due entry flips from 'queued' to 'published' as it ships. The publisher releases the first due queued entry and enforces a maximum of four posts per Monday-Sunday week; additional finished drafts remain queued.",
   "timezone": "America/New_York",
   "queue": [
     {
@@ -97,6 +97,11 @@
       "scheduledDate": "2026-09-10",
       "status": "published",
       "publishedAt": "2026-09-10T10:30:25.184374+00:00"
+    },
+    {
+      "slug": "working-with-male-boudoir-photographer",
+      "scheduledDate": "2026-09-11",
+      "status": "queued"
     }
   ]
 }

@@ -3,14 +3,15 @@
 
 Workflow (called by .github/workflows/publish-blog.yml):
   1. Load .github/blog-drafts/publish-schedule.json
-  2. Pick the draft to publish:
+  2. Enforce the four-post maximum for the local Monday-Sunday week
+  3. Pick the draft to publish:
      - If $FORCE_SLUG is set, use that slug (manual override)
      - Otherwise, find the first entry whose scheduledDate <= today AND status == 'queued'
-  3. Render the draft's blog.json into a full HTML page using template.html
-  4. Write it to posts/<slug>/index.html
-  5. Inject a card into blog/index.html POSTS array (right after the featured entry)
-  6. Mark the queue entry as 'published' with publishedAt timestamp
-  7. git add + commit (workflow pushes separately)
+  4. Render the draft's blog.json into a full HTML page using template.html
+  5. Write it to posts/<slug>/index.html
+  6. Inject a card into blog/index.html POSTS array (right after the featured entry)
+  7. Mark the queue entry as 'published' with publishedAt timestamp
+  8. git add + commit (workflow pushes separately)
 
 If there's nothing to publish, exits 0 silently. The workflow handles the "no commit
 to push" case by diffing HEAD against HEAD~1.
@@ -24,10 +25,11 @@ import shutil
 import struct
 import subprocess
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from html import escape
 from pathlib import Path
 from urllib.parse import unquote
+from zoneinfo import ZoneInfo
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DRAFTS_DIR = REPO_ROOT / ".github" / "blog-drafts"
@@ -35,6 +37,7 @@ SCHEDULE_FILE = DRAFTS_DIR / "publish-schedule.json"
 TEMPLATE_FILE = DRAFTS_DIR / "template.html"
 HUB_FILE = REPO_ROOT / "blog" / "index.html"
 POSTS_DIR = REPO_ROOT / "posts"
+MAX_POSTS_PER_WEEK = 4
 
 
 # -- Horizontal-image guard ---------------------------------------------------
@@ -120,14 +123,62 @@ def save_schedule(data):
         f.write("\n")
 
 
+def local_today(schedule):
+    """Return today's date in the queue's configured timezone."""
+    zone_name = schedule.get("timezone", "America/New_York")
+    try:
+        zone = ZoneInfo(zone_name)
+    except Exception:
+        log(f"FATAL: invalid queue timezone: {zone_name}")
+        sys.exit(1)
+    return datetime.now(timezone.utc).astimezone(zone).date()
+
+
+def published_this_week(schedule, today=None):
+    """Count published queue entries in the local Monday-Sunday week."""
+    today = today or local_today(schedule)
+    week_start = today - timedelta(days=today.weekday())
+    week_end = week_start + timedelta(days=6)
+    zone = ZoneInfo(schedule.get("timezone", "America/New_York"))
+    count = 0
+
+    for entry in schedule.get("queue", []):
+        if entry.get("status") != "published":
+            continue
+        published_date = None
+        if entry.get("publishedAt"):
+            try:
+                stamp = datetime.fromisoformat(entry["publishedAt"].replace("Z", "+00:00"))
+                if stamp.tzinfo is None:
+                    stamp = stamp.replace(tzinfo=timezone.utc)
+                published_date = stamp.astimezone(zone).date()
+            except ValueError:
+                pass
+        if published_date is None and entry.get("scheduledDate"):
+            try:
+                published_date = datetime.fromisoformat(entry["scheduledDate"]).date()
+            except ValueError:
+                pass
+        if published_date and week_start <= published_date <= week_end:
+            count += 1
+    return count
+
+
 def pick_entry(schedule, force_slug=None):
+    weekly_count = published_this_week(schedule)
+    if weekly_count >= MAX_POSTS_PER_WEEK:
+        log(
+            f"Weekly publishing limit reached ({weekly_count}/{MAX_POSTS_PER_WEEK}); "
+            "leaving all remaining drafts queued."
+        )
+        return None
     if force_slug:
         for entry in schedule["queue"]:
             if entry["slug"] == force_slug:
                 return entry
         log(f"FATAL: forced slug '{force_slug}' not found in queue")
         sys.exit(1)
-    today = datetime.now(timezone.utc).date().isoformat()
+    today = local_today(schedule).isoformat()
     for entry in schedule["queue"]:
         if entry["status"] == "queued" and entry["scheduledDate"] <= today:
             return entry

@@ -1,14 +1,14 @@
 name: Publish next blog post
 
-# Fires Sundays and Wednesdays at 5:47am ET (9:47 UTC during EDT, 10:47 UTC during EST).
+# Checks the queue every morning at 5:47am ET (9:47 UTC during EDT, 10:47 UTC during EST).
 # GitHub cron is UTC, so this lands one hour earlier when ET is on standard time (Nov-Mar) —
-# fine because the queue empties before then.
+# fine for a morning publication. Nothing is published unless a queued draft is due.
 #
 # Also supports a manual run via the Actions tab ("Run workflow") for testing or catch-up.
 
 on:
   schedule:
-    - cron: '47 9 * * 0,3'
+    - cron: '47 9 * * *'
   workflow_dispatch:
     inputs:
       force_slug:
