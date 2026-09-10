@@ -55,7 +55,7 @@
     "metal prints, folio boxes, and digital collections are available.";
 
   var CONTACT = {
-    email: "mark@markandrewboudoir.com",
+    email: "mark@markandrewphotography.com",
     phone: "(574) 622-5109",
     book: BOOKING_URL,
     booking_calendar: BOOKING_CALENDAR,

@@ -60,7 +60,7 @@ Three people. One day. All for you.
 
 Pick a time that works. 10 minutes on the phone. Zero pressure.
 
-- **Email:** mark@markandrewboudoir.com
+- **Email:** mark@markandrewphotography.com
 - **Phone:** (574) 622-5109
 - **Booking calendar:** [www.markandrewboudoir.com](https://www.markandrewboudoir.com/#book)
 
