@@ -52,7 +52,7 @@
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     body {
       background: #0c1322;
       color: #eef0f5;
@@ -383,7 +383,7 @@
       .nav { padding: 14px 20px; }
       .nav-links { display: none; }
       .hero { padding: 120px 24px 40px; }
-      .hero h1 { font-size: 32px; }
+      .hero h1 { max-width: 100%; font-size: 30px; overflow-wrap: anywhere; text-wrap: balance; }
       .hero .eyebrow { font-size: 26px; }
       .direct-answer { margin: 0 24px 36px; padding: 22px 24px; }
       .content { padding: 0 24px 60px; }
