@@ -101,7 +101,8 @@
     {
       "slug": "working-with-male-boudoir-photographer",
       "scheduledDate": "2026-09-11",
-      "status": "queued"
+      "status": "published",
+      "publishedAt": "2026-09-11T10:40:02.697779+00:00"
     }
   ]
 }
