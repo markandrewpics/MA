@@ -103,6 +103,13 @@
       "scheduledDate": "2026-09-11",
       "status": "published",
       "publishedAt": "2026-09-11T10:40:02.697779+00:00"
+    },
+    {
+      "slug": "boudoir-over-50-south-bend",
+      "scheduledDate": "2026-09-13",
+      "status": "published",
+      "sourceSha256": "f1fed09b3b4483eca9303a11d73784b814a3dc46209742376d039c1ca978cae2",
+      "publishedAt": "2026-09-13T10:33:50.137196+00:00"
     }
   ]
 }
