@@ -114,8 +114,9 @@
     {
       "slug": "boudoir-hair-makeup-south-bend",
       "scheduledDate": "2026-09-16",
-      "status": "queued",
-      "sourceSha256": "efd22cb4a441e2c85193245b8f6a9d540b07b4eb7b87e54360ac23b5be657797"
+      "status": "published",
+      "sourceSha256": "efd22cb4a441e2c85193245b8f6a9d540b07b4eb7b87e54360ac23b5be657797",
+      "publishedAt": "2026-09-16T12:30:49.163554+00:00"
     }
   ]
 }
