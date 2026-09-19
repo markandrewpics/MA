@@ -26,7 +26,9 @@
   <!-- Self-hosted fonts — no third-party DNS lookups, no render-blocking request to Google -->
   <link rel="preload" href="/fonts/cormorant-garamond-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/jost-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/bebas-neue-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/fonts/fonts.css" />
+  <link rel="icon" type="image/png" href="/uploads/boudoir-logo-300.png" />
   <!-- AI agent discovery: points crawlers/assistants at the llms.txt guidance file -->
   <link rel="llms-txt" href="/llms.txt" />
 
@@ -772,6 +774,8 @@
       gap: 24px;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
+      /* Match horizontal padding so initial snapping cannot scroll and stop LCP. */
+      scroll-padding-inline: 4px;
       scroll-behavior: smooth;
       scrollbar-width: none;
       padding: 6px 4px 30px;
@@ -1129,7 +1133,7 @@
       gap: 50px;
       margin-bottom: 50px;
     }
-    .footer-brand img { height: 56px; mix-blend-mode: screen; margin-bottom: 18px; }
+    .footer-brand img { width: auto; height: 56px; mix-blend-mode: screen; margin-bottom: 18px; }
     .footer-brand p {
       font-size: 13px;
       line-height: 1.7;
@@ -1161,7 +1165,7 @@
       font-size: 10.5px;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      opacity: 0.4;
+      opacity: 0.55;
     }
 
     /* RESPONSIVE */
@@ -1433,7 +1437,7 @@
 <body>
 
   <nav class="nav">
-    <a href="/" class="nav-logo"><img src="/uploads/Boudoir PNG.png" alt="Mark Andrew Boudoir" /></a>
+    <a href="/" class="nav-logo"><img src="/uploads/boudoir-logo-300.png" alt="Mark Andrew Boudoir" width="300" height="182" /></a>
     <div class="nav-links">
       <a href="#story" class="nav-link">About</a>
       <a href="#gallery" class="nav-link">Gallery</a>
@@ -1445,12 +1449,12 @@
 
   <header class="hero">
     <div class="hero-image">
-      <picture><source type="image/avif" srcset="/uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-400.avif 400w, /uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-800.avif 800w, /uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-1200.avif 1200w, /uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-2000.avif 2000w" sizes="100vw" /><source type="image/webp" srcset="/uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-400.webp 400w, /uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-800.webp 800w, /uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-1200.webp 1200w, /uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-2000.webp 2000w" sizes="100vw" /><img src="/uploads/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in.jpg" alt="Luxury boudoir portrait — fur coat with city skyline, Mishawaka, Indiana"  fetchpriority="high" decoding="async" /></picture>
+      <picture><source type="image/avif" srcset="/uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-400.avif 400w, /uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-800.avif 800w, /uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-1200.avif 1200w, /uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-2000.avif 2000w" sizes="100vw" /><source type="image/webp" srcset="/uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-400.webp 400w, /uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-800.webp 800w, /uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-1200.webp 1200w, /uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-2000.webp 2000w" sizes="100vw" /><img src="/uploads/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in.jpg" alt="Luxury boudoir portrait — fur coat with city skyline, Mishawaka, Indiana"  fetchpriority="high" loading="eager" decoding="async" width="1600" height="1066" /></picture>
     </div>
     <div class="hero-content">
       <div class="hero-content-inner">
         <div class="eyebrow">Studios in <strong style="color:inherit;font-weight:500;">South Bend, IN</strong> + <strong style="color:inherit;font-weight:500;">Beaufort, SC</strong> · Luxury boudoir &amp; glamour</div>
-        <h1 class="fade-in">
+        <h1>
           Be photographed the way you
           <span class="script">want to be remembered.</span>
         </h1>
@@ -1899,7 +1903,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <img src="/uploads/Boudoir PNG.png" alt="Mark Andrew Boudoir" />
+        <img src="/uploads/boudoir-logo-300.png" alt="Mark Andrew Boudoir" width="300" height="182" />
         <p>Award-winning luxury boudoir photography. Full-day sessions, head-to-toe posing direction, and same-day reveals.</p>
       </div>
       <div class="footer-col">
