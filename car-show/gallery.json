@@ -1,0 +1,12 @@
+{
+  "preview": true,
+  "entryFormUrl": "",
+  "photos": [
+    {"id":"001","title":"Classic coupe","color":"Silver","src":"assets/car-placeholder.svg","sample":true},
+    {"id":"002","title":"Weekend cruiser","color":"Blue","src":"assets/car-placeholder.svg","sample":true},
+    {"id":"003","title":"Garage favorite","color":"Gold","src":"assets/car-placeholder.svg","sample":true},
+    {"id":"004","title":"Sunday driver","color":"Green","src":"assets/car-placeholder.svg","sample":true},
+    {"id":"005","title":"American classic","color":"Red","src":"assets/car-placeholder.svg","sample":true},
+    {"id":"006","title":"Pride & joy","color":"Silver","src":"assets/car-placeholder.svg","sample":true}
+  ]
+}
