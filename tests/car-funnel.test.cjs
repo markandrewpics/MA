@@ -20,7 +20,7 @@ test('signup saves membership and redirects; repeat signup does not create a sec
  let p=null,created=0,notes=0;
  const api=async(path,method,body)=>{
   if(path.startsWith('/contacts/search/duplicate'))return {contact:p&&structuredClone(p)};
-  if(path==='/contacts/upsert'){created++;p={...body,id:'newcontact12345',tags:[]};return {contact:structuredClone(p)};}
+  if(path==='/contacts/'){assert(body.tags.includes('car people'));created++;p={...body,id:'newcontact12345'};return {contact:structuredClone(p)};}
   if(path==='/contacts/newcontact12345')return {contact:structuredClone(p)};
   if(path.endsWith('/notes')){notes++;return {id:'note'};}
   if(path.endsWith('/tags')){p.tags=[...new Set([...p.tags,...body.tags])];return {tags:p.tags};}
@@ -28,7 +28,7 @@ test('signup saves membership and redirects; repeat signup does not create a sec
  };
  const s=createService({...c,mode:'off'},api,()=>time);
  const input={name:'Owner',email:c.testEmail,phone:c.testPhone,consent:true};
- const result=await s.signup(input);assert(result.ok);assert(result.redirect.startsWith('https://www.markandrewboudoir.com/car-show/#entry='));assert(p.tags.includes(TAG.subscriber));assert(!p.tags.includes(TAG.confirmed));
+ const result=await s.signup(input);assert(result.ok);assert(result.redirect.startsWith('https://www.markandrewboudoir.com/car-show/#entry='));assert(p.tags.includes(TAG.subscriber));assert(p.tags.includes(TAG.audience));assert(!p.tags.includes(TAG.confirmed));
  await s.signup(input);assert.equal(created,1);assert.equal(notes,1);
 });
 test('conflicting phone/email identities do not overwrite a contact',async()=>{
