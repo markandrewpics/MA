@@ -39,7 +39,7 @@ function render() {
     button.type = 'button'; button.className = 'photo-card';
     button.setAttribute('aria-label', `View ${p.title}, ${p.color}, photo ${p.id}${p.sample ? ', sample' : ''}`);
     const img = document.createElement('img');
-    img.src = safeLocalPath(p.src); img.alt = p.sample ? 'Car illustration placeholder' : `${p.color} ${p.title}`; img.loading = 'lazy'; img.width = 600; img.height = 400;
+    img.src = safeLocalPath(p.thumbnail || p.src); img.alt = p.sample ? 'Car illustration placeholder' : `${p.color} ${p.title}`; img.loading = 'lazy'; img.width = 600; img.height = 400;
     if(p.sample) img.style.filter = `hue-rotate(${Number(p.id)*25-25}deg)`;
     const meta = document.createElement('span'); meta.className = 'card-meta';
     const copy = document.createElement('span');
@@ -56,8 +56,8 @@ search.addEventListener('input', render);
 fetch('gallery.json', {cache:'no-store'}).then(r => { if(!r.ok) throw Error('Gallery unavailable'); return r.json(); }).then(data => {
   photos = data.photos.filter(p => safeLocalPath(p.src));
   if(!data.preview) {
-    document.querySelector('.preview').hidden = true;
-    document.querySelector('.gallery-note').textContent = photos.length ? 'Your show photo is free. No giveaway entry required.' : 'The show gallery is on its way. Check back after the event.';
+    document.querySelector('.preview')?.setAttribute('hidden', '');
+    document.querySelector('.gallery-note').textContent = photos.length ? 'A few photographs of my dad and his cars. Car-show photos will be added here after the event.' : 'The show gallery is on its way. Check back after the event.';
   }
   if(!data.preview && data.entryFormUrl) {
     const url = new URL(data.entryFormUrl);
