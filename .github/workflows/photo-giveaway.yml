@@ -1,0 +1,30 @@
+name: Photo giveaway messages
+on:
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+  workflow_dispatch:
+    inputs:
+      kind:
+        description: Message batch (gallery only after photo release)
+        type: choice
+        options: [reminders, gallery]
+        default: reminders
+permissions:
+  contents: read
+concurrency:
+  group: photo-giveaway-messages
+  cancel-in-progress: false
+jobs:
+  send:
+    if: vars.PHOTO_AUTOMATION_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: .github/scripts
+      - name: Check status and send only eligible campaign messages
+        env:
+          PHOTO_ADMIN_SECRET: ${{ secrets.PHOTO_ADMIN_SECRET }}
+          PHOTO_MESSAGE_KIND: ${{ inputs.kind || 'reminders' }}
+        run: python3 .github/scripts/photo_giveaway.py

@@ -139,5 +139,10 @@
       "source": "/groceries/api/:path*",
       "destination": "https://family-table-weekly.markandrewmusic.chatgpt.site/api/:path*"
     }
-  ]
+  ],
+  "functions": {
+    "api/car-funnel/index.js": {
+      "maxDuration": 60
+    }
+  }
 }

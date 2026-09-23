@@ -7,3 +7,5 @@ dialog{width:min(1000px,94vw);max-height:92dvh;background:var(--bg);color:var(--
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 
 .coming-soon{text-align:center;font-size:clamp(32px,4vw,52px);line-height:1.15;max-width:850px;margin:0 auto}.entry-card #confirmation-status{margin-top:18px;font-size:15px}.signup-page{padding-bottom:0}.signup-shell{width:min(520px,calc(100% - 32px));margin:24px auto 40px}.signup-shell>.logo{margin:0 auto 20px;width:165px;height:91px}.signup-shell h1{font-size:48px}.signup-shell .eyebrow{color:#765824;font-size:10px}.consent{display:flex;gap:10px;font-size:13px;line-height:1.5;font-weight:400;margin:20px 0}.consent input{width:19px;height:19px;flex-shrink:0;margin:2px 0}.signup-shell .button{width:100%}
+
+.honey{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}#signup-status{color:#9d2222}.entry-card .button:disabled{cursor:wait}

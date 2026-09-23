@@ -1,0 +1,23 @@
+'use strict';
+(async()=>{
+ const form=document.querySelector('#photo-signup');
+ const button=document.querySelector('#confirm-entry');
+ async function call(body){const r=await fetch('/api/car-funnel',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});const d=await r.json().catch(()=>({error:'Please try again shortly.'}));if(!r.ok)throw Error(d.error||'Please try again shortly.');return d;}
+ if(form){
+  form.addEventListener('submit',async e=>{e.preventDefault();if(!form.reportValidity())return;const submit=form.querySelector('button');const message=document.querySelector('#signup-status');submit.disabled=true;submit.textContent='Saving…';message.textContent='';
+   try{const f=new FormData(form);const data=await call({action:'signup',name:f.get('name'),email:f.get('email'),phone:f.get('phone'),consent:f.get('consent')==='on',website:f.get('website')});
+    const destination=new URL(data.redirect);if(destination.origin!==location.origin&&destination.origin!=='https://www.markandrewboudoir.com')throw Error('Please ask Mark for help with your link.');location.assign(destination.href);
+   }catch(err){message.textContent=err.message;submit.disabled=false;submit.textContent='Confirm';}
+  });
+ }
+ if(button){
+  const status=document.querySelector('#confirmation-status'),description=document.querySelector('#confirmation-intro');
+  const params=new URLSearchParams(location.hash.slice(1)),token=params.get('entry');
+  if(token)document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const target=document.querySelector(a.getAttribute('href'));if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth'});}}));
+  if(params.get('view')==='gallery')document.querySelector('#gallery')?.scrollIntoView();
+  const show=(data)=>{button.disabled=data.confirmed||!data.open;button.textContent=data.confirmed?'You’re entered!':'Confirm my entry';status.textContent=data.confirmed?'Your entry is confirmed. We’ll let you know the result on September 28.':data.open?'One tap confirms your entry. Your photo is free either way.':'The drawing is not accepting entries right now. Your photo is still free.';};
+  if(!token){description.textContent='Open the personal link from your text or email to confirm your entry.';status.replaceChildren();const a=document.createElement('a');a.href='signup/';a.textContent='Haven’t signed up? Get your free photo here.';status.append(a);button.disabled=true;return;}
+  try{show(await call({action:'status',token}));}catch(err){status.textContent=err.message;button.disabled=true;}
+  button.addEventListener('click',async()=>{button.disabled=true;button.textContent='Confirming…';try{const result=await call({action:'confirm',token});show({...result,open:true});}catch(err){status.textContent=err.message;button.disabled=false;button.textContent='Try confirming again';}});
+ }
+})();
