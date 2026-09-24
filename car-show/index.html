@@ -6,8 +6,8 @@
 <meta property="og:title" content="Enter to win a free photoshoot — $780 value"><meta property="og:image" content="https://www.markandrewboudoir.com/car-show/assets/6X0A5963.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260923-mobile3">
-<meta name="referrer" content="no-referrer"><script src="funnel.js?v=20260923-mobile2" defer></script></head><body>
+<link rel="stylesheet" href="styles.css?v=20260923-confirm-popup">
+<meta name="referrer" content="no-referrer"><script src="funnel.js?v=20260923-confirm-popup" defer></script></head><body>
 <a class="skip" href="#giveaway">Skip to giveaway</a>
 <header class="wrap"><a href="#top" aria-label="Mark Andrew Photography home"><img class="logo" src="assets/logo.png" alt="Mark Andrew Photography" width="2048" height="1128"></a><nav aria-label="Main navigation"><a href="#gallery">Photo gallery</a><a href="#about">Meet Mark</a></nav></header>
 <main id="top">
@@ -16,14 +16,14 @@
 <div class="hero-shade"></div>
 <div class="hero-content wrap"><h1 id="hero-title"><span class="intro">ENTER TO WIN</span><span>FREE</span><span class="gold">PHOTOSHOOT</span></h1>
 <div class="hero-details"><p class="hero-offer"><span>Your car, your legacy</span><span>A full photo shoot plus an 8×12 fine art print</span><strong>$780 value</strong></p>
-<a class="button" href="#giveaway">Tap to confirm your entry</a><p class="announcement">Winner announced <strong>September 28</strong></p></div></div></section>
+<button class="button" data-confirm-entry data-label="Tap to confirm your entry" type="button" disabled>Tap to confirm your entry</button><p class="announcement">Winner announced <strong>September 28</strong></p></div></div></section>
 <section id="giveaway" class="wrap giveaway section">
 <div class="prize"><h2><em>Let’s put you<br>in the picture.</em></h2><p>A full photoshoot built around you and your car. Bring your wife or partner, or make it all about you and your favorite ride.</p><p class="prize-summary"><span>The winner receives a photo shoot and</span><strong>one 8×12 fine art print, $780 value.</strong></p><p class="purchase-note">Additional images may be purchased, but no purchase is required to win.</p>
 <div class="date"><span>WINNER ANNOUNCEMENT</span><strong>September 28</strong><p>Noon Eastern</p></div></div>
 <div class="entry-actions"><p id="confirmation-intro">Tap to confirm your entry.</p><button class="button" id="confirm-entry" data-confirm-entry type="button" disabled>Tap to confirm my entry</button><p id="confirmation-status" role="status">Open your personal link to confirm your entry.</p><p class="fine">Your gallery photo is free whether or not you enter the giveaway.</p></div></section>
 <section id="gallery" class="gallery-section"><div class="wrap section"><h2 class="coming-soon">Essenhaus Classic Car Cruise in Gallery Coming Soon</h2></div></section>
 <section id="about" class="wrap about section"><div class="portrait"><img src="assets/mark-andrew.jpg" alt="Mark Andrew Boughton, photographer and Marine Corps veteran" width="700" height="850" loading="lazy"></div><div class="bio"><h2>Hey, I’m Mark.</h2><p class="bio-lead">Photographer. Marine Corps veteran.<br>And the guy who wants to hear about your car.</p><p>I’m Mark Andrew Boughton, the photographer behind Mark Andrew Photography. I’ve been running my studio since 2019, and I work with people here in South Bend and throughout Michiana.</p><p>The man in these photographs is my dad. I’ve watched him work so hard to provide for our family. Seeing him own a car that means so much to him means something to me, too.</p><p>I wanted to photograph more than his Mustang. I wanted a photograph of him that I can hold onto forever—a reminder of who he is and this part of his life. I’d love to make something like that for you and your family.</p><p>Maybe it’s the car you spent years restoring. Maybe it’s a portrait with your wife beside it. You don’t need to know how to pose. I’ll guide you through the photographs so you can enjoy the experience.</p><p>If you see me at the show, come say hello. I’d love to meet you.</p><button class="button" data-confirm-entry data-label="Confirm my entry to win" type="button" disabled>Confirm my entry to win</button><p class="entry-feedback" data-entry-feedback role="status"></p></div></section>
-</main><footer class="wrap"><span>© <span id="year">2026</span> Mark Andrew Photography</span><a href="mailto:mark@markandrewphotography.com">mark@markandrewphotography.com</a></footer>
-<div class="mobile-bar"><a href="#gallery">Photo gallery</a><a href="#giveaway">Confirm my entry ↗</a></div>
+</main><dialog id="entry-success" aria-labelledby="entry-success-title"><button class="close" type="button" data-close-entry aria-label="Close confirmation">×</button><h2 id="entry-success-title">You’re entered!</h2><p>Your entry is confirmed. Winner announced September 28 at noon Eastern.</p><div class="follow-links"></div><button class="button" type="button" data-close-entry>Back to the photos</button></dialog><footer class="wrap"><span>© <span id="year">2026</span> Mark Andrew Photography</span><a href="mailto:mark@markandrewphotography.com">mark@markandrewphotography.com</a></footer>
+<div class="mobile-bar"><a href="#gallery">Photo gallery</a><button data-confirm-entry data-label="Confirm my entry" type="button" disabled>Confirm my entry</button></div>
 
 </body></html>

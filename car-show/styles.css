@@ -48,3 +48,13 @@ dialog{width:min(1000px,94vw);max-height:92dvh;background:var(--bg);color:var(--
 
 .prize-summary span,.prize-summary strong{display:block}
 .prize-summary strong{white-space:nowrap;font-size:clamp(14px,4vw,18px)}
+
+#entry-success{width:min(520px,calc(100% - 32px));padding:52px 28px 32px;text-align:center;border:1px solid var(--accent);border-radius:8px}
+#entry-success h2{font-size:clamp(48px,12vw,68px);color:var(--accent)}
+#entry-success p{font-size:17px}
+#entry-success .close{border:0;cursor:pointer}
+.follow-links{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:24px 0}
+.follow-links:empty{display:none}
+.follow-links a{border:1px solid var(--line);padding:10px 18px;border-radius:3px}
+.mobile-bar button{border:0;border-radius:0;background:var(--accent);color:var(--bg);font:600 15px Jost,Arial,sans-serif;padding:16px 10px;cursor:pointer}
+.mobile-bar button:disabled{cursor:default}
