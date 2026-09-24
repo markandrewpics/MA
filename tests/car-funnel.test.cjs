@@ -61,3 +61,31 @@ test('a short-link failure sends no broken SMS and marks it for review',async()=
  assert((await createService(c,api,()=>time).sendOnce(contact.id,'welcome','SMS')).review);
  assert.equal(m.messages.length,0);
 });
+
+for(const hours of [48,24])test(`${hours}-hour batch sends SMS and email once to unconfirmed subscribers`,async()=>{
+ const m=mock();const api=async(path,method,body)=>path==='/contacts/search'?{contacts:[m.get()],total:1}:m.api(path,method,body);
+ const s=createService(c,api,()=>time+(48-hours)*3600000);
+ assert.equal((await s.run(`reminder${hours}`)).sent,2);
+ assert.deepEqual(m.messages.map(p=>p.type),['SMS','Email']);
+ assert.match(m.messages[1].subject,new RegExp(`${hours} hours left`));
+ assert.equal((await s.run(`reminder${hours}`)).sent,0);
+ assert.equal(m.messages.length,2);
+});
+test('confirmation between the 48-hour and 24-hour batches stops both later channels',async()=>{
+ const m=mock();const api=async(path,method,body)=>path==='/contacts/search'?{contacts:[m.get()],total:1}:m.api(path,method,body);
+ let now=time;const s=createService(c,api,()=>now);
+ assert.equal((await s.run('reminder48')).sent,2);
+ await s.confirm(makeToken(contact.id,c,time));now+=86400000;
+ assert.equal((await s.run('reminder24')).sent,0);
+ assert.equal(m.messages.length,2);
+});
+test('confirmation after reminder SMS blocks the email in that same batch',async()=>{
+ const m=mock();const api=async(path,method,body)=>{
+  if(path==='/contacts/search')return {contacts:[m.get()],total:1};
+  const r=await m.api(path,method,body);
+  if(path==='/conversations/messages'&&body.type==='SMS')m.get().tags.push(TAG.confirmed);
+  return r;
+ };
+ const s=createService(c,api,()=>time);assert.equal((await s.run('reminder48')).sent,1);
+ assert.deepEqual(m.messages.map(p=>p.type),['SMS']);
+});
