@@ -8,7 +8,7 @@ test('required consent and phone validated; mobile normalized',()=>{assert.equal
 test('48/24 reminder windows are absolute dates, not signup delays',()=>{assert(reminderDue(c,48,time));assert(!reminderDue(c,24,time));assert(reminderDue(c,24,time+86400000));assert(!reminderDue(c,48,time+86400000));assert(!reminderDue(c,24,time+2*86400000));});
 test('confirmed subscribers get gallery delivery but no entry reminders',()=>{const p={...contact,tags:[...contact.tags,TAG.confirmed]};assert(!eligible(p,c,'reminder48',time));assert(eligible(p,c,'gallery',time));});
 test('test mode excludes everyone except exact approved email and phone',()=>{assert(eligible(contact,c,'welcome',time));assert(!eligible({...contact,email:'other@example.com'},c,'welcome',time));assert(!eligible({...contact,phone:'+15745551235'},c,'welcome',time));assert(!eligible(contact,{...c,mode:'off'},'welcome',time));});
-function mock(initial=contact){let p=structuredClone(initial),messages=[],notes=[],fail=false;const api=async(path,method,body)=>{if(path===`/contacts/${p.id}`)return {contact:structuredClone(p)};if(path.endsWith('/tags')){p.tags=[...new Set([...p.tags,...body.tags])];return {tags:p.tags};}if(path.endsWith('/notes')){notes.push(body);return {id:'note'};}if(path==='/conversations/messages'){messages.push(body);if(fail)throw Error('ambiguous timeout');return {messageId:'msg123'};}throw Error('Unexpected API request '+path);};return {api,get:()=>p,messages,notes,setFail:()=>fail=true};}
+function mock(initial=contact){let p=structuredClone(initial),messages=[],notes=[],fail=false;const api=async(path,method,body)=>{if(path===`/contacts/${p.id}`)return {contact:structuredClone(p)};if(path.endsWith('/tags')){p.tags=[...new Set([...p.tags,...body.tags])];return {tags:p.tags};}if(path.endsWith('/notes')){notes.push(body);return {id:'note'};}if(path==='/links/'){return {link:{fieldKey:'{{trigger_link.testShortLink123}}'}};}if(path==='/conversations/messages'){messages.push(body);if(fail)throw Error('ambiguous timeout');return {messageId:'msg123'};}throw Error('Unexpected API request '+path);};return {api,get:()=>p,messages,notes,setFail:()=>fail=true};}
 test('status never enters a contact; confirm persists once and repeats safely',async()=>{const m=mock(),s=createService(c,m.api,()=>time),t=makeToken(contact.id,c,time);assert.equal((await s.status(t)).confirmed,false);assert(!m.get().tags.includes(TAG.confirmed));assert.equal((await s.confirm(t)).confirmed,true);assert.equal((await s.confirm(t)).already,true);assert.equal(m.notes.length,1);});
 test('closed campaign rejects new confirmation while preserving prior entries',async()=>{const m=mock(),s=createService(c,m.api,()=>time+3*86400000);await assert.rejects(()=>s.confirm(makeToken(contact.id,c,time)),/closed/);assert(!m.get().tags.includes(TAG.confirmed));});
 test('DND blocks welcome message',async()=>{const m=mock({...contact,dnd:true}),s=createService(c,m.api,()=>time);await s.sendOnce(contact.id,'welcome','SMS');assert.equal(m.messages.length,0);});
@@ -43,4 +43,21 @@ for(const field of ['email','phone'])test(`changed ${field} gives specific guida
  const s=createService({...c,mode:'off'},api,()=>time);
  await assert.rejects(()=>s.signup({name:'Owner',email:c.testEmail,phone:c.testPhone,consent:true}),field==='email'?/email address you used before/:/mobile number you used before/);
  assert.equal(writes,0);
+});
+
+test('SMS uses a GHL trigger link that retains the personal entry destination',async()=>{
+ const m=mock();let destination;const api=async(path,method,body)=>{
+  if(path==='/links/'){destination=body.redirectTo;return {link:{fieldKey:'{{trigger_link.short123}}'}};}
+  return m.api(path,method,body);
+ };
+ const s=createService(c,api,()=>time);assert((await s.sendOnce(contact.id,'welcome','SMS')).sent);
+ assert.equal(readToken(destination.split('#entry=')[1],c),contact.id);
+ assert(m.messages[0].message.includes('{{trigger_link.short123}}'));
+ assert(!m.messages[0].message.includes('#entry='));
+ assert(!m.get().tags.includes(TAG.confirmed));
+});
+test('a short-link failure sends no broken SMS and marks it for review',async()=>{
+ const m=mock();const api=async(path,method,body)=>{if(path==='/links/')throw Error('Unavailable');return m.api(path,method,body);};
+ assert((await createService(c,api,()=>time).sendOnce(contact.id,'welcome','SMS')).review);
+ assert.equal(m.messages.length,0);
 });
