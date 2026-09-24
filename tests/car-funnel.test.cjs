@@ -1,10 +1,11 @@
 const {test}=require('node:test');const assert=require('node:assert/strict');
 const {config,makeToken,readToken,validateSignup,eligible,reminderDue,TAG,createService}=require('../lib/car-funnel/core.cjs');
+const vehicle={carYear:'1967',carMakeModel:'Ford Mustang GT',carColor:'Red',carCondition:'Show-ready / restored',carDetails:'Restored with my dad.'};
 const time=Date.parse('2026-09-26T16:00:00Z');
 const c={...config({}),location:'location',key:'test-secret-32-characters-at-least-long',announcement:'2026-09-28T16:00:00Z',signupOpen:true,mode:'test',testEmail:'owner@example.com',testPhone:'+15745551234'};
 const contact={id:'contact123456',locationId:'location',name:'Owner',email:c.testEmail,phone:c.testPhone,tags:[TAG.subscriber,TAG.consent,TAG.test]};
 test('encrypted link has no raw contact ID; expiry and tampering rejected',()=>{const token=makeToken(contact.id,c,time);assert(!token.includes(contact.id));assert.equal(readToken(token,c,time),contact.id);assert.throws(()=>readToken(token.slice(0,40)+'zz'+token.slice(42),c,time));assert.throws(()=>readToken(token,c,time+121*86400000));});
-test('required consent and phone validated; mobile normalized',()=>{assert.equal(validateSignup({name:'Owner',email:'OWNER@EXAMPLE.COM',phone:'574-555-1234',consent:true}).phone,c.testPhone);assert.throws(()=>validateSignup({name:'Owner',email:c.testEmail,phone:'555',consent:true}));assert.throws(()=>validateSignup({name:'Owner',email:c.testEmail,phone:c.testPhone,consent:false}));});
+test('required consent and phone validated; mobile normalized',()=>{assert.equal(validateSignup({...vehicle,name:'Owner',email:'OWNER@EXAMPLE.COM',phone:'574-555-1234',consent:true}).phone,c.testPhone);assert.throws(()=>validateSignup({...vehicle,name:'Owner',email:c.testEmail,phone:'555',consent:true}));assert.throws(()=>validateSignup({...vehicle,name:'Owner',email:c.testEmail,phone:c.testPhone,consent:false}));});
 test('48/24 reminder windows are absolute dates, not signup delays',()=>{assert(reminderDue(c,48,time));assert(!reminderDue(c,24,time));assert(reminderDue(c,24,time+86400000));assert(!reminderDue(c,48,time+86400000));assert(!reminderDue(c,24,time+2*86400000));});
 test('confirmed subscribers get gallery delivery but no entry reminders',()=>{const p={...contact,tags:[...contact.tags,TAG.confirmed]};assert(!eligible(p,c,'reminder48',time));assert(eligible(p,c,'gallery',time));});
 test('test mode excludes everyone except exact approved email and phone',()=>{assert(eligible(contact,c,'welcome',time));assert(!eligible({...contact,email:'other@example.com'},c,'welcome',time));assert(!eligible({...contact,phone:'+15745551235'},c,'welcome',time));assert(!eligible(contact,{...c,mode:'off'},'welcome',time));});
@@ -27,13 +28,13 @@ test('signup saves membership and redirects; repeat signup does not create a sec
   throw Error('Unexpected request '+path);
  };
  const s=createService({...c,mode:'off'},api,()=>time);
- const input={name:'Owner',email:c.testEmail,phone:c.testPhone,consent:true};
+ const input={...vehicle,name:'Owner',email:c.testEmail,phone:c.testPhone,consent:true};
  const result=await s.signup(input);assert(result.ok);assert(result.redirect.startsWith('https://www.markandrewboudoir.com/car-show/#entry='));assert(p.tags.includes(TAG.subscriber));assert(p.tags.includes(TAG.audience));assert(!p.tags.includes(TAG.confirmed));
- await s.signup(input);assert.equal(created,1);assert.equal(notes,1);
+ await s.signup(input);assert.equal(created,1);assert.equal(notes,3);
 });
 test('conflicting phone/email identities do not overwrite a contact',async()=>{
  let writes=0;const api=async(path,method)=>{if(method)writes++;return {contact:{...contact,id:path.includes('email=')?'contactEmail123':'contactPhone123'}};};
- const s=createService(c,api,()=>time);await assert.rejects(()=>s.signup({name:'Owner',email:c.testEmail,phone:c.testPhone,consent:true}),/do not match the same saved contact/);assert.equal(writes,0);
+ const s=createService(c,api,()=>time);await assert.rejects(()=>s.signup({...vehicle,name:'Owner',email:c.testEmail,phone:c.testPhone,consent:true}),/do not match the same saved contact/);assert.equal(writes,0);
 });
 
 for(const field of ['email','phone'])test(`changed ${field} gives specific guidance without changing the saved contact`,async()=>{
@@ -41,7 +42,7 @@ for(const field of ['email','phone'])test(`changed ${field} gives specific guida
  const old={...contact,[field]:field==='email'?'previous@example.com':'+15745559876'};
  const api=async(path,method)=>{if(method)writes++;return {contact:old};};
  const s=createService({...c,mode:'off'},api,()=>time);
- await assert.rejects(()=>s.signup({name:'Owner',email:c.testEmail,phone:c.testPhone,consent:true}),field==='email'?/email address you used before/:/mobile number you used before/);
+ await assert.rejects(()=>s.signup({...vehicle,name:'Owner',email:c.testEmail,phone:c.testPhone,consent:true}),field==='email'?/email address you used before/:/mobile number you used before/);
  assert.equal(writes,0);
 });
 
@@ -92,6 +93,7 @@ test('confirmation after reminder SMS blocks the email in that same batch',async
 test('native workflow handoff saves verified links before enrollment and never sends directly',async()=>{
  let p=structuredClone(contact),readyBeforeLinks=false,messages=0;
  const api=async(path,method,body)=>{
+  if(path.endsWith('/notes'))return {id:'note'};
   if(path.startsWith('/contacts/search/duplicate'))return {contact:structuredClone(p)};
   if(path===`/contacts/${p.id}`){if(method==='PUT')p.customFields=body.customFields.map(f=>({id:f.id,value:f.field_value}));return {contact:structuredClone(p)};}
   if(path.endsWith('/tags')){if(body.tags.includes(TAG.nativeReady))readyBeforeLinks=!p.customFields?.length;p.tags=[...new Set([...p.tags,...body.tags])];return {};}
@@ -99,7 +101,7 @@ test('native workflow handoff saves verified links before enrollment and never s
   throw Error('Unexpected request '+path);
  };
  const service=createService({...c,nativeWorkflow:true},api,()=>time);
- const result=await service.signup({name:'Owner',email:c.testEmail,phone:c.testPhone,consent:true});
+ const result=await service.signup({...vehicle,name:'Owner',email:c.testEmail,phone:c.testPhone,consent:true});
  assert(result.ok);assert(p.tags.includes(TAG.nativeReady));assert.equal(readyBeforeLinks,false);assert.equal(messages,0);
  assert.equal((await service.run('reminder48')).skipped,'native-ghl-workflow');
  assert((await service.sendOnce(p.id,'welcome','SMS')).skipped);
@@ -108,11 +110,30 @@ test('native workflow handoff saves verified links before enrollment and never s
 test('native workflow never enrolls when personalized links fail readback',async()=>{
  const p=structuredClone(contact);let enrolled=false;
  const api=async(path,method,body)=>{
+  if(path.endsWith('/notes'))return {id:'note'};
   if(path.startsWith('/contacts/search/duplicate')||path===`/contacts/${p.id}`)return {contact:structuredClone(p)};
   if(path.endsWith('/tags')){if(body.tags.includes(TAG.nativeReady))enrolled=true;p.tags=[...new Set([...p.tags,...body.tags])];return {};}
   throw Error('Unexpected request '+path);
  };
  const service=createService({...c,nativeWorkflow:true},api,()=>time);
- await assert.rejects(()=>service.signup({name:'Owner',email:c.testEmail,phone:c.testPhone,consent:true}),/Personal links not saved/);
+ await assert.rejects(()=>service.signup({...vehicle,name:'Owner',email:c.testEmail,phone:c.testPhone,consent:true}),/Personal links not saved/);
+ assert.equal(enrolled,false);
+});
+
+test('vehicle details are required and bounded before any contact writes',async()=>{
+ const input={...vehicle,name:'Owner',email:c.testEmail,phone:c.testPhone,consent:true};
+ assert.deepEqual(validateSignup(input).vehicle,vehicle);
+ for(const bad of [{carYear:''},{carYear:'3020'},{carMakeModel:''},{carColor:''},{carCondition:'unknown'},{carDetails:'x'.repeat(1501)}]){
+  let calls=0;await assert.rejects(()=>createService(c,async()=>{calls++;},()=>time).signup({...input,...bad}),/Please/);assert.equal(calls,0);
+ }
+});
+test('vehicle note failure prevents workflow enrollment',async()=>{
+ let enrolled=false;
+ const api=async(path,method,body)=>{
+  if(path.startsWith('/contacts/search/duplicate'))return {contact:structuredClone(contact)};
+  if(path.endsWith('/notes')){assert.match(body.body,/1967/);assert.match(body.body,/Ford Mustang GT/);assert.match(body.body,/Restored with my dad/);throw Error('Note unavailable');}
+  if(path.endsWith('/tags'))enrolled=true;
+ };
+ await assert.rejects(()=>createService({...c,nativeWorkflow:true},api,()=>time).signup({...vehicle,name:'Owner',email:c.testEmail,phone:c.testPhone,consent:true}),/Note unavailable/);
  assert.equal(enrolled,false);
 });

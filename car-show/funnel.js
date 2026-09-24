@@ -11,7 +11,7 @@
  async function call(body){const r=await fetch('/api/car-funnel',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});const d=await r.json().catch(()=>({error:'Please try again shortly.'}));if(!r.ok)throw Error(d.error||'Please try again shortly.');return d;}
  if(form){
   form.addEventListener('submit',async e=>{e.preventDefault();if(!form.reportValidity())return;const submit=form.querySelector('button');const message=document.querySelector('#signup-status');submit.disabled=true;submit.textContent='Saving…';message.textContent='';
-   try{const f=new FormData(form);const data=await call({action:'signup',name:f.get('name'),email:f.get('email'),phone:f.get('phone'),consent:f.get('consent')==='on',website:f.get('website')});
+   try{const f=new FormData(form);const data=await call({action:'signup',name:f.get('name'),email:f.get('email'),phone:f.get('phone'),carYear:f.get('carYear'),carMakeModel:f.get('carMakeModel'),carColor:f.get('carColor'),carCondition:f.get('carCondition'),carDetails:f.get('carDetails'),consent:f.get('consent')==='on',website:f.get('website')});
     const destination=new URL(data.redirect);if(destination.origin!==location.origin&&destination.origin!=='https://www.markandrewboudoir.com')throw Error('Please ask Mark for help with your link.');location.assign(destination.href);
    }catch(err){message.textContent=err.message;submit.disabled=false;submit.textContent='Confirm';}
   });

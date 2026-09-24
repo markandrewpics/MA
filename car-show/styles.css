@@ -60,3 +60,6 @@ dialog{width:min(1000px,94vw);max-height:92dvh;background:var(--bg);color:var(--
 .mobile-bar button:disabled{cursor:default}
 
 .video-section{padding-bottom:80px;text-align:center}.video-section h2{font-size:clamp(42px,6vw,64px)}.video-player{aspect-ratio:16/9;margin:0 auto 22px;background:#080d11;border:1px solid var(--line);overflow:hidden}.video-player iframe{display:block;width:100%;height:100%;border:0}@media(max-width:680px){.video-section{padding-bottom:50px}}
+
+/* Vehicle details on the free-photo form. */
+.vehicle-details{border-top:1px solid #a7acb3;margin-top:28px;padding-top:24px}.vehicle-details h2{font-size:32px;margin-bottom:10px}.vehicle-details .fine{margin:0 0 20px}.vehicle-details select,.vehicle-details textarea{display:block;width:100%;padding:12px 14px;margin:7px 0 18px;border:1px solid #858d97;border-radius:2px;background:white;color:#162033;font:17px/1.5 Jost,Arial,sans-serif}.vehicle-details textarea{resize:vertical}.vehicle-details select:focus-visible,.vehicle-details textarea:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
