@@ -33,5 +33,14 @@ test('signup saves membership and redirects; repeat signup does not create a sec
 });
 test('conflicting phone/email identities do not overwrite a contact',async()=>{
  let writes=0;const api=async(path,method)=>{if(method)writes++;return {contact:{...contact,id:path.includes('email=')?'contactEmail123':'contactPhone123'}};};
- const s=createService(c,api,()=>time);await assert.rejects(()=>s.signup({name:'Owner',email:c.testEmail,phone:c.testPhone,consent:true}),/quick check/);assert.equal(writes,0);
+ const s=createService(c,api,()=>time);await assert.rejects(()=>s.signup({name:'Owner',email:c.testEmail,phone:c.testPhone,consent:true}),/do not match the same saved contact/);assert.equal(writes,0);
+});
+
+for(const field of ['email','phone'])test(`changed ${field} gives specific guidance without changing the saved contact`,async()=>{
+ let writes=0;
+ const old={...contact,[field]:field==='email'?'previous@example.com':'+15745559876'};
+ const api=async(path,method)=>{if(method)writes++;return {contact:old};};
+ const s=createService({...c,mode:'off'},api,()=>time);
+ await assert.rejects(()=>s.signup({name:'Owner',email:c.testEmail,phone:c.testPhone,consent:true}),field==='email'?/email address you used before/:/mobile number you used before/);
+ assert.equal(writes,0);
 });
