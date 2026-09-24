@@ -89,3 +89,30 @@ test('confirmation after reminder SMS blocks the email in that same batch',async
  const s=createService(c,api,()=>time);assert.equal((await s.run('reminder48')).sent,1);
  assert.deepEqual(m.messages.map(p=>p.type),['SMS']);
 });
+test('native workflow handoff saves verified links before enrollment and never sends directly',async()=>{
+ let p=structuredClone(contact),readyBeforeLinks=false,messages=0;
+ const api=async(path,method,body)=>{
+  if(path.startsWith('/contacts/search/duplicate'))return {contact:structuredClone(p)};
+  if(path===`/contacts/${p.id}`){if(method==='PUT')p.customFields=body.customFields.map(f=>({id:f.id,value:f.field_value}));return {contact:structuredClone(p)};}
+  if(path.endsWith('/tags')){if(body.tags.includes(TAG.nativeReady))readyBeforeLinks=!p.customFields?.length;p.tags=[...new Set([...p.tags,...body.tags])];return {};}
+  if(path==='/conversations/messages')messages++;
+  throw Error('Unexpected request '+path);
+ };
+ const service=createService({...c,nativeWorkflow:true},api,()=>time);
+ const result=await service.signup({name:'Owner',email:c.testEmail,phone:c.testPhone,consent:true});
+ assert(result.ok);assert(p.tags.includes(TAG.nativeReady));assert.equal(readyBeforeLinks,false);assert.equal(messages,0);
+ assert.equal((await service.run('reminder48')).skipped,'native-ghl-workflow');
+ assert((await service.sendOnce(p.id,'welcome','SMS')).skipped);
+});
+
+test('native workflow never enrolls when personalized links fail readback',async()=>{
+ const p=structuredClone(contact);let enrolled=false;
+ const api=async(path,method,body)=>{
+  if(path.startsWith('/contacts/search/duplicate')||path===`/contacts/${p.id}`)return {contact:structuredClone(p)};
+  if(path.endsWith('/tags')){if(body.tags.includes(TAG.nativeReady))enrolled=true;p.tags=[...new Set([...p.tags,...body.tags])];return {};}
+  throw Error('Unexpected request '+path);
+ };
+ const service=createService({...c,nativeWorkflow:true},api,()=>time);
+ await assert.rejects(()=>service.signup({name:'Owner',email:c.testEmail,phone:c.testPhone,consent:true}),/Personal links not saved/);
+ assert.equal(enrolled,false);
+});
