@@ -45,3 +45,6 @@ dialog{width:min(1000px,94vw);max-height:92dvh;background:var(--bg);color:var(--
  .entry-actions .button,.bio>.button{width:100%;padding-inline:12px}
  .bio>.button{margin-top:10px}
 }
+
+.prize-summary span,.prize-summary strong{display:block}
+.prize-summary strong{white-space:nowrap;font-size:clamp(14px,4vw,18px)}
