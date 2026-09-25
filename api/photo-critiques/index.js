@@ -34,10 +34,10 @@ module.exports=async(req,res)=>{
    if(claim&&claim.id!==record.id)throw new core.PublicError('You have already submitted this hour. Please try again later.',429);
    throttle('submit:'+req.headers['x-forwarded-for'],8,3600000);
    const images=await Promise.all(req.body.images.map(core.imageBytes));
-   if(!claim){try{await store.write(rateKey,{id:record.id});}catch(e){if(e.name==='BlobAlreadyExistsError')throw new core.PublicError('Please try again later.',429);throw e;}}
+   if(!claim){try{await store.write(rateKey,{id:record.id});}catch(e){const winner=await store.read(rateKey);if(winner?.id!==record.id)throw new core.PublicError('Please try again later.',429);}}
    record.images=[];
    for(let i=0;i<images.length;i++){const path='images/'+record.id+'/'+i+'.jpg';await store.image(path,images[i]);record.images.push({path,name:'photo-'+(i+1)+'.jpg'});}
-   try{await store.write('records/'+record.id+'.json',record);}catch(e){if(e.name!=='BlobAlreadyExistsError')throw e;}
+   try{await store.write('records/'+record.id+'.json',record);}catch(e){const saved=await store.read('records/'+record.id+'.json');if(!saved)throw e;}
    return res.status(200).json({ok:true,reference:record.id});
   }
   if(!core.isAdmin(req))throw new core.PublicError('Please sign in to review submissions.',401);
