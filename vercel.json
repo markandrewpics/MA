@@ -132,6 +132,19 @@
           "value": "0"
         }
       ]
+    },
+    {
+      "source": "/photo-critiques/review/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "private, no-store"
+        }
+      ]
     }
   ],
   "rewrites": [
@@ -142,6 +155,9 @@
   ],
   "functions": {
     "api/car-funnel/index.js": {
+      "maxDuration": 60
+    },
+    "api/photo-critiques/index.js": {
       "maxDuration": 60
     }
   }

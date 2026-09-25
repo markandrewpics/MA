@@ -4,3 +4,5 @@
 .github/blog-drafts/
 .github/scripts/
 .github/workflows/
+
+tests/

@@ -5,3 +5,6 @@ email-campaigns/
 .env.local
 .env.*.local
 /blog-drafts/
+
+node_modules/
+.env*
