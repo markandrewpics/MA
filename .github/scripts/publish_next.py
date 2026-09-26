@@ -20,6 +20,9 @@ The script is pure stdlib — no pip install needed in the workflow.
 """
 
 import json
+import re
+from render_hub import render_hub
+from update_sitemap import update_sitemap
 import os
 import shutil
 import struct
@@ -282,7 +285,7 @@ def render_article_schema(blog):
         "datePublished": blog["datePublished"],
     }
     if blog.get("heroImage"):
-        schema["image"] = f"https://blog.markandrewboudoir.com{blog['heroImage']}"
+        schema["image"] = f"https://www.markandrewboudoir.com{blog['heroImage']}"
     return f'<script type="application/ld+json">\n{json.dumps(schema, indent=2)}\n</script>'
 
 
@@ -318,12 +321,12 @@ def render_post_html(blog):
 """
 
     og_image_path = blog.get("heroImage") or blog.get("cardImage") or "/uploads/Boudoir PNG.png"
-    og_image_url = f"https://blog.markandrewboudoir.com{og_image_path}"
+    og_image_url = f"https://www.markandrewboudoir.com{og_image_path}"
 
     replacements = {
         "{{TITLE}}": escape(blog["title"]),
         "{{META_DESCRIPTION}}": escape(blog["metaDescription"]),
-        "{{CANONICAL}}": f"https://blog.markandrewboudoir.com/posts/{blog['slug']}/",
+        "{{CANONICAL}}": f"https://www.markandrewboudoir.com/posts/{blog['slug']}/",
         "{{OG_IMAGE}}": og_image_url,
         "{{BREADCRUMB_CATEGORY}}": escape(blog.get("breadcrumbCategory", blog["categoryLabel"])),
         "{{EYEBROW}}": escape(blog.get("eyebrow", "the journal")),
@@ -363,36 +366,18 @@ def inject_hub_card(blog):
     with open(HUB_FILE) as f:
         hub = f.read()
 
-    # The POSTS array always starts with `const POSTS = [` followed by entries.
-    # We want to insert right after the first entry's closing `},` line.
-    marker = "const POSTS = ["
-    idx = hub.find(marker)
-    if idx == -1:
-        log("FATAL: could not find POSTS array in hub")
-        sys.exit(1)
-
-    # Find the end of the first entry (the featured one) — first `},\n` after marker
-    first_entry_end = hub.find("},\n", idx)
-    if first_entry_end == -1:
-        log("FATAL: could not find end of first POSTS entry")
-        sys.exit(1)
-    insert_at = first_entry_end + len("},\n")
-
-    excerpt = blog["cardExcerpt"].replace("'", "\\'")
-    title = blog["cardTitle"].replace("'", "\\'")
-    new_card = f"""      {{
-        slug: '{blog['slug']}',
-        title: '{title}',
-        excerpt: '{excerpt}',
-        category: '{blog['category']}',
-        categoryLabel: '{blog['categoryLabel']}',
-        date: '{blog['cardDate']}',
-        image: '{blog['cardImage']}',
-        url: '/posts/{blog['slug']}/'
-      }},
-"""
-
-    new_hub = hub[:insert_at] + new_card + hub[insert_at:]
+    match = re.search(r'const POSTS = (\[[\s\S]*?\]);', hub)
+    if not match:
+        raise ValueError('Journal POSTS data missing')
+    posts = json.loads(match[1])
+    card = {"slug": blog["slug"], "title": blog["cardTitle"],
+            "excerpt": blog["cardExcerpt"], "category": blog["category"],
+            "categoryLabel": blog["categoryLabel"], "date": blog["cardDate"],
+            "image": blog["cardImage"], "url": f"/posts/{blog['slug']}/"}
+    posts = [post for post in posts if post.get("slug") != blog["slug"]]
+    posts.insert(1 if posts else 0, card)
+    data = json.dumps(posts, ensure_ascii=False, indent=2).replace("<", "\\u003c")
+    new_hub = render_hub(hub[:match.start(1)] + data + hub[match.end(1):])
     with open(HUB_FILE, "w") as f:
         f.write(new_hub)
     log(f"Inserted hub card for '{blog['slug']}'")
@@ -438,6 +423,7 @@ def main():
 
     # Inject hub card
     inject_hub_card(blog)
+    sitemap = update_sitemap(REPO_ROOT, [f"https://www.markandrewboudoir.com/posts/{slug}/", "https://www.markandrewboudoir.com/blog/"])
 
     # Mark entry as published in the queue
     now = datetime.now(timezone.utc).isoformat()
@@ -453,7 +439,8 @@ def main():
     subprocess.run(["git", "add",
                     str(out_path.relative_to(REPO_ROOT)),
                     str(HUB_FILE.relative_to(REPO_ROOT)),
-                    str(SCHEDULE_FILE.relative_to(REPO_ROOT))],
+                    str(SCHEDULE_FILE.relative_to(REPO_ROOT)),
+                    str(sitemap.relative_to(REPO_ROOT))],
                    check=True, cwd=REPO_ROOT)
     commit_msg = f"Auto-publish: {blog['title']}\n\nFired by scheduled GitHub Action."
     result = subprocess.run(

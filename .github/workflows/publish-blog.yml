@@ -39,6 +39,9 @@ jobs:
           git config user.name "Blog Bot"
           git config user.email "noreply@markandrewboudoir.com"
 
+      - name: Verify journal rendering
+        run: python .github/scripts/test_journal.py
+
       - name: Publish next queued post
         env:
           FORCE_SLUG: ${{ inputs.force_slug }}
