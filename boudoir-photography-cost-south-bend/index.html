@@ -624,7 +624,7 @@
 
   <header class="hero">
     <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="https://www.markandrewboudoir.com">The Journal</a>
+      <a href="https://www.markandrewboudoir.com/blog/">The Journal</a>
       <span style="opacity:0.4;">·</span>
       <span>Boudoir Cost Guide</span>
     </nav>
@@ -842,10 +842,31 @@
         <p>Let's talk wardrobe, color schemes, props you might wanna bring, and every detail of what to expect during the photoshoot. Including pricing and possible dates for your session. Pick a time below.</p>
       </div>
       <div class="calendar-embed">
-        <iframe src="https://link.disruptormarketing.io/widget/booking/b7eSmyInmj2pwqIQesEp" style="width: 100%; border: none; overflow: hidden;" scrolling="no" id="fvYFvYDs5pqNKk8pagtT_1777575600517" title="Book your consultation with Mark Andrew Boudoir"></iframe>
+        <iframe loading="lazy" src="https://link.disruptormarketing.io/widget/booking/b7eSmyInmj2pwqIQesEp" style="width: 100%; border: none; overflow: hidden;" scrolling="no" id="fvYFvYDs5pqNKk8pagtT_1777575600517" title="Book your consultation with Mark Andrew Boudoir"></iframe>
+        <p style="text-align:center;padding:16px;font-size:14px"><a href="https://link.disruptormarketing.io/widget/booking/b7eSmyInmj2pwqIQesEp" style="color:#0c1322;text-decoration:underline">Open the booking calendar in a separate page</a></p>
       </div>
     </section>
-    <script src="https://link.disruptormarketing.io/js/form_embed.js" type="text/javascript"></script>
+    <script>
+    (function () {
+      const frame = document.querySelector('.calendar-embed iframe');
+      function loadBookingScript() {
+        if (document.getElementById('booking-embed-script')) return;
+        const script = document.createElement('script');
+        script.id = 'booking-embed-script';
+        script.src = 'https://link.disruptormarketing.io/js/form_embed.js';
+        script.async = true;
+        document.body.appendChild(script);
+      }
+      if (frame && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(entries => {
+          if (entries.some(entry => entry.isIntersecting)) {
+            loadBookingScript(); observer.disconnect();
+          }
+        }, { rootMargin: '600px' });
+        observer.observe(frame);
+      } else if (frame) loadBookingScript();
+    })();
+    </script>
 
     <script>
       // Reliable scroll to #book even after iframe resizes
