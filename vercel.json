@@ -6,7 +6,17 @@
       "permanent": true
     },
     {
+      "source": "/portfolio/",
+      "destination": "https://www.markandrewboudoir.com/#gallery",
+      "permanent": true
+    },
+    {
       "source": "/about",
+      "destination": "https://www.markandrewboudoir.com/#story",
+      "permanent": true
+    },
+    {
+      "source": "/about/",
       "destination": "https://www.markandrewboudoir.com/#story",
       "permanent": true
     },
@@ -16,7 +26,17 @@
       "permanent": true
     },
     {
+      "source": "/contact/",
+      "destination": "https://www.markandrewboudoir.com/#book",
+      "permanent": true
+    },
+    {
       "source": "/how-to-prepare-boudoir-session",
+      "destination": "https://www.markandrewboudoir.com/posts/how-to-prepare-for-boudoir-session/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-prepare-boudoir-session/",
       "destination": "https://www.markandrewboudoir.com/posts/how-to-prepare-for-boudoir-session/",
       "permanent": true
     },
