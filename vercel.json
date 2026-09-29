@@ -1,19 +1,117 @@
 {
   "redirects": [
     {
+      "source": "/photo-critiques",
+      "destination": "https://markandrew.ai/image-critique",
+      "permanent": true
+    },
+    {
       "source": "/photo-critiques/",
-      "destination": "/image-critique",
-      "permanent": false
+      "destination": "https://markandrew.ai/image-critique",
+      "permanent": true
+    },
+    {
+      "source": "/photo-critiques/review",
+      "destination": "https://markandrew.ai/image-critique/review/",
+      "permanent": true
     },
     {
       "source": "/photo-critiques/review/",
-      "destination": "/image-critique/review/",
-      "permanent": false
+      "destination": "https://markandrew.ai/image-critique/review/",
+      "permanent": true
     },
     {
       "source": "/photo-critiques/:path*",
-      "destination": "/image-critique/:path*",
-      "permanent": false
+      "destination": "https://markandrew.ai/image-critique/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/image-critique",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.markandrewboudoir.com"
+        }
+      ],
+      "destination": "https://markandrew.ai/image-critique",
+      "permanent": true
+    },
+    {
+      "source": "/image-critique/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.markandrewboudoir.com"
+        }
+      ],
+      "destination": "https://markandrew.ai/image-critique",
+      "permanent": true
+    },
+    {
+      "source": "/image-critique/review",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.markandrewboudoir.com"
+        }
+      ],
+      "destination": "https://markandrew.ai/image-critique/review/",
+      "permanent": true
+    },
+    {
+      "source": "/image-critique/review/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.markandrewboudoir.com"
+        }
+      ],
+      "destination": "https://markandrew.ai/image-critique/review/",
+      "permanent": true
+    },
+    {
+      "source": "/image-critique",
+      "has": [
+        {
+          "type": "host",
+          "value": "markandrewboudoir.com"
+        }
+      ],
+      "destination": "https://markandrew.ai/image-critique",
+      "permanent": true
+    },
+    {
+      "source": "/image-critique/",
+      "has": [
+        {
+          "type": "host",
+          "value": "markandrewboudoir.com"
+        }
+      ],
+      "destination": "https://markandrew.ai/image-critique",
+      "permanent": true
+    },
+    {
+      "source": "/image-critique/review",
+      "has": [
+        {
+          "type": "host",
+          "value": "markandrewboudoir.com"
+        }
+      ],
+      "destination": "https://markandrew.ai/image-critique/review/",
+      "permanent": true
+    },
+    {
+      "source": "/image-critique/review/",
+      "has": [
+        {
+          "type": "host",
+          "value": "markandrewboudoir.com"
+        }
+      ],
+      "destination": "https://markandrew.ai/image-critique/review/",
+      "permanent": true
     },
     {
       "source": "/portfolio",
