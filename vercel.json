@@ -1,6 +1,16 @@
 {
   "redirects": [
     {
+      "source": "/photo-critiques/",
+      "destination": "/image-critique",
+      "permanent": false
+    },
+    {
+      "source": "/photo-critiques/review/",
+      "destination": "/image-critique/review/",
+      "permanent": false
+    },
+    {
       "source": "/photo-critiques/:path*",
       "destination": "/image-critique/:path*",
       "permanent": false
