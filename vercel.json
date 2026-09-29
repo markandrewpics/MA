@@ -1,44 +1,129 @@
 {
   "redirects": [
     {
+      "source": "/photo-critiques/:path*",
+      "destination": "/image-critique/:path*",
+      "permanent": false
+    },
+    {
       "source": "/portfolio",
       "destination": "https://www.markandrewboudoir.com/#gallery",
-      "permanent": true
+      "permanent": true,
+      "missing": [
+        {
+          "type": "host",
+          "value": "markandrew.ai"
+        },
+        {
+          "type": "host",
+          "value": "www.markandrew.ai"
+        }
+      ]
     },
     {
       "source": "/portfolio/",
       "destination": "https://www.markandrewboudoir.com/#gallery",
-      "permanent": true
+      "permanent": true,
+      "missing": [
+        {
+          "type": "host",
+          "value": "markandrew.ai"
+        },
+        {
+          "type": "host",
+          "value": "www.markandrew.ai"
+        }
+      ]
     },
     {
       "source": "/about",
       "destination": "https://www.markandrewboudoir.com/#story",
-      "permanent": true
+      "permanent": true,
+      "missing": [
+        {
+          "type": "host",
+          "value": "markandrew.ai"
+        },
+        {
+          "type": "host",
+          "value": "www.markandrew.ai"
+        }
+      ]
     },
     {
       "source": "/about/",
       "destination": "https://www.markandrewboudoir.com/#story",
-      "permanent": true
+      "permanent": true,
+      "missing": [
+        {
+          "type": "host",
+          "value": "markandrew.ai"
+        },
+        {
+          "type": "host",
+          "value": "www.markandrew.ai"
+        }
+      ]
     },
     {
       "source": "/contact",
       "destination": "https://www.markandrewboudoir.com/#book",
-      "permanent": true
+      "permanent": true,
+      "missing": [
+        {
+          "type": "host",
+          "value": "markandrew.ai"
+        },
+        {
+          "type": "host",
+          "value": "www.markandrew.ai"
+        }
+      ]
     },
     {
       "source": "/contact/",
       "destination": "https://www.markandrewboudoir.com/#book",
-      "permanent": true
+      "permanent": true,
+      "missing": [
+        {
+          "type": "host",
+          "value": "markandrew.ai"
+        },
+        {
+          "type": "host",
+          "value": "www.markandrew.ai"
+        }
+      ]
     },
     {
       "source": "/how-to-prepare-boudoir-session",
       "destination": "https://www.markandrewboudoir.com/posts/how-to-prepare-for-boudoir-session/",
-      "permanent": true
+      "permanent": true,
+      "missing": [
+        {
+          "type": "host",
+          "value": "markandrew.ai"
+        },
+        {
+          "type": "host",
+          "value": "www.markandrew.ai"
+        }
+      ]
     },
     {
       "source": "/how-to-prepare-boudoir-session/",
       "destination": "https://www.markandrewboudoir.com/posts/how-to-prepare-for-boudoir-session/",
-      "permanent": true
+      "permanent": true,
+      "missing": [
+        {
+          "type": "host",
+          "value": "markandrew.ai"
+        },
+        {
+          "type": "host",
+          "value": "www.markandrew.ai"
+        }
+      ]
     },
     {
       "source": "/",
@@ -49,7 +134,17 @@
         }
       ],
       "destination": "https://www.markandrewboudoir.com/blog",
-      "permanent": true
+      "permanent": true,
+      "missing": [
+        {
+          "type": "host",
+          "value": "markandrew.ai"
+        },
+        {
+          "type": "host",
+          "value": "www.markandrew.ai"
+        }
+      ]
     },
     {
       "source": "/:path(.*)",
@@ -60,7 +155,17 @@
         }
       ],
       "destination": "https://www.markandrewboudoir.com/:path",
-      "permanent": true
+      "permanent": true,
+      "missing": [
+        {
+          "type": "host",
+          "value": "markandrew.ai"
+        },
+        {
+          "type": "host",
+          "value": "www.markandrew.ai"
+        }
+      ]
     },
     {
       "source": "/",
@@ -72,7 +177,17 @@
         }
       ],
       "destination": "/index.md",
-      "permanent": false
+      "permanent": false,
+      "missing": [
+        {
+          "type": "host",
+          "value": "markandrew.ai"
+        },
+        {
+          "type": "host",
+          "value": "www.markandrew.ai"
+        }
+      ]
     }
   ],
   "headers": [
@@ -114,6 +229,16 @@
           "key": "Link",
           "value": "</sitemap.xml>; rel=\"describedby\"; type=\"application/xml\", </privacy-policy/>; rel=\"privacy-policy\", </terms-of-service/>; rel=\"terms-of-service\", </llms.txt>; rel=\"llms-txt\", </auth.md>; rel=\"auth-md\", </.well-known/agent-skills/index.json>; rel=\"agent-skills\"; type=\"application/json\""
         }
+      ],
+      "missing": [
+        {
+          "type": "host",
+          "value": "markandrew.ai"
+        },
+        {
+          "type": "host",
+          "value": "www.markandrew.ai"
+        }
       ]
     },
     {
@@ -122,6 +247,16 @@
         {
           "key": "Link",
           "value": "</sitemap.xml>; rel=\"describedby\"; type=\"application/xml\", </privacy-policy/>; rel=\"privacy-policy\", </terms-of-service/>; rel=\"terms-of-service\", </llms.txt>; rel=\"llms-txt\", </auth.md>; rel=\"auth-md\", </.well-known/agent-skills/index.json>; rel=\"agent-skills\"; type=\"application/json\""
+        }
+      ],
+      "missing": [
+        {
+          "type": "host",
+          "value": "markandrew.ai"
+        },
+        {
+          "type": "host",
+          "value": "www.markandrew.ai"
         }
       ]
     },
@@ -174,7 +309,7 @@
       ]
     },
     {
-      "source": "/photo-critiques/review/(.*)",
+      "source": "/image-critique/review/(.*)",
       "headers": [
         {
           "key": "X-Robots-Tag",

@@ -10,7 +10,7 @@ module.exports=async(req,res)=>{
   if(req.method==='GET'&&action==='health')return res.status(200).json({ready:!!((process.env.BLOB_READ_WRITE_TOKEN||process.env.BLOB_STORE_ID)&&(process.env.CRITIQUE_ADMIN_SECRET||process.env.PHOTO_ADMIN_SECRET))});
   if(!['GET','POST'].includes(req.method))return res.status(405).json({error:'Use GET or POST.'});
   if(req.method==='POST'){
-   const origins=(process.env.CRITIQUE_ALLOWED_ORIGINS||'https://www.markandrewboudoir.com,https://markandrewboudoir.com').split(',');
+   const origins=(process.env.CRITIQUE_ALLOWED_ORIGINS||'https://markandrew.ai,https://www.markandrew.ai,https://www.markandrewboudoir.com,https://markandrewboudoir.com').split(',');
    if(!origins.includes(req.headers.origin))throw new core.PublicError('Please use the submission page.',403);
    if(!String(req.headers['content-type']).startsWith('application/json'))throw new core.PublicError('Please reload the page.',415);
    if(!req.body||Buffer.byteLength(JSON.stringify(req.body))>3800000)throw new core.PublicError('These files are too large. Please choose smaller photographs.',413);
