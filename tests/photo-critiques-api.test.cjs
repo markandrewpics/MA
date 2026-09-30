@@ -6,3 +6,18 @@ async function request(method,action,body={},cookie,origin='https://www.markandr
 test('upload persists all photos and permissions; retry is idempotent; review requires authentication',async()=>{const bytes=await sharp({create:{width:20,height:20,channels:3,background:'#abcdef'}}).jpeg().toBuffer();const data='data:image/jpeg;base64,'+bytes.toString('base64');const id=crypto.randomUUID();const body={submissionId:id,name:'Synthetic QA',email:'qa@example.com',instagram:'test',rights:true,permission:true,editing:true,consentVersion:c.CONSENT,images:[{data},{data},{data}]};const uploaded=await request('POST','submit',body);assert.equal(uploaded.code,200);assert.equal(images.size,3);const saved=records.get('records/'+id+'.json');assert.equal(saved.consent.version,c.CONSENT);assert.equal(saved.consent.editing,c.EDITING);assert.equal(saved.consent.permission,c.PERMISSION);assert.deepEqual(saved.consent.acknowledgements,{rights:true,permission:true,editing:true});assert.equal((await request('POST','submit',body)).code,200);assert.equal(images.size,3);assert.equal((await request('GET','list')).code,401);assert.equal((await request('GET','image')).code,401);assert.equal((await request('POST','login',{code:'wrong'})).code,401);const login=await request('POST','login',{code:c.adminCode()});assert.equal(login.code,200);assert.match(login.headers['Set-Cookie'],/HttpOnly; Secure; SameSite=Strict/);const cookie=login.headers['Set-Cookie'].split(';')[0];assert.equal((await request('GET','list',{},cookie)).value.records.length,1);assert.equal((await request('POST','status',{id,status:'Archived'},cookie)).code,200);assert.equal(records.get('records/'+id+'.json').status,'Archived');assert.equal((await request('POST','submit',{...body,submissionId:crypto.randomUUID()})).code,429);});
 
 test('AI domain can authenticate; unrelated origins cannot post',async()=>{for(const origin of ['https://markandrew.ai','https://www.markandrew.ai'])assert.equal((await request('POST','login',{code:c.adminCode()},undefined,origin)).code,200);assert.equal((await request('POST','login',{code:c.adminCode()},undefined,'https://unrelated.example')).code,403);});
+
+ test('chosen access code replaces legacy code, stores only a salted hash and invalidates old sessions',async()=>{
+ const original=c.adminCode();
+ const login=await request('POST','login',{code:original});assert.equal(login.code,200);
+ const cookie=login.headers['Set-Cookie'].split(';')[0];
+ const code='synthetic-test-access-code';
+ assert.equal((await request('POST','change-access-code',{code})).code,401);
+ assert.equal((await request('POST','change-access-code',{code:'short'},cookie)).code,400);
+ assert.equal((await request('POST','change-access-code',{code},cookie)).code,200);
+ const saved=records.get('auth/review.json');assert.ok(saved.salt);assert.ok(saved.hash);assert.ok(!JSON.stringify(saved).includes(code));
+ assert.equal((await request('GET','list',{},cookie)).code,401);
+ assert.equal((await request('POST','login',{code:original})).code,401);
+ const fresh=await request('POST','login',{code});assert.equal(fresh.code,200);
+ assert.equal((await request('GET','list',{},fresh.headers['Set-Cookie'].split(';')[0])).code,200);
+ });

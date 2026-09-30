@@ -17,8 +17,9 @@ module.exports=async(req,res)=>{
   }
   if(action==='login'){
    throttle('login:'+req.headers['x-forwarded-for'],10,15*60000);
-   if(!core.equal(req.body.code,core.adminCode()))throw new core.PublicError('That access code is not correct.',401);
-   res.setHeader('Set-Cookie',`critique_session=${core.session()}; HttpOnly; Secure; SameSite=Strict; Path=/api/photo-critiques; Max-Age=28800`);
+   const access=await store.read('auth/review.json');
+   if(!await core.checkAccess(req.body.code,access))throw new core.PublicError('That access code is not correct.',401);
+   res.setHeader('Set-Cookie',`critique_session=${core.session(access?.version)}; HttpOnly; Secure; SameSite=Strict; Path=/api/photo-critiques; Max-Age=28800`);
    return res.status(200).json({ok:true});
   }
   if(action==='logout') {res.setHeader('Set-Cookie','critique_session=; HttpOnly; Secure; SameSite=Strict; Path=/api/photo-critiques; Max-Age=0');return res.status(200).json({ok:true});}
@@ -40,7 +41,14 @@ module.exports=async(req,res)=>{
    try{await store.write('records/'+record.id+'.json',record);}catch(e){const saved=await store.read('records/'+record.id+'.json');if(!saved)throw e;}
    return res.status(200).json({ok:true,reference:record.id});
   }
-  if(!core.isAdmin(req))throw new core.PublicError('Please sign in to review submissions.',401);
+  const access=await store.read('auth/review.json');
+  if(!core.isAdmin(req,access?.version))throw new core.PublicError('Please sign in to review submissions.',401);
+  if(action==='change-access-code'&&req.method==='POST'){
+   const next=await core.makeAccess(req.body.code);
+   await store.write('auth/review.json',next,true);
+   res.setHeader('Set-Cookie','critique_session=; HttpOnly; Secure; SameSite=Strict; Path=/api/photo-critiques; Max-Age=0');
+   return res.status(200).json({ok:true});
+  }
   if(action==='list'){
    const page=await store.list(typeof query.cursor==='string'?query.cursor.slice(0,2000):undefined);
    const records=await Promise.all(page.blobs.map(b=>store.read(b.pathname.slice(core.PREFIX.length))));
