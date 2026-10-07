@@ -17,7 +17,7 @@ test('webinar routes preserve host isolation and expose only intended public ass
   assert.equal(route('/webinar/setup'+suffix).path,'/ai-site/webinar/setup.html');
   assert.equal(route('/webinar/privacy'+suffix).path,'/ai-site/webinar/privacy.html');
  }
- for(const path of ['/ai-site/webinar/styles.css','/ai-site/webinar/assets/mark-neutral.jpg','/ai-site/webinar/assets/mark-pointing.jpg','/ai-site/webinar/assets/event-cover-v2.png'])assert.equal(route(path).type,'next');
+ for(const path of ['/ai-site/webinar/styles.css','/ai-site/webinar/assets/mark-neutral.jpg','/ai-site/webinar/assets/mark-pointing.jpg','/ai-site/webinar/assets/event-cover-v3.png'])assert.equal(route(path).type,'next');
  for(const path of ['/webinar/admin','/ai-site/webinar/private.json','/ai-site/webinar/index.html','/api/car-funnel'])assert.equal(route(path).type,'not-found');
  assert.equal(route('/webinar','www.markandrewboudoir.com').type,'next');
  assert.equal(route('/webinar?source=test','www.markandrew.ai').url,'https://markandrew.ai/webinar?source=test');
