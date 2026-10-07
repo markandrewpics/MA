@@ -10,3 +10,15 @@ test('AI homepage and critique routes are separate from the photography site',()
  for(const path of ['/api/car-funnel','/groceries','/uploads/test.jpg','/blog','/ai-site/coming-soon.html'])assert.equal(route(path).type,'not-found');
  assert.equal(route('/image-critique?ref=test','www.markandrew.ai').url,'https://markandrew.ai/image-critique?ref=test');
 });
+
+test('webinar routes preserve host isolation and expose only intended public assets',()=>{
+ for(const suffix of ['', '/']){
+  assert.equal(route('/webinar'+suffix).path,'/ai-site/webinar/index.html');
+  assert.equal(route('/webinar/setup'+suffix).path,'/ai-site/webinar/setup.html');
+  assert.equal(route('/webinar/privacy'+suffix).path,'/ai-site/webinar/privacy.html');
+ }
+ for(const path of ['/ai-site/webinar/styles.css','/ai-site/webinar/assets/mark-neutral.jpg','/ai-site/webinar/assets/mark-pointing.jpg','/ai-site/webinar/assets/event-cover.png'])assert.equal(route(path).type,'next');
+ for(const path of ['/webinar/admin','/ai-site/webinar/private.json','/ai-site/webinar/index.html','/api/car-funnel'])assert.equal(route(path).type,'not-found');
+ assert.equal(route('/webinar','www.markandrewboudoir.com').type,'next');
+ assert.equal(route('/webinar?source=test','www.markandrew.ai').url,'https://markandrew.ai/webinar?source=test');
+});
