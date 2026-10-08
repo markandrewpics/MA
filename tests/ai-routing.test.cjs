@@ -1,5 +1,12 @@
 const {test}=require('node:test');const assert=require('node:assert/strict');const {aiRoute}=require('../lib/ai-routing.cjs');
 const route=(path,host='markandrew.ai')=>aiRoute(new URL('https://'+host+path));
+test('study guide resolves its page and assets without opening other AI host paths',()=>{
+ for(const path of ['/ancient-greece', '/ancient-greece/'])assert.equal(route(path).path,'/ancient-greece/index.html');
+ for(const path of ['/ancient-greece/index.html','/ancient-greece/illustrations.png','/ancient-greece/picture-guide.pdf'])assert.equal(route(path).type,'next');
+ for(const path of ['/ancient-greece/private.json','/ancient-greece-other','/api/car-funnel'])assert.equal(route(path).type,'not-found');
+ assert.equal(route('/ancient-greece/','www.markandrew.ai').url,'https://markandrew.ai/ancient-greece/');
+ assert.equal(route('/','www.markandrewboudoir.com').type,'next');
+});
 test('AI homepage and critique routes are separate from the photography site',()=>{
  assert.equal(route('/').path,'/ai-site/coming-soon.html');
  assert.equal(route('/image-critique').path,'/image-critique/index.html');

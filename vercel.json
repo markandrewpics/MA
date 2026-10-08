@@ -428,6 +428,19 @@
           "value": "private, no-store"
         }
       ]
+    },
+    {
+      "source": "/ancient-greece(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "same-origin"
+        }
+      ]
     }
   ],
   "rewrites": [
