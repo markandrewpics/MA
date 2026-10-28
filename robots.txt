@@ -10,7 +10,6 @@ Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 Disallow: /thank-you/
 Disallow: /youre-in/
-Disallow: /brand-bible/
 Disallow: /pickles-daily/
 
 # --- AI answer engines & assistants: explicitly welcome ---
