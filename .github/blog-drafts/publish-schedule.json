@@ -124,6 +124,13 @@
       "status": "published",
       "sourceSha256": "742b5b1263862fbbf6b112ac6c5ccab7f06c43e104f69148aa805fb90c5a8ddc",
       "publishedAt": "2026-09-17T10:36:34.946638+00:00"
+    },
+    {
+      "slug": "what-is-boudoir-photography",
+      "scheduledDate": "2026-11-05",
+      "status": "published",
+      "sourceSha256": "b8a8aa796e147f020334b20511695bb1d80f5cdff368573a362360bffc9d61c9",
+      "publishedAt": "2026-11-05T11:29:24.869094+00:00"
     }
   ]
 }
