@@ -1,6 +1,6 @@
 # Mark Andrew Boudoir
 
-**Luxury Boudoir Photography in South Bend, Indiana**
+**Luxury Boudoir Photography in South Bend, Indiana and Greater Michiana**
 
 > Be photographed the way you want to be remembered.
 

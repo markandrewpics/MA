@@ -5,7 +5,7 @@ This is the cheat sheet for the blog at **blog.markandrewboudoir.com**. Read it 
 ## The business
 
 - **Mark Andrew Boudoir** — luxury boudoir + glamour photography.
-- **Two studios:** South Bend, IN and Beaufort, SC. Always confirm which studio a post/campaign is for if it matters; don't assume.
+- **Current service area:** South Bend, Indiana and the greater Michiana area. Do not advertise a current Beaufort or South Carolina studio. Preserve accurate historical client stories and quotes, and label former studio references as historical.
 - **Hair & makeup:** Aletheia Jean (camera-ready soft glam → bold maximalism).
 - **Signature style:** old-Hollywood glamour — bold lighting, statement jewelry, painted backdrops, fur coats, gowns. Timeless, not trendy. "Look how good Grandma looked in 30 years," not cringe.
 
@@ -18,7 +18,6 @@ This is the cheat sheet for the blog at **blog.markandrewboudoir.com**. Read it 
 
 ### Local SEO geography (work these into body copy naturally — never as separate doorway pages)
 - **Michiana (South Bend):** South Bend, Mishawaka, Granger, Elkhart, Goshen IN; Niles, Edwardsburg, Berrien Springs MI.
-- **Lowcountry (Beaufort):** Beaufort, Bluffton, Hilton Head, Savannah, Charleston.
 
 ## The site / repo
 
