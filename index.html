@@ -206,13 +206,13 @@
       align-items: center;
     }
     .hero-image {
-      position: absolute; inset: 0;
+      position: absolute; inset: 80px 0 0;
       z-index: 0;
     }
     .hero-image img {
       width: 100%; height: 100%;
       object-fit: cover;
-      object-position: 30% 25%;
+      object-position: 42% top;
     }
     .hero-image::after {
       content: '';
@@ -1155,7 +1155,7 @@
     /* RESPONSIVE */
     @media (max-width: 1100px) {
       .hero-content { padding: 150px 36px 80px; }
-      .hero-image img { object-position: 30% 22%; }
+      .hero-image img { object-position: 42% top; }
       .hero-image::after {
         background:
           linear-gradient(180deg, rgba(12,19,34,0.55) 0%, rgba(12,19,34,0.65) 50%, rgba(12,19,34,0.85) 100%),
@@ -1368,7 +1368,12 @@
         border-top: 1px solid rgba(255,255,255,0.07);
       }
       .nav-links .nav-link { font-size: 10.5px; letter-spacing: 0.18em; }
-      .hero { padding: 110px 24px 60px; min-height: 90vh; }
+      /* Keep the portrait face above the copy, with a soft fade into the page. */
+      .hero { padding: 0; min-height: 0; display: block; }
+      .hero-image { top: 96px; height: min(150vw, 1080px); }
+      .hero-image img { object-position: center top; }
+      .hero-image::after { background: linear-gradient(180deg, rgba(12,19,34,0.12) 0%, rgba(12,19,34,0) 48%, rgba(12,19,34,0.75) 78%, #0c1322 100%); }
+      .hero-content { padding: clamp(440px, 125vw, 740px) 24px 60px; }
       .hero h1 { font-size: 44px; }
       .hero h1 .script { font-size: 50px; }
       .hero p { font-size: 15px; }
@@ -1414,7 +1419,8 @@
     .gallery-grid.is-collapsed .framed picture{width:100%;height:100%}
     .story-image picture,.member-photo picture,.gallery-modal-grid picture,.what-is-image picture{display:block;width:100%;height:100%}
   </style>
-<link rel="preload" as="image" type="image/avif" imagesrcset="/uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-400.avif 400w, /uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-800.avif 800w, /uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-1200.avif 1200w, /uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-2000.avif 2000w" imagesizes="100vw" />
+<link rel="preload" as="image" type="image/avif" media="(max-width: 720px)" imagesrcset="/uploads/r/hero-mobile-20261107-400.avif 400w, /uploads/r/hero-mobile-20261107-800.avif 800w, /uploads/r/hero-mobile-20261107-1200.avif 1200w, /uploads/r/hero-mobile-20261107-1365.avif 1365w" imagesizes="100vw" fetchpriority="high" />
+<link rel="preload" as="image" type="image/avif" media="(min-width: 721px)" imagesrcset="/uploads/r/hero-desktop-20261107-800.avif 800w, /uploads/r/hero-desktop-20261107-1200.avif 1200w, /uploads/r/hero-desktop-20261107-1600.avif 1600w, /uploads/r/hero-desktop-20261107-2048.avif 2048w" imagesizes="100vw" fetchpriority="high" />
   <!-- WebMCP: expose this site's actions to AI agents (see /webmcp.js) -->
   <script src="/webmcp.js" defer></script>
 </head>
@@ -1433,7 +1439,14 @@
 
   <header class="hero">
     <div class="hero-image">
-      <picture><source type="image/avif" srcset="/uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-400.avif 400w, /uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-800.avif 800w, /uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-1200.avif 1200w, /uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-2000.avif 2000w" sizes="100vw" /><source type="image/webp" srcset="/uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-400.webp 400w, /uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-800.webp 800w, /uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-1200.webp 1200w, /uploads/r/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in-2000.webp 2000w" sizes="100vw" /><img src="/uploads/fur-coat-city-skyline-turning-pose-boudoir-session-mishawaka-in.jpg" alt="Luxury boudoir portrait — fur coat with city skyline, Mishawaka, Indiana"  fetchpriority="high" loading="eager" decoding="async" width="1600" height="1066" /></picture>
+      <picture>
+        <source media="(max-width: 720px)" type="image/avif" srcset="/uploads/r/hero-mobile-20261107-400.avif 400w, /uploads/r/hero-mobile-20261107-800.avif 800w, /uploads/r/hero-mobile-20261107-1200.avif 1200w, /uploads/r/hero-mobile-20261107-1365.avif 1365w" sizes="100vw" />
+        <source media="(max-width: 720px)" type="image/webp" srcset="/uploads/r/hero-mobile-20261107-400.webp 400w, /uploads/r/hero-mobile-20261107-800.webp 800w, /uploads/r/hero-mobile-20261107-1200.webp 1200w, /uploads/r/hero-mobile-20261107-1365.webp 1365w" sizes="100vw" />
+        <source media="(max-width: 720px)" srcset="/uploads/r/hero-mobile-20261107.jpg" />
+        <source type="image/avif" srcset="/uploads/r/hero-desktop-20261107-800.avif 800w, /uploads/r/hero-desktop-20261107-1200.avif 1200w, /uploads/r/hero-desktop-20261107-1600.avif 1600w, /uploads/r/hero-desktop-20261107-2048.avif 2048w" sizes="100vw" />
+        <source type="image/webp" srcset="/uploads/r/hero-desktop-20261107-800.webp 800w, /uploads/r/hero-desktop-20261107-1200.webp 1200w, /uploads/r/hero-desktop-20261107-1600.webp 1600w, /uploads/r/hero-desktop-20261107-2048.webp 2048w" sizes="100vw" />
+        <img src="/uploads/r/hero-desktop-20261107.jpg" alt="Cinematic boudoir portrait by Mark Andrew" width="2048" height="1365" fetchpriority="high" decoding="async" />
+      </picture>
     </div>
     <div class="hero-content">
       <div class="hero-content-inner">
