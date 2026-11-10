@@ -441,6 +441,15 @@
           "value": "same-origin"
         }
       ]
+    },
+    {
+      "source": "/campus/gallery/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noimageindex"
+        }
+      ]
     }
   ],
   "rewrites": [
