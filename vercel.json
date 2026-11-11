@@ -1,6 +1,21 @@
 {
   "redirects": [
     {
+      "source": "/campus",
+      "destination": "https://link.disruptormarketing.io/widget/form/joalDMHHfI8ZKt7eWip3",
+      "permanent": false
+    },
+    {
+      "source": "/campus/",
+      "destination": "https://link.disruptormarketing.io/widget/form/joalDMHHfI8ZKt7eWip3",
+      "permanent": false
+    },
+    {
+      "source": "/campus/index.html",
+      "destination": "https://link.disruptormarketing.io/widget/form/joalDMHHfI8ZKt7eWip3",
+      "permanent": false
+    },
+    {
       "source": "/photo-critiques",
       "destination": "https://markandrew.ai/image-critique",
       "permanent": true
