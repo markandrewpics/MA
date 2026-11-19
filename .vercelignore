@@ -6,3 +6,7 @@
 .github/workflows/
 
 tests/
+
+# Local gallery exports: delivery is from private Blob storage.
+ai-site/campus-gallery/photos/
+ai-site/campus-gallery/thumbs/

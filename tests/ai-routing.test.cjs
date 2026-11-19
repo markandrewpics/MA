@@ -29,3 +29,14 @@ test('webinar routes preserve host isolation and expose only intended public ass
  assert.equal(route('/webinar','www.markandrewboudoir.com').type,'next');
  assert.equal(route('/webinar?source=test','www.markandrew.ai').url,'https://markandrew.ai/webinar?source=test');
 });
+
+test('AI gallery is isolated from the existing photography gallery',()=>{
+ for(const path of ['/campus/gallery','/campus/gallery/','/campus/gallery/index.html']){
+  assert.equal(route(path).path,'/ai-site/campus-gallery/index.html');
+  assert.equal(route(path,'www.markandrewboudoir.com').type,'next');
+ }
+ for(const path of ['/api/campus-gallery?kind=photos&file=20261114-6X0A3484.jpg','/ai-site/campus-gallery/assets/logo.png','/ai-site/campus-gallery/assets/fonts.css','/ai-site/campus-gallery/assets/jost-normal-latin.woff2'])assert.equal(route(path).type,'next');
+ for(const path of ['/api/campus-gallery','/ai-site/campus-gallery/index.html','/ai-site/campus-gallery/assets/logo.png'])assert.equal(route(path,'www.markandrewboudoir.com').type,'not-found');
+ for(const path of ['/ai-site/campus-gallery/photos/20261114-6X0A3484.jpg','/ai-site/campus-gallery/thumbs/20261114-6X0A3484.jpg','/campus/gallery/private.json','/campus/review/','/ai-site/campus-gallery/manifest.json','/ai-site/campus-gallery/index.html','/ai-site/campus-gallery/photos/test.raw','/ai-site/campus-gallery/assets/secret.json'])assert.equal(route(path).type,'not-found');
+ assert.equal(route('/campus/gallery/?ref=test','www.markandrew.ai').url,'https://markandrew.ai/campus/gallery/?ref=test');
+});
