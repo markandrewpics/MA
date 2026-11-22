@@ -1,8 +1,8 @@
 const { Readable } = require('node:stream');
 const { pipeline } = require('node:stream/promises');
 
-const videoUrl = 'https://wsp2phfhdlyvwmn3.private.blob.vercel-storage.com/american-beauty-squeeze-video-20261122.mp4';
-const videoSize = 23388284;
+const videoUrl = 'https://wsp2phfhdlyvwmn3.private.blob.vercel-storage.com/boudoir-squeeze-video-1080p60-20261122.mp4';
+const videoSize = 234611592;
 const siteHosts = new Set(['www.markandrewboudoir.com', 'markandrewboudoir.com']);
 
 async function readPrivateVideo(path, options) {
