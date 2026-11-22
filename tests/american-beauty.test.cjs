@@ -18,11 +18,14 @@ test('video proxy streams only the fixed file and preserves byte ranges', async 
   const reads = [];
   const handler = createHandler(async (url, opts) => {
     reads.push({url, opts});
-    return new Response(opts.method === 'HEAD' ? null : '0123', {
-      status: opts.headers.Range ? 206 : 200,
-      headers: {'Content-Length':'4', 'Accept-Ranges':'bytes', ...(opts.headers.Range ? {'Content-Range':'bytes 0-3/23388284'} : {})}
-    });
-  }, () => 'TEST');
+    const partial = opts.headers?.Range === 'bytes=0-3';
+    return {
+      statusCode: 200,
+      stream: new Response(partial ? '0123' : '0123456789').body,
+      headers: new Headers(partial ? {'Content-Range':'bytes 0-3/23388284'} : {}),
+      blob: {contentType:'video/mp4',size:partial ? 4 : 23388284},
+    };
+  });
   const server = createServer(handler);
   server.listen(0, '127.0.0.1');
   await new Promise(resolve => server.once('listening', resolve));
@@ -52,6 +55,11 @@ test('video proxy streams only the fixed file and preserves byte ranges', async 
   const head = await run('/api/american-beauty-video', {method:'HEAD', headers});
   assert.equal(head.status, 200);
   assert.equal(head.body.length, 0);
-  assert.equal(reads[0].opts.headers.Authorization, 'Bearer TEST');
-  assert.equal(reads[0].opts.redirect, 'error');
+  const fallback = await run('/api/american-beauty-video', {headers:{...headers, Range:'bytes=2-5'}});
+  assert.equal(fallback.status, 206);
+  assert.equal(fallback.body, '2345');
+  assert.equal(fallback.headers['content-range'], 'bytes 2-5/23388284');
+  assert.equal(reads[0].opts.access, 'private');
+  assert.equal(reads[0].opts.headers.Range, 'bytes=0-3');
+  assert.equal(head.headers['content-length'], '23388284');
 });
