@@ -1,0 +1,42 @@
+/* Responsive, crop-free photo mosaic for a campaign page. */
+.campaign-portfolio {
+ padding: clamp(2rem, 5vw, 3.8rem) 0 clamp(3rem, 7vw, 5rem);
+ border-top: 1px solid var(--line);
+}
+.campaign-portfolio h2 {
+ margin-bottom: clamp(1.35rem, 3vw, 2rem);
+ text-align: center;
+ font-size: clamp(2.35rem, 5vw, 3.75rem);
+}
+.campaign-portfolio__grid {
+ display: grid;
+ grid-template-columns: repeat(8, minmax(0, 1fr));
+ gap: clamp(.5rem, 1.2vw, .75rem);
+ align-items: start;
+ margin: 0;
+ padding: 0;
+ list-style: none;
+}
+.campaign-portfolio__tile {
+ min-width: 0;
+ grid-column: span 2;
+ outline: 1px solid #f09a6959;
+ outline-offset: -1px;
+}
+.campaign-portfolio__tile--wide { grid-column: span 4; }
+.campaign-portfolio__tile--closing { grid-column: span 3; }
+.campaign-portfolio__tile--wide + .campaign-portfolio__tile--closing {
+ grid-column: 2 / span 3;
+}
+.campaign-portfolio__tile img {
+ display: block;
+ width: 100%;
+ height: auto;
+}
+@media(max-width:600px) {
+ .campaign-portfolio__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+ .campaign-portfolio__tile,
+ .campaign-portfolio__tile--closing,
+ .campaign-portfolio__tile--wide + .campaign-portfolio__tile--closing { grid-column: span 1; }
+ .campaign-portfolio__tile--wide { grid-column: 1 / -1; }
+}
