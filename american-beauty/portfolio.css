@@ -39,3 +39,15 @@
  .campaign-portfolio__tile--wide + .campaign-portfolio__tile--closing { grid-column: span 1; }
  .campaign-portfolio__tile--wide { grid-column: 1 / -1; }
 }
+
+/* Only the American Beauty booking embed; the widget still sizes its own height. */
+.campaign-consultation {
+ max-width: 46rem;
+ margin-inline: auto;
+ margin-block: .5rem 2rem;
+
+}
+.campaign-consultation .calendar:focus-visible {
+ outline: 2px solid var(--peach);
+ outline-offset: 3px;
+}
