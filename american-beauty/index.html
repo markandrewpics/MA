@@ -37,15 +37,10 @@
     </button>
    </figure>
   </section>
-  <section class="consultation" aria-labelledby="consultation-title">
-   <h2 id="consultation-title" class="booking-cta-wrap"><a class="booking-cta" href="#booking-calendar">Schedule a phone call to get started</a></h2>
-   <div class="calendar" id="booking-calendar" tabindex="-1">
-    <iframe id="mab-consultation-calendar" src="https://api.leadconnectorhq.com/widget/booking/b7eSmyInmj2pwqIQesEp" title="Book a consultation with Mark Andrew" loading="eager"></iframe>
-   </div>
-   <p class="fallback"><a href="https://api.leadconnectorhq.com/widget/booking/b7eSmyInmj2pwqIQesEp" target="_blank" rel="noopener">Open the calendar in a new tab</a></p>
-  </section>
-  <section class="campaign-portfolio" aria-labelledby="campaign-portfolio-title">
-   <h2 id="campaign-portfolio-title">Selected Portraits</h2>
+  <div class="campaign-booking-jump">
+   <a class="booking-cta" href="#booking-calendar">Schedule a phone call to get started</a>
+  </div>
+  <section class="campaign-portfolio" aria-label="Selected portraits">
    <ul class="campaign-portfolio__grid" role="list">
     <li class="campaign-portfolio__tile">
      <img src="/uploads/r/black-strappy-lingerie-golf-club-prop-red-smoke-boudoir-session-elkhart-in-400.webp"
@@ -96,6 +91,12 @@
           width="400" height="600" loading="lazy" decoding="async" alt="Pearl fringe under blue studio light with a rainbow prism flare.">
     </li>
    </ul>
+  </section>
+  <section class="consultation" id="booking-calendar" aria-labelledby="consultation-title" tabindex="-1">
+   <h2 id="consultation-title">Schedule my phone call to get started</h2>
+   <div class="calendar">
+    <iframe id="mab-consultation-calendar" src="https://api.leadconnectorhq.com/widget/booking/b7eSmyInmj2pwqIQesEp" title="Book a consultation with Mark Andrew" loading="eager"></iframe>
+   </div>
   </section>
  </main>
  <footer class="footer"><div class="nav-inner"><span>Mark Andrew Boudoir</span><span>South Bend, Indiana and the Greater Michiana area</span></div></footer>

@@ -1,12 +1,11 @@
 /* Responsive, crop-free photo mosaic for a campaign page. */
-.campaign-portfolio {
- padding: clamp(2rem, 5vw, 3.8rem) 0 clamp(3rem, 7vw, 5rem);
- border-top: 1px solid var(--line);
+.campaign-booking-jump {
+ display: flex;
+ justify-content: center;
+ margin: 1.15rem 0 clamp(1.6rem, 4vw, 2.6rem);
 }
-.campaign-portfolio h2 {
- margin-bottom: clamp(1.35rem, 3vw, 2rem);
- text-align: center;
- font-size: clamp(2.35rem, 5vw, 3.75rem);
+.campaign-portfolio {
+ padding-bottom: clamp(1.5rem, 4vw, 2.75rem);
 }
 .campaign-portfolio__grid {
  display: grid;
