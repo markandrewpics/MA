@@ -76,12 +76,28 @@ test('two unlisted companion campaigns match the live gallery and booking sequen
     assert.match(html, /noindex, nofollow/);
     assert.doesNotMatch(html, /<body class="american-beauty"|rose-petal-texture/i);
     assert.ok(html.includes(label));
-    assert.equal(layout(html), layout(model));
+    const maskCalendar = section => section.replace(/widget\/booking\/[A-Za-z0-9]+/, 'widget/booking/CALENDAR');
+    assert.equal(maskCalendar(layout(html)), maskCalendar(layout(model)));
     assert.ok(html.includes('/american-beauty/portfolio.css'));
     assert.match(html, /<video[\s\S]+<source src="\/api\/american-beauty-video"[\s\S]+<iframe[^>]+api.leadconnectorhq.com/);
     assert.match(html, /poster="\/american-beauty\/assets\/mark-video-poster.webp"/);
     assert.ok(!sitemap.includes(`/${path}/`));
     if (path === 'birthday-boudoir') assert.doesNotMatch(html, /\$\d|\d+% off/);
     else assert.match(html, /50% off the session fee/);
+  }
+});
+
+test('each campaign embeds its own consultation calendar', () => {
+  const campaigns = {
+    'american-beauty': 'KIyfGdgoHpYfmvouiUQ8',
+    '50-off-boudoir': 'ZrkvHT5lRBPoZ3OMO5tz',
+    'birthday-boudoir': 'HP7YoaC2rei54IMy7utb',
+  };
+  assert.equal(new Set(Object.values(campaigns)).size, 3);
+  for (const [slug, id] of Object.entries(campaigns)) {
+    const html = readFileSync(`${slug}/index.html`, 'utf8');
+    const urls = [...html.matchAll(/<iframe[^>]+src="https:\/\/api\.leadconnectorhq\.com\/widget\/booking\/([^"]+)"/g)];
+    assert.deepEqual(urls.map(match => match[1]), [id], slug);
+    assert.doesNotMatch(html, /b7eSmyInmj2pwqIQesEp/);
   }
 });
