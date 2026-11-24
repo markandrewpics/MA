@@ -40,14 +40,17 @@
  .campaign-portfolio__tile--wide { grid-column: 1 / -1; }
 }
 
-/* Only the American Beauty booking embed; the widget still sizes its own height. */
+/* The campaign booking embed still sizes its own height. */
 .campaign-consultation {
  max-width: 46rem;
  margin-inline: auto;
  margin-block: .5rem 2rem;
-
 }
 .campaign-consultation .calendar:focus-visible {
  outline: 2px solid var(--peach);
  outline-offset: 3px;
+}
+
+.campaign-consultation .booking-cta-wrap {
+ font: 400 1rem/1.3 Jost,system-ui,sans-serif;
 }

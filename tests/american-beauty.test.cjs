@@ -64,13 +64,20 @@ test('video proxy streams only the fixed file and preserves byte ranges', async 
   assert.equal(head.headers['content-length'], '234611592');
 });
 
-test('two unlisted companion campaigns share only video and booking assets', () => {
+test('two unlisted companion campaigns match the live gallery and booking sequence', () => {
+  const model = readFileSync('american-beauty/index.html', 'utf8');
+  const layout = html => html.match(/  <div class="campaign-booking-jump">[\s\S]*?(?= <\/main>)/)?.[0];
+  assert.ok(layout(model));
+  assert.equal((layout(model).match(/loading="lazy"/g) || []).length, 8);
+  assert.match(layout(model), /href="#booking-calendar">Schedule a phone call to get started[\s\S]+aria-label="Selected portraits"[\s\S]+href="#booking-calendar">Schedule my phone call to get started[\s\S]+id="booking-calendar"[\s\S]+<iframe/);
   const sitemap = readFileSync('sitemap.xml', 'utf8');
   for (const [path, label] of [['birthday-boudoir', 'A portrait experience for your birthday'], ['50-off-boudoir', 'A guided boudoir portrait experience']]) {
     const html = readFileSync(`${path}/index.html`, 'utf8');
     assert.match(html, /noindex, nofollow/);
     assert.doesNotMatch(html, /<body class="american-beauty"|rose-petal-texture/i);
     assert.ok(html.includes(label));
+    assert.equal(layout(html), layout(model));
+    assert.ok(html.includes('/american-beauty/portfolio.css'));
     assert.match(html, /<video[\s\S]+<source src="\/api\/american-beauty-video"[\s\S]+<iframe[^>]+api.leadconnectorhq.com/);
     assert.match(html, /poster="\/american-beauty\/assets\/mark-video-poster.webp"/);
     assert.ok(!sitemap.includes(`/${path}/`));
